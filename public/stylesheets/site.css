@@ -1,0 +1,27 @@
+#card-container
+{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:200px;
+  width:500px;
+}
+#bottom-card
+{
+  width:300px;
+  height:200px;
+  border:1px solid black;
+  z-index:1;
+  -webkit-transform:rotate(7deg);
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  position:absolute;
+}
+#top-card
+{
+  width:300px;
+  height:200px;
+  border:1px solid black;
+  z-index:50;
+  -webkit-transform:rotate(5deg);
+  background-color:white;
+  position:absolute;
+}
