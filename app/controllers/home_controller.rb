@@ -3,4 +3,6 @@ class HomeController < ApplicationController
   end
   def tour
   end
+  def joe
+  end
 end
