@@ -1,10 +1,23 @@
 body
 {
   background-color: #E6E7E8;
+  font-family:"Molengo";
+  line-height:1.3;
+}
+h2
+{
+  font-weight:normal;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:75px;
+  width:600px;
+  text-align:center;
+  font-size:30px;
 }
 a
 {
   text-decoration:none;
+  color:blue;
 }
 a:hover
 {
@@ -23,7 +36,6 @@ a:hover
   border-radius:0 0 5px 5px;
   background-color:#B2B2FF;
   color:#FFF;
-  font-family:"Molengo";
   font-size:20px;
   position:relative;
 }
@@ -67,32 +79,58 @@ a:hover
 {
   top:-90px;
 }
+.desc
+{
+  width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:25px;
+  margin-bottom:75px;
+  font-size:20px;
+  text-align:justify;
+}
+.desc b
+{
+  font-weight:normal;
+  color:blue;
+}
+#joe
+{
+  border:1px solid black;
+  height:300px;
+  width:200px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:60px;
+  margin-bottom:60px;
+}
 #card-container
 {
   margin-left:auto;
   margin-right:auto;
   margin-top:100px;
   width:550px;
-  height:150px;
+  height:300px;
   position:relative;
 }
 .card
 {
   width:550px;
-  height:300px;
   font-size:18px;
   border:1px solid black;
-  z-index:1;
   background-color:white;
-  font-family:"Molengo";
+  cursor:default;
+}
+#card-container .card
+{
+  height:300px;
   position:absolute;
   top:0px;
   left:0px;
-  cursor:pointer;
 }
 .card .top-half
 {
-  padding-bottom:7px;
+  height:150px;
   border-bottom:1px dashed black;
   position:relative;
 }
@@ -104,8 +142,8 @@ a:hover
 {
   display:block;
   margin-left:20px;
-  margin-top:8px;
-  margin-bottom:8px;
+  margin-top:5px;
+  margin-bottom:5px;
 }
 .card .connecc
 {
@@ -134,4 +172,12 @@ a:hover
 #top-card
 {
   z-index:3;
+}
+#half-card
+{
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+  height:150px;
+  -webkit-transform:rotate(-2deg);
 }
