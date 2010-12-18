@@ -88,6 +88,7 @@ a:hover
 .arrow
 {
   font-family:arial;
+  cursor:default;
 }
 #header .arrow
 {
