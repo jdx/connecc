@@ -20,4 +20,15 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
+    #header
+      %a#home-link{ :href => "/"} conne.cc
+      %form#login-form
+        %p.username
+          %label{ :for => "login-username" }Username
+          %input#login-username{ :name=> "username" }
+        %p.password
+          %label{ :for => "login-password" }Password
+          %input#login-password{ :name => "password", :type => "password" }
+        %input{ :type => "submit", :value => "Login" }
+        %a#login-tab Login
     = yield

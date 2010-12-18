@@ -2,11 +2,76 @@ body
 {
   background-color: #E6E7E8;
 }
+a
+{
+  text-decoration:none;
+}
+a:hover
+{
+  border-bottom: 1px solid black;
+}
+#header
+{
+  width:600px;
+  height:45px;
+  background-color:white;
+  margin-right:auto;
+  margin-left:auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius:0 0 5px 5px;
+  background-color:#B2B2FF;
+  color:#FFF;
+  font-family:"Molengo";
+  font-size:20px;
+  position:relative;
+}
+#home-link
+{
+  float:left;
+  margin: 10px 15px;
+  display:block;
+  color:#FFF;
+  border-color:white;
+}
+#login-tab
+{
+  cursor:pointer;
+  border-bottom:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  display:block;
+  padding:7px;
+  position:absolute;
+  right:-1px;
+  bottom:-35px;
+  background-color:white;
+  border-radius: 0 0 5px 5px;
+}
+#login-form
+{
+  position:absolute;
+  top:-100px;
+  right:15px;
+  border-bottom:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  background-color:white;
+  color: black;
+  padding: 10px;
+  border-radius: 0 0 0 5px;
+  -webkit-transition: top 200ms ease-in-out;
+}
+#login-form:hover
+{
+  top:-90px;
+}
 #card-container
 {
   margin-left:auto;
   margin-right:auto;
-  margin-top:200px;
+  margin-top:100px;
   width:550px;
   height:150px;
   position:relative;
@@ -14,8 +79,8 @@ body
 .card
 {
   width:550px;
-  height:150px;
-  font-size:24px;
+  height:300px;
+  font-size:18px;
   border:1px solid black;
   z-index:1;
   background-color:white;
@@ -25,16 +90,33 @@ body
   left:0px;
   cursor:pointer;
 }
-.card h2
+.card .top-half
 {
-  margin:40px;
+  padding-bottom:7px;
+  border-bottom:1px dashed black;
+  position:relative;
+}
+.card .bottom-half
+{
+  position:relative;
+}
+.card span
+{
+  display:block;
+  margin-left:20px;
+  margin-top:8px;
+  margin-bottom:8px;
+}
+.card .connecc
+{
+  color:Blue;
 }
 .card .arrow
 {
   font-weight:bold;
   font-size:170px;
   right:15px;
-  top:0px;
+  top:-30px;
   font-family:Arial;
   color:#B2B2FF;
   position:absolute;
