@@ -25,6 +25,7 @@
   position:absolute;
   font-family:"Molengo";
   font-size:24px;
+  cursor:default;
 }
 #top-card h2
 {
