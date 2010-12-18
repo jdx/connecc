@@ -18,6 +18,7 @@ a
 {
   text-decoration:none;
   color:blue;
+:
 }
 a:hover
 {
@@ -26,7 +27,7 @@ a:hover
 #header
 {
   width:600px;
-  height:45px;
+  height:50px;
   background-color:white;
   margin-right:auto;
   margin-left:auto;
@@ -35,7 +36,7 @@ a:hover
   border-bottom: 1px solid black;
   border-radius:0 0 5px 5px;
   -moz-border-radius:0 0 5px 5px;
-  background-color:#B2B2FF;
+  background-color:#1D4088;
   color:#FFF;
   font-size:20px;
   position:relative;
@@ -57,11 +58,12 @@ a:hover
   display:block;
   padding:7px;
   position:absolute;
-  right:-1px;
+  right:85px;
   bottom:-41px;
   background-color:white;
   border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
+  color:#1D4088;
 }
 #login-form
 {
@@ -74,14 +76,24 @@ a:hover
   background-color:white;
   color: black;
   padding: 10px;
-  border-radius: 0 0 0 5px;
-  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
   -webkit-transition: top 200ms ease-in-out;
   -moz-transition: top 200ms ease-in-out;
 }
 #login-form:hover
 {
   top:-90px;
+}
+.arrow
+{
+  font-family:arial;
+}
+#header .arrow
+{
+  float:right;
+  font-size:40px;
+  margin-right:10px;
 }
 .desc
 {
@@ -96,7 +108,7 @@ a:hover
 .desc b
 {
   font-weight:normal;
-  color:blue;
+  color:#1D4088;
 }
 #joe
 {
@@ -150,7 +162,7 @@ a:hover
 }
 .card .connecc
 {
-  color:Blue;
+  color:blue;
 }
 .card .arrow
 {
@@ -158,8 +170,7 @@ a:hover
   font-size:170px;
   right:15px;
   top:-40px;
-  font-family:Arial;
-  color:#B2B2FF;
+  color:#1D4088;
   position:absolute;
 }
 #bottom-card
