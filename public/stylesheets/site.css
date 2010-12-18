@@ -9,40 +9,47 @@ body
   margin-top:200px;
   width:550px;
   height:150px;
+  position:relative;
 }
-#bottom-card
+.card
 {
   width:550px;
   height:150px;
+  font-size:24px;
   border:1px solid black;
   z-index:1;
-  -webkit-transform:rotate(1deg);
-  -webkit-box-shadow: 5px 5px 5px #ccc;
-  position:absolute;
-}
-#top-card
-{
-  width:550px;
-  height:150px;
-  border:1px solid black;
-  z-index:50;
   background-color:white;
-  position:absolute;
   font-family:"Molengo";
-  font-size:24px;
-  cursor:default;
+  position:absolute;
+  top:0px;
+  left:0px;
+  cursor:pointer;
 }
-#top-card h2
+.card h2
 {
   margin:40px;
 }
-#top-card .arrow
+.card .arrow
 {
   font-weight:bold;
   font-size:170px;
   right:15px;
   top:0px;
-  position:absolute;
   font-family:Arial;
-  color:#B2B2FF
+  color:#B2B2FF;
+  position:absolute;
+}
+#bottom-card
+{
+  -webkit-transform:rotate(2deg);
+  z-index:1;
+}
+#middle-card
+{
+  -webkit-transform:rotate(1deg);
+  z-index:2;
+}
+#top-card
+{
+  z-index:3;
 }
