@@ -163,11 +163,13 @@ a:hover
 #bottom-card
 {
   -webkit-transform:rotate(2deg);
+  -moz-transform:rotate(2deg);
   z-index:1;
 }
 #middle-card
 {
   -webkit-transform:rotate(1deg);
+  -moz-transform:rotate(1deg);
   z-index:2;
 }
 #top-card
@@ -181,4 +183,5 @@ a:hover
   position:relative;
   height:150px;
   -webkit-transform:rotate(-2deg);
+  -moz-transform:rotate(-2deg);
 }
