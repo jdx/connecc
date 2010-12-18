@@ -34,6 +34,7 @@ a:hover
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   border-radius:0 0 5px 5px;
+  -moz-border-radius:0 0 5px 5px;
   background-color:#B2B2FF;
   color:#FFF;
   font-size:20px;
@@ -60,6 +61,7 @@ a:hover
   bottom:-41px;
   background-color:white;
   border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
 }
 #login-form
 {
@@ -73,7 +75,9 @@ a:hover
   color: black;
   padding: 10px;
   border-radius: 0 0 0 5px;
+  -moz-border-radius: 0 0 0 5px;
   -webkit-transition: top 200ms ease-in-out;
+  -moz-transition: top 200ms ease-in-out;
 }
 #login-form:hover
 {
