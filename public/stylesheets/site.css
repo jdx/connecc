@@ -26,3 +26,17 @@
   font-family:"Molengo";
   font-size:24px;
 }
+#top-card h2
+{
+  margin:40px;
+}
+#top-card .arrow
+{
+  color:blue;
+  font-weight:bold;
+  font-size:170px;
+  left:15px;
+  top:0px;
+  position:absolute;
+  opacity:0.3;
+}
