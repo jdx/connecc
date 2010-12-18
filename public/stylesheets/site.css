@@ -11,7 +11,7 @@
   height:200px;
   border:1px solid black;
   z-index:1;
-  -webkit-transform:rotate(7deg);
+  -webkit-transform:rotate(2deg);
   -webkit-box-shadow: 5px 5px 5px #ccc;
   position:absolute;
 }
@@ -21,7 +21,8 @@
   height:200px;
   border:1px solid black;
   z-index:50;
-  -webkit-transform:rotate(5deg);
   background-color:white;
   position:absolute;
+  font-family:"Molengo";
+  font-size:24px;
 }
