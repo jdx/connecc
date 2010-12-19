@@ -1,0 +1,23 @@
+= conne.cc
+
+== Dependencies
+* ruby 1.8.7
+* rails 3.0.3
+
+== Build instructions
+
+Pull the repo:
+
+  git pull https://github.com/dickeytk/connecc.git
+
+Install the gems:
+
+  bundle install
+
+Run the migrations:
+
+  rake db:migrate
+
+Start the server:
+
+  rails server
