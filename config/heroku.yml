@@ -1,0 +1,3 @@
+apps:
+  production: connecc
+  staging: connecc-staging

@@ -62,6 +62,12 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     haml (3.0.23)
+    heroku (1.14.10)
+      json_pure (>= 1.2.0, < 1.5.0)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
+    heroku_san (1.0.6)
+      heroku
     i18n (0.4.2)
     json (1.4.6)
     json_pure (1.4.6)
@@ -95,6 +101,8 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
@@ -133,6 +141,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   haml
+  heroku_san
   launchy
   rails (= 3.0.3)
   rspec-rails
