@@ -3,7 +3,7 @@ require 'test_helper'
 class PrivateBetaControllerTest < ActionController::TestCase
   test "should register for private beta" do
     assert_difference('PrivateBeta.count') do
-      post :splash, :private_beta => { :email => "test@test.com" }
+      post :splash, :private_beta => { :email => "test3879283897@test.com" }
     end
   end
 

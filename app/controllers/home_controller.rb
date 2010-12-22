@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
-  def index
-  end
+  before_filter :authenticate_user!, :except => "tour"
+
   def tour
   end
-  def joe
+
+  def dashboard
   end
+
 end
