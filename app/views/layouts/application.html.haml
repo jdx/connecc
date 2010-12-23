@@ -23,12 +23,15 @@
     #header
       %a#home-link{ :href => "/"} conne.cc
       -if user_signed_in?
+        -if current_user.admin
+          %a{ :href => "/admin"} admin dashboard
+        %a{ :href => "/dashboard"} dashboard
         %a{ :href => "/logout"} logout
       -else
         %a{ :href => "/login"} login
       %span.arrow= ">"
-    - if notice
+    -if notice
       %p{ :class => "notice" }= notice
-    - if alert
+    -if alert
       %p{ :class => "alert" }= alert
-    = yield
+    =yield

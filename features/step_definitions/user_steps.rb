@@ -12,15 +12,19 @@ Given /^I have an admin user "([^\"]*)" with password "([^\"]*)"$/ do |email, pa
   user.save
 end
 
-Given /^I am a new, authenticated user$/ do
-  email = 'bob@man.net'
-  password = 'secretpass'
-
+Given /^I am logged in as user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Given %{I have a user "#{email}" with password "#{password}"}
   And %{I go to the login page}
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
   And %{I press "Log in"}
+end
+
+Given /^I am a new, authenticated user$/ do
+  email = 'bob@man.net'
+  password = 'secretpass'
+
+  Given %{I am logged in as user "#{email}" with password "#{password}"}
 end
 
 Then /^(?:|I )should not be on (.+)$/ do |page_name|

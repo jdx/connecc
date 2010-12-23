@@ -1,4 +1,5 @@
 Connecc::Application.routes.draw do
+
   devise_for :users do
     get "login", :to => "devise/sessions#new"
     post "login", :to => "devise/sessions#create"
@@ -10,6 +11,9 @@ Connecc::Application.routes.draw do
   namespace "admin" do
     get "/" => "admin#dashboard"
   end
+
+  get "/trial" => "trial#new"
+  post "/trial" => "trial#create"
 
   get "/dashboard" => "home#dashboard"
   get "/tour" => "home#tour"
