@@ -1,4 +1,4 @@
 #dashboard
   %h1 Dashboard
-  -unless current_user.trials.any?
+  -unless current_user.orders.where(:trial => true).exists?
     %a{ :href => trial_path } Order trial pack

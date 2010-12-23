@@ -12,8 +12,8 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
-  get "/trial" => "trial#new"
-  post "/trial" => "trial#create"
+  get "/trial" => "trial_order#new"
+  post "/trial" => "trial_order#create"
 
   get "/dashboard" => "home#dashboard"
   get "/tour" => "home#tour"

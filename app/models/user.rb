@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :trials
+  has_many :orders
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,  and :timeoutable
