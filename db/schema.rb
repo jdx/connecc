@@ -12,16 +12,17 @@
 
 ActiveRecord::Schema.define(:version => 20101223025923) do
 
-  create_table "private_betas", :force => true do |t|
-    t.string   "email"
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id",      :null => false
+    t.boolean  "trial",        :null => false
+    t.datetime "placed_at",    :null => false
+    t.datetime "activated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "trials", :force => true do |t|
-    t.integer  "user_id",      :null => false
-    t.datetime "placed_at",    :null => false
-    t.datetime "activated_at"
+  create_table "private_betas", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

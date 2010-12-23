@@ -1,7 +1,8 @@
-class CreateTrials < ActiveRecord::Migration
+class CreateOrders < ActiveRecord::Migration
   def self.up
-    create_table :trials do |t|
+    create_table :orders do |t|
       t.integer :user_id, :null => false
+      t.boolean :trial, :null => false
       t.datetime :placed_at, :null => false
       t.datetime :activated_at
 
@@ -10,6 +11,6 @@ class CreateTrials < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :trials
+    drop_table :orders
   end
 end
