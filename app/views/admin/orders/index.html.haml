@@ -4,4 +4,4 @@
   %h1 Orders
 %ul
   -for order in @orders
-    = link_to order, admin_order_path(order)
+    %li= link_to order, admin_order_path(order)
