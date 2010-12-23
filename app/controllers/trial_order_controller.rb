@@ -9,6 +9,7 @@ class TrialOrderController < ApplicationController
     @trial_order = Order.new
     @trial_order.user = current_user
     @trial_order.placed_at = DateTime.now
+    @trial_order.status = 'awaiting-activation'
     @trial_order.trial = true
     if @trial_order.save
       redirect_to dashboard_path, :notice => 'Expect your trial pack soon!'

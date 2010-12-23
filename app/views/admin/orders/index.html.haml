@@ -1,4 +1,7 @@
-%h1 Orders
+- if @status
+  %h1= "Orders #{ @status }"
+- else
+  %h1 Orders
 %ul
-  -for order in Order.all
+  -for order in @orders
     = link_to order, admin_order_path(order)
