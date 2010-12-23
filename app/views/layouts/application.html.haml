@@ -34,4 +34,4 @@
       %p{ :class => "notice" }= notice
     -if alert
       %p{ :class => "alert" }= alert
-    =yield
+    = content_for?(:content) ? yield(:content) : yield

@@ -17,4 +17,9 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me
+
+  def to_s
+    "#{ self.email }"
+  end
+
 end

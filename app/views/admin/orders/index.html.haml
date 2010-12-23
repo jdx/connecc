@@ -1,0 +1,4 @@
+%h1 Orders
+%ul
+  -for order in Order.all
+    = link_to order, admin_order_path(order)

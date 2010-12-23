@@ -9,6 +9,9 @@ Connecc::Application.routes.draw do
   end
 
   namespace "admin" do
+    resources :orders
+    resources :private_beta_signups
+    resources :users
     get "/" => "admin#dashboard"
   end
 

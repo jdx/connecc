@@ -1,0 +1,4 @@
+%h1 Users
+%ul
+  - for user in User.all
+    %li= link_to user, admin_user_path(user)
