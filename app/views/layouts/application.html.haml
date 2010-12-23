@@ -30,8 +30,9 @@
       -else
         %a{ :href => "/login"} login
       %span.arrow= ">"
-    -if notice
-      %p{ :class => "notice" }= notice
-    -if alert
-      %p{ :class => "alert" }= alert
-    = content_for?(:content) ? yield(:content) : yield
+    #main
+      -if notice
+        %p{ :class => "notice" }= notice
+      -if alert
+        %p{ :class => "alert" }= alert
+      = content_for?(:content) ? yield(:content) : yield

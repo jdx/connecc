@@ -41,7 +41,7 @@ a:hover
   font-size:20px;
   position:relative;
 }
-#home-link
+#header a
 {
   float:left;
   margin: 10px 15px;
@@ -201,4 +201,10 @@ a:hover
   height:150px;
   -webkit-transform:rotate(-2deg);
   -moz-transform:rotate(-2deg);
+}
+#main
+{
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
 }
