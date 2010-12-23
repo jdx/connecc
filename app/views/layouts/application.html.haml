@@ -22,7 +22,10 @@
   %body
     #header
       %a#home-link{ :href => "/"} conne.cc
-      %a{ :href => "/login"} login
+      -if user_signed_in?
+        %a{ :href => "/logout"} logout
+      -else
+        %a{ :href => "/login"} login
       %span.arrow= ">"
     - if notice
       %p{ :class => "notice" }= notice

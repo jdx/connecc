@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(user)
-    dashboard_path
+    if current_user.admin
+      admin_path
+    else
+      dashboard_path
+    end
   end
 
 end

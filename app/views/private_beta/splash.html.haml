@@ -82,7 +82,11 @@
 %h2
   Sign up for our beta
 -if @email
-  =form_for @email, :url => { :action => "splash" } do |f|
+  =form_for @email, :as => :private_beta, :url => { :action => "splash" } do |f|
+    -if @email.errors.any?
+      %ul
+        -for error in @email.errors.full_messages.each
+          %li= error
     =f.label :email
     =f.text_field :email
     =f.submit :value => "Sign up!"

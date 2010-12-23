@@ -7,6 +7,10 @@ Connecc::Application.routes.draw do
     post "signup", :to => "devise/registrations#create"
   end
 
+  namespace "admin" do
+    get "/" => "admin#dashboard"
+  end
+
   get "/dashboard" => "home#dashboard"
   get "/tour" => "home#tour"
   root :to => "private_beta#splash"
