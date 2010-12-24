@@ -4,6 +4,19 @@
 * ruby 1.8.7
 * rails 3.0.3
 
+=== Ubuntu
+On Ubuntu, you will need to apt-get the following:
+* ruby
+* rubygems
+* sqlite3
+* libsqlite3-dev
+* libopenssl-ruby
+
+Then gem install the following:
+* rails
+* cucumber
+* heroku
+
 == Build instructions
 
 Pull the repo:
@@ -28,16 +41,3 @@ Please do not check in code that does not pass all tests. To run all tests, simp
   rake
 
 from the command line
-
-== Tips
-On Ubuntu, you will need to apt-get the following:
-* ruby
-* rubygems
-* sqlite3
-* libsqlite3-dev
-* libopenssl-ruby
-
-Then gem install the following:
-* rails
-* cucumber
-* heroku
