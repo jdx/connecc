@@ -6,11 +6,6 @@ Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   user = User.new(:email => email, :password => password, :password_confirmation => password)
   user.first_name = "First"
   user.last_name = "Last"
-  user.address_1 = "123 NW Example St"
-  user.city = "Corvallis"
-  user.state = "OR"
-  user.zip_code = "97333"
-  user.phone_number = "971-555-7154"
   user.save
 end
 

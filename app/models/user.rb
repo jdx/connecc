@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
   has_many :orders
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  validates :address_1, :presence => true
-  validates :city, :presence => true
-  validates :state, :presence => true
-  validates :zip_code, :presence => true
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,  and :timeoutable
