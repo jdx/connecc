@@ -21,3 +21,23 @@ Run the migrations:
 Start the server:
 
   rails server
+
+== Testing
+Please do not check in code that does not pass all tests. To run all tests, simply type
+
+  rake
+
+from the command line
+
+== Tips
+On Ubuntu, you will need to apt-get the following:
+* ruby
+* rubygems
+* sqlite3
+* libsqlite3-dev
+* libopenssl-ruby
+
+Then gem install the following:
+* rails
+* cucumber
+* heroku
