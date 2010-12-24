@@ -3,11 +3,20 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
-  User.new(:email => email, :password => password, :password_confirmation => password).save!
+  user = User.new(:email => email, :password => password, :password_confirmation => password)
+  user.first_name = "First"
+  user.last_name = "Last"
+  user.address_1 = "123 NW Example St"
+  user.city = "Corvallis"
+  user.state = "OR"
+  user.zip_code = "97333"
+  user.phone_number = "971-555-7154"
+  user.save
 end
 
 Given /^I have an admin user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
-  user = User.new(:email => email, :password => password, :password_confirmation => password, :admin => true)
+  Given %{I have a user "#{email}" with password "#{password}"}
+  user = User.find_by_email(email)
   user.admin = true
   user.save
 end

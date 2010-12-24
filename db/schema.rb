@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101223050746) do
+ActiveRecord::Schema.define(:version => 20101243042755) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id",                                         :null => false
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20101223050746) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
+    t.string   "email",                               :default => "",               :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",               :null => false
+    t.string   "password_salt",                       :default => "",               :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -45,7 +45,15 @@ ActiveRecord::Schema.define(:version => 20101223050746) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                               :default => false, :null => false
+    t.boolean  "admin",                               :default => false,            :null => false
+    t.string   "first_name",                          :default => "First",          :null => false
+    t.string   "last_name",                           :default => "Last",           :null => false
+    t.string   "address_1",                           :default => "123 Example St", :null => false
+    t.string   "address_2"
+    t.string   "zip_code",                            :default => "97333",          :null => false
+    t.string   "city",                                :default => "Corvallis",      :null => false
+    t.string   "state",                               :default => "OR",             :null => false
+    t.string   "phone_number",                        :default => "871-718-7271",   :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
