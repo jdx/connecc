@@ -23,7 +23,15 @@ class User < ActiveRecord::Base
   attr_accessible :email,
                   :password,
                   :password_confirmation,
-                  :remember_me
+                  :remember_me,
+                  :city,
+                  :state,
+                  :zip_code,
+                  :phone_number,
+                  :address_1,
+                  :address_2,
+                  :last_name,
+                  :first_name
 
   def to_s
     "#{ self.first_name } #{ self.last_name}"

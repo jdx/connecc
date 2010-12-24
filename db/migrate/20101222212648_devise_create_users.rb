@@ -6,9 +6,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.rememberable
       t.trackable
       t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
-
-      # t.confirmable
-      # t.token_authenticatable
+      t.boolean :admin, :null => false, :default => false
+      t.string :first_name, :null => false
+      t.string :last_name, :null => false
+      t.string :address_1, :null => false
+      t.string :address_2
+      t.string :city, :null => false
+      t.string :state, :null => false
+      t.string :zip_code, :null => false
+      t.string :phone_number, :null => false
 
       t.timestamps
     end
@@ -16,7 +22,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     add_index :users, :unlock_token,         :unique => true
-    # add_index :users, :confirmation_token,   :unique => true
+    add_index :users, :first_name
+    add_index :users, :last_name
   end
 
   def self.down

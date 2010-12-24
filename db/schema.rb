@@ -10,17 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101243042755) do
+ActiveRecord::Schema.define(:version => 20101223042755) do
 
   create_table "orders", :force => true do |t|
-    t.integer  "user_id",                                         :null => false
-    t.boolean  "trial",                                           :null => false
-    t.datetime "placed_at",                                       :null => false
+    t.integer  "user_id",      :null => false
+    t.boolean  "trial",        :null => false
+    t.datetime "placed_at",    :null => false
     t.datetime "activated_at"
+    t.string   "status",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",       :default => "awaiting-activation", :null => false
   end
+
+  add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "private_betas", :force => true do |t|
     t.string   "email"
@@ -29,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20101243042755) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",               :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",               :null => false
-    t.string   "password_salt",                       :default => "",               :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -43,20 +45,22 @@ ActiveRecord::Schema.define(:version => 20101243042755) do
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "first_name",                                             :null => false
+    t.string   "last_name",                                              :null => false
+    t.string   "address_1",                                              :null => false
+    t.string   "address_2"
+    t.string   "zip_code",                                               :null => false
+    t.string   "city",                                                   :null => false
+    t.string   "state",                                                  :null => false
+    t.string   "phone_number",                                           :null => false
+    t.boolean  "admin",                               :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                               :default => false,            :null => false
-    t.string   "first_name",                          :default => "First",          :null => false
-    t.string   "last_name",                           :default => "Last",           :null => false
-    t.string   "address_1",                           :default => "123 Example St", :null => false
-    t.string   "address_2"
-    t.string   "zip_code",                            :default => "97333",          :null => false
-    t.string   "city",                                :default => "Corvallis",      :null => false
-    t.string   "state",                               :default => "OR",             :null => false
-    t.string   "phone_number",                        :default => "871-718-7271",   :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["first_name"], :name => "index_users_on_first_name"
+  add_index "users", ["last_name"], :name => "index_users_on_last_name"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
