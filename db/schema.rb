@@ -48,12 +48,6 @@ ActiveRecord::Schema.define(:version => 20101223042755) do
     t.boolean  "admin",                               :default => false, :null => false
     t.string   "first_name",                                             :null => false
     t.string   "last_name",                                              :null => false
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

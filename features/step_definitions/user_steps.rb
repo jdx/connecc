@@ -3,7 +3,7 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
-  user = User.new(:email => email, :password => password, :password_confirmation => password)
+  user = User.new(:email => email, :password => password)
   user.first_name = "First"
   user.last_name = "Last"
   user.save

@@ -9,6 +9,5 @@ Feature: User registration
             And I fill in "user_last_name" with "Jones"
             And I fill in "user_email" with "test@example.com"
             And I fill in "user_password" with "password"
-            And I fill in "user_password_confirmation" with "password"
             And I press "Sign up"
         Then I should be on the dashboard

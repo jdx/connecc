@@ -9,12 +9,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :admin, :null => false, :default => false
       t.string :first_name, :null => false
       t.string :last_name, :null => false
-      t.string :address_1
-      t.string :address_2
-      t.string :city
-      t.string :state
-      t.string :zip_code
-      t.string :phone_number
 
       t.timestamps
     end
