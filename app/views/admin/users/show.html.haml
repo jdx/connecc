@@ -1,1 +1,45 @@
 %h1= @user
+-if @user.admin
+  %p
+    %label Administrator
+-if @user.locked_at
+  %p
+    %label Locked at
+    %span= @user.locked_at
+%p
+  %label First name
+  %span= @user.first_name
+%p
+  %label Last name
+  %span= @user.last_name
+%p
+  %label Email
+  %span= @user.email
+%p
+  %label Created at
+  %span= @user.created_at
+%p
+  %label Updated at
+  %span= @user.updated_at
+%p
+  %label Address 1
+  %span= @user.address_1
+- if @user.address_2
+  %p
+    %label Address 1
+    %span= @user.address_1
+%p
+  %label City
+  %span= @user.city
+%p
+  %label State
+  %span= @user.state
+%p
+  %label Zip code
+  %span= @user.zip_code
+%p
+  %label Phone number
+  %span= @user.phone_number
+%ul
+  -for order in @user.orders
+    %li= link_to order, admin_order_path(order)

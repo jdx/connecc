@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :city, :null => false
       t.string :state, :null => false
       t.string :zip_code, :null => false
-      t.string :phone_number, :null => false
+      t.string :phone_number
 
       t.timestamps
     end

@@ -11,7 +11,6 @@ Feature: User registration
             And I fill in "user_city" with "Corvallis"
             And I fill in "user_state" with "OR"
             And I fill in "user_zip_code" with "97333"
-            And I fill in "user_phone_number" with "971-555-7154"
             And I fill in "user_email" with "test@example.com"
             And I fill in "user_password" with "password"
             And I fill in "user_password_confirmation" with "password"

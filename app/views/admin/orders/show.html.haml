@@ -1,1 +1,14 @@
 %h1= @order
+%p
+  %label Status
+  %span= @order.status
+%p
+  %label Placed at
+  %span= @order.placed_at
+- if @order.activated_at
+  %p
+    %label Activated at
+    %span= @order.activated_at
+%p
+  %label User
+  %span= link_to @order.user, admin_user_path(@order.user)

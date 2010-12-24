@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   validates :user, :presence => true
 
   def to_s
-    "#{ self.id }: #{ self.user.email }"
+    "Order #{ self.id }"
   end
 
 end

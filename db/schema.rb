@@ -45,15 +45,15 @@ ActiveRecord::Schema.define(:version => 20101223042755) do
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.boolean  "admin",                               :default => false, :null => false
     t.string   "first_name",                                             :null => false
     t.string   "last_name",                                              :null => false
     t.string   "address_1",                                              :null => false
     t.string   "address_2"
-    t.string   "zip_code",                                               :null => false
     t.string   "city",                                                   :null => false
     t.string   "state",                                                  :null => false
-    t.string   "phone_number",                                           :null => false
-    t.boolean  "admin",                               :default => false, :null => false
+    t.string   "zip_code",                                               :null => false
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
