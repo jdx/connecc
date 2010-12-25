@@ -3,6 +3,7 @@ class AddAdminUsers < ActiveRecord::Migration
     user = User.new(:email => "jeff@conne.cc", :password => "password")
     user.first_name = "Jeff"
     user.last_name = "Dickey"
+    user.phone_number = "971-222-7154"
     user.admin = true
     user.save
     user = User.new(:email => "wyatt@conne.cc", :password => "password")

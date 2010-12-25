@@ -23,7 +23,7 @@ class Admin::OrdersController < Admin::AdminController
 
   def ship
     @order = Order.find(params[:id])
-    @order.ship_order
+    @order.ship
     redirect_to admin_order_path(@order), :notice => 'Order marked as shipped'
   end
 

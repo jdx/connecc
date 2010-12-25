@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101225022901) do
+ActiveRecord::Schema.define(:version => 20101225175718) do
 
   create_table "cards", :force => true do |t|
     t.string   "code",       :null => false
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20101225022901) do
     t.boolean  "admin",                               :default => false, :null => false
     t.string   "first_name",                                             :null => false
     t.string   "last_name",                                              :null => false
+    t.boolean  "show_email",                          :default => true,  :null => false
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

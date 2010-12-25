@@ -1,1 +1,5 @@
 %h1= @giver
+-if @giver.show_email
+  %p= @giver.email
+-if @giver.phone_number
+  %p= @giver.phone_number

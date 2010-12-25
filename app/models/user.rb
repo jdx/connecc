@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_destroy :destroy_orders
 
   has_many :orders
   has_one :trial_order
@@ -31,6 +32,14 @@ class User < ActiveRecord::Base
 
   def to_s
     "#{ self.first_name } #{ self.last_name}"
+  end
+
+  protected
+
+  def destroy_orders
+    self.orders.each do |o|
+      o.destroy
+    end
   end
 
 end

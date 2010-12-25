@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   before_create :set_type, :start_order
+  before_destroy :destroy_cards
 
   belongs_to :user
   has_many :cards
@@ -26,7 +27,7 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
-  def ship_order
+  def ship
     self.shipped_at = DateTime.now
     self.status = 'shipped'
     self.save!
@@ -37,6 +38,12 @@ class Order < ActiveRecord::Base
   def start_order
     self.placed_at = DateTime.now
     self.status = 'awaiting-generation'
+  end
+
+  def destroy_cards
+    self.cards.each do |c|
+      c.destroy
+    end
   end
 
 end

@@ -9,7 +9,9 @@ Connecc::Application.routes.draw do
     get "account/password/forgot", :to => "devise/passwords#new"
     post "account/password/forgot", :to => "devise/passwords#create"
     get "account/password/change", :to => "devise/passwords#edit"
-    post "account/password/change", :to => "devise/passwords#update"
+    put "account/password/change", :to => "devise/passwords#update"
+    get "account/profile/edit", :to => "devise/registrations#edit"
+    put "account/profile/edit", :to => "devise/registrations#update"
   end
 
   namespace "admin" do
