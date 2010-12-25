@@ -1,5 +1,9 @@
 Connecc::Application.routes.draw do
 
+  get "orders/index"
+
+  get "orders/showw"
+
   devise_for :users do
     get "login", :to => "devise/sessions#new"
     post "login", :to => "devise/sessions#create"
@@ -20,6 +24,7 @@ Connecc::Application.routes.draw do
   end
 
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
+  resources :orders
 
   get "dashboard" => "home#dashboard"
   get "tour" => "home#tour"

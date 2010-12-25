@@ -6,5 +6,5 @@
     - if devise_mapping.rememberable?
       = f.input :remember_me, :as => :boolean, :required => true
   =f.buttons do
-    =f.commit_button :value => "Log in"
+    =f.commit_button "Log in"
     =link_to "Forgot password?", account_password_forgot_path

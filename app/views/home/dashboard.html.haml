@@ -1,6 +1,9 @@
 #dashboard
   %h1 Dashboard
   %ul
-    -unless current_user.trial_order
+    -if current_user.orders.any?
       %li
-        %a{ :href => new_trial_order_path } Order trial pack
+        =link_to "Order history", orders_path
+    -else
+      %li
+        =link_to "Order trial pack", new_trial_order_path
