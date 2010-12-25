@@ -81,13 +81,9 @@
 %h2
   Sign up for our beta
 -if @email
-  =form_for @email, :as => :private_beta, :url => { :action => "splash" } do |f|
-    -if @email.errors.any?
-      %ul
-        -for error in @email.errors.full_messages.each
-          %li= error
-    =f.label :email
-    =f.text_field :email
-    =f.submit :value => "Sign up!"
+  =semantic_form_for @email, :as => :private_beta, :url => { :action => "splash" } do |f|
+    =f.inputs
+    =f.buttons do
+      =f.commit_button "Sign up!"
 -else
   %h3 Thanks for signing up!

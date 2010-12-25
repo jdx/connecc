@@ -6,6 +6,10 @@ Connecc::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
     get "signup", :to => "devise/registrations#new"
     post "signup", :to => "devise/registrations#create"
+    get "account/password/forgot", :to => "devise/passwords#new"
+    post "account/password/forgot", :to => "devise/passwords#create"
+    get "account/password/change", :to => "devise/passwords#edit"
+    post "account/password/change", :to => "devise/passwords#update"
   end
 
   namespace "admin" do
@@ -17,7 +21,7 @@ Connecc::Application.routes.draw do
 
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
 
-  get "/dashboard" => "home#dashboard"
-  get "/tour" => "home#tour"
+  get "dashboard" => "home#dashboard"
+  get "tour" => "home#tour"
   root :to => "private_beta#splash"
 end
