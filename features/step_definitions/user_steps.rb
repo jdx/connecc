@@ -4,8 +4,8 @@ end
 
 Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   user = User.new(:email => email, :password => password)
-  user.first_name = "First"
-  user.last_name = "Last"
+  user.first_name = "Joe"
+  user.last_name = "Blow"
   user.save
 end
 
@@ -25,7 +25,7 @@ Given /^I am logged in as user "([^\"]*)" with password "([^\"]*)"$/ do |email, 
 end
 
 Given /^I am a new, authenticated user$/ do
-  email = 'bob@man.net'
+  email = 'joeblow@man.net'
   password = 'secretpass'
 
   Given %{I am logged in as user "#{email}" with password "#{password}"}

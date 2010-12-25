@@ -4,14 +4,14 @@ Given /^The user "([^\"]*)" has placed a trial order$/ do |email|
 end
 
 Given /^A user has placed a trial order$/ do
-  email = 'bob@man.net'
+  email = 'joeblow@man.net'
   password = 'secretpass'
   Given %{I have a user "#{email}" with password "#{password}"}
   And %{The user "#{email}" has placed a trial order}
 end
 
 Given /^I have placed a trial order$/ do
-  email = 'bob@man.net'
+  email = 'joeblow@man.net'
   password = 'secretpass'
 
   Given %{I have a user "#{email}" with password "#{password}"}
@@ -23,7 +23,7 @@ Given /^I have placed a trial order$/ do
 end
 
 Given /^A trial order has been generated/ do
-  email = 'bob@man.net'
+  email = 'joeblow@man.net'
   password = 'secretpass'
   Given %{I have a user "#{email}" with password "#{password}"}
   And %{The user "#{email}" has placed a trial order}
