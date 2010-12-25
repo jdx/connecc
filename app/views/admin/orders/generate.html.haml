@@ -1,0 +1,3 @@
+%h1 Generating cards for #{ @order }
+-for card in @order.cards
+  .card= card.to_s

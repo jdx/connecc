@@ -1,9 +1,5 @@
 Connecc::Application.routes.draw do
 
-  get "orders/index"
-
-  get "orders/showw"
-
   devise_for :users do
     get "login", :to => "devise/sessions#new"
     post "login", :to => "devise/sessions#create"
@@ -17,7 +13,12 @@ Connecc::Application.routes.draw do
   end
 
   namespace "admin" do
-    resources :orders
+    resources :orders do
+      member do
+        post 'generate'
+        post 'ship'
+      end
+    end
     resources :private_beta_signups
     resources :users
     get "/" => "admin#dashboard"

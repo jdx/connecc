@@ -10,13 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101223042755) do
+ActiveRecord::Schema.define(:version => 20101225022901) do
+
+  create_table "cards", :force => true do |t|
+    t.string   "code",       :null => false
+    t.integer  "order_id",   :null => false
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["code"], :name => "index_cards_on_code"
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id",      :null => false
     t.string   "type",         :null => false
+    t.integer  "cards_amount", :null => false
     t.datetime "placed_at",    :null => false
-    t.datetime "activated_at"
+    t.datetime "generated_at"
+    t.datetime "shipped_at"
     t.string   "status",       :null => false
     t.string   "address",      :null => false
     t.string   "city",         :null => false

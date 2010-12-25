@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   before_create :set_type, :start_order
 
   belongs_to :user
+  has_many :cards
   validates :user, :presence => true
   validates :address, :presence => true
   validates :city, :presence => true
@@ -16,8 +17,19 @@ class Order < ActiveRecord::Base
     self.type = "Order" unless self.type
   end
 
-  def generate_order
+  def generate_cards
+    self.generated_at = DateTime.now
     self.status = 'awaiting-shipment'
+    self.cards_amount.times do
+      self.cards << Card.new
+    end
+    self.save!
+  end
+
+  def ship_order
+    self.shipped_at = DateTime.now
+    self.status = 'shipped'
+    self.save!
   end
 
   protected

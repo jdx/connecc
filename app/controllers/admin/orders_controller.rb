@@ -13,4 +13,18 @@ class Admin::OrdersController < Admin::AdminController
     @order = Order.find(params[:id])
   end
 
+  def generate
+    @order = Order.find(params[:id])
+    unless @order.generated_at
+      @order.generate_cards
+      flash[:notice] = "Cards generated"
+    end
+  end
+
+  def ship
+    @order = Order.find(params[:id])
+    @order.ship_order
+    redirect_to admin_order_path(@order), :notice => 'Order marked as shipped'
+  end
+
 end
