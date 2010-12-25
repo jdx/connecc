@@ -1,16 +1,13 @@
-class TrialOrderController < ApplicationController
+class TrialOrdersController < ApplicationController
   before_filter :previous_trial_order_check
 
   def new
-    @trial_order = Order.new
+    @trial_order = TrialOrder.new
   end
 
   def create
-    @trial_order = Order.new
+    @trial_order = TrialOrder.new(params[:trial_order])
     @trial_order.user = current_user
-    @trial_order.placed_at = DateTime.now
-    @trial_order.status = 'awaiting-activation'
-    @trial_order.trial = true
     if @trial_order.save
       redirect_to dashboard_path, :notice => 'Expect your trial pack soon!'
     else
@@ -21,7 +18,7 @@ class TrialOrderController < ApplicationController
   protected
 
   def previous_trial_order_check
-    if current_user.orders.where(:trial => true).exists?
+    if current_user.orders.where(:type => "trial").exists?
       flash[:notice] = "Only one trial order per customer please"
       redirect_to dashboard_path
     end

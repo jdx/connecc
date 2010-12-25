@@ -15,8 +15,7 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
-  get "/trial" => "trial_order#new"
-  post "/trial" => "trial_order#create"
+  resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
 
   get "/dashboard" => "home#dashboard"
   get "/tour" => "home#tour"

@@ -1,0 +1,4 @@
+-if target.errors.any?
+  %ul.error_explanation
+    -target.errors.full_messages.each do |msg|
+      %li= msg

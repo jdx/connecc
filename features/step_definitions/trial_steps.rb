@@ -9,6 +9,5 @@ Given /^I have placed a trial order$/ do
   And %{I press "Log in"}
 
   user = User.find_by_email email
-  user.orders << Order.new(:placed_at => DateTime.now, :trial => true, :status => "awaiting-activation")
-  user.save
+  TrialOrder.create! :user => user, :address => "123 Example ST", :city => "Corvallis", :state => "OR", :zip => "97333"
 end

@@ -1,0 +1,8 @@
+=semantic_form_for @trial_order, :url => trial_order_path do |f|
+  = f.inputs do
+    = f.input :address
+    = f.input :city
+    = f.input :state, :as => :select, :collection => US_STATES
+    = f.input :zip, :label => "Zip Code"
+  = f.buttons do
+    = f.commit_button "Order trial pack"

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
   has_many :orders
+  has_one :trial_order
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
 
