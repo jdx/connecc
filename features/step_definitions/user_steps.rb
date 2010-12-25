@@ -31,6 +31,17 @@ Given /^I am a new, authenticated user$/ do
   Given %{I am logged in as user "#{email}" with password "#{password}"}
 end
 
+Given /^I am logged in as an admin$/ do
+  email = 'jeff@conne.cc'
+  password = 'secretpass'
+
+  Given %{I have an admin user "#{email}" with password "#{password}"}
+  And %{I go to the login page}
+  And %{I fill in "user_email" with "#{email}"}
+  And %{I fill in "user_password" with "#{password}"}
+  And %{I press "Log in"}
+end
+
 Then /^(?:|I )should not be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
