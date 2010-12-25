@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101225175718) do
+ActiveRecord::Schema.define(:version => 20101225181925) do
 
   create_table "cards", :force => true do |t|
     t.string   "code",       :null => false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20101225175718) do
   end
 
   add_index "cards", ["code"], :name => "index_cards_on_code"
+  add_index "cards", ["order_id"], :name => "index_cards_on_order_id"
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id",      :null => false
@@ -75,5 +76,19 @@ ActiveRecord::Schema.define(:version => 20101225175718) do
   add_index "users", ["last_name"], :name => "index_users_on_last_name"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "visits", :force => true do |t|
+    t.integer  "card_id",                   :null => false
+    t.string   "ip_address",                :null => false
+    t.integer  "count",      :default => 0, :null => false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visits", ["card_id"], :name => "index_visits_on_card_id"
+  add_index "visits", ["ip_address"], :name => "index_visits_on_ip_address"
+  add_index "visits", ["updated_at"], :name => "index_visits_on_updated_at"
+  add_index "visits", ["user_id"], :name => "index_visits_on_user_id"
 
 end

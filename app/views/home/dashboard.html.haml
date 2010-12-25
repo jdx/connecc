@@ -6,3 +6,8 @@
     -else
       %li= link_to "Order trial pack", new_trial_order_path
     %li= link_to "Edit Profile", account_profile_edit_path
+    -if current_user.visits.any?
+      Recent cards
+      %ul
+        -current_user.visits.order("-updated_at").each do |visit|
+          %li= link_to visit.card, card_path(visit.card.code)

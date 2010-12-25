@@ -31,6 +31,8 @@ Connecc::Application.routes.draw do
 
   get "dashboard" => "home#dashboard"
   get "tour" => "home#tour"
-  get ":code" => "cards#show"
+  get ":code" => "cards#show", :as => "card"
+  put ":code" => "cards#update", :as => "card"
+  get ":code/edit" => "cards#edit", :as => "card_edit"
   root :to => "private_beta#splash"
 end

@@ -1,4 +1,5 @@
 class TrialOrdersController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :previous_trial_order_check
 
   def new

@@ -8,6 +8,7 @@ class CreateCards < ActiveRecord::Migration
       t.timestamps
     end
     add_index :cards, :code
+    add_index :cards, :order_id
   end
 
   def self.down
