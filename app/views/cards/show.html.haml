@@ -1,9 +1,19 @@
-%h1= @giver
--if @giver.show_email
-  %p= @giver.email
--if @giver.phone_number
-  %p= @giver.phone_number
+%h1= @card.giver
+-if @card.giver.show_email
+  %p= @card.giver.email
+-if @card.giver.phone_number
+  %p= @card.giver.phone_number
 -if @card.message
-  %p= @card.message
--if @giver == current_user
+  %p&= @card.message
+-if @card.giver == current_user
   %p= link_to "Edit card", card_edit_path(@card.code)
+-else
+  -if @contact_request
+    %h3 Have #{ @card.giver } get a hold of me
+    =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
+      =f.inputs do
+        =f.input :contact_info, :label => "Your phone number and/or email address"
+        %span.help How will #{ @card.giver.first_name } get back to you?
+        =f.input :message
+      =f.buttons do
+        =f.commit_button "Get back to me"

@@ -32,6 +32,11 @@ Given /^I am a new, authenticated user$/ do
   Given %{I am logged in as user "#{email}" with password "#{password}"}
 end
 
+Then /^Joe should receive an email$/ do
+  email = 'joeblow@man.net'
+  Then %{"#{email}" should receive an email}
+end
+
 Given /^I am logged in as an admin$/ do
   email = 'jeff@conne.cc'
   password = 'secretpass'

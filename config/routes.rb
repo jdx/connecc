@@ -32,7 +32,8 @@ Connecc::Application.routes.draw do
   get "dashboard" => "home#dashboard"
   get "tour" => "home#tour"
   get ":code" => "cards#show", :as => "card"
-  put ":code" => "cards#update", :as => "card"
+  post ":code" => "cards#contact_request", :as => "contact_request"
+  put ":code/edit" => "cards#update", :as => "card_edit"
   get ":code/edit" => "cards#edit", :as => "card_edit"
   root :to => "home#home"
 end

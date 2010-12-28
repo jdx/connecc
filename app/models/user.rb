@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  before_destroy :destroy_orders, :destroy_visits
+  before_destroy :destroy_orders, :clear_visits, :clear_contact_requests
 
   has_many :orders
   has_many :visits
+  has_many :contact_requests
   has_one :trial_order
 
   validates :first_name, :presence => true
@@ -51,10 +52,17 @@ class User < ActiveRecord::Base
     end
   end
 
-  def destroy_orders
+  def clear_visits
     self.visits.each do |v|
       v.user_id = nil
       v.save!
+    end
+  end
+
+  def clear_contact_requests
+    contact_requests.each do |c|
+      c.user_id = nil
+      c.save!
     end
   end
 

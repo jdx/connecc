@@ -13,7 +13,6 @@ Feature: Trial pack ordering
             And I fill in "trial_order_zip" with "97333"
             And I press "Order trial pack"
         Then I should see "Expect your trial pack soon!"
-        Then I should receive an email
 
     Scenario: Duplicate order
         Given I have placed a trial order

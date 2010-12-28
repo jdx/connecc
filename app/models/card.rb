@@ -1,10 +1,17 @@
 class Card < ActiveRecord::Base
 
   before_create :generate_code
-  before_destroy :destroy_visits
+  before_destroy :destroy_visits, :destroy_contact_requests
 
   belongs_to :order
   has_many :visits
+  has_many :contact_requests
+
+  attr_accessible :message
+
+  def giver
+    return order.user
+  end
 
   def to_s
     return "http://conne.cc/#{self.code}"
@@ -24,4 +31,9 @@ class Card < ActiveRecord::Base
     end
   end
 
+  def destroy_contact_requests
+    contact_requests.each do |c|
+      c.destroy
+    end
+  end
 end

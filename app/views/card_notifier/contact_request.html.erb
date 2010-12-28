@@ -1,0 +1,4 @@
+Someone visited one of your conne.cc cards and wants you to get a hold of them.
+Contact info: <%= @contact_request.contact_info %>
+<%- unless @contact_request.message.blank? %>Message: <%= h(@contact_request.message) %><%- end %>
+Card: <%= link_to @contact_request.card, card_url(@contact_request.card.code) %>

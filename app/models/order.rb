@@ -1,6 +1,5 @@
 class Order < ActiveRecord::Base
   before_create :start_order
-  after_create :send_notifications
   before_destroy :destroy_cards
 
   belongs_to :user
@@ -35,10 +34,6 @@ class Order < ActiveRecord::Base
   def start_order
     self.placed_at = DateTime.now
     self.status = 'awaiting-generation'
-  end
-
-  def send_notifications
-    OrderNotifier.placed(self).deliver
   end
 
   def destroy_cards

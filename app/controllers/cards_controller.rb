@@ -1,23 +1,11 @@
 class CardsController < ApplicationController
   before_filter :get_card
-  before_filter :authenticate_user!, :except => :show
+  before_filter :authenticate_user!, :except => [:show, :contact_request]
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
   def show
-    @giver = @card.order.user
-
-    # Find a visit by user id if the user is logged in
-    visit = Visit.find_by_user_id(current_user.id) if current_user
-    # Find a visit by ip address if there was none found
-    visit = Visit.find_by_ip_address(request.remote_ip) unless visit
-    if visit
-      # Visit exists, update the count and values if they changed
-      visit.user = current_user
-      visit.ip_address = request.remote_ip
-      visit.increment!(:count)
-    else
-      Visit.create! :user => current_user, :ip_address => request.remote_ip, :card => @card unless visit
-    end
+    Visit.record(@card, request.remote_ip, current_user)
+    @contact_request = ContactRequest.new
   end
 
   def edit
@@ -27,6 +15,19 @@ class CardsController < ApplicationController
     @card.message = params[:card][:message]
     @card.save!
     redirect_to card_path(@card.code), :notice => "Updated card"
+  end
+
+  def contact_request
+    @contact_request = ContactRequest.new params[:contact_request]
+    @contact_request.card = @card
+    @contact_request.user = current_user
+    @contact_request.ip_address = request.remote_ip
+    if @contact_request.save
+      CardNotifier.contact_request(@contact_request).deliver
+      flash[:notice] = "#{ @card.giver } will be getting a hold of you shortly."
+      @contact_request = nil # so the form doesn't display
+    end
+    render :show
   end
 
   protected
