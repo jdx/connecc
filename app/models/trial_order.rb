@@ -6,6 +6,6 @@ class TrialOrder < Order
   end
 
   def set_card_number
-    self.cards_amount = 5
+    self.cards_amount = 10
   end
 end
