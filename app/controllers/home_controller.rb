@@ -10,4 +10,7 @@ class HomeController < ApplicationController
   def dashboard
   end
 
+  def privacy_policy
+  end
+
 end
