@@ -8,7 +8,7 @@ Feature: Admin orders
             And I am logged in as an admin
             And I am on the admin dashboard
             And I follow "Orders"
-            And I follow "Order"
+            And I follow "Order 1"
             And I press "Generate"
         Then I should see "Cards generated"
 
@@ -17,7 +17,7 @@ Feature: Admin orders
             And I am logged in as an admin
             And I am on the admin dashboard
             And I follow "Orders"
-            And I follow "Order"
+            And I follow "Order 1"
             And I press "Ship"
         Then I should see "Order marked as shipped"
 

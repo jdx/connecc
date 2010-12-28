@@ -1,6 +1,10 @@
 class AddTestCards < ActiveRecord::Migration
   def self.up
-    order = TrialOrder.create! :user => User.first, :address => "211 112th Ave NE APT 312", :city => "Bellevue", :state => "WA", :zip => "98004"
+    user = User.new(:email => "joe@blow.com", :password => "password")
+    user.first_name = "Joe"
+    user.last_name = "Blow"
+    user.save
+    order = TrialOrder.create! :user => user, :address => "211 112th Ave NE APT 312", :city => "Bellevue", :state => "WA", :zip => "98004"
     order.generate_cards
     order.ship
     card = order.cards.first
@@ -9,7 +13,5 @@ class AddTestCards < ActiveRecord::Migration
   end
 
   def self.down
-    order = User.first.trial_order
-    order.destroy
   end
 end
