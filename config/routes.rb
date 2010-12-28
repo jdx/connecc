@@ -21,7 +21,6 @@ Connecc::Application.routes.draw do
         post 'ship'
       end
     end
-    resources :private_beta_signups
     resources :users
     get "/" => "admin#dashboard"
   end
