@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  before_create :set_type, :start_order
+  before_create :start_order
   after_create :send_notifications
   before_destroy :destroy_cards
 
@@ -13,10 +13,6 @@ class Order < ActiveRecord::Base
 
   def to_s
     "Order #{ self.id }"
-  end
-
-  def set_type
-    self.type = "Order" unless self.type
   end
 
   def generate_cards

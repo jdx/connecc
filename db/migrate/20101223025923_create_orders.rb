@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
       t.integer :user_id, :null => false
-      t.string :type, :null => false
+      t.string :type, :null => false, :default => "Order"
       t.integer :cards_amount, :null => false
       t.datetime :placed_at, :null => false
       t.datetime :generated_at
