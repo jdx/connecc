@@ -28,3 +28,5 @@
     =button_to "Ship", ship_admin_order_path
 -else
   =button_to "Generate", generate_admin_order_path
+-if @order.cards.any?
+  =link_to "Print cards", cards_admin_order_path

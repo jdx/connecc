@@ -19,6 +19,7 @@ Connecc::Application.routes.draw do
       member do
         post 'generate'
         post 'ship'
+        get 'cards'
       end
     end
     resources :users

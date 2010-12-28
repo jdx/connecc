@@ -19,6 +19,12 @@ class Admin::OrdersController < Admin::AdminController
       @order.generate_cards
       flash[:notice] = "Cards generated"
     end
+    redirect_to admin_order_path(@order)
+  end
+
+  def cards
+    @order = Order.find(params[:id])
+    render :cards, :layout => "print"
   end
 
   def ship
