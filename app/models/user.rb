@@ -32,7 +32,15 @@ class User < ActiveRecord::Base
                   :first_name
 
   def to_s
-    "#{ self.first_name } #{ self.last_name}"
+    self.full_name
+  end
+
+  def full_name
+    "#{ self.first_name} #{ self.last_name}"
+  end
+
+  def email_address_with_name
+    "#{ self.full_name } <#{ self.email }>"
   end
 
   protected

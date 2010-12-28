@@ -22,6 +22,7 @@ Given /^I am logged in as user "([^\"]*)" with password "([^\"]*)"$/ do |email, 
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
   And %{I press "Log in"}
+  @current_user = User.find_by_email(email)
 end
 
 Given /^I am a new, authenticated user$/ do

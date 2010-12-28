@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20101225181925) do
   create_table "visits", :force => true do |t|
     t.integer  "card_id",                   :null => false
     t.string   "ip_address",                :null => false
-    t.integer  "count",      :default => 0, :null => false
+    t.integer  "count",      :default => 1, :null => false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

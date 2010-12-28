@@ -22,6 +22,7 @@ group :test do
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem 'email_spec'
 end
 
 group :test, :development do

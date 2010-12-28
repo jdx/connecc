@@ -7,6 +7,9 @@
 require 'rubygems'
 require 'spork'
 require 'ruby-debug'
+require 'action_mailer'
+require 'email_spec'
+require 'email_spec/cucumber'
  
 Spork.prefork do
   ENV["RAILS_ENV"] ||= "test"
