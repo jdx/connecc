@@ -2,6 +2,14 @@
 =">"
 =link_to "Users", admin_users_path
 %h1 Users
-%ul
-  - for user in User.all
-    %li= link_to user, admin_user_path(user)
+%table
+  %tr
+    %th User
+    %th Email
+  -for user in @users
+    %tr
+      -if user.admin
+        %td.red= link_to user, admin_user_path(user)
+      -else
+        %td= link_to user, admin_user_path(user)
+      %td= user.email

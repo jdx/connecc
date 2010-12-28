@@ -208,3 +208,7 @@ a:hover
   margin-left:auto;
   margin-right:auto;
 }
+.red, .red a
+{
+  color:red;
+}
