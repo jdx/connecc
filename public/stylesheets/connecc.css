@@ -5,7 +5,7 @@ html {
 }
 
 html, #container {
-    background-image:url("../images/noise.darker.gif");
+    background-image:url("/images/noise.darker.gif");
     background-repeat:repeat;
 }
 
@@ -20,7 +20,9 @@ header {
     color:#fff;
     font-size:20px;
     padding:8px;
-    
+    width:960px;
+    margin-left:auto;
+    margin-right:auto;
     -webkit-border-bottom-right-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomright: 5px;
@@ -245,4 +247,8 @@ footer {
     height:150px;
     -webkit-transform:rotate(-2deg);
     -moz-transform:rotate(-2deg);
+}
+.red, .red a
+{
+  color:red;
 }

@@ -1,5 +1,4 @@
 class Admin::AdminController < ApplicationController
-  layout "layouts/admin"
   before_filter :admin_required
 
   def dashboard

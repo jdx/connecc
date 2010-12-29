@@ -83,15 +83,4 @@
       %span.phone
         971-555-8271
       %span.arrow= ">"
-%hr
 
-%div#signup
-  %h2
-    Sign up for our beta
-  -if @email
-    =semantic_form_for @email, :as => :private_beta, :url => { :action => "splash" } do |f|
-      =f.inputs
-      =f.buttons do
-        =f.commit_button "Sign up!"
-  -else
-    %h3 Thanks for signing up!
