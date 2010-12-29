@@ -23,8 +23,8 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def cards
-    @order = Order.find(params[:id])
-    render :cards, :layout => "print"
+    @cards = Order.find(params[:id]).cards
+    render :template => "admin/cards/cards", :prawnto_options => {:prawn=>{:margin=>0}}
   end
 
   def ship

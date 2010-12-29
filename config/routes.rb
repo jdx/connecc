@@ -19,10 +19,12 @@ Connecc::Application.routes.draw do
       member do
         post 'generate'
         post 'ship'
-        get 'cards'
+        get 'cards', :defaults => { :format => :pdf }
       end
     end
     resources :users
+    get "cards/cutting_sheet" => "cards#cutting_sheet", :defaults => { :format => :pdf }
+    get "cards/perforating_sheet" => "cards#perforating_sheet", :defaults => { :format => :pdf }
     get "/" => "admin#dashboard"
   end
 

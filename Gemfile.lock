@@ -98,6 +98,16 @@ GEM
     mime-types (1.16)
     nokogiri (1.4.4)
     polyglot (0.3.1)
+    prawn (0.8.4)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+    prawn-core (0.8.4)
+    prawn-layout (0.8.4)
+    prawn-security (0.8.4)
+    prawnto (0.0.4)
+      prawn
+      rails (>= 2.1)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -174,6 +184,8 @@ DEPENDENCIES
   heroku_san
   hpricot
   launchy
+  prawn
+  prawnto
   rails (= 3.0.3)
   rspec-rails
   ruby-debug

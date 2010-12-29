@@ -6,6 +6,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'devise'
 gem 'formtastic'
+gem 'prawn'
+gem 'prawnto'
 
 group :development do
   gem 'heroku_san'
