@@ -45,6 +45,7 @@ while @cards[index] do
 end
 
 # gridlines
+#pdf.stroke_color = "FFFFFF" # use this to disable for actual printing
 pdf.stroke do
   pdf.line [0.in,10.in,8.5.in,10.in]
   pdf.line [0.in,9.in,8.5.in,9.in]
