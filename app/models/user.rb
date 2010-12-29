@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_destroy :destroy_orders, :clear_visits, :clear_contact_requests
+  before_destroy :orphan_visits, :orphan_contact_requests
 
   has_many :orders
   has_many :visits
@@ -46,20 +46,14 @@ class User < ActiveRecord::Base
 
   protected
 
-  def destroy_orders
-    self.orders.each do |o|
-      o.destroy
-    end
-  end
-
-  def clear_visits
+  def orphan_visits
     self.visits.each do |v|
       v.user_id = nil
       v.save!
     end
   end
 
-  def clear_contact_requests
+  def orphan_contact_requests
     contact_requests.each do |c|
       c.user_id = nil
       c.save!
