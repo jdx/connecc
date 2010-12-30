@@ -24,7 +24,7 @@ class Admin::OrdersController < Admin::AdminController
 
   def cards
     @cards = Order.find(params[:id]).cards
-    render :template => "admin/cards/cards", :prawnto_options => {:prawn=>{:margin=>0}}
+    render :template => "admin/cards/cards"
   end
 
   def ship
