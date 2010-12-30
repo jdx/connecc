@@ -59,7 +59,7 @@
       <div class="bannerCurl"><div class="leftCurl"></div><div class="rightCurl"></div></div>
 
       <div id="strip">
-        <%= yield %>
+        <%= content_for?(:content) ? yield(:content) : yield %>
       </div>
       <div class="stripCurl"><div class="leftCurl"></div><div class="rightCurl"></div></div>
 
