@@ -1,7 +1,8 @@
 /* connecc.css */
 
 html { 
-    background-color:#E6E7E8;    
+    background-color:#E6E7E8;
+    padding-bottom:20px;
 }
 
 html, #container {
@@ -64,10 +65,11 @@ header a:hover {
 #banner {
     width:300px;
     margin:0 auto;
+    height:60px;
 
     z-index:10;
     margin-bottom:-10px;
-    padding:6px;
+    padding:12px 0;
     
     font-size:28pt;
     text-shadow:0 1px 0 #e5e5e5;
@@ -92,9 +94,23 @@ header a:hover {
     margin:16px 8px;
 }
 
-#name {
+#logo {
+    margin:0 auto;
+    position:absolute;
+}
+
+#name, #arrow {
+    
+    left:0;
+    right:0;
+    text-align:center;
+}
+
+#name { 
     font-weight:bold;
-    margin-top:10px;
+    z-index:12;
+    left:0;
+    right:0;   
 }
 
 #arrow {
@@ -102,6 +118,9 @@ header a:hover {
     font-weight:bold;
     color:#133CAC;
     text-shadow:0 1px 0 #e5e5e5;
+    z-index:11;
+    line-height:40px;
+    left:-20px;
 }
 
 .bannerCurl {
@@ -153,18 +172,18 @@ footer {
     color:#444;
 }
 
-#pitch, #signup {
+#pitch, #cta {
     text-align:center;
 }
 
-#pitch h1, #signup h1 {
+#pitch h1, #cta h1 {
     font-size:28px;
     text-shadow:0 1px 0 #e5e5e5;
     margin:12px 0;
     color:#333;
 }
 
-#pitch h2, #signup h2 {
+#pitch h2, #cta h2 {
     font-size:20px;
     font-family:"Droid Serif";
     text-shadow:0 1px 0 #e5e5e5;
@@ -191,6 +210,8 @@ footer {
     border:1px solid black;
     background-color:white;
     cursor:default;
+    
+    background:white url('/images/noise.gif');
 }
 #card-container .card {
     height:310px;
@@ -221,7 +242,7 @@ footer {
     font-weight:bold;
     font-size:170px;
     right:15px;
-    top:-40px;
+    top:-60px;
     color:#1D4088;
     position:absolute;
 }
@@ -248,7 +269,52 @@ footer {
     -webkit-transform:rotate(-2deg);
     -moz-transform:rotate(-2deg);
 }
-.red, .red a
-{
+.red, .red a {
   color:red;
 }
+
+
+
+
+#betaRibbon {
+    height:32px;
+    width:120px;
+    position:absolute;
+    right:-36px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+}
+#betaRibbon .lcorner, #betaRibbon .rcorner {
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:0;
+    border:0 solid transparent;
+}
+#betaRibbon .lcorner {
+    left:0;
+    border-right:32px solid red;
+    border-top:32px solid transparent;
+}
+#betaRibbon .rcorner {
+    right:0;
+    border-left:32px solid red;
+    border-top:32px solid transparent;
+}
+#betaRibbon .body {
+    background-color:red;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:31px;
+    right:31px;
+    font-size:20px;
+    font-family:'sans-serif';
+    font-color:#444;
+    font-weight:bold;
+    padding-top:4px;
+    text-shadow:none;
+}
+
+
+
