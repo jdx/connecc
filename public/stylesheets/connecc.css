@@ -90,8 +90,19 @@ header a:hover {
     z-index:5;
 }
 
-#strip p {
-    margin:16px 8px;
+#strip .seg {
+    margin:16px 64px;
+}
+
+#strip .seg h2 {
+    font-size:20px;
+    text-shadow:0 1px 0 #e5e5e5;
+    margin:6px 0;
+}
+
+#strip .seg p {
+    margin:0 0 12px 12px;
+    font-size:14px;
 }
 
 #logo {
@@ -222,10 +233,8 @@ footer {
 }
 .card .top-half {
     height:150px;
-    border-bottom:1px dashed black;
-    position:relative;
-}
-.card .bottom-half {
+    border-bottom:1px dashed #333;
+ Login Signup
     position:relative;
     height:150px;
 }
@@ -262,10 +271,11 @@ footer {
 #half-card {
     margin-left:auto;
     margin-right:auto;
-    margin-top:100px;
-    margin-bottom:100px;
+    margin-top:50px;
+    margin-bottom:50px;
     position:relative;
     height:150px;
+    border-bottom-style:dashed;
     -webkit-transform:rotate(-2deg);
     -moz-transform:rotate(-2deg);
 }
