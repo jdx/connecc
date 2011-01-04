@@ -1,5 +1,5 @@
-%p Someone visited one of your conne.cc cards and wants you to get a hold of them.
-%p Contact info: #{ h(@contact_request.contact_info) }
+%h2 Someone visited one of your conne.cc cards and wants you to get a hold of them.
+%p <b>Contact info:</b> #{ h(@contact_request.contact_info) }
 - unless @contact_request.message.blank?
-  %p Message: #{ h(@contact_request.message) }
-%p Card: #{ link_to @contact_request.card, card_url(@contact_request.card.code) }
+  %p <b>Message:</b> #{ h(@contact_request.message) }
+%p <b>Card:</b> #{ link_to @contact_request.card, card_url(@contact_request.card.code) }
