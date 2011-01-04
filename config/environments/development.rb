@@ -9,6 +9,9 @@ Connecc::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
+  # Disable asset cache identifying
+  ENV['RAILS_ASSET_ID'] = ''
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
