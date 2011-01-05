@@ -20,8 +20,8 @@
 
   <link href="http://fonts.googleapis.com/css?family=Molengo:regular&amp;subset=latin" media="screen" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag ["reset", "formtastic", "formtastic_changes", "style", "connecc"], :media => "all", :cache => true %>
-  <%= javascript_include_tag ["jquery-1.4.4.min", "modernizr-1.6.min", "jquery-css-transform", "site"], :cache => true %>
+  <%= stylesheet_link_tag ["reset", "formtastic", "formtastic_changes", "style", "connecc"], :media => "all" %>
+  <%= javascript_include_tag ["jquery-1.4.4.min", "modernizr-1.6.min", "jquery-css-transform", "site"] %>
 
 </head>
 
@@ -73,7 +73,9 @@
     </div>
 
     <footer>
-    conne.cc | <a href="<%= privacy_policy_path %>">Privacy</a> | Copyright 2011
+    <%= link_to "@connecc_cards", "http://twitter.com/connecc_cards" %> |
+    <%= link_to "Privacy", privacy_policy_path %> |
+    Copyright 2011
     </footer>
 
   </div>

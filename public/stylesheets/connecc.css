@@ -71,6 +71,27 @@ header a:hover {
     text-decoration:underline;
 }
 
+#notice, #alert {
+    text-align:left;
+    border:1px solid #ccc;
+    padding:5px 5px 5px 30px;
+    font-size:15px;
+    margin:12px auto;
+    width:400px;
+}
+
+#alert {
+    border-color:#c99;
+    color:#fff;
+    background:#c00;
+}
+
+#notice {
+    border-color:#9c9;
+    color:#060;
+    background:#e2f9e3;
+}
+
 #banner, footer {
     text-align:center;
 }

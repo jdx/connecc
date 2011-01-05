@@ -1,6 +1,6 @@
 class AddTestCards < ActiveRecord::Migration
   def self.up
-    user = User.new(:email => "joe@blow.com", :password => "password")
+    user = User.new(:email => "joe@conne.cc", :password => "password")
     user.first_name = "Joe"
     user.last_name = "Blow"
     user.save
