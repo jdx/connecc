@@ -151,24 +151,10 @@
 %hr
 #order-cards
   .price $10 - 100 cards - free shipping
-  :erb
-    <form method="POST"
-          action="https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/Merchant/<%= ENV['CONNECC_GOOGLE_MERCHANT_ID'] %>"
-          accept-charset="utf-8">
-
-      <input type="hidden" name="item_name_1" value="100 conne.cc cards"/>
-      <input type="hidden" name="item_description_1" value="100 cards for use with conne.cc"/>
-      <input type="hidden" name="item_price_1" value="10.00"/>
-      <input type="hidden" name="item_currency_1" value="USD"/>
-      <input type="hidden" name="item_quantity_1" value="1"/>
-      <input type="hidden" name="item_merchant_id_1" value="100CARDS"/>
-
-      <input type="hidden" name="_charset_" />
-
-      <input type="image"
-        name="Google Checkout"
-        alt="Fast checkout through Google"
-        src="http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=<%= ENV['CONNECC_GOOGLE_MERCHANT_ID'] %>&w=180&h=46&style=trans&variant=text&loc=en_US"
-        height="46"
-        width="180" />
-    </form>
+  =form_for :order, :url => orders_path do |f|
+    %input{ :type => "image",
+            :name => "Google Checkout",
+            :alt => "Fast checkout through Google",
+            :src => "http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }&w=180&h=46&style=trans&variant=text&loc=en_US",
+            :height => "46",
+            :width => "180"}

@@ -8,6 +8,7 @@ gem 'devise'
 gem 'formtastic'
 gem 'prawn'
 gem 'prawnto'
+gem 'google4r-checkout'
 
 group :development do
   gem 'heroku_san'
