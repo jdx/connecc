@@ -12,6 +12,8 @@ Connecc::Application.configure do
   # Disable asset cache identifying
   ENV['RAILS_ASSET_ID'] = ''
 
+  ENV['GOOGLE_CHECKOUT_URL'] = 'https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/953643756206889'
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true

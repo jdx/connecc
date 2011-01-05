@@ -11,5 +11,3 @@
       %ul
         -current_user.visits.order("-updated_at").each do |visit|
           %li= link_to visit.card, card_path(visit.card.code)
-:plain
-  <script type="text/javascript" src="https://www.rewardlevel.com/js/rewardlevel-1.0.0.min.js?plugin=898&action=post&style=topbar"></script>

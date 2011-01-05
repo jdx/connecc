@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!, :except => ["home", "tour", "privacy_policy"]
+  before_filter :authenticate_user!, :only => :dashboard
 
   def home
   end
