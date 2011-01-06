@@ -3,8 +3,6 @@
   %ul
     -if current_user.orders.any?
       %li= link_to "Order history", orders_path
-    -else
-      %li= link_to "Order trial pack", new_trial_order_path
     %li= link_to "Edit Profile", account_profile_edit_path
     -if current_user.visits.any?
       Recent cards

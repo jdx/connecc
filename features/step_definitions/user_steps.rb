@@ -26,14 +26,14 @@ Given /^I am logged in as user "([^\"]*)" with password "([^\"]*)"$/ do |email, 
 end
 
 Given /^I am a new, authenticated user$/ do
-  email = 'joeblow@man.net'
+  email = 'joe@conne.cc'
   password = 'secretpass'
 
   Given %{I am logged in as user "#{email}" with password "#{password}"}
 end
 
 Then /^Joe should receive an email$/ do
-  email = 'joeblow@man.net'
+  email = 'joe@conne.cc'
   Then %{"#{email}" should receive an email}
 end
 
