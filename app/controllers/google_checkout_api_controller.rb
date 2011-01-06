@@ -1,4 +1,6 @@
 class GoogleCheckoutApiController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def callback
 
     render :text => 'success'
