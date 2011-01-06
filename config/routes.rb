@@ -35,7 +35,7 @@ Connecc::Application.routes.draw do
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"
 
-  get "google_checkout_api/callback" => "google_checkout_api#callback"
+  post "google_checkout_api/callback" => "google_checkout_api#callback"
 
   get ":code" => "cards#show", :as => "card"
   post ":code" => "cards#contact_request", :as => "contact_request"
