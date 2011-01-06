@@ -5,7 +5,6 @@ class GoogleCheckoutApiController < ApplicationController
 
   def callback
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
-    frontend.tax_table_factory = TaxTableFactory.new
     handler = frontend.create_notification_handler
 
     begin
