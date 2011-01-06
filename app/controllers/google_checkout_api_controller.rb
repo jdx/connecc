@@ -2,10 +2,6 @@ class GoogleCheckoutApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def callback
-
-    render :text => 'success'
-    return
-
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     frontend.tax_table_factory = CheckoutCommandFactory.new
     handler = frontend.create_notification_handler
