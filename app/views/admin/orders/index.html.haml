@@ -8,12 +8,14 @@
 %table
   %tr
     %th Order
-    %th Status
     %th User
-    %th Placed at
+    %th Financial State
+    %th Fulfillment State
+    %th Google Order Number
   -for order in @orders
     %tr
       %td= link_to order, admin_order_path(order)
-      %td= order.status
       %td= link_to order.user, admin_user_path(order.user)
-      %td= order.placed_at
+      %td= order.financial_order_state
+      %td= order.fulfillment_order_state
+      %td= order.google_order_number

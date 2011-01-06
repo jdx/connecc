@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101228102758) do
+ActiveRecord::Schema.define(:version => 20110125175718) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "address1",     :null => false
+    t.string   "address2"
+    t.string   "city",         :null => false
+    t.string   "company_name"
+    t.string   "contact_name"
+    t.string   "country_code", :null => false
+    t.string   "email"
+    t.string   "fax"
+    t.string   "phone"
+    t.string   "postal_code",  :null => false
+    t.string   "region",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cards", :force => true do |t|
     t.string   "code",       :null => false
@@ -34,21 +50,22 @@ ActiveRecord::Schema.define(:version => 20101228102758) do
   end
 
   create_table "orders", :force => true do |t|
-    t.integer  "user_id",                           :null => false
-    t.string   "type",         :default => "Order", :null => false
-    t.integer  "cards_amount",                      :null => false
-    t.datetime "placed_at",                         :null => false
-    t.datetime "generated_at"
-    t.datetime "shipped_at"
-    t.string   "status",                            :null => false
-    t.string   "address",                           :null => false
-    t.string   "city",                              :null => false
-    t.string   "state",                             :null => false
-    t.string   "zip",                               :null => false
+    t.integer  "user_id"
+    t.integer  "buyer_billing_address_id",                   :null => false
+    t.string   "buyer_id",                                   :null => false
+    t.integer  "buyer_shipping_address_id",                  :null => false
+    t.string   "financial_order_state",                      :null => false
+    t.string   "fulfillment_order_state",                    :null => false
+    t.string   "google_order_number",                        :null => false
+    t.integer  "cards_amount",              :default => 100, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["buyer_billing_address_id"], :name => "index_orders_on_buyer_billing_address_id"
+  add_index "orders", ["buyer_id"], :name => "index_orders_on_buyer_id"
+  add_index "orders", ["buyer_shipping_address_id"], :name => "index_orders_on_buyer_shipping_address_id"
+  add_index "orders", ["google_order_number"], :name => "index_orders_on_google_order_number"
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "users", :force => true do |t|
