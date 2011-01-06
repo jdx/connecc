@@ -1,13 +1,11 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!, :only => :dashboard
-
   def home
+    if current_user
+      render :dashboard
+    end
   end
 
   def tour
-  end
-
-  def dashboard
   end
 
   def privacy_policy

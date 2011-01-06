@@ -31,7 +31,6 @@ Connecc::Application.routes.draw do
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
   resources :orders
 
-  get "dashboard" => "home#dashboard"
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"
 
