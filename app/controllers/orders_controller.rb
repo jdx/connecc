@@ -13,8 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    configuration = { :merchant_id => ENV['CONNECC_GOOGLE_MERCHANT_ID'], :merchant_key => ENV['CONNECC_GOOGLE_MERCHANT_KEY'], :use_sandbox => true }
-    @frontend = Google4R::Checkout::Frontend.new(configuration)
+    @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     @frontend.tax_table_factory = TaxTableFactory.new
     checkout_command = @frontend.create_checkout_command
     checkout_command.shopping_cart.create_item do |item|
