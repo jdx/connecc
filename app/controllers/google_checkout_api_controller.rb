@@ -5,7 +5,7 @@ class GoogleCheckoutApiController < ApplicationController
 
   def callback
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
-    frontend.tax_table_factory = CheckoutCommandFactory.new
+    frontend.tax_table_factory = TaxTableFactory.new
     handler = frontend.create_notification_handler
 
     begin
@@ -29,5 +29,11 @@ class GoogleCheckoutApiController < ApplicationController
       order.financial_order_state = order.new_financial_order_state
       order.fulfillment_order_state = order.new_fulfillment_order_state
     end
+  end
+end
+
+class TaxTableFactory
+  def effective_tax_tables_at(time)
+    [ Google4R::Checkout::TaxTable.new(false) ]
   end
 end
