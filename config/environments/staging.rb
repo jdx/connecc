@@ -49,5 +49,5 @@ Connecc::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'connecc-staging.heroku.com' }
 
-  ENV['GOOGLE_CHECKOUT_URL'] = 'https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/953643756206889'
+  GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL = "https://sandbox.google.com/checkout/api/checkout/v2/reports/#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }"
 end

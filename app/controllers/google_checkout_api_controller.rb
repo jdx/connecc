@@ -1,3 +1,4 @@
+require 'net/http'
 require 'google4r/checkout'
 
 class GoogleCheckoutApiController < ApplicationController
@@ -5,14 +6,16 @@ class GoogleCheckoutApiController < ApplicationController
 
   def callback
 
-    # NOTE this isn't working, I need to not use google4r because I think it isn't compatible with the serial number deal.
-    # Perhaps I can just use the history api to pull the notification?
+    serial_number = request.POST["serial-number"]
+    url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
+
+    # TODO: post url with authentication and all that
 
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     handler = frontend.create_notification_handler
 
     begin
-      notification = handler.handle(request.raw_post)
+      notification = handler.handle(response.body)
     rescue Google4R::Checkout::UnknownNotificationType => e
       render :text => "ignoring unknown notification type", :status => 200
       return
