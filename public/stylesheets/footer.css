@@ -1,16 +1,26 @@
 /* Wyatt, this sucks, I'm sorry, I fail at css, fix this plz. */
 
 footer {
-    margin:30px;
-    color: #000;
+    padding:12px;
+    margin-top:36px;
+    margin-bottom:0;
+    color: #eee;
+    
+    background-color:#333;
+    
+    border-top:1px solid #777;
+    
+    background-image:url("/images/footer.gradient.png");
+    background-repeat:repeat-x;
 }
 
-footer a {
-    text-decoration:none;
+footer a, footer a:visited {
+    
+    color:#eee;
 }
 
 #social-icons, #links, #copyright {
-    margin:30px;
+    margin:6px;
 }
 
 #links {
@@ -18,8 +28,9 @@ footer a {
 }
 
 #social-icons a {
-    margin:10px;
+    margin:4px;
 }
+
 
 #links li, #copyright li {
     display:inline;
@@ -34,13 +45,6 @@ footer a {
     content:'';
 }
 
-#links a {
-    color:blue;
-}
-
-#links a:visited {
-    color:blue;
-}
 
 #copyright {
     text-align:center;
