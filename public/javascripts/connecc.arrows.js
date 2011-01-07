@@ -28,7 +28,7 @@ $(function() {
         
         lastDraw = null,
         
-        dt = 32,
+        dt = 100,
         
         colors = [ "black", "#444", "#133CAC" ],
         
@@ -50,7 +50,7 @@ $(function() {
             }
             
             this.top = prng(renderHeight);
-            this.speed = prng(20, 80);
+            this.speed = prng(5, 20);
             
             
             this.update = function(diff) {
