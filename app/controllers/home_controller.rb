@@ -8,6 +8,12 @@ class HomeController < ApplicationController
   def tour
   end
 
+  def faq
+  end
+
+  def about_us
+  end
+
   def privacy_policy
   end
 

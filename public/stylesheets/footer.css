@@ -2,6 +2,7 @@
 
 footer {
     margin:30px;
+    color: #000;
 }
 
 footer a {
@@ -10,6 +11,10 @@ footer a {
 
 #social-icons, #links, #copyright {
     margin:30px;
+}
+
+#links {
+    font-size:17px;
 }
 
 #social-icons a {
@@ -31,7 +36,6 @@ footer a {
 
 #links a {
     color:blue;
-    font-size:17px;
 }
 
 #links a:visited {
