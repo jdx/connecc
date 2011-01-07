@@ -4,6 +4,10 @@ class GoogleCheckoutApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def callback
+
+    # NOTE this isn't working, I need to not use google4r because I think it isn't compatible with the serial number deal.
+    # Perhaps I can just use the history api to pull the notification?
+
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     handler = frontend.create_notification_handler
 

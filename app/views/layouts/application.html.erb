@@ -20,7 +20,7 @@
 
   <link href="http://fonts.googleapis.com/css?family=Molengo:regular&amp;subset=latin" media="screen" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag ["reset", "formtastic", "formtastic_changes", "style", "connecc"], :media => "all" %>
+  <%= stylesheet_link_tag ["reset", "formtastic", "formtastic_changes", "style", "footer", "connecc"], :media => "all" %>
   <%= javascript_include_tag ["jquery-1.4.4.min", "modernizr-1.6.min", "jquery-css-transform", "site"] %>
   <%- if RAILS_ENV == 'development' %>
     <script src="http://localhost:8001/vogue-client.js" type="text/javascript"></script>
@@ -43,8 +43,8 @@
     <div id="main">
       <div id="banner">
         <span id="name">
-            <a href="/">conne.cc</a>
-            <span id="arrow">&gt;</span>
+          <a href="/">conne.cc</a>
+          <span id="arrow">></span>
         </span>
         <!--<img src="/images/logo.small.png" />-->
         <div class="clearfix"></div>
@@ -69,11 +69,21 @@
     </div>
 
     <footer>
-    <%= link_to "@connecc_cards", "http://twitter.com/connecc_cards" %> |
-    <%= link_to "Privacy", privacy_policy_path %> |
-    Copyright 2011
-    </footer>
+      <div id="social-icons">
+        <a href="http://facebook.com/pages/connecc/172680719441624"><img src="/images/facebook.png" /></a>
+        <a href="http://twitter.com/connecc_cards"><img src="/images/twitter.png" /></a>
+      </div>
 
+      <ul id="links">
+        <li><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;">Tour</a></li>
+        <li><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;">Got an idea?</a></li>
+      </ul>
+
+      <ul id="copyright">
+        <li>Copyright 2011</li>
+        <li><%= link_to "Privacy Policy", privacy_policy_path %></li>
+      </ul>
+    </footer>
   </div>
 
   <script>
@@ -87,29 +97,22 @@
    })(document, 'script');
   </script>
 
+  <!-- uservoice code -->
   <script type="text/javascript">
-  var uservoiceOptions = {
-    /* required */
-    key: 'connecc',
-    host: 'connecc.uservoice.com', 
-    forum: '93547',
-    showTab: true,  
-    /* optional */
-    alignment: 'left',
-    background_color:'#f00', 
-    text_color: 'white',
-    hover_color: '#06C',
-    lang: 'en'
-  };
-
-  function _loadUserVoice() {
-    var s = document.createElement('script');
-    s.setAttribute('type', 'text/javascript');
-    s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
-    document.getElementsByTagName('head')[0].appendChild(s);
-  }
-  _loadSuper = window.onload;
-  window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+    var uservoiceOptions = {
+      key: 'connecc',
+      host: 'connecc.uservoice.com', 
+      forum: '93547',
+      lang: 'en',
+      showTab: false
+    };
+    function _loadUserVoice() {
+      var s = document.createElement('script');
+      s.src = ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js";
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+    _loadSuper = window.onload;
+    window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
   </script>
 
 </body>

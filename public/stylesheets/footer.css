@@ -1,0 +1,43 @@
+/* Wyatt, this sucks, I'm sorry, I fail at css, fix this plz. */
+
+footer {
+    margin:30px;
+}
+
+footer a {
+    text-decoration:none;
+}
+
+#social-icons, #links, #copyright {
+    margin:30px;
+}
+
+#social-icons a {
+    margin:10px;
+}
+
+#links li, #copyright li {
+    display:inline;
+}
+
+#links li:after {
+    content:'|';
+    margin:10px;
+}
+
+#links li:last-child:after {
+    content:'';
+}
+
+#links a {
+    color:blue;
+    font-size:17px;
+}
+
+#links a:visited {
+    color:blue;
+}
+
+#copyright {
+    text-align:center;
+}
