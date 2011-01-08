@@ -2,6 +2,10 @@ Given /^I am not authenticated$/ do
   visit('/users/sign_out')
 end
 
+Given /^Joe has an account$/ do
+  Given %{I have a user "joe@conne.cc" with password "password"}
+end
+
 Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   user = User.new(:email => email, :password => password)
   user.first_name = "Joe"

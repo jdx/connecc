@@ -6,6 +6,7 @@ class Card < ActiveRecord::Base
   belongs_to :order
   has_many :visits
   has_many :contact_requests
+  has_many :notification_requests
 
   attr_accessible :message
 

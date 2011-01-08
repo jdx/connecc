@@ -39,7 +39,8 @@ Connecc::Application.routes.draw do
   post "google_checkout_api/callback" => "google_checkout_api#callback"
 
   get ":code" => "cards#show", :as => "card"
-  post ":code" => "cards#contact_request", :as => "contact_request"
+  post ":code/contact_request" => "cards#contact_request", :as => "contact_request"
+  post ":code/notification_request" => "cards#notification_request", :as => "notification_request"
   put ":code/edit" => "cards#update", :as => "card_edit"
   get ":code/edit" => "cards#edit", :as => "card_edit"
   root :to => "home#home"

@@ -8,6 +8,14 @@
 -if @card.giver == current_user
   %p= link_to "Edit card", card_edit_path(@card.code)
 -else
+  -if @notification_request
+    %h2 #{ @card.giver } hasn't posted a message yet
+    %p To be notified when he posts a message, fill out this form:
+    =semantic_form_for @notification_request, :url => notification_request_path(@card.code) do |f|
+      =f.inputs do
+        =f.input :email
+      =f.buttons do
+        =f.commit_button "Notify me"
   -if @contact_request
     %h3 Have #{ @card.giver } get a hold of me
     =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
