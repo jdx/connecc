@@ -27,7 +27,7 @@ class GoogleCheckoutApiController < ApplicationController
       "Accept" => "application/xml;charset=UTF-8"
     }
 
-    puts 'set up header: ' + header
+    puts 'set up header: ' + header.to_s
 
     req = Net::HTTP::Post.new(url.path, header)
 
