@@ -1,6 +1,6 @@
 /* connecc.css */
 
-html { 
+html {
     background-color:#E6E7E8;
 }
 
@@ -344,7 +344,6 @@ a.menu-button {
 .card .top-half {
     height:150px;
     border-bottom:1px dashed #333;
- Login Signup
     position:relative;
     height:150px;
 }
