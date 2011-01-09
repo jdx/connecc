@@ -48,9 +48,35 @@ class GoogleCheckoutApiController < ApplicationController
 
     if notification.kind_of? Google4R::Checkout::NewOrderNotification
       order = Order.create! do |o|
-        o.buyer_billing_address = Address.create_from_google(notification.buyer_billing_address)
+        o.buyer_billing_address = Address.create! do |a|
+          google = notification.buyer_billing_address
+          a.address1 = google.address1
+          a.address2 = google.address2
+          a.city = google.city
+          a.company_name = google.company_name
+          a.contact_name = google.contact_name
+          a.country_code = google.country_code
+          a.email = google.email
+          a.fax = google.fax
+          a.phone = google.phone
+          a.postal_code = google.postal_code
+          a.region = google.region
+        end
         o.buyer_id = notification.buyer_id
-        o.buyer_shipping_address = Address.create_from_google(notification.buyer_shipping_address)
+        o.buyer_shipping_address = Address.create! do |a|
+          google = notification.buyer_shipping_address
+          a.address1 = google.address1
+          a.address2 = google.address2
+          a.city = google.city
+          a.company_name = google.company_name
+          a.contact_name = google.contact_name
+          a.country_code = google.country_code
+          a.email = google.email
+          a.fax = google.fax
+          a.phone = google.phone
+          a.postal_code = google.postal_code
+          a.region = google.region
+        end
         o.financial_order_state = notification.financial_order_state
         o.fulfillment_order_state = notification.fulfillment_order_state
         o.google_order_number = notification.google_order_number
