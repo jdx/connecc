@@ -7,8 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.trackable
       t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       t.boolean :admin, :null => false, :default => false
-      t.string :first_name, :null => false
-      t.string :last_name, :null => false
+      t.string :name, :null => false
       t.boolean :show_email, :null => false, :default => true
       t.string :phone_number
 
@@ -18,8 +17,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     add_index :users, :unlock_token,         :unique => true
-    add_index :users, :first_name
-    add_index :users, :last_name
   end
 
   def self.down

@@ -8,8 +8,7 @@ end
 
 Given /^I have a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   user = User.new(:email => email, :password => password)
-  user.first_name = "Joe"
-  user.last_name = "Blow"
+  user.name = "Joe Blow"
   user.save
 end
 

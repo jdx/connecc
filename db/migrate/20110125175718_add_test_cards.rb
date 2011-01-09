@@ -1,8 +1,7 @@
 class AddTestCards < ActiveRecord::Migration
   def self.up
     user = User.new(:email => "joe@conne.cc", :password => "password")
-    user.first_name = "Joe"
-    user.last_name = "Blow"
+    user.name = "Joe Blow"
     user.save
     address = Address.create! :address1 => "211 112th Ave NE APT 312",
                               :city => "Bellevue",

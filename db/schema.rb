@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
     t.datetime "updated_at"
   end
 
+  add_index "notification_requests", ["card_id"], :name => "index_notification_requests_on_card_id"
+  add_index "notification_requests", ["user_id"], :name => "index_notification_requests_on_user_id"
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.integer  "buyer_billing_address_id",                   :null => false
@@ -93,8 +96,7 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.boolean  "admin",                               :default => false, :null => false
-    t.string   "first_name",                                             :null => false
-    t.string   "last_name",                                              :null => false
+    t.string   "name",                                                   :null => false
     t.boolean  "show_email",                          :default => true,  :null => false
     t.string   "phone_number"
     t.datetime "created_at"
@@ -102,8 +104,6 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["first_name"], :name => "index_users_on_first_name"
-  add_index "users", ["last_name"], :name => "index_users_on_last_name"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 

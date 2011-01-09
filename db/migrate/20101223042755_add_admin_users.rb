@@ -1,14 +1,12 @@
 class AddAdminUsers < ActiveRecord::Migration
   def self.up
     user = User.new(:email => "jeff@conne.cc", :password => "password")
-    user.first_name = "Jeff"
-    user.last_name = "Dickey"
+    user.name = "Jeff Dickey"
     user.phone_number = "971-222-7154"
     user.admin = true
     user.save
     user = User.new(:email => "wyatt@conne.cc", :password => "password")
-    user.first_name = "Wyatt"
-    user.last_name = "Allen"
+    user.name = "Wyatt Allen"
     user.admin = true
     user.save
   end
