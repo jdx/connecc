@@ -277,6 +277,8 @@ a.menu-button {
 
     border:1px solid #ccc;
     display:inline-block;
+
+    cursor:pointer;
 }
 
 .cta-button:hover {
