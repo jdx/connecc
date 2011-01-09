@@ -25,7 +25,7 @@ class Address < ActiveRecord::Base
     result.postal_code = google.postal_code
     result.region = google.region
 
-    return result.create!
+    return result.save!
   end
 
 end
