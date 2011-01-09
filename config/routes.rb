@@ -1,11 +1,17 @@
 Connecc::Application.routes.draw do
 
+  # note: NOTHING can be a 5 character route with this implementation, we can change that later if we need to
+
+  get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  post ":code/contact_request" => "cards#contact_request", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+
   devise_for :users do
-    get "login", :to => "devise/sessions#new"
-    post "login", :to => "devise/sessions#create"
-    get "logout", :to => "devise/sessions#destroy"
-    get "signup", :to => "devise/registrations#new"
-    post "signup", :to => "devise/registrations#create"
+    get "login", :to => "devise/sessions#new", :path => 'log_in'
+    post "login", :to => "devise/sessions#create", :path => 'log_in'
+    get "logout", :to => "devise/sessions#destroy", :path => 'log_out'
     get "account/password/forgot", :to => "devise/passwords#new"
     post "account/password/forgot", :to => "devise/passwords#create"
     get "account/password/change", :to => "devise/passwords#edit"
@@ -14,7 +20,7 @@ Connecc::Application.routes.draw do
     put "account/profile/edit", :to => "devise/registrations#update"
   end
 
-  namespace "admin" do
+  namespace "admin", :path => "administration" do
     resources :orders do
       member do
         post 'generate'
@@ -30,6 +36,7 @@ Connecc::Application.routes.draw do
 
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
   resources :orders
+  get "orders/:activation_string" => "orders#activate"
 
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"
@@ -38,10 +45,5 @@ Connecc::Application.routes.draw do
 
   post "google_checkout_api/callback" => "google_checkout_api#callback"
 
-  get ":code" => "cards#show", :as => "card"
-  post ":code/contact_request" => "cards#contact_request", :as => "contact_request"
-  post ":code/notification_request" => "cards#notification_request", :as => "notification_request"
-  put ":code/edit" => "cards#update", :as => "card_edit"
-  get ":code/edit" => "cards#edit", :as => "card_edit"
   root :to => "home#home"
 end

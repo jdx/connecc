@@ -18,6 +18,11 @@ class OrdersController < ApplicationController
     redirect_to response.redirect_url
   end
 
+  def activate
+    @order = Order.find_by_activation_string(:activation_string)
+    raise ActiveRecord::RecordNotFound unless @order
+  end
+
 end
 
 class TaxTableFactory

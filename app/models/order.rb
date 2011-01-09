@@ -1,4 +1,8 @@
+require 'active_support/secure_random'
+
 class Order < ActiveRecord::Base
+  before_create :update_state, :create_activation_string
+  before_update :update_state
 
   belongs_to :user
   has_many :cards
@@ -11,10 +15,22 @@ class Order < ActiveRecord::Base
   end
 
   def generate_cards
-    self.cards_amount.times do
-      self.cards << Card.new
+    cards_amount.times do
+      cards << Card.new
     end
-    self.save!
+    save!
+  end
+
+  protected
+
+  def update_state
+    state = 'new'
+    state = 'chargeable' if authorization_amount
+    state = 'shipped' if shipped
+  end
+
+  def create_activation_string
+    activation_string = ActiveSupport::SecureRandom.hex(16)
   end
 
 end
