@@ -87,16 +87,13 @@ class GoogleCheckoutApiController < ApplicationController
           a.postal_code = google.postal_code
           a.region = google.region
         end
-        o.financial_order_state = notification.financial_order_state
-        o.fulfillment_order_state = notification.fulfillment_order_state
         o.google_order_number = notification.google_order_number
         o.cards_amount = notification.shopping_cart.private_data['cards_amount']
       end
-    elsif notification.kind_of? Google4R::Checkout::OrderStateChangeNotification
+    elsif notification.kind_of? Google4R::Checkout::AuthorizationAmountNotification
       # This does not appear to be working... :(
       order = Order.find_by_google_order_number(notification.google_order_number)
-      order.financial_order_state = notification.new_financial_order_state
-      order.fulfillment_order_state = notification.new_fulfillment_order_state
+      order.authorization_amount = notification.authorization_amount
       order.save!
     end
     render :text => "<notification-acknowledgment xmlns=\"http://checkout.google.com/schema/2\" serial-number=\"#{ serial_number }\"/>"
