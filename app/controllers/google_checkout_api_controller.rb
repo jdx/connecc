@@ -15,7 +15,7 @@ class GoogleCheckoutApiController < ApplicationController
     puts 'serial number: ' + serial_number
 
     url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
-    http = Net::HTTP.new(uri.host, uri.port)
+    http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
