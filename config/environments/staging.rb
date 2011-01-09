@@ -20,6 +20,7 @@ Connecc::Application.configure do
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
+  config.action_controller.logger = Logger.new(STDOUT)
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
@@ -50,4 +51,5 @@ Connecc::Application.configure do
   config.action_mailer.default_url_options = { :host => 'connecc-staging.heroku.com' }
 
   GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL = "https://sandbox.google.com/checkout/api/checkout/v2/reports/Merchant/#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }"
+
 end
