@@ -2,7 +2,7 @@ require 'google4r/checkout'
 
 class OrdersController < ApplicationController
 
-  def create
+  def place
     @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     @frontend.tax_table_factory = TaxTableFactory.new
     checkout_command = @frontend.create_checkout_command
