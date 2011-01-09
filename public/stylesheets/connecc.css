@@ -4,10 +4,17 @@ html {
     background-color:#E6E7E8;
 }
 
-html, #container {
+html, body {
     background-image:url("/images/noise.soft.png");
     background-repeat:repeat;
 }
+
+#container {
+    background-image:url("/images/graph.png");
+    background-repeat:no-repeat;
+    background-position:top center;
+}
+
 
 body {
     background-color: #E6E7E8;
@@ -288,7 +295,6 @@ a.menu-button {
 .card .top-half {
     height:150px;
     border-bottom:1px dashed #333;
- Login Signup
     position:relative;
     height:150px;
 }
