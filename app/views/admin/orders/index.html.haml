@@ -9,13 +9,11 @@
   %tr
     %th Order
     %th User
-    %th Financial State
-    %th Fulfillment State
+    %th Authorization amount
     %th Google Order Number
   -for order in @orders
     %tr
       %td= link_to order, admin_order_path(order)
       %td= link_to order.user, admin_user_path(order.user) if order.user
-      %td= order.financial_order_state
-      %td= order.fulfillment_order_state
+      %td= "$" + sprintf("%.2f", order.authorization_amount)
       %td= order.google_order_number

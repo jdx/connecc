@@ -1,16 +1,6 @@
 require 'google4r/checkout'
 
 class OrdersController < ApplicationController
-  before_filter :authenticate_user!, :except => :create
-
-  def index
-    @orders = current_user.orders
-  end
-
-  def show
-    @order = current_user.orders.find_by_id(params[:id])
-    raise ActiveRecord::RecordNotFound unless @order
-  end
 
   def create
     @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
