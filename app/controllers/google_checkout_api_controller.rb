@@ -8,26 +8,18 @@ class GoogleCheckoutApiController < ApplicationController
 
   def callback
 
-    puts 'inside callback'
-
     serial_number = request.POST["serial-number"]
-
-    puts 'serial number: ' + serial_number
 
     url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    puts 'set up http stuff'
-
     header = {
       "Authorization" => "Basic " + Base64.encode64("#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }:#{ ENV['CONNECC_GOOGLE_MERCHANT_KEY']}"),
       "Content-Type" => "application/xml;charset=UTF-8",
       "Accept" => "application/xml;charset=UTF-8"
     }
-
-    puts 'set up header: ' + header.to_s
 
     req = Net::HTTP::Post.new(url.path, header)
 
@@ -39,15 +31,12 @@ class GoogleCheckoutApiController < ApplicationController
 
     res = http.start { |http| http.request(req) }
 
-    puts 'sent notificaiton, get back: ' + res.body
-
     unless res.kind_of? Net::HTTPSuccess
       res.error!
     end
 
-    puts 'success, sending to google now'
-
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
+    frontend.tax_table_factory = TaxTableFactory.new
     handler = frontend.create_notification_handler
 
     begin
