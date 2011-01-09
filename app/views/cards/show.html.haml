@@ -16,6 +16,7 @@
         =f.input :email
       =f.buttons do
         =f.commit_button "Notify me"
+    %p.note #{ @card.giver } Will not get your email, or have any idea you want to be updated when the message gets posted. You'll be able to decide later if you want to make contact.
   -if @contact_request
     %h3 Have #{ @card.giver } get a hold of me
     =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
