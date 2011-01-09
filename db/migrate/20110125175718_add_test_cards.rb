@@ -14,11 +14,9 @@ class AddTestCards < ActiveRecord::Migration
 
     order = Order.create! :user => user,
                           :buyer_billing_address => address,
-                          :buyer_id => '1',
                           :buyer_shipping_address => address,
-                          :financial_order_state => 'paid',
-                          :fulfillment_order_state => 'unshipped',
-                          :google_order_number => '8'
+                          :google_order_number => '8',
+                          :cards_amount => 10
 
     order.generate_cards
     card = order.cards.first

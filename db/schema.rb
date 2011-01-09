@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
     t.string   "contact_name"
     t.string   "country_code", :null => false
     t.string   "email"
-    t.string   "fax"
     t.string   "phone"
     t.string   "postal_code",  :null => false
     t.string   "region",       :null => false
@@ -63,19 +62,17 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "buyer_billing_address_id",                   :null => false
-    t.string   "buyer_id",                                   :null => false
-    t.integer  "buyer_shipping_address_id",                  :null => false
-    t.string   "financial_order_state",                      :null => false
-    t.string   "fulfillment_order_state",                    :null => false
-    t.string   "google_order_number",                        :null => false
-    t.integer  "cards_amount",              :default => 100, :null => false
+    t.integer  "buyer_billing_address_id",                                :null => false
+    t.integer  "buyer_shipping_address_id",                               :null => false
+    t.string   "google_order_number",                                     :null => false
+    t.integer  "cards_amount",                                            :null => false
+    t.string   "activation_string"
+    t.decimal  "authorization_amount",      :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "orders", ["buyer_billing_address_id"], :name => "index_orders_on_buyer_billing_address_id"
-  add_index "orders", ["buyer_id"], :name => "index_orders_on_buyer_id"
   add_index "orders", ["buyer_shipping_address_id"], :name => "index_orders_on_buyer_shipping_address_id"
   add_index "orders", ["google_order_number"], :name => "index_orders_on_google_order_number"
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"

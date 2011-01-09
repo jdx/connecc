@@ -93,6 +93,7 @@ class GoogleCheckoutApiController < ApplicationController
         o.cards_amount = notification.shopping_cart.private_data['cards_amount']
       end
     elsif notification.kind_of? Google4R::Checkout::OrderStateChangeNotification
+      # This does not appear to be working... :(
       order = Order.find_by_google_order_number(notification.google_order_number)
       order.financial_order_state = notification.new_financial_order_state
       order.fulfillment_order_state = notification.new_fulfillment_order_state
