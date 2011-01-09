@@ -83,8 +83,8 @@ class GoogleCheckoutApiController < ApplicationController
       end
     elsif notification.kind_of? Google4R::Checkout::OrderStateChangeNotification
       order = Order.find_by_google_order_number(notification.google_order_number)
-      order.financial_order_state = order.new_financial_order_state
-      order.fulfillment_order_state = order.new_fulfillment_order_state
+      order.financial_order_state = notification.new_financial_order_state
+      order.fulfillment_order_state = notification.new_fulfillment_order_state
       order.save!
     end
     render :text => "<notification-acknowledgment xmlns=\"http://checkout.google.com/schema/2\" serial-number=\"#{ serial_number }\"/>"
