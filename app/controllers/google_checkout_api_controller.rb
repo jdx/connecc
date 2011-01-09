@@ -87,6 +87,7 @@ class GoogleCheckoutApiController < ApplicationController
       order = Order.find_by_google_order_number(notification.google_order_number)
       order.financial_order_state = order.new_financial_order_state
       order.fulfillment_order_state = order.new_fulfillment_order_state
+      order.save!
     end
     render :text => "<notification-acknowledgment xmlns=\"http://checkout.google.com/schema/2\" serial-number=\"#{ serial_number }\"/>"
   end
