@@ -15,10 +15,8 @@ class Admin::OrdersController < Admin::AdminController
 
   def generate
     @order = Order.find(params[:id])
-    unless @order.generated_at
-      @order.generate_cards
-      flash[:notice] = "Cards generated"
-    end
+    @order.generate_cards
+    flash[:notice] = "Cards generated"
     redirect_to admin_order_path(@order)
   end
 

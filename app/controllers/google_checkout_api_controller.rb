@@ -59,12 +59,10 @@ class GoogleCheckoutApiController < ApplicationController
           a.contact_name = google.contact_name
           a.country_code = google.country_code
           a.email = google.email
-          a.fax = google.fax
           a.phone = google.phone
           a.postal_code = google.postal_code
           a.region = google.region
         end
-        o.buyer_id = notification.buyer_id
         o.buyer_shipping_address = Address.create! do |a|
           google = notification.buyer_shipping_address
           a.address1 = google.address1
@@ -74,7 +72,6 @@ class GoogleCheckoutApiController < ApplicationController
           a.contact_name = google.contact_name
           a.country_code = google.country_code
           a.email = google.email
-          a.fax = google.fax
           a.phone = google.phone
           a.postal_code = google.postal_code
           a.region = google.region

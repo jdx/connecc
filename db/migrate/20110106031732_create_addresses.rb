@@ -8,7 +8,6 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :contact_name
       t.string :country_code, :null => false
       t.string :email
-      t.string :fax
       t.string :phone
       t.string :postal_code, :null => false
       t.string :region, :null => false
