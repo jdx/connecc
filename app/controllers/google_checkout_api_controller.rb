@@ -1,4 +1,6 @@
 require 'net/http'
+require 'uri'
+require 'base64'
 require 'google4r/checkout'
 
 class GoogleCheckoutApiController < ApplicationController
@@ -7,15 +9,38 @@ class GoogleCheckoutApiController < ApplicationController
   def callback
 
     serial_number = request.POST["serial-number"]
-    url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
 
-    # TODO: post url with authentication and all that
+    url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    header = {
+      "Authorization" => "Basic " + Base64.encode64("#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }:#{ ENV['CONNECC_GOOGLE_MERCHANT_KEY']}"),
+      "Content-Type" => "application/xml;charset=UTF-8",
+      "Accept" => "application/xml;charset=UTF-8"
+    }
+
+    req = Net::HTTP::Post.new(url.path, header)
+
+    req.body = "
+      <notification-history-request xmlns=\"http://checkout.google.com/schema/2\">
+        <serial-number>#{ serial_number }</serial-number>
+      </notification-history-request>
+    "
+
+    res = http.start { |http| http.request(req) }
+
+    unless res.kind_of? Net::HTTPSuccess
+      res.error!
+    end
+
 
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     handler = frontend.create_notification_handler
 
     begin
-      notification = handler.handle(response.body)
+      notification = handler.handle(res.body)
     rescue Google4R::Checkout::UnknownNotificationType => e
       render :text => "ignoring unknown notification type", :status => 200
       return
@@ -36,6 +61,8 @@ class GoogleCheckoutApiController < ApplicationController
       order.fulfillment_order_state = order.new_fulfillment_order_state
     end
   end
+
+  render :text => "serial-number=#{ serial_number }"
 end
 
 class TaxTableFactory
