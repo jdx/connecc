@@ -10,9 +10,9 @@ class GoogleCheckoutApiController < ApplicationController
 
     puts 'inside callback'
 
-    serial_numbera = request.POST["serial-number"]
+    serial_number = request.POST["serial-number"]
 
-    puts 'serial number: ' + serial_numberb
+    puts 'serial number: ' + serial_number
 
     url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -33,7 +33,7 @@ class GoogleCheckoutApiController < ApplicationController
 
     req.body = "
       <notification-history-request xmlns=\"http://checkout.google.com/schema/2\">
-        <serial-number>#{ serial_numberc }</serial-number>
+        <serial-number>#{ serial_number }</serial-number>
       </notification-history-request>
     "
 
@@ -71,9 +71,8 @@ class GoogleCheckoutApiController < ApplicationController
       order.financial_order_state = order.new_financial_order_state
       order.fulfillment_order_state = order.new_fulfillment_order_state
     end
+    render :text => "serial-number=#{ serial_number }"
   end
-
-  render :text => "serial-number=#{ serial_numberd }"
 end
 
 class TaxTableFactory
