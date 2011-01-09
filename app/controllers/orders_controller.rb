@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       item.unit_price = Money.new(1000, "USD")
       item.quantity = 1
     end
-    checkout_command.shopping_cart.private_data = { 'cards_amount' => '100' }
+    checkout_command.shopping_cart.private_data = { 'cards_amount' => 100 }
     response = checkout_command.send_to_google_checkout
     redirect_to response.redirect_url
   end
