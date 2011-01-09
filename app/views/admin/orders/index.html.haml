@@ -15,5 +15,8 @@
     %tr
       %td= link_to order, admin_order_path(order)
       %td= link_to order.user, admin_user_path(order.user) if order.user
-      %td= "$" + sprintf("%.2f", order.authorization_amount)
+      -if order.authorization_amount
+        %td= "$" + sprintf("%.2f", order.authorization_amount) 
+      -else
+        %td
       %td= order.google_order_number
