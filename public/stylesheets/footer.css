@@ -1,25 +1,22 @@
 /* Wyatt, this sucks, I'm sorry, I fail at css, fix this plz. */
 
 footer {
-    padding:12px;
-    margin-top:36px;
-    margin-bottom:0;
     color: #eee;
-    
     background-color:#333;
-    
     border-top:1px solid #777;
-    
     background-image:url("/images/footer.gradient.png");
     background-repeat:repeat-x;
 }
 
 footer a, footer a:visited {
-    
     color:#eee;
 }
 
-#social-icons, #links, #copyright {
+#social-icons {
+    margin:20px 6px 6px 6px;
+}
+
+#links, #copyright {
     margin:6px;
 }
 
@@ -48,4 +45,24 @@ footer a, footer a:visited {
 
 #copyright {
     text-align:center;
+}
+
+/* Sticky footer stuff */
+html, body {
+    height:100%;
+}
+
+#container {
+    min-height:100%;
+}
+
+#main {
+    padding-bottom: 130px;
+}
+
+footer {
+    position:relative;
+    margin-top:-130px;
+    height:129px;
+    clear:both;
 }
