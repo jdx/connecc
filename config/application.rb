@@ -42,5 +42,8 @@ module Connecc
     config.generators do |g|
       g.template_engine :haml
     end
+
+    config.action_controller.logger = Logger.new(STDOUT)
+
   end
 end
