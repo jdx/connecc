@@ -1,11 +1,7 @@
 #dashboard
-  %h1 Dashboard
   %ul
-    -if current_user.orders.any?
-      %li= link_to "Order history", orders_path
-    %li= link_to "Edit Profile", account_profile_edit_path
     -if current_user.visits.any?
-      Recent cards
+      Recently visited cards
       %ul
         -current_user.visits.order("-updated_at").each do |visit|
           %li= link_to visit.card, card_path(visit.card.code)

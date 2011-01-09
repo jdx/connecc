@@ -1,7 +1,4 @@
-class CardNotifier < ActionMailer::Base
-  layout "email"
-  default :from => "no-reply@conne.cc"
-
+class CardNotifier < BaseNotifier
   def contact_request(contact_request)
     @contact_request = contact_request
     mail(:to => contact_request.card.giver.email_address_with_name,

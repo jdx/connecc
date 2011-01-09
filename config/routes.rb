@@ -16,8 +16,6 @@ Connecc::Application.routes.draw do
     post "account/password/forgot", :to => "devise/passwords#create"
     get "account/password/change", :to => "devise/passwords#edit"
     put "account/password/change", :to => "devise/passwords#update"
-    get "account/profile/edit", :to => "devise/registrations#edit"
-    put "account/profile/edit", :to => "devise/registrations#update"
   end
 
   namespace "admin", :path => "administration" do
@@ -36,7 +34,7 @@ Connecc::Application.routes.draw do
 
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
   resources :orders
-  get "orders/:activation_string" => "orders#activate"
+  get "orders/:activation_string" => "orders#activate", :as => :order_activate
 
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"

@@ -67,7 +67,7 @@ class GoogleCheckoutApiController < ApplicationController
           a.address2 = google.address2
           a.city = google.city
           a.company_name = google.company_name
-          a.contact_name = google.contact_name
+          a.name = google.contact_name
           a.country_code = google.country_code
           a.email = google.email
           a.phone = google.phone
@@ -80,7 +80,7 @@ class GoogleCheckoutApiController < ApplicationController
           a.address2 = google.address2
           a.city = google.city
           a.company_name = google.company_name
-          a.contact_name = google.contact_name
+          a.name = google.contact_name
           a.country_code = google.country_code
           a.email = google.email
           a.phone = google.phone

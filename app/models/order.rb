@@ -2,6 +2,7 @@ require 'active_support/secure_random'
 
 class Order < ActiveRecord::Base
   before_create :update_state, :create_activation_string
+  after_create :send_activation_email
   before_update :update_state
 
   belongs_to :user
@@ -24,13 +25,19 @@ class Order < ActiveRecord::Base
   protected
 
   def update_state
-    state = 'new'
-    state = 'chargeable' if authorization_amount
-    state = 'shipped' if shipped
+    self.state = 'new'
+    self.state = 'activated' if activation_string == nil
+    self.state = 'chargeable' if authorization_amount
+    self.state = 'activated-and-chargeable' if authorization_amount and activation_string == nil
+    self.state = 'shipped' if shipped
   end
 
   def create_activation_string
-    activation_string = ActiveSupport::SecureRandom.hex(16)
+    self.activation_string = ActiveSupport::SecureRandom.hex(16)
+  end
+
+  def send_activation_email
+    OrderNotifier.activation(self).deliver
   end
 
 end

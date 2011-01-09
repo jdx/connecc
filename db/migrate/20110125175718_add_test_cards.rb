@@ -6,7 +6,7 @@ class AddTestCards < ActiveRecord::Migration
     address = Address.create! :address1 => "211 112th Ave NE APT 312",
                               :city => "Bellevue",
                               :country_code => "US",
-                              :contact_name => "Joe Blow",
+                              :name => "Joe Blow",
                               :email => "joe@conne.cc",
                               :phone => "971 222-7154",
                               :postal_code => "98004",

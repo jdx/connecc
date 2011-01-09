@@ -8,12 +8,14 @@
 %table
   %tr
     %th Order
+    %th State
     %th User
     %th Authorization amount
     %th Google Order Number
   -for order in @orders
     %tr
       %td= link_to order, admin_order_path(order)
+      %td= order.state
       %td= link_to order.user, admin_user_path(order.user) if order.user
       -if order.authorization_amount
         %td= "$" + sprintf("%.2f", order.authorization_amount) 

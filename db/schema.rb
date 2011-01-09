@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
     t.string   "address2"
     t.string   "city",         :null => false
     t.string   "company_name"
-    t.string   "contact_name"
+    t.string   "name",         :null => false
     t.string   "country_code", :null => false
     t.string   "email"
     t.string   "phone"
@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(:version => 20110125175719) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "buyer_billing_address_id",                                :null => false
-    t.integer  "buyer_shipping_address_id",                               :null => false
-    t.string   "google_order_number",                                     :null => false
-    t.integer  "cards_amount",                                            :null => false
+    t.string   "state",                                                                      :null => false
+    t.boolean  "shipped",                                                 :default => false, :null => false
+    t.integer  "buyer_billing_address_id",                                                   :null => false
+    t.integer  "buyer_shipping_address_id",                                                  :null => false
+    t.string   "google_order_number",                                                        :null => false
+    t.integer  "cards_amount",                                                               :null => false
     t.string   "activation_string"
     t.decimal  "authorization_amount",      :precision => 8, :scale => 2
     t.datetime "created_at"
