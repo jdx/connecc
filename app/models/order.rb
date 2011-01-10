@@ -17,6 +17,8 @@ class Order < ActiveRecord::Base
     command = frontend.create_charge_and_ship_order_command
     command.google_order_number = self.google_order_number
     command.send_to_google_checkout
+    self.shipped = true
+    self.save!
   end
 
   def to_s
