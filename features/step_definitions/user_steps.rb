@@ -35,6 +35,11 @@ Given /^I am a new, authenticated user$/ do
   Given %{I am logged in as user "#{email}" with password "#{password}"}
 end
 
+Then /^Joe should receive an email with subject "([^"]*?)"$/ do |subject|
+  email = 'joe@conne.cc'
+  Then %{"#{email}" should receive an email with subject "#{ subject }"}
+end
+
 Then /^Joe should receive an email$/ do
   email = 'joe@conne.cc'
   Then %{"#{email}" should receive an email}

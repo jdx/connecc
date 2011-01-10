@@ -12,7 +12,7 @@ module NavigationHelpers
       '/orders'
 
     when /the admin dashboard/
-      '/admin'
+      '/administration'
 
     when /the dashboard/
       '/dashboard'

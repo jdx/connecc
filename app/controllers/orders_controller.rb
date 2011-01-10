@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   end
 
   def activate
-    @order = Order.find_by_activation_string(:activation_string)
+    @order = Order.find_by_activation_string(params[:activation_string])
     raise ActiveRecord::RecordNotFound unless @order
   end
 

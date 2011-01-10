@@ -10,4 +10,4 @@ Feature: Contact requests
             And I fill in "contact_request_message" with "I like it! Get back to me when you get a chance!"
             And I press "Get back to me"
         Then I should see "will be getting a hold of you"
-            And Joe should receive an email
+            And Joe should receive an email with subject "Activate your conne.cc account"
