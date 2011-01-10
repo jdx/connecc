@@ -10,6 +10,13 @@ class Order < ActiveRecord::Base
   belongs_to :buyer_billing_address, :class_name => 'Address'
   belongs_to :buyer_shipping_address, :class_name => 'Address'
 
+  def charge_and_ship
+    frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
+    frontend.tax_table_factory = TaxTableFactory.new
+    command = frontend.create_charge_and_ship_order_command
+    command.google_order_number = self.google_order_number
+    command.send_to_google_checkout
+  end
 
   def to_s
     "Order #{ id }"

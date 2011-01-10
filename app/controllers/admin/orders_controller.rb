@@ -13,13 +13,6 @@ class Admin::OrdersController < Admin::AdminController
     @order = Order.find(params[:id])
   end
 
-  def generate
-    @order = Order.find(params[:id])
-    @order.generate_cards
-    flash[:notice] = "Cards generated"
-    redirect_to admin_order_path(@order)
-  end
-
   def cards
     @cards = Order.find(params[:id]).cards
     render :template => "admin/cards/cards"
@@ -27,8 +20,8 @@ class Admin::OrdersController < Admin::AdminController
 
   def ship
     @order = Order.find(params[:id])
-    @order.ship
-    redirect_to admin_order_path(@order), :notice => 'Order marked as shipped'
+    @order.charge_and_ship
+    redirect_to admin_order_path(@order), :notice => 'Charged and shipped'
   end
 
 end
