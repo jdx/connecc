@@ -1,28 +1,25 @@
-%h1= @card.giver
--if @card.giver.show_email
-  %p= @card.giver.email
--if @card.giver.phone_number
-  %p= @card.giver.phone_number
 -if @card.message
   %p&= @card.message
 -if @card.giver == current_user
   %p= link_to "Edit card", card_edit_path(@card.code)
 -else
-  -if @notification_request
-    %h2 #{ @card.giver } hasn't posted a message yet
-    %p To be notified when he posts a message, fill out this form:
-    =semantic_form_for @notification_request, :url => notification_request_path(@card.code) do |f|
-      =f.inputs do
-        =f.input :email
-      =f.buttons do
-        =f.commit_button "Notify me"
-    %p.note #{ @card.giver } Will not get your email, or have any idea you want to be updated when the message gets posted. You'll be able to decide later if you want to make contact.
-  -if @contact_request
-    %h3 Have #{ @card.giver } get a hold of me
-    =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
-      =f.inputs do
-        =f.input :contact_info, :label => "Your phone number and/or email address"
-        %span.help How will #{ @card.giver.name } get back to you?
-        =f.input :message
-      =f.buttons do
-        =f.commit_button "Get back to me"
+  #message
+    -if @notification_request
+      %h2 #{ @card.giver } hasn't been here to post a message for you yet.
+      %p.explanation To be notified when he posts a message for you, put your email here:
+      =semantic_form_for @notification_request, :url => notification_request_path(@card.code) do |f|
+        =f.inputs do
+          =f.input :email, :label => false
+        =f.buttons do
+          =f.commit_button "Notify me*"
+          %span.alt or #{ link_to "Have #{ @card.giver } get back to me" }
+      %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact.
+    -if @contact_request
+      %h3 Have #{ @card.giver } get a hold of me
+      =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
+        =f.inputs do
+          =f.input :contact_info, :label => "Your phone number and/or email address"
+          %span.help How will #{ @card.giver.name } get back to you?
+          =f.input :message
+        =f.buttons do
+          =f.commit_button "Get back to me"

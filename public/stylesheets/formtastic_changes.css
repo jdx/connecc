@@ -64,3 +64,9 @@ form.formtastic .alt {
     display:inline-block;
     padding-top:25px;
 }
+
+.formtastic .error input {
+    -webkit-box-shadow: inset 0px 2px 2px #f75d59;
+    -moz-box-shadow: inset 0px 2px 2px #f75d59;
+    box-shadow: inset 0px 2px 2px #f75d59;
+}

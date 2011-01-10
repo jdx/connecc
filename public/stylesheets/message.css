@@ -1,0 +1,24 @@
+#message h2 {
+    margin: 70px 40px;
+}
+
+#message .explanation {
+    margin: 40px 40px 10px 40px;
+    text-align:center;
+    font-size:18px;
+}
+
+#message .inputs li {
+    margin:0;
+}
+
+#notification_request_email {
+    margin:10px auto;
+    display:block;
+}
+
+#message .buttons {
+    display:block;
+    margin:0 auto;
+    width:100%;
+}

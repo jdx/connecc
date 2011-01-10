@@ -16,3 +16,4 @@ stylesheets:
     - public/stylesheets/footer.css
     - public/stylesheets/admin.css
     - public/stylesheets/about_us.css
+    - public/stylesheets/message.css
