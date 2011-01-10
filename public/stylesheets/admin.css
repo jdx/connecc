@@ -40,6 +40,11 @@
 
 #admin #breadcrumb {
     margin:20px 50px;
+    text-shadow:0 1px 0 #fff;
+}
+
+#admin #breadcrumb a {
+    font-weight:normal;
 }
 
 #admin h1 {
@@ -48,6 +53,7 @@
     margin:30px auto;
     width:500px;
     color:#000;
+    text-shadow:0 1px 0 #fff;
 }
 
 #admin #actions {
@@ -90,6 +96,7 @@
     margin:5px;
     text-align:center;
     color:#000;
+    text-shadow:0 1px 0 #fff;
 }
 
 #admin .list ul {
