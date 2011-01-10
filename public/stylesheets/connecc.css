@@ -458,11 +458,11 @@ tr {
     border-bottom:1px dotted #bbb;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
     background-color:#eff2ff;
 }
 
-tr:nth-child(even) {
-    background-color:#e8edff;
+tr:nth-child(odd) {
+    background-color:#ddeeff;
 }
 

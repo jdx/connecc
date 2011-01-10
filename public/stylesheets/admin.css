@@ -12,6 +12,7 @@
 
 #admin a:hover {
     border-bottom:1px solid;
+    margin-bottom:-1px; /* hacky hack */
 }
 
 #admin #admin-menu a, #admin-menu a:visited {
@@ -26,7 +27,6 @@
 
 #admin #admin-menu a:hover {
     color:#fff;
-    border:1px solid #333;
 }
 
 #admin #admin-menu {
@@ -75,14 +75,6 @@
     content: ':';
 }
 
-#admin .details p:nth-child(odd) {
-    background-color:#eff2ff;
-}
-
-#admin .details p:nth-child(even) {
-    background-color:#e8edff;
-}
-
 #admin .lists {
     overflow:hidden;
 }
@@ -109,12 +101,14 @@
     padding:10px 25px;
 }
 
+#admin .details p:nth-child(odd),
 #admin .list ul li:nth-child(odd) {
-    background-color:#eff2ff;
+    background-color:#ddeeff;
 }
 
+#admin .details p:nth-child(even),
 #admin .list ul li:nth-child(even) {
-    background-color:#e8edff;
+    background-color:#eff2ff;
 }
 
 #admin #summary {
