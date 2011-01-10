@@ -23,6 +23,11 @@ form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
     width:15%!important;
 }
 
+form.formtastic input[type=submit] {
+    font-size:22px;
+    padding:7px 15px;
+}
+
 input[type="text"], input[type="email"], input[type="password"] {
     -webkit-box-shadow: inset 0px 2px 2px #888;
     -moz-box-shadow: inset 0px 2px 2px #888;
@@ -38,46 +43,14 @@ input[type="text"], input[type="email"], input[type="password"] {
     font-size:16px!important;
 }
 
-input[type=submit] {
-    font-size:28px !important;
-    padding:5px 10px !important;
-    margin:10px;
-    background:#ededed; /* old browsers */
-    background: -moz-linear-gradient(top, #EDEDED 0%, #C9C9C9 100%); /* firefox */
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDEDED), color-stop(100%,#C9C9C9)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDEDED', endColorstr='#C9C9C9',GradientType=0 ); /* ie */
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    border:1px solid #666;
-    color:#222;
-    text-shadow:0 1px 0 white;
-}
-
-input[type=submit]:hover {
-    color:#fff;
-    border:1px solid #333;
-    background: #4271FF; /* old browsers */
-    background: -moz-linear-gradient(top, #4271FF 0%, #023AE2 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4271FF), color-stop(100%,#023AE2)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4271FF', endColorstr='#023AE2',GradientType=0 ); /* ie */
-    text-shadow:0 -1px 0 #444;
-}
-
-input[type=submit]:active {
-    -webkit-box-shadow:inset 0 0 10px #000;
-    -moz-box-shadow:inset 0 0 10px #000;
-    box-shadow:inset 0 0 10px #000;
-}
-
 /*for FireFox*/
-    input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner
-    {   
-        border : 0px;
-    } 
+input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner
+{   
+    border : 0px;
+} 
 /*for IE8 */
-    input[type="submit"]:focus, input[type="button"]:focus
-    {     
-        outline : none; 
-    }
+input[type="submit"]:focus, input[type="button"]:focus
+{     
+    outline : none; 
+}
 

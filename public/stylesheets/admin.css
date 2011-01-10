@@ -1,9 +1,54 @@
-#admin a {
+#admin {
+    font-size:18px;
+}
+
+#breadcrumb a, table a, #breadcrumb a:visited, table a:visited {
     text-decoration:none;
-    color: #4271FF; /* old browsers */
+    color: #4271FF;
+}
+
+#breadcrumb a:hover, table a:hover {
+    border-bottom:1px solid;
+}
+
+#admin-menu {
+    width:800px;
+    text-align:center;
+    margin:40px auto;
+}
+
+#admin-menu li {
+    display:inline-block;
+}
+
+#breadcrumb {
+    margin:20px 50px;
+}
+
+#admin h1 {
+    font-size:28px;
+    text-align:center;
+    margin:20px auto;
+    width:500px;
 }
 
 table {
-    font-size:16px;
+    margin:50px auto;
+    border:1px solid #4271FF;
 }
 
+th, td {
+    padding:10px;
+}
+
+tr {
+    border-bottom:1px dotted #bbb;
+}
+
+tr:nth-child(odd) {
+    background-color:#eff2ff;
+}
+
+tr:nth-child(even) {
+    background-color:#e8edff;
+}

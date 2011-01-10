@@ -11,7 +11,8 @@
       -if flash[:alert]
         #notice
           =flash[:alert]
-      =yield
+      #admin
+        =yield
     .stripCurl
       .leftCurl
       .rightCurl

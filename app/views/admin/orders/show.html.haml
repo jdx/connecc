@@ -1,8 +1,9 @@
-=link_to "Admin", admin_path
-=">"
-=link_to "Orders", admin_orders_path
-=">"
-=link_to @order, admin_order_path(@order)
+#breadcrumb
+  =link_to "Admin", admin_path
+  =">"
+  =link_to "Orders", admin_orders_path
+  =">"
+  =link_to @order, admin_order_path(@order)
 %p
   %label Billing address
   %span #{ @order.buyer_billing_address }
