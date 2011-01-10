@@ -26,9 +26,9 @@ class Order < ActiveRecord::Base
 
   def update_state
     self.state = 'new'
-    self.state = 'activated' if activation_string == nil
-    self.state = 'chargeable' if authorization_amount
-    self.state = 'activated-and-chargeable' if authorization_amount and activation_string == nil
+    self.state = 'awaiting-charge' if activation_string == nil
+    self.state = 'awaiting-activation' if authorization_amount
+    self.state = 'awaiting-shipment' if authorization_amount and activation_string == nil
     self.state = 'shipped' if shipped
   end
 
