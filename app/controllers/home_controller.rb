@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  layout "wide", :only => 'about_us'
-  layout "narrow", :except => 'about_us'
+  layout :choose_layout
 
   def home
   end
@@ -18,6 +17,16 @@ class HomeController < ApplicationController
   end
 
   def intro_video
+  end
+
+  protected
+
+  def choose_layout
+    if action_name == 'about_us'
+      return 'wide'
+    else
+      return 'narrow'
+    end
   end
 
 end
