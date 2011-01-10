@@ -1,5 +1,5 @@
 class Admin::AdminController < ApplicationController
-  layout "admin"
+  layout "wide"
   before_filter :admin_required
 
   def dashboard

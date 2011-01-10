@@ -41,34 +41,7 @@
       <a class="menu-button" href="<%= login_path %>">Login</a>
     <%- end %>
     </div>
-    <div id="main">
-      <div id="banner">
-        <span id="name">
-          <a href="/">conne.cc</a>
-          <span id="arrow">></span>
-        </span>
-        <!--<img src="/images/logo.small.png" />-->
-        <div class="clearfix"></div>
-      </div>
-      <div class="bannerCurl"><div class="leftCurl"></div><div class="rightCurl"></div></div>
-      <div id="strip">
-        <%- if flash[:notice] %>
-          <div id="notice">
-            <%= flash[:notice] %>
-          </div>
-        <%- end %>
-        <%- if flash[:alert] %>
-          <div id="alert">
-            <%= flash[:alert] %>
-          </div>
-        <%- end %>
-        <%= content_for?(:content) ? yield(:content) : yield %>
-      </div>
-      <div class="stripCurl"><div class="leftCurl"></div><div class="rightCurl"></div></div>
-
-      <div class="clearfix"></div>
-    </div>
-
+    <%= yield(:content) %>
   </div>
   <footer>
     <div id="social-icons">

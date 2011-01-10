@@ -76,8 +76,12 @@ a.menu-button {
 }
 
 #main {
-    width:620px;
     margin:24px auto 0 auto;
+    width:620px;
+}
+
+#main.wide {
+    width:900px;
 }
 
 #banner, #strip {
@@ -207,6 +211,10 @@ a.menu-button {
     width:620px;
     position:relative;
     top:-25px;
+}
+
+.wide .stripCurl {
+    width:900px;
 }
 
 .leftCurl, .rightCurl {
