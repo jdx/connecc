@@ -10,6 +10,7 @@ gem 'prawn'
 gem 'prawnto'
 gem 'money'
 gem 'google4r-checkout', '1.1',:git => 'git://github.com/nbudin/google4r-checkout.git', :ref => '9825da4427b0dab73906'
+gem 'jammit'
 
 group :development do
   gem 'heroku_san'
