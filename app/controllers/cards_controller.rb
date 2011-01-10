@@ -18,6 +18,7 @@ class CardsController < ApplicationController
   def update
     @card.message = params[:card][:message]
     @card.save!
+    @card.notification_requests.each { |r| CardNotifier.notification_request(r).deliver }
     redirect_to card_path(@card.code), :notice => "Updated card"
   end
 
