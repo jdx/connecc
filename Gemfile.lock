@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/nbudin/google4r-checkout.git
+  revision: 9825da4427b0dab73906aea6fce723a23815509a
+  ref: 9825da4427b0dab73906
+  specs:
+    google4r-checkout (1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -75,8 +82,6 @@ GEM
     gherkin (2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
-    google4r-checkout (1.0.6.1)
-      money (>= 1.7.1)
     haml (3.0.23)
     heroku (1.14.10)
       json_pure (>= 1.2.0, < 1.5.0)
@@ -98,8 +103,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    money (3.5.4)
-      i18n (~> 0.4)
     nokogiri (1.4.4)
     polyglot (0.3.1)
     prawn (0.8.4)
@@ -184,7 +187,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   formtastic
-  google4r-checkout
+  google4r-checkout (= 1.1)!
   haml
   heroku_san
   hpricot
