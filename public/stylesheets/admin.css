@@ -47,15 +47,6 @@
     font-weight:normal;
 }
 
-#admin h1 {
-    font-size:28px;
-    text-align:center;
-    margin:30px auto;
-    width:500px;
-    color:#000;
-    text-shadow:0 1px 0 #fff;
-}
-
 #admin #actions {
     margin:40px auto;
     text-align:center;
@@ -91,17 +82,13 @@
     width:250px;
 }
 
-#admin .list h2 {
-    font-size:24px;
-    margin:5px;
-    text-align:center;
-    color:#000;
-    text-shadow:0 1px 0 #e5e5e5;
-}
-
 #admin .list ul {
     margin:0;
     border:1px solid #4271FF;
+}
+
+#admin h2 {
+    margin:5px;
 }
 
 #admin .list li {

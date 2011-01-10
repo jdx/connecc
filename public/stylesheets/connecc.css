@@ -90,6 +90,7 @@ a.menu-button {
     border:1px solid #bbb;
     border-bottom:1px dashed #999;
     border-top:1px dashed #ddd;
+    font-size:20px;
 }
 
 #banner {
@@ -137,13 +138,6 @@ a.menu-button {
 
 #strip .seg {
     margin:16px 64px;
-}
-
-#strip .seg h2 {
-    font-size:20px;
-    text-shadow:0 1px 0 #e5e5e5;
-    margin:6px 0;
-    color:#222;
 }
 
 #strip .seg p {
@@ -248,23 +242,11 @@ a.menu-button {
     transform:rotate(4deg);
 }
 
-#pitch, #tour, #signup {
-    margin:30px;
-    text-align:center;
-}
-
-#pitch h1, #tour h1, #signup h1 {
-    font-size:28px;
-    text-shadow:0 1px 0 #fff;
-    margin:12px 0;
-    color:#333;
-}
-
 #pitch h2, #tour h2 {
     font-size:20px;
-    font-family:"Droid Serif";
-    text-shadow:0 1px 0 #fff;
-    margin:10px 32px;
+    margin:30px auto;
+    text-align:justify;
+    width:450px;
 }
 
 #tour a {
@@ -409,8 +391,35 @@ a.menu-button {
     opacity:0.7;
 }
 
-.cta {
+h1 {
+    font-size:28px;
+    text-shadow:0 1px 0 #fff;
+    color #333;
+    text-align:center;
+    margin:30px;
+}
+
+h2 {
+    font-family:"Droid Serif";
+    font-size:24px;
+    margin:20px;
+    text-align:center;
+    color:#000;
+    text-shadow:0 1px 0 #e5e5e5;
+}
+
+#cta {
+    margin:40px;
+    text-align:center;
+}
+
+#cta .alt {
+    font-size:18px;
+}
+
+#cta .button {
     font-size:28px !important;
+    margin: 10px 20px;
 }
 
 .button, input[type=submit] {
@@ -491,3 +500,15 @@ tr:nth-child(odd) {
     background-color:#ddeeff;
 }
 
+h3 {
+    font-size:20px;
+}
+
+blockquote {
+    font-family:'Droid Serif';
+    text-align:justify;
+    margin:20px 100px 50px 20px;
+    font-size:18px;
+    padding-left:80px;
+    background: transparent url(../images/blockquote.png) no-repeat;
+}

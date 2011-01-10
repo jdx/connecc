@@ -40,6 +40,7 @@ Connecc::Application.routes.draw do
   get "privacy_policy" => "home#privacy_policy"
   get "about_us" => "home#about_us"
   get "faq" => "home#faq"
+  get "intro_video" => "home#intro_video"
 
   post "google_checkout_api/callback" => "google_checkout_api#callback"
 

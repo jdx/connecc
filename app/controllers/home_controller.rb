@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  layout "wide", :only => 'about_us'
+  layout "narrow", :except => 'about_us'
+
   def home
   end
 
@@ -12,6 +15,9 @@ class HomeController < ApplicationController
   end
 
   def privacy_policy
+  end
+
+  def intro_video
   end
 
 end

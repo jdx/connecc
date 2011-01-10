@@ -1,8 +1,8 @@
-%div#pitch
+#pitch
   %h1
-    Business cards: rethought.
+    Business cards are obselete.
   %h2
-    We found a way skip that pesky trading of contact information to fast-forward connections.
+    We want to help you move past sharing contact information and up to continuing your conversations.
 %hr
 #card-container
   #top-card.card
@@ -45,18 +45,13 @@
         http://conne.cc/8dk18
       %span.arrow= ">"
 %hr
-%div#tour
-  %h2
-    Take the  #{ link_to "Tour", tour_path } and find out how it works!
-  %h2
-    Don't feel like reading? Watch the <a href="http://www.youtube.com/watch?v=3GE3RoGmosM">intro video</a> instead.
-%hr
-%div#signup
-  %h1
-    = link_to "Sign Up", "#_", :class => 'button cta'
+%h2 Learn more
+#cta
+  #{ link_to "See an example", tour_path, :class => 'button' }
+  %span.alt or #{ link_to "Watch our video", intro_video_path }
 %hr
 #order-cards
-  .price $10 - 100 cards - free shipping
+  .price 100 cards - $10 - free shipping
   =form_for :order, :url => orders_place_path, :html => { :onsubmit => "setUrchinInputCode(pageTracker);" } do |f|
     %input{ :type => "hidden", :name => "analyticsdata", :value => ""}
     %input{ :type => "image",
