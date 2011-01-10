@@ -1,4 +1,5 @@
 require 'active_support/secure_random'
+require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
   before_create :update_state, :create_activation_string
