@@ -26,6 +26,7 @@ form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 form.formtastic input[type=submit] {
     font-size:22px;
     padding:7px 15px;
+    margin:5px;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -54,3 +55,12 @@ input[type="submit"]:focus, input[type="button"]:focus
     outline : none; 
 }
 
+form.formtastic fieldset.buttons {
+    padding-left:20%;
+}
+
+form.formtastic .alt {
+    font-size:16px;
+    display:inline-block;
+    padding-top:25px;
+}
