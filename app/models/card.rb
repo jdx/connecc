@@ -1,7 +1,6 @@
 class Card < ActiveRecord::Base
 
   before_create :generate_code
-  before_destroy :destroy_visits, :destroy_contact_requests
 
   belongs_to :order
   has_many :visits
@@ -26,15 +25,4 @@ class Card < ActiveRecord::Base
     5.times { |i| self.code << chars[rand(chars.length)] }
   end
 
-  def destroy_visits
-    self.visits.each do |v|
-      v.destroy
-    end
-  end
-
-  def destroy_contact_requests
-    contact_requests.each do |c|
-      c.destroy
-    end
-  end
 end

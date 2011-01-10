@@ -1,1 +1,8 @@
-%h1 registration form goes here
+%h1 Activate your account
+=semantic_form_for @user, :url => order_activate_path(@order.activation_string) do |f|
+  =f.inputs do
+    =f.input :name
+    =f.input :email
+    =f.input :password
+  =f.buttons do
+    =f.commit_button "Create Account"
