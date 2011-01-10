@@ -14,3 +14,5 @@
 -else
   %td
 = link_to "View cards", cards_admin_order_path
+-if @order.state == 'awaiting-shipment'
+  = button_to "Charge and Ship", ship_admin_order_path
