@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>conne.cc</title>
+  <title>conne.cc<%= " | " + yield(:title) if content_for? :title %></title>
   <meta name="description" content="">
   <meta name="author" content="">
 

@@ -1,3 +1,5 @@
+-content_for :title do
+  Tour
 .seg 
   %h2 Here&#8217;s Joe.
 
@@ -151,7 +153,7 @@
 %hr
 #order-cards
   .price $10 - 100 cards - free shipping
-  =form_for :order, :url => orders_path do |f|
+  =form_for :order, :url => orders_place_path do |f|
     %input{ :type => "image",
             :name => "Google Checkout",
             :alt => "Fast checkout through Google",

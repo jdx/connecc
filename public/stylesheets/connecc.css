@@ -427,6 +427,20 @@ a.menu-button {
     color:#222;
     text-shadow:0 1px 0 white;
     text-decoration:none;
+    position:relative;
+}
+
+.button:hover:before {
+    content: " ";
+    position: absolute;
+    top:0.5px;
+    left:0.5px;
+    right:0.5px;
+    bottom:0.5px;
+    border:1px solid #4271FF;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
 }
 
 .button:hover, input[type=submit]:hover {
