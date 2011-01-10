@@ -49,3 +49,9 @@ class Order < ActiveRecord::Base
   end
 
 end
+
+class TaxTableFactory
+  def effective_tax_tables_at(time)
+    [ Google4R::Checkout::TaxTable.new(false) ]
+  end
+end
