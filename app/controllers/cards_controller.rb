@@ -34,7 +34,12 @@ class CardsController < ApplicationController
     render :show
   end
 
-  def contact_request
+  def contact_request_get
+    @contact_request = ContactRequest.new
+    render :show
+  end
+
+  def contact_request_post
     @contact_request = ContactRequest.new params[:contact_request]
     @contact_request.card = @card
     @contact_request.user = current_user

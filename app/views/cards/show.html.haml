@@ -12,14 +12,14 @@
           =f.input :email, :label => false
         =f.buttons do
           =f.commit_button "Notify me*"
-          %span.alt or #{ link_to "Have #{ @card.giver } get back to me" }
+          %span.alt or #{ link_to "Leave him my contact info", contact_request_path(@card.code) }
       %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact.
     -if @contact_request
       %h3 Have #{ @card.giver } get a hold of me
+      %hr
       =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
         =f.inputs do
           =f.input :contact_info, :label => "Your phone number and/or email address"
-          %span.help How will #{ @card.giver.name } get back to you?
-          =f.input :message
+          =f.input :message, :label => "Message"
         =f.buttons do
           =f.commit_button "Get back to me"

@@ -2,6 +2,11 @@
     margin: 70px 40px;
 }
 
+#message h3 {
+    margin: 40px 40px;
+    text-align:center;
+}
+
 #message .explanation {
     margin: 40px 40px 10px 40px;
     text-align:center;
@@ -10,9 +15,10 @@
 
 #message .inputs li {
     margin:0;
+    padding:0;
 }
 
-#notification_request_email {
+#message input {
     margin:10px auto;
     display:block;
 }
@@ -21,4 +27,33 @@
     display:block;
     margin:0 auto;
     width:100%;
+}
+
+#message #new_contact_request .buttons {
+    padding:0;
+}
+
+#message #new_contact_request li.commit {
+    float:none;
+    text-align:center;
+}
+
+#message #new_contact_request li.commit input {
+    width:200px;
+}
+
+
+#message label {
+    float:none;
+    width:500px;
+    text-align:center;
+    margin:20px auto;
+    font-weight:normal;
+    font-size:18px;
+}
+
+
+#message .inline-errors {
+    margin:0;
+    text-align:center;
 }

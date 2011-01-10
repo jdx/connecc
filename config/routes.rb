@@ -3,7 +3,8 @@ Connecc::Application.routes.draw do
   # note: NOTHING can be a 5 character route with this implementation, we can change that later if we need to
 
   get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  post ":code/contact_request" => "cards#contact_request", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  post ":code/contact_request" => "cards#contact_request_post", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
