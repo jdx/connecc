@@ -1,14 +1,27 @@
 #admin {
     font-size:18px;
+    font-family:"Helvetica", "Arial", sans-serif;
 }
 
-#breadcrumb a, table a, #breadcrumb a:visited, table a:visited {
+#admin a, #admin a:visited {
     text-decoration:none;
     color: #4271FF;
+    font-weight:bold;
 }
 
-#breadcrumb a:hover, table a:hover {
+#admin a:hover {
     border-bottom:1px solid;
+}
+
+#admin-menu a, #admin-menu a:visited {
+    color:#000;
+    font-weight:normal;
+    border:1px solid #666;
+}
+
+#admin-menu a:hover {
+    color:#fff;
+    border:1px solid #333;
 }
 
 #admin-menu {
@@ -28,27 +41,74 @@
 #admin h1 {
     font-size:28px;
     text-align:center;
-    margin:20px auto;
+    margin:10px auto;
     width:500px;
+    color:#000;
 }
 
-table {
-    margin:50px auto;
+#actions {
+    margin:40px auto;
+    text-align:center;
+}
+
+.details {
+    margin:10px 50px;
     border:1px solid #4271FF;
 }
 
-th, td {
-    padding:10px;
+.details label, .details span {
+    margin:10px 10px;
+    display:inline-block;
 }
 
-tr {
-    border-bottom:1px dotted #bbb;
+.details label {
+    font-weight:bold;
+    width:200px;
 }
 
-tr:nth-child(odd) {
+.details label:after {
+    content: ':';
+}
+
+.details p:nth-child(odd) {
     background-color:#eff2ff;
 }
 
-tr:nth-child(even) {
+.details p:nth-child(even) {
     background-color:#e8edff;
 }
+
+.lists {
+    overflow:hidden;
+}
+
+.lists .list {
+    margin:50px;
+    float:left;
+    width:250px;
+}
+
+.list h2 {
+    font-size:24px;
+    margin:5px;
+    text-align:center;
+    color:#000;
+}
+
+.list ul {
+    margin:0;
+    border:1px solid #4271FF;
+}
+
+.list li {
+    padding:10px 25px;
+}
+
+.list ul li:nth-child(odd) {
+    background-color:#eff2ff;
+}
+
+.list ul li:nth-child(even) {
+    background-color:#e8edff;
+}
+

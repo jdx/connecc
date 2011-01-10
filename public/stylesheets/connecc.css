@@ -444,3 +444,25 @@ a.menu-button {
     -moz-box-shadow:inset 0 0 10px #000;
     box-shadow:inset 0 0 10px #000;
 }
+
+table {
+    margin:50px auto;
+    border:1px solid #4271FF;
+}
+
+th, td {
+    padding:10px 20px;
+}
+
+tr {
+    border-bottom:1px dotted #bbb;
+}
+
+tr:nth-child(odd) {
+    background-color:#eff2ff;
+}
+
+tr:nth-child(even) {
+    background-color:#e8edff;
+}
+

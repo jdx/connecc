@@ -4,16 +4,34 @@
   =link_to "Orders", admin_orders_path
   =">"
   =link_to @order, admin_order_path(@order)
-%p
-  %label Billing address
-  %span #{ @order.buyer_billing_address }
-%p
-  %label Shipping address
-  %span #{ @order.buyer_shipping_address }
--if @order.authorization_amount
-  %td= "$" + sprintf("%.2f", @order.authorization_amount) 
--else
-  %td
-= link_to "View cards", cards_admin_order_path
--if @order.state == 'awaiting-shipment'
-  = button_to "Charge and Ship", ship_admin_order_path
+%h1= @order
+.details
+  %p
+    %label State
+    %span= @order.state
+  %p
+    %label Placed at
+    %span= @order.created_at.to_s :long
+  -if @order.user
+    %p
+      %label User
+      %span= link_to @order.user, admin_user_path(@order.user)
+  %p
+    %label Number of cards
+    %span= link_to @order.cards_amount, cards_admin_order_path
+  %p
+    %label Billing address
+    %span #{ @order.buyer_billing_address }
+  %p
+    %label Shipping address
+    %span #{ @order.buyer_shipping_address }
+  -if @order.authorization_amount
+    %p
+      %label Authorization amount
+      %span= "$" + sprintf("%.2f", @order.authorization_amount) 
+  %p
+    %label Google order number
+    %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
+#actions
+  -if @order.state == 'awaiting-shipment'
+    = button_to "Charge and Ship", ship_admin_order_path

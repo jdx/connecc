@@ -9,8 +9,5 @@
     %th Email
   -for user in @users
     %tr
-      -if user.admin
-        %td.red= link_to user, admin_user_path(user)
-      -else
-        %td= link_to user, admin_user_path(user)
+      %td= link_to user, admin_user_path(user)
       %td= user.email

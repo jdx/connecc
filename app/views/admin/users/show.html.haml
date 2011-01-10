@@ -4,29 +4,36 @@
   =link_to "Users", admin_users_path
   =">"
   =link_to @user, admin_user_path(@user)
-%h1= @user
--if @user.admin
+%h1
+  %span= @user.to_s
+  - if @user.admin
+    %span.red (Admin)
+.details
+  -if @user.locked_at
+    %p
+      %label Locked at
+      %span= @user.locked_at
   %p
-    %label Administrator
--if @user.locked_at
+    %label Name
+    %span= @user.name
   %p
-    %label Locked at
-    %span= @user.locked_at
-%p
-  %label First name
-  %span= @user.first_name
-%p
-  %label Last name
-  %span= @user.last_name
-%p
-  %label Email
-  %span= @user.email
-%p
-  %label Created at
-  %span= @user.created_at
-%p
-  %label Updated at
-  %span= @user.updated_at
-%ul
-  -for order in @user.orders
-    %li= link_to order, admin_order_path(order)
+    %label Email
+    %span= @user.email
+  -if @user.phone_number
+    %p
+      %label Phone
+      %span= @user.phone_number
+  %p
+    %label Created at
+    %span= @user.created_at.to_s :long
+  -unless @user.created_at == @user.updated_at
+    %p
+      %label Updated at
+      %span= @user.updated_at.to_s :long
+.lists
+  -if @user.orders.any?
+    .list
+      %h2 Orders
+      %ul
+        -for order in @user.orders
+          %li= link_to order, admin_order_path(order)

@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::AdminController
 
   def index
-    @users = User.all
+    @users = User.order(:id)
   end
 
   def show
