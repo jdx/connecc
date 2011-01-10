@@ -40,7 +40,7 @@
 
 #admin #breadcrumb {
     margin:20px 50px;
-    text-shadow:0 1px 0 #fff;
+    text-shadow:0 1px 0 #e5e5e5;
 }
 
 #admin #breadcrumb a {
@@ -96,7 +96,7 @@
     margin:5px;
     text-align:center;
     color:#000;
-    text-shadow:0 1px 0 #fff;
+    text-shadow:0 1px 0 #e5e5e5;
 }
 
 #admin .list ul {
@@ -122,4 +122,5 @@
     text-align:center;
     font-size:24px;
     margin:20px;
+    text-shadow:0 1px 0 #e5e5e5;
 }

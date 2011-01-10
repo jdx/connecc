@@ -33,7 +33,8 @@ Connecc::Application.routes.draw do
 
   resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
   post "orders/place" => "orders#place"
-  get "orders/:activation_string" => "orders#activate", :as => :order_activate
+  get "orders/:activation_string" => "orders#activate_get", :as => :order_activate
+  post "orders/:activation_string" => "orders#activate_post", :as => :order_activate
 
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"

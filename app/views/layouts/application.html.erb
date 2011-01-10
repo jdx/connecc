@@ -38,7 +38,9 @@
       <%- end %>
       <a class="menu-button" href="<%= logout_path %>">Logout</a>
     <%- else %>
-      <a class="menu-button" href="<%= login_path %>">Login</a>
+      <%- unless @hide_login %>
+        <a class="menu-button" href="<%= login_path %>">Login</a>
+      <%- end %>
     <%- end %>
     </div>
     <%= yield :content %>
