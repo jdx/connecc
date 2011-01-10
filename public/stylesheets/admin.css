@@ -7,6 +7,7 @@
     text-decoration:none;
     color: #4271FF;
     font-weight:bold;
+    display:inline-block;
 }
 
 #admin a:hover {
@@ -17,6 +18,10 @@
     color:#000;
     font-weight:normal;
     border:1px solid #666;
+    margin:10px 20px;
+    float:left;
+    text-align:center;
+    width:170px;
 }
 
 #admin #admin-menu a:hover {
@@ -26,8 +31,7 @@
 
 #admin #admin-menu {
     width:800px;
-    text-align:center;
-    margin:40px auto;
+    margin:20px auto;
 }
 
 #admin #admin-menu li {
