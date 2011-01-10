@@ -429,6 +429,11 @@ a.menu-button {
     text-shadow:0 1px 0 white;
     text-decoration:none;
     position:relative;
+    
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 .button:hover:before, input[type=submit]:hover:before {
@@ -458,6 +463,11 @@ a.menu-button {
     -webkit-box-shadow:inset 0 0 10px #000;
     -moz-box-shadow:inset 0 0 10px #000;
     box-shadow:inset 0 0 10px #000;
+    
+    background: #3860D8; /* old browsers */
+    background: -moz-linear-gradient(top, #3860D8 0%, #023AE2 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3860D8), color-stop(100%,#023AE2)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3860D8', endColorstr='#023AE2',GradientType=0 ); /* ie */
 }
 
 table {
