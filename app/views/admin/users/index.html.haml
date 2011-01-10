@@ -3,6 +3,7 @@
   =">"
   =link_to "Users", admin_users_path
 %h1 Users
+%hr
 %table
   %tr
     %th User
@@ -11,3 +12,6 @@
     %tr
       %td= link_to user, admin_user_path(user)
       %td= user.email
+%hr
+%p#summary
+  Total users: #{ @total_users }

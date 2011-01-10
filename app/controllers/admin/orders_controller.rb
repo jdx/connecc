@@ -3,9 +3,11 @@ class Admin::OrdersController < Admin::AdminController
   def index
     @status = params[:status]
     if @status
-      @orders = Order.where :status => @status
+      @orders = Order.where(:status => @status)
+      @total_orders = Order.where(:status => @status).count
     else
       @orders = Order.all
+      @total_orders = Order.count
     end
   end
 

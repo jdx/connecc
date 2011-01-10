@@ -6,6 +6,7 @@
   %h1= "Orders #{ @status }"
 - else
   %h1 Orders
+%hr
 %table
   %tr
     %th Order
@@ -18,3 +19,5 @@
       %td= order.state
       %td= link_to order.user, admin_user_path(order.user) if order.user
       %td= order.created_at.to_s(:short)
+%hr
+  %p#summary Total orders: #{ @total_orders }

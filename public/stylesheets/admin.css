@@ -13,102 +13,107 @@
     border-bottom:1px solid;
 }
 
-#admin-menu a, #admin-menu a:visited {
+#admin #admin-menu a, #admin-menu a:visited {
     color:#000;
     font-weight:normal;
     border:1px solid #666;
 }
 
-#admin-menu a:hover {
+#admin #admin-menu a:hover {
     color:#fff;
     border:1px solid #333;
 }
 
-#admin-menu {
+#admin #admin-menu {
     width:800px;
     text-align:center;
     margin:40px auto;
 }
 
-#admin-menu li {
+#admin #admin-menu li {
     display:inline-block;
 }
 
-#breadcrumb {
+#admin #breadcrumb {
     margin:20px 50px;
 }
 
 #admin h1 {
     font-size:28px;
     text-align:center;
-    margin:10px auto;
+    margin:30px auto;
     width:500px;
     color:#000;
 }
 
-#actions {
+#admin #actions {
     margin:40px auto;
     text-align:center;
 }
 
-.details {
-    margin:10px 50px;
+#admin .details {
+    margin:50px;
     border:1px solid #4271FF;
 }
 
-.details label, .details span {
+#admin .details label, .details span {
     margin:10px 10px;
     display:inline-block;
 }
 
-.details label {
+#admin .details label {
     font-weight:bold;
     width:200px;
 }
 
-.details label:after {
+#admin .details label:after {
     content: ':';
 }
 
-.details p:nth-child(odd) {
+#admin .details p:nth-child(odd) {
     background-color:#eff2ff;
 }
 
-.details p:nth-child(even) {
+#admin .details p:nth-child(even) {
     background-color:#e8edff;
 }
 
-.lists {
+#admin .lists {
     overflow:hidden;
 }
 
-.lists .list {
-    margin:50px;
+#admin .lists .list {
+    margin:30px 50px 50px 50px;
     float:left;
     width:250px;
 }
 
-.list h2 {
+#admin .list h2 {
     font-size:24px;
     margin:5px;
     text-align:center;
     color:#000;
 }
 
-.list ul {
+#admin .list ul {
     margin:0;
     border:1px solid #4271FF;
 }
 
-.list li {
+#admin .list li {
     padding:10px 25px;
 }
 
-.list ul li:nth-child(odd) {
+#admin .list ul li:nth-child(odd) {
     background-color:#eff2ff;
 }
 
-.list ul li:nth-child(even) {
+#admin .list ul li:nth-child(even) {
     background-color:#e8edff;
 }
 
+#admin #summary {
+    text-align:center;
+    font-size:24px;
+    margin:20px;
+}

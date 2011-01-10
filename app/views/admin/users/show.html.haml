@@ -8,6 +8,7 @@
   %span= @user.to_s
   - if @user.admin
     %span.red (Admin)
+%hr
 .details
   -if @user.locked_at
     %p
@@ -30,6 +31,7 @@
     %p
       %label Updated at
       %span= @user.updated_at.to_s :long
+%hr
 .lists
   -if @user.orders.any?
     .list
