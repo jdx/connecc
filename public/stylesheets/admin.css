@@ -59,6 +59,7 @@
 #admin .details label, .details span {
     margin:10px 10px;
     display:inline-block;
+    cursor:default;
 }
 
 #admin .details label {
