@@ -22,7 +22,7 @@
     margin:10px 20px;
     float:left;
     text-align:center;
-    width:170px;
+    width:200px;
 }
 
 #admin #admin-menu a:hover {
@@ -32,6 +32,7 @@
 #admin #admin-menu {
     width:800px;
     margin:20px auto;
+    text-align:center;
 }
 
 #admin #admin-menu li {
