@@ -4,7 +4,6 @@ javascripts:
   common:
     - public/javascripts/jquery-1.4.4.min.js
     - public/javascripts/modernizr-1.6.min.js
-    - public/javascripts/connecc.arrows.js
     - public/javascripts/site.js
 
 stylesheets:
