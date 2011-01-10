@@ -13,14 +13,14 @@ form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 
 --------------------------------------------------------------------------------------------------*/
 
-.formtastic label {
+form.formtastic fieldset > ol > li label {
     font-size:16px;
     text-shadow:0 1px 0 #e5e5e5;
     text-align:right;
     font-weight:bold;
     margin:6px;
     margin-right:5%;
-    width:15%!important;
+    width:15%;
 }
 
 form.formtastic input[type=submit] {
@@ -65,7 +65,7 @@ form.formtastic .alt {
     padding-top:25px;
 }
 
-.formtastic .error input {
+form.formtastic .error input {
     -webkit-box-shadow: inset 0px 2px 2px #f75d59;
     -moz-box-shadow: inset 0px 2px 2px #f75d59;
     box-shadow: inset 0px 2px 2px #f75d59;
