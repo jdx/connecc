@@ -15,10 +15,15 @@ html, body {
     background-position:top center;
 }
 
+ul {
+    list-style-type:square;
+}
+
 
 body {
     background-color: #E6E7E8;
-    font-family:"Molengo";
+    /*font-family:"Molengo";*/
+    font-family: 'Cabin', arial, serif;
     line-height:1.3;
 }
 
@@ -140,9 +145,14 @@ a.menu-button {
     margin:16px 64px;
 }
 
-#strip .seg p {
+#strip .seg p, #strip .seg ul {
     margin:0 0 12px 12px;
     font-size:14px;
+}
+
+#strip .seg h2 {
+    margin-left:0;
+    padding-left:0;
 }
 
 #logo {
@@ -403,7 +413,7 @@ h2 {
     font-family:"Droid Serif";
     font-size:24px;
     margin:20px;
-    text-align:center;
+    
     color:#333;
     text-shadow:0 1px 0 #e5e5e5;
 }
@@ -445,7 +455,7 @@ h2 {
     transition: all 200ms ease-in-out;
 }
 
-.button:after, input[type=submit]:after {
+/*.button:after, input[type=submit]:after {
     content:">";
     color:#133CAC;
     font-weight:bold;
@@ -456,7 +466,7 @@ h2 {
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
     transition: all 200ms ease-in-out;
-}
+}*/
 
 .button:hover:after, input[type=submit]:hover:after {
     color:#fff;
