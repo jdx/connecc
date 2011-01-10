@@ -9,4 +9,8 @@
 %p
   %label Shipping address
   %span #{ @order.buyer_shipping_address }
-=button_to "Generate", generate_admin_order_path
+-if @order.authorization_amount
+  %td= "$" + sprintf("%.2f", @order.authorization_amount) 
+-else
+  %td
+= link_to "View cards", cards_admin_order_path

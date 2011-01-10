@@ -2,7 +2,7 @@ require 'active_support/secure_random'
 
 class Order < ActiveRecord::Base
   before_create :update_state, :create_activation_string
-  after_create :send_activation_email
+  after_create :send_activation_email, :generate_cards
   before_update :update_state
 
   belongs_to :user
@@ -13,13 +13,6 @@ class Order < ActiveRecord::Base
 
   def to_s
     "Order #{ id }"
-  end
-
-  def generate_cards
-    cards_amount.times do
-      cards << Card.new
-    end
-    save!
   end
 
   protected
@@ -38,6 +31,13 @@ class Order < ActiveRecord::Base
 
   def send_activation_email
     OrderNotifier.activation(self).deliver
+  end
+
+  def generate_cards
+    cards_amount.times do
+      cards << Card.new
+    end
+    save!
   end
 
 end

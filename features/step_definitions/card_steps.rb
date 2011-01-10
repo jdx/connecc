@@ -20,7 +20,6 @@ Given /^Joe has cards$/ do
     :google_order_number => '8',
     :cards_amount => 10
 
-  order.generate_cards
   card = order.cards.first
   card.code = 'd28cx'
   card.save!
