@@ -7,12 +7,9 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,  and :timeoutable
   devise :database_authenticatable,
          :lockable,
          :recoverable,
-         :rememberable,
          :trackable,
          :validatable
 
