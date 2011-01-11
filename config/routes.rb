@@ -16,6 +16,7 @@ Connecc::Application.routes.draw do
       member do
         post 'ship'
         get 'cards', :defaults => { :format => :pdf }
+        get 'envelope', :defaults => { :format => :pdf }
       end
     end
     resources :users

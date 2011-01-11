@@ -1,3 +1,5 @@
+require 'prawn/measurement_extensions'
+
 class Admin::OrdersController < Admin::AdminController
 
   def index
@@ -13,6 +15,15 @@ class Admin::OrdersController < Admin::AdminController
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def envelope
+    @address = Order.find(params[:id]).buyer_shipping_address
+    prawnto :prawn => {
+      :margin => 0,
+      :page_layout => :landscape,
+      :page_size => [9.2.cm, 16.5.cm]
+    }
   end
 
   def cards

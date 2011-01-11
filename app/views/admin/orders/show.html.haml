@@ -27,7 +27,7 @@
     %span #{ @order.buyer_billing_address }
   %p
     %label Shipping address
-    %span #{ @order.buyer_shipping_address }
+    %span= link_to @order.buyer_shipping_address, envelope_admin_order_path(@order)
   -if @order.authorization_amount
     %p
       %label Authorization amount
