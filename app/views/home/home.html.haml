@@ -50,13 +50,4 @@
   #{ link_to "See an example", tour_path, :class => 'button' }
   %span.alt or #{ link_to "Watch our video", intro_video_path }
 %hr
-#order-cards
-  .price 100 cards - $10 - free shipping
-  =form_for :order, :url => orders_place_path, :html => { :onsubmit => "setUrchinInputCode(pageTracker);" } do |f|
-    %input{ :type => "hidden", :name => "analyticsdata", :value => ""}
-    %input{ :type => "image",
-            :name => "Google Checkout",
-            :alt => "Fast checkout through Google",
-            :src => "http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }&w=180&h=46&style=trans&variant=text&loc=en_US",
-            :height => "46",
-            :width => "180"}
+= render "shared/order_cards"

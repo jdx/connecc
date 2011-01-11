@@ -149,14 +149,5 @@
 .seg
   %h2 Think it could work?
   %p.desc Cool! Sign up for some free cards!!
-
 %hr
-#order-cards
-  .price $10 - 100 cards - free shipping
-  =form_for :order, :url => orders_place_path do |f|
-    %input{ :type => "image",
-            :name => "Google Checkout",
-            :alt => "Fast checkout through Google",
-            :src => "http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }&w=180&h=46&style=trans&variant=text&loc=en_US",
-            :height => "46",
-            :width => "180"}
+= render "shared/order_cards"

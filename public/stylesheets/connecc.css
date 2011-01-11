@@ -547,3 +547,8 @@ blockquote {
     font-size:14px;
     margin:20px;
 }
+
+.youtube-player {
+    margin:20px auto;
+    display:block;
+}
