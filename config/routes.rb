@@ -9,15 +9,7 @@ Connecc::Application.routes.draw do
   put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
 
-  devise_for :users do
-    get "login", :to => "devise/sessions#new", :path => 'log_in'
-    post "login", :to => "devise/sessions#create", :path => 'log_in'
-    get "logout", :to => "devise/sessions#destroy", :path => 'log_out'
-    get "account/password/forgot", :to => "devise/passwords#new"
-    post "account/password/forgot", :to => "devise/passwords#create"
-    get "account/password/change", :to => "devise/passwords#edit"
-    put "account/password/change", :to => "devise/passwords#update"
-  end
+  devise_for :users
 
   namespace "admin", :path => "administration" do
     resources :orders do

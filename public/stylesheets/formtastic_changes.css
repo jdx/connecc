@@ -14,13 +14,13 @@ form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 --------------------------------------------------------------------------------------------------*/
 
 form.formtastic fieldset > ol > li label {
-    font-size:16px;
+    font-size:18px;
     text-shadow:0 1px 0 #e5e5e5;
-    text-align:right;
+    text-align:left;
     font-weight:bold;
-    margin:6px;
-    margin-right:5%;
-    width:15%;
+    width:150px;
+    padding-top:7px;
+    margin-left:25px;
 }
 
 form.formtastic input[type=submit] {
@@ -29,34 +29,37 @@ form.formtastic input[type=submit] {
     margin:5px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+form.formtastic input[type="text"], form.formtastic input[type="email"], form.formtastic input[type="password"] {
     -webkit-box-shadow: inset 0px 2px 2px #888;
     -moz-box-shadow: inset 0px 2px 2px #888;
     box-shadow: inset 0px 2px 2px #888;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    
-    padding:6px!important;
+    padding:6px;
     border:1px solid #666;
-    
-    /*color:#888;*/
-    font-weight:bold!important;
-    font-size:16px!important;
+    font-weight:bold;
+    font-size:16px;
+    width:200px !important;
+}
+
+form.formtastic fieldset > ol > li.boolean label input {
+    margin-bottom:5px;
 }
 
 /*for FireFox*/
 input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner
-{   
+{
     border : 0px;
-} 
+}
 /*for IE8 */
 input[type="submit"]:focus, input[type="button"]:focus
-{     
+{
     outline : none; 
 }
 
 form.formtastic fieldset.buttons {
-    padding-left:20%;
+    margin-left:170px;
+    padding:0;
 }
 
 form.formtastic .alt {

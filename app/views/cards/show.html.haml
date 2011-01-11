@@ -13,7 +13,7 @@
         =f.buttons do
           =f.commit_button "Notify me*"
           %span.alt or #{ link_to "Leave him my contact info", contact_request_path(@card.code) }
-      %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact.
+      %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with him.
     -if @contact_request
       %h3 Have #{ @card.giver } get a hold of me
       %hr

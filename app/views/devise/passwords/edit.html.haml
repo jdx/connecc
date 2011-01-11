@@ -1,6 +1,6 @@
-%h2 Change your password
-=semantic_form_for resource, :url => account_password_change_path, :html => { :method => :put } do |f|
+%h2 Reset your password
+=semantic_form_for resource_name, :url => password_path(resource_name), :html => { :method => :put } do |f|
   =f.inputs do
-    =f.input :password
+    =f.input :password, :label => 'New password'
   =f.buttons do
     =f.commit_button "Change password"

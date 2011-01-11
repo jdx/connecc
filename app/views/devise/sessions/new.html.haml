@@ -1,11 +1,9 @@
-.seg
-  %h2 Sign in
-  =semantic_form_for resource, :url => login_path do |f|
-    =f.inputs do
-      =f.input :email
-      =f.input :password
-      - if devise_mapping.rememberable?
-        = f.input :remember_me, :as => :boolean, :required => true
-    =f.buttons do
-      =f.commit_button "Log in"
-      =link_to "Forgot password?", account_password_forgot_path
+%h2 Sign in
+=semantic_form_for resource, :url => user_session_path do |f|
+  =f.inputs do
+    =f.input :email
+    =f.input :password
+    =f.input :remember_me, :as => :boolean, :required => true
+  =f.buttons do
+    =f.commit_button "Log in"
+    %span.alt or #{ link_to "Forgot password?", new_user_password_path }

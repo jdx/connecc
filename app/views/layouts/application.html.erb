@@ -37,10 +37,10 @@
       <%- if current_user.admin %>
         <a class="menu-button" href="<%= admin_path %>">Admin</a>
       <%- end %>
-      <a class="menu-button" href="<%= logout_path %>">Logout</a>
+      <a class="menu-button" href="<%= destroy_user_session_path %>">Logout</a>
     <%- else %>
       <%- unless @hide_login %>
-        <a class="menu-button" href="<%= login_path %>">Login</a>
+        <a class="menu-button" href="<%= new_user_session_path %>">Login</a>
       <%- end %>
     <%- end %>
     </div>
