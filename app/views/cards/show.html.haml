@@ -1,12 +1,18 @@
--if @card.message
-  %p&= @card.message
--if @card.giver == current_user
-  -semantic_form_for @card, :html => { :method => :put }, :url => card_edit_path(@card.code) do |f|
-    =f.inputs do
-      =f.input :message
-    =f.buttons
--else
-  #message
+#message
+  -if @card.giver == current_user
+    %h1 Card: #{ @card.code }
+    -if @edit
+      %h2 Post a message
+      %hr
+      -semantic_form_for @card, :html => { :method => :put, :class => 'centered' }, :url => card_edit_path(@card.code) do |f|
+        =f.inputs do
+          =f.input :message, :required => true
+        =f.buttons
+    -else
+      %h3 Message: #{ @card.message }
+      #actions
+        =link_to "Edit message", card_edit_path(@card.code), :class => "button"
+  -else
     -if @notification_request
       %h2 #{ @card.giver } hasn't been here to post a message for you yet.
       %p.explanation To be notified when he posts a message for you, put your email here:
@@ -17,12 +23,17 @@
           =f.commit_button "Notify me*"
           %span.alt or #{ link_to "Leave him my contact info", contact_request_path(@card.code) }
       %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with him.
-    -if @contact_request
-      %h3 Have #{ @card.giver } get a hold of me
+    -elsif @contact_request
+      %h1= @card.message
+      #actions
+        =link_to "Have #{ @card.giver } get a hold of me", "", :class => 'button', :style => 'display:none;'
       %hr
+      %h2 Have #{ @card.giver } get a hold of me
       =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
         =f.inputs do
           =f.input :contact_info, :label => "Your phone number and/or email address"
           =f.input :message, :label => "Message"
         =f.buttons do
           =f.commit_button "Get back to me"
+    -else
+      =link_to "Back to card", card_path(@card.code)

@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_filter :get_card
   before_filter :authenticate_user!, :except => [:show, :notification_request, :contact_request_get, :contact_request_post]
-  before_filter :ensure_user_is_giver, :only => :update
+  before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
   def show
     Visit.record(@card, request.remote_ip, current_user)
@@ -9,14 +9,20 @@ class CardsController < ApplicationController
       @contact_request = ContactRequest.new
     else
       @notification_request = NotificationRequest.new
+      @edit = true
     end
+  end
+
+  def edit
+    @edit = true
+    render :show
   end
 
   def update
     @card.message = params[:card][:message]
     @card.save!
     @card.notification_requests.each { |r| CardNotifier.notification_request(r).deliver }
-    redirect_to card_path(@card.code), :notice => "Updated card"
+    redirect_to card_path(@card.code), :notice => "Updated card."
   end
 
   def notification_request
