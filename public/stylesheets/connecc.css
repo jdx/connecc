@@ -483,3 +483,9 @@ blockquote {
     display:block;
 }
 
+.no-transitions {
+    -webkit-transition: 0;
+    -moz-transition: 0
+    -o-transition: 0;
+    transition: 0;
+}

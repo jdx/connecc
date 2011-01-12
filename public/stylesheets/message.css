@@ -4,18 +4,34 @@
 
 #message label {
     float:none;
-    width:500px;
-    margin:20px;
+    width:350px;
+    margin:20px auto;
+}
+
+#message .inputs li {
+    margin:0;
+    padding:0;
 }
 
 #message .inputs input {
-    margin-left:20px;
-    width:400px !important;
+    margin:10px auto;
+    width:300px !important;
+    display:block;
 }
 
 #message .inline-errors {
-    margin:0;
+    width:300px;
+    margin:10px auto;
+}
+
+#message .buttons {
     text-align:center;
+    margin:20px;
+}
+
+#message .buttons li {
+    float:none;
+    display:inline-block;
 }
 
 #message #actions {
@@ -29,3 +45,6 @@
     font-size:18px;
 }
 
+.js #message .hidden-form {
+    display:none;
+}

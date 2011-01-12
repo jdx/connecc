@@ -25,15 +25,11 @@
       %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with him.
     -elsif @contact_request
       %h1= @card.message
-      #actions
-        =link_to "Have #{ @card.giver } get a hold of me", "", :class => 'button', :style => 'display:none;'
-      %hr
-      %h2 Have #{ @card.giver } get a hold of me
-      =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
-        =f.inputs do
-          =f.input :contact_info, :label => "Your phone number and/or email address"
-          =f.input :message, :label => "Message"
-        =f.buttons do
-          =f.commit_button "Get back to me"
+      %div{ :class => @hide_form ? '' : 'show-form' }
+        #actions
+          =link_to "Have #{ @card.giver } get a hold of me", contact_request_path(@card.code), :class => 'button open-form'
+        .hidden-form
+          %hr
+          =render "contact_request"
     -else
       =link_to "Back to card", card_path(@card.code)

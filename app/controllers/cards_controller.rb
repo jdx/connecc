@@ -39,7 +39,7 @@ class CardsController < ApplicationController
 
   def contact_request_get
     @contact_request = ContactRequest.new
-    render :show
+    render :contact_request
   end
 
   def contact_request_post
@@ -51,8 +51,9 @@ class CardsController < ApplicationController
       CardNotifier.contact_request(@contact_request).deliver
       flash[:notice] = "#{ @card.giver } will be getting a hold of you shortly."
       @contact_request = nil # so the form doesn't display
+      render :show
     end
-    render :show
+    render :contact_request
   end
 
   protected
