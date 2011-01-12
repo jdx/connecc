@@ -13,9 +13,10 @@
           =flash[:alert]
       =yield
       -unless @hide_tip
-        %hr
-          .seg
-            %p Connections are fragile in their early stages, let's make them flow.
+        #tip
+          %hr
+            .seg
+              %p Connections are fragile in their early stages, let's make them flow.
     .stripCurl
       .leftCurl
       .rightCurl

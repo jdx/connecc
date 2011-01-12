@@ -487,3 +487,10 @@ blockquote {
 #site-login.display {
     top:0px;
 }
+
+#tip {
+    margin:12px;
+    text-align:center;
+    text-shadow: 0 1px 0 #e5e5e5;
+    font-size:14px;
+}
