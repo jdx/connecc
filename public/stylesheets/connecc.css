@@ -488,7 +488,7 @@ blockquote {
     top:0px;
 }
 
-#tip {
+#tip p {
     margin:12px;
     text-align:center;
     text-shadow: 0 1px 0 #e5e5e5;
