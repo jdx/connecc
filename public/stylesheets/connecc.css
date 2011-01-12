@@ -476,3 +476,13 @@ blockquote {
     -o-transition: 0;
     transition: 0;
 }
+
+#site-login {
+    background-color:#fff;
+    position:absolute;
+    top:-220px;
+}
+
+#site-login.display {
+    top:0px;
+}

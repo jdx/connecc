@@ -21,14 +21,10 @@ function setup_cards() {
 
 function setup_login() {
   $('#login-tab').click(function() {
-    var loginform = $('#login-form');
-    if (loginform.css('top') == '-1px') {
-      loginform.css('top', '');
-    }
-    else {
-      loginform.css('top', '-1px');
-      $('#login-username').focus();
-    }
+    var loginform = $('#site-login');
+    loginform.toggleClass('display');
+    // $('#login-username').focus();
+    return false;
   });
 }
 

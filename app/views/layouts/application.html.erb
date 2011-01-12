@@ -40,7 +40,23 @@
       <a class="menu-button" href="<%= destroy_user_session_path %>">Logout</a>
     <%- else %>
       <%- unless @hide_login %>
-        <a class="menu-button" href="<%= new_user_session_path %>">Login</a>
+        <%= link_to "Login", user_session_path, :id => "login-tab", :class => 'menu-button' %>
+        <div id="site-login">
+          <h2>Sign in</h2>
+          <%= form_tag user_session_path(:return_to => request.path) do %>
+            <ul class="inputs">
+              <li>
+                <%= label_tag 'user[email]', "Email" %>
+                <%= text_field_tag 'user[email]'  %>
+              </li>
+              <li>
+                <%= label_tag 'user[password]', "Password" %>
+                <%= password_field_tag 'user[password]' %>
+              </li>
+            </ul>
+            <%= submit_tag "Log in" %>
+          <% end %>
+        </div>
       <%- end %>
     <%- end %>
     </div>
