@@ -458,6 +458,7 @@ blockquote {
     font-size:18px;
     padding-left:80px;
     background: transparent url(../images/blockquote.png) no-repeat;
+    min-height:40px;
 }
 
 .note {
