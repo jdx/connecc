@@ -23,7 +23,7 @@
     display:block;
 }
 
-#message .buttons {
+#message #new_contact_request .buttons {
     display:block;
     margin:0 auto;
     width:100%;
