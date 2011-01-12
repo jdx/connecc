@@ -1,8 +1,8 @@
 #pitch
   %h1
-    Traditional business cards are obsolete.
+    Continue the conversation without sharing contact info.
   %h2
-    We want to help you move past sharing contact information and up to continuing your conversations.
+    When people exchange business cards, they're doing it to continue a conversation. However, drafting emails takes effort and phone calls are intrusive. We want to fix this."
 %hr
 #card-container
   #top-card.card
@@ -46,8 +46,9 @@
       %span.arrow= ">"
 %hr
 #cta
-  %h1 Learn more
-  #{ link_to "See an example", tour_path, :class => 'button' }
+  #{ link_to "Learn More", tour_path, :class => 'button' }
   %span.alt or #{ link_to "Watch our video", intro_video_path }
+%hr
+  %h2 Connections are fragile in their early stages, let's make it easier.
 %hr
 = render "shared/order_cards"
