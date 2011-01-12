@@ -54,3 +54,8 @@
 .js #message .hidden-form {
     display:none;
 }
+
+#message .message {
+    width:400px;
+    margin:40px auto;
+}
