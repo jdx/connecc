@@ -32,4 +32,5 @@
           %hr
           =render "contact_request"
     -else
-      =link_to "Back to card", card_path(@card.code)
+      #actions
+        =link_to "Back to card", card_path(@card.code), :class => 'button'

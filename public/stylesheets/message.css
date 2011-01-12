@@ -19,6 +19,12 @@
     display:block;
 }
 
+#message .inputs textarea {
+    width:400px;
+    margin:10px auto;
+    display:block;
+}
+
 #message .inline-errors {
     width:300px;
     margin:10px auto;

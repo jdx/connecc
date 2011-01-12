@@ -388,19 +388,6 @@ h2 {
     transition: all 200ms ease-in-out;
 }
 
-/*.button:after, input[type=submit]:after {
-    content:">";
-    color:#133CAC;
-    font-weight:bold;
-    margin-left:15px;
-    font-family:'molengo';
-
-    -webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
-}*/
-
 .button:hover:after, input[type=submit]:hover:after {
     color:#fff;
 }
