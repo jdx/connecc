@@ -1,7 +1,10 @@
 -if @card.message
   %p&= @card.message
 -if @card.giver == current_user
-  %p= link_to "Edit card", card_edit_path(@card.code)
+  -semantic_form_for @card, :html => { :method => :put }, :url => card_edit_path(@card.code) do |f|
+    =f.inputs do
+      =f.input :message
+    =f.buttons
 -else
   #message
     -if @notification_request

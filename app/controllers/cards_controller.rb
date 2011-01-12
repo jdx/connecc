@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_filter :get_card
-  before_filter :authenticate_user!, :except => [:show, :notification_request, :contact_request]
-  before_filter :ensure_user_is_giver, :only => [:edit, :update]
+  before_filter :authenticate_user!, :except => [:show, :notification_request, :contact_request_get, :contact_request_post]
+  before_filter :ensure_user_is_giver, :only => :update
 
   def show
     Visit.record(@card, request.remote_ip, current_user)
@@ -10,9 +10,6 @@ class CardsController < ApplicationController
     else
       @notification_request = NotificationRequest.new
     end
-  end
-
-  def edit
   end
 
   def update
