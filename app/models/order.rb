@@ -2,8 +2,7 @@ require 'active_support/secure_random'
 require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
-  before_create :update_state
-  after_create :start_activation
+  before_create :update_state, :start_activation, :generate_cards
   before_update :update_state
 
   belongs_to :user
@@ -30,12 +29,6 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
-  def generate_cards
-    cards_amount.times do
-      cards << Card.new(:user => self.user)
-    end
-    self.save!
-  end
 
   protected
 
@@ -47,17 +40,20 @@ class Order < ActiveRecord::Base
     self.state = 'shipped' if self.shipped
   end
 
+  def generate_cards
+    cards_amount.times do
+      cards << Card.new
+    end
+    self.save!
+  end
+
   def start_activation
     unless self.user
       # first try to find a user
       self.user = User.find_by_email(self.buyer_shipping_address.email)
       self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
-      if user
-        # user found, associate with account
-        self.generate_cards
-        self.activation_string = nil
-      else
-        # No user found, send notification
+      unless user
+        # No user found, send notification and await activation
         self.activation_string = ActiveSupport::SecureRandom.hex(16)
         OrderNotifier.activation(self).deliver
       end

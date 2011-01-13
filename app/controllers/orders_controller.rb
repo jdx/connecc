@@ -50,7 +50,6 @@ class OrdersController < ApplicationController
       @order.user = @user
       @order.activation_string = nil
       @order.save
-      @order.generate_cards
       flash[:notice] = "Account created successfully. Your cards are on their way!"
       sign_in_and_redirect(@user)
     else
