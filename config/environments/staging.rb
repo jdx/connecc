@@ -48,7 +48,7 @@ Connecc::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'connecc-staging.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'staging.conne.cc' }
 
   GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL = "https://sandbox.google.com/checkout/api/checkout/v2/reports/Merchant/#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }"
 
