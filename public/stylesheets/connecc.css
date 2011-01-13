@@ -531,3 +531,20 @@ dd {
     overflow:hidden;
 }
 
+.faq:before {
+    content:'';
+    border-top:1px dashed #888;
+    border-bottom:1px dashed #fff;
+    width:100%;
+    display:block;
+}
+
+.faq h2 {
+    text-align:left;
+    font-size:18px;
+}
+
+.faq p {
+    font-size:14px;
+    margin:20px;
+}
