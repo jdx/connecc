@@ -22,10 +22,6 @@
   %p
     %label Email
     %span= @user.email
-  -if @user.phone_number
-    %p
-      %label Phone
-      %span= @user.phone_number
   %p
     %label Created at
     %span= @user.created_at.to_s :long
