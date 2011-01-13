@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :visits
   has_many :contact_requests
+  has_many :cards
   has_one :trial_order
 
   validates :first_name, :presence => true

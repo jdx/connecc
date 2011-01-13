@@ -11,6 +11,11 @@ class Order < ActiveRecord::Base
   belongs_to :buyer_billing_address, :class_name => 'Address'
   belongs_to :buyer_shipping_address, :class_name => 'Address'
 
+  def ship
+    self.shipped = true
+    self.save!
+  end
+
   def charge_and_ship
     frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     frontend.tax_table_factory = TaxTableFactory.new
@@ -36,22 +41,24 @@ class Order < ActiveRecord::Base
   end
 
   def start_activation
-    # first try to find a user
-    self.user = User.find_by_email(self.buyer_shipping_address.email)
-    self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
-    if user
-      # user found, associate with account
-      self.activation_string = nil
-    else
-      # No user found, send notification
-      self.activation_string = ActiveSupport::SecureRandom.hex(16)
-      OrderNotifier.activation(self).deliver
+    unless self.user
+      # first try to find a user
+      self.user = User.find_by_email(self.buyer_shipping_address.email)
+      self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
+      if user
+        # user found, associate with account
+        self.activation_string = nil
+      else
+        # No user found, send notification
+        self.activation_string = ActiveSupport::SecureRandom.hex(16)
+        OrderNotifier.activation(self).deliver
+      end
     end
   end
 
   def generate_cards
     cards_amount.times do
-      cards << Card.new
+      cards << Card.new(:user => self.user)
     end
     save!
   end

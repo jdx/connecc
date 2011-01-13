@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_filter :hide_tip
-  before_filter :get_card
+  before_filter :get_card, :except => :index
   before_filter :authenticate_user!, :except => [:show, :notification_request, :contact_request_get, :contact_request_post]
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
@@ -12,6 +12,10 @@ class CardsController < ApplicationController
       @notification_request = NotificationRequest.new
     end
     @edit = true if @card.message and not @card.contact_requests.any?
+  end
+
+  def index
+    @cards = current_user.cards
   end
 
   def edit

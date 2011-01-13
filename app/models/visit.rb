@@ -23,6 +23,9 @@ class Visit < ActiveRecord::Base
     else
       Visit.create! :user => user, :ip_address => ip_address, :card => card
     end
+
+    card.visited = true
+    card.save!
   end
 
 end

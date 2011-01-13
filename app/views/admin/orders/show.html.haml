@@ -37,4 +37,7 @@
     %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
 #actions
   -if @order.state == 'awaiting-shipment'
-    = button_to "Charge and Ship", ship_admin_order_path
+    -if @order.google_order_id
+      =button_to "Charge and Ship", ship_admin_order_path
+    -else
+      =button_to "Ship", ship_admin_order_path
