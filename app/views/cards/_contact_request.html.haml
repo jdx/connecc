@@ -1,7 +1,7 @@
-%h2 Have #{ @card.giver } get a hold of me
+%h2 Have #{ @card.giver.first_name } get a hold of me
 =semantic_form_for @contact_request, :url => contact_request_path(@card.code) do |f|
   =f.inputs do
     =f.input :contact_info, :label => "Your phone number and/or email address"
     =f.input :message, :label => "Message"
   =f.buttons do
-    =f.commit_button "Get back to me"
+    =f.commit_button "Get back to #{ @card.giver.pronoun }"
