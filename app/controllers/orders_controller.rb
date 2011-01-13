@@ -33,7 +33,9 @@ class OrdersController < ApplicationController
     @order = Order.find_by_activation_string(params[:activation_string])
     raise ActiveRecord::RecordNotFound unless @order
     @user = User.new
-    @user.name = @order.buyer_billing_address.name
+    @user.first_name = @order.first_name
+    @user.last_name = @order.last_name
+    @user.gender = 'm'
     @user.email = @order.buyer_billing_address.email unless @order.buyer_billing_address.email =~ /google.com$/ # because it's probably the proxy email, or they work for google and won't complain about typing an email address in :)
     @hide_login = true
     render :activate
