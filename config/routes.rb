@@ -32,8 +32,8 @@ Connecc::Application.routes.draw do
   post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
 
   get "tour" => "home#tour"
-  get "privacy_policy" => "home#privacy_policy"
   get "about_us" => "home#about_us"
+  get "contact_us" => "home#contact_us"
   get "faq" => "home#faq"
   get "intro_video" => "home#intro_video"
 
