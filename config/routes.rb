@@ -5,6 +5,7 @@ Connecc::Application.routes.draw do
   get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   post ":code/contact_request" => "cards#contact_request_post", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/notification_request" => redirect("/%{code}"), :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
@@ -28,7 +29,7 @@ Connecc::Application.routes.draw do
   get "orders" => "orders#create"
   post "orders/place" => "orders#place"
   get "orders/:activation_string" => "orders#activate_get", :as => :order_activate
-  post "orders/:activation_string" => "orders#activate_post", :as => :order_activate
+  post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
 
   get "tour" => "home#tour"
   get "privacy_policy" => "home#privacy_policy"

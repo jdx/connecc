@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
     redirect_to response.redirect_url
   end
 
-  def activate_get
+  def activate
     if current_user
       # I'm not sure how exactly to handle this case yet,
       # but it'll only happen for users activating an order
@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
     render :activate
   end
 
-  def activate_post
+  def activate_and_create_user
     @order = Order.find_by_activation_string(params[:activation_string])
     raise ActiveRecord::RecordNotFound unless @order
     @user = User.create params[:user]
