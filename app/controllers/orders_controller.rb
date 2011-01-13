@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
     @user = User.new
     @user.first_name = @order.first_name
     @user.last_name = @order.last_name
+    @user.time_zone = 'Pacific Time (US & Canada)'
     @user.gender = 'm'
     @user.email = @order.buyer_billing_address.email unless @order.buyer_billing_address.email =~ /google.com$/ # because it's probably the proxy email, or they work for google and won't complain about typing an email address in :)
     @hide_login = true
