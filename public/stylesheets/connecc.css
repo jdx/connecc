@@ -417,6 +417,7 @@ h2 {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4271FF), color-stop(100%,#023AE2)); /* webkit */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4271FF', endColorstr='#023AE2',GradientType=0 ); /* ie */
     text-shadow:0 -1px 0 #444;
+    outline:0;
 }
 
 .button:active, input[type=submit]:active {
