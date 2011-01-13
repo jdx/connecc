@@ -2,7 +2,8 @@ require 'active_support/secure_random'
 require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
-  before_create :update_state, :start_activation, :generate_cards
+  before_create :update_state
+  after_create :start_activation, :generate_cards
   before_update :update_state
 
   belongs_to :user
