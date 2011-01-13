@@ -32,12 +32,13 @@
     %p
       %label Authorization amount
       %span= "$" + sprintf("%.2f", @order.authorization_amount) 
+  -if @order.google_order_number
   %p
     %label Google order number
     %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
 #actions
   -if @order.state == 'awaiting-shipment'
-    -if @order.google_order_id
+    -if @order.google_order_number
       =button_to "Charge and Ship", ship_admin_order_path
     -else
       =button_to "Ship", ship_admin_order_path
