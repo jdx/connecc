@@ -12,7 +12,7 @@
       -if @card.contact_requests.any?
         -@card.contact_requests.each do |cr|
           %hr
-          %h2 Contact Request from #{ auto_link(cr.contact_info) }
+          %h2 Contact Request from #{ auto_link(cr.email) }
           %blockquote.message= auto_link(simple_format(cr.message))
           %p.note Posted at: #{ cr.created_at.to_s :long }
       -else
@@ -27,7 +27,7 @@
           =f.input :email, :label => 'Email address'
         =f.buttons do
           =f.commit_button "Notify me*"
-          %span.alt or #{ link_to "Leave #{ @card.giver.demonstrative_pronoun } my contact info", contact_request_path(@card.code) }
+          %span.alt or #{ link_to "Just have #{ @card.giver.demonstrative_pronoun } get a hold of me.", contact_request_path(@card.code) }
       %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
     -elsif @contact_request
       %h1 Message from #{ @card.giver }

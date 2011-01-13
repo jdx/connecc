@@ -2,7 +2,7 @@ class CreateContactRequests < ActiveRecord::Migration
   def self.up
     create_table :contact_requests do |t|
       t.integer :card_id, :null => false
-      t.string :contact_info, :null => false
+      t.string :email, :null => false
       t.text :message, :null => false
       t.string :ip_address, :null => false
       t.integer :user_id

@@ -3,7 +3,8 @@ class ContactRequest < ActiveRecord::Base
   belongs_to :user
 
   validates :card, :presence => true
-  validates :contact_info, :presence => true
+  validates :email, :presence => true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates :ip_address, :presence => true
 
   attr_accessible :contact_info, :message
