@@ -192,9 +192,9 @@ a.menu-button {
     margin-bottom:10px;
 }
 
-#name a:hover {
+#name a:hover, #name a:focus {
     color:#133CAC;
-    
+    outline:0;
 }
 
 #arrow {
