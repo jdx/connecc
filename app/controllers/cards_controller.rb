@@ -10,8 +10,8 @@ class CardsController < ApplicationController
       @contact_request = ContactRequest.new
     else
       @notification_request = NotificationRequest.new
-      @edit = true
     end
+    @edit = true if @card.message and not @card.contact_requests.any?
   end
 
   def edit
