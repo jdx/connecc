@@ -12,7 +12,7 @@ Connecc::Application.configure do
   # Disable asset cache identifying
   ENV['RAILS_ASSET_ID'] = ''
 
-  ENV['GOOGLE_CHECKOUT_URL'] = 'https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/953643756206889'
+  FRONTEND_CONFIGURATION = { :merchant_id => ENV['CONNECC_GOOGLE_MERCHANT_ID'], :merchant_key => ENV['CONNECC_GOOGLE_MERCHANT_KEY'], :use_sandbox => true }
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
