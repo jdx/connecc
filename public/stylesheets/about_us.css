@@ -2,21 +2,33 @@
     width:190px;
     overflow:hidden;
     margin: 0px auto;
+    float:left;
+}
+
+#about_us blockquote {
+    font-size:14px;
+    text-indent:20px;
+    margin:40px 20px;
+    clear:both;
 }
 
 #about_us .member img {
     float:left;
     border-radius:10px;
-    margin-right: 20px;
+    margin-right:20px;
 }
 
 #about_us .member .role {
     margin-top:10px;
-    font-style:italic;
+    font-family:"Droid Serif";
+    font-size:16px;
 }
 
-#about_us .member p {
-    margin:30px 0px;
+#about_us .member > p {
+    width:280px;
+    margin:0px 10px 50px 10px;
+    float:right;
+    font-size:16px;
 }
 
 #about_us .member h3 {
