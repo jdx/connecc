@@ -9,8 +9,15 @@
     -else
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
-      #actions
-        =link_to "Edit message", card_edit_path(@card.code), :class => "button"
+      -if @card.contact_requests.any?
+        -@card.contact_requests.each do |cr|
+          %hr
+          %h2 Contact Request from #{ auto_link(cr.contact_info) }
+          %blockquote.message= auto_link(simple_format(cr.message))
+          %p.note Posted at: #{ cr.created_at.to_s :long }
+      -else
+        #actions
+          =link_to "Edit message", card_edit_path(@card.code), :class => "button"
   -else
     -if @notification_request
       %h2 #{ @card.giver } hasn't been here to post a message for you yet.

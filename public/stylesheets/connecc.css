@@ -507,3 +507,19 @@ blockquote {
     font-size:14px;
     display:block;
 }
+
+dl {
+    margin:20px 40px;
+}
+
+dt {
+    float:left;
+    width:200px;
+    padding-top:10px;
+}
+
+dd {
+    padding-top:10px;
+    width:300px;
+    overflow:hidden;
+}
