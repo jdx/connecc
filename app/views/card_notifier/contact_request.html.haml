@@ -4,4 +4,4 @@
   %p <b>Message:</b> #{ auto_link(simple_format(@contact_request.message)) }
 %p <b>Card:</b> #{ link_to @contact_request.card, card_url(@contact_request.card.code) }
 %br/
-%p You can reply to this email to speak with #{ @notification_request.email } directly.
+%p You can reply to this email to speak with #{ @contact_request.email } directly.
