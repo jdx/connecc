@@ -125,7 +125,6 @@ a.menu-button {
     border-bottom:1px dashed #fff;
     height:0;
     width:100%;
-    position:relative;
 }
 
 #strip {
@@ -135,6 +134,7 @@ a.menu-button {
     background-image:url('/images/grey.radial.png');
     background-position:center top;
     background-repeat:no-repeat;
+    overflow:hidden;
     
     -webkit-box-shadow: 0px 0px 10px #333333;
     -moz-box-shadow: 0px 0px 10px #333333;

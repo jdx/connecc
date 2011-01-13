@@ -67,3 +67,19 @@
     -webkit-transform:rotate(-2deg);
     -moz-transform:rotate(-2deg);
 }
+
+#tour {
+    display:none;
+}
+
+#tour .frame_1 {
+    position:absolute;
+    top:400px;
+    left:0;
+    right:0;
+    margin:0 auto;
+    background-color:#ccc;
+    border-radius:30px;
+    height:100px;
+    width:200px;
+}

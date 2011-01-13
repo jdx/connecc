@@ -5,6 +5,7 @@ javascripts:
     - public/javascripts/jquery-1.4.4.min.js
     - public/javascripts/modernizr-1.6.min.js
     - public/javascripts/site.js
+    - public/javascripts/tour.js
     - public/javascripts/message.js
 
 stylesheets:
@@ -14,7 +15,7 @@ stylesheets:
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
     - public/stylesheets/connecc.css
-    - public/stylesheets/card.css
+    - public/stylesheets/tour.css
     - public/stylesheets/footer.css
     - public/stylesheets/admin.css
     - public/stylesheets/about_us.css
