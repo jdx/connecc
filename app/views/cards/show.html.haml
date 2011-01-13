@@ -21,14 +21,14 @@
   -else
     -if @notification_request
       %h2 #{ @card.giver } hasn't been here to post a message for you yet.
-      %p.explanation To be notified when #{ @card.giver.pronoun } posts a message for you, put your email here:
+      %p.explanation To be notified when #{ @card.giver.personal_pronoun } posts a message for you, put your email here:
       =semantic_form_for @notification_request, :url => notification_request_path(@card.code) do |f|
         =f.inputs do
           =f.input :email, :label => 'Email address'
         =f.buttons do
           =f.commit_button "Notify me*"
-          %span.alt or #{ link_to "Leave #{ @card.giver.pronoun } my contact info", contact_request_path(@card.code) }
-      %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with #{ @card.giver.pronoun }.
+          %span.alt or #{ link_to "Leave #{ @card.giver.demonstrative_pronoun } my contact info", contact_request_path(@card.code) }
+      %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
     -elsif @contact_request
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message

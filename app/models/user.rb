@@ -38,7 +38,11 @@ class User < ActiveRecord::Base
     return "#{ self.first_name } #{ self.last_name }"
   end
 
-  def pronoun
+  def personal_pronoun
+    self.gender == 'm' ? 'he' : 'she'
+  end
+
+  def demonstrative_pronoun
     self.gender == 'm' ? 'him' : 'her'
   end
 
