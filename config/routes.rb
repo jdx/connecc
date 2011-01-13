@@ -25,7 +25,7 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
-  resource :trial_order, :only => [ :create, :new ], :path_names => { :new => "place" }
+  get "orders" => "orders#create"
   post "orders/place" => "orders#place"
   get "orders/:activation_string" => "orders#activate_get", :as => :order_activate
   post "orders/:activation_string" => "orders#activate_post", :as => :order_activate

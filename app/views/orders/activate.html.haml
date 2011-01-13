@@ -1,3 +1,5 @@
+-content_for :title do
+  Create your account
 %h1 Create your account
 =semantic_form_for @user, :url => order_activate_path(@order.activation_string) do |f|
   =f.inputs do
