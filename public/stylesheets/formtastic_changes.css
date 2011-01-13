@@ -12,6 +12,9 @@ The following style may be *conditionally* included for improved support on olde
 form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 
 --------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li.radio fieldset ol li label {
+    width:auto;
+}
 
 form.formtastic fieldset > ol > li label {
     font-size:18px;
