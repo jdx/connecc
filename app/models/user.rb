@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   has_many :contact_requests
   has_one :trial_order
 
-  validates :name, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :email, :presence => true
+  validates :gender, :presence => true
+  validates :time_zone, :presence => true
 
   devise :database_authenticatable,
          :lockable,
@@ -16,7 +20,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email,
-                  :name,
+                  :first_name,
+                  :last_name,
+                  :gender,
+                  :time_zone,
                   :password
 
   def to_s
@@ -25,6 +32,10 @@ class User < ActiveRecord::Base
 
   def email_address_with_name
     "#{ self.name } <#{ self.email }>"
+  end
+
+  def name
+    return "#{ self.first_name } #{ self.last_name }"
   end
 
 end

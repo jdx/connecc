@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_time_zone
   after_filter :update_last_path
   layout "narrow"
 
@@ -12,6 +13,14 @@ class ApplicationController < ActionController::Base
   class Helper
     include Singleton
     include ActionView::Helpers::TextHelper
+  end
+
+  def set_time_zone
+    if current_user
+      Time.zone = current_user.time_zone
+    else
+      Time.zone = "Pacific Time (US & Canada)"
+    end
   end
 
   def after_sign_in_path_for(resource)

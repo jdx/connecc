@@ -2,6 +2,7 @@ require 'net/http'
 require 'uri'
 require 'base64'
 require 'google4r/checkout'
+require 'hpricot'
 
 class GoogleCheckoutApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
@@ -58,6 +59,8 @@ class GoogleCheckoutApiController < ApplicationController
       return
     end
 
+    hpricot = Hpricot(res.body)
+
     # Find out what type of notification it is and handle it accordingly
     if notification.kind_of? Google4R::Checkout::NewOrderNotification
       order = Order.create! do |o|
@@ -87,6 +90,8 @@ class GoogleCheckoutApiController < ApplicationController
           a.postal_code = google.postal_code
           a.region = google.region
         end
+        o.first_name = (hpricot/"//buyer-shipping-address/structured-name/first-name".inner_html)
+        o.last_name = (hpricot/"//buyer-shipping-address/structured-name/last-name".inner_html)
         o.google_order_number = notification.google_order_number
         o.cards_amount = notification.shopping_cart.private_data['cards_amount']
       end

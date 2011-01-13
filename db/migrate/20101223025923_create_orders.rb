@@ -2,6 +2,8 @@ class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
       t.integer :user_id
+      t.string :first_name, :null => false
+      t.string :last_name, :null => false
       t.string :state, :null => false
       t.boolean :shipped, :null => false, :default => false
       t.integer :buyer_billing_address_id, :null => false

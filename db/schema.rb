@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
   create_table "cards", :force => true do |t|
     t.string   "code",       :null => false
     t.integer  "order_id",   :null => false
-    t.string   "message"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
   create_table "contact_requests", :force => true do |t|
     t.integer  "card_id",      :null => false
     t.string   "contact_info", :null => false
-    t.string   "message",      :null => false
+    t.text     "message",      :null => false
     t.string   "ip_address",   :null => false
     t.integer  "user_id"
     t.datetime "created_at"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
+    t.string   "first_name",                                                                 :null => false
+    t.string   "last_name",                                                                  :null => false
     t.string   "state",                                                                      :null => false
     t.boolean  "shipped",                                                 :default => false, :null => false
     t.integer  "buyer_billing_address_id",                                                   :null => false
@@ -95,15 +97,17 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.boolean  "admin",                               :default => false, :null => false
-    t.string   "name",                                                   :null => false
-    t.boolean  "show_email",                          :default => true,  :null => false
-    t.string   "phone_number"
+    t.string   "first_name",                                             :null => false
+    t.string   "last_name",                                              :null => false
+    t.string   "time_zone",                                              :null => false
+    t.string   "gender",               :limit => 1,                      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["name"], :name => "index_users_on_name"
+  add_index "users", ["first_name"], :name => "index_users_on_first_name"
+  add_index "users", ["last_name"], :name => "index_users_on_last_name"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
