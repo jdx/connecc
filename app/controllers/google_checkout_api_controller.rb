@@ -90,8 +90,8 @@ class GoogleCheckoutApiController < ApplicationController
           a.postal_code = google.postal_code
           a.region = google.region
         end
-        o.first_name = (hpricot/"//buyer-shipping-address/structured-name/first-name".inner_html)
-        o.last_name = (hpricot/"//buyer-shipping-address/structured-name/last-name".inner_html)
+        o.first_name = (hpricot/"//buyer-shipping-address/structured-name/first-name").inner_html
+        o.last_name = (hpricot/"//buyer-shipping-address/structured-name/last-name").inner_html
         o.google_order_number = notification.google_order_number
         o.cards_amount = notification.shopping_cart.private_data['cards_amount']
       end
