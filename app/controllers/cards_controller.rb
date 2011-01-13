@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     @notification_request.user = current_user
     @notification_request.ip_address = request.remote_ip
     if @notification_request.save
-      flash[:notice] = "We'll let you know when #{ @card.giver } posts a message for you."
+      flash[:notice] = "We'll let you know when #{ @card.giver.first_name } posts a message for you."
       @notification_request = nil # so the form doesn't display
     end
     render :show
@@ -50,7 +50,7 @@ class CardsController < ApplicationController
     @contact_request.ip_address = request.remote_ip
     if @contact_request.save
       CardNotifier.contact_request(@contact_request).deliver
-      flash[:notice] = "#{ @card.giver } will be getting a hold of you shortly."
+      flash[:notice] = "#{ @card.giver.first_name } will be getting a hold of you shortly."
       @contact_request = nil # so the form doesn't display
       return render :show
     end
