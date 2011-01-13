@@ -28,7 +28,7 @@ Connecc::Application.routes.draw do
 
   get "orders" => "orders#create"
   post "orders/place" => "orders#place"
-  get "orders/:activation_string" => "orders#activate_get", :as => :order_activate
+  get "orders/:activation_string" => "orders#activate", :as => :order_activate
   post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
 
   get "tour" => "home#tour"
