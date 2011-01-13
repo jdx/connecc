@@ -3,7 +3,6 @@ class Card < ActiveRecord::Base
   before_create :generate_code
 
   belongs_to :order
-  belongs_to :user
   has_many :visits
   has_many :contact_requests
   has_many :notification_requests
