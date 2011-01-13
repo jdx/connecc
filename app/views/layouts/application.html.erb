@@ -52,6 +52,10 @@
                 <%= label_tag 'user[password]', "Password" %>
                 <%= password_field_tag 'user[password]' %>
               </li>
+              <li>
+                <%= label_tag 'user[remember_me]', "Remember Me" %>
+                <%= check_box_tag 'user[remember_me]' %>
+              </li>
             </ul>
             <%= submit_tag "Log in" %>
           <% end %>
