@@ -3,7 +3,6 @@ require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
   before_create :update_state, :start_activation
-  after_create :generate_cards
   before_update :update_state
 
   belongs_to :user
@@ -47,7 +46,7 @@ class Order < ActiveRecord::Base
       self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
       if user
         # user found, associate with account
-        self.cards.each {|c| c.user = user; c.save! }
+        self.generate_cards
         self.activation_string = nil
       else
         # No user found, send notification
@@ -57,11 +56,10 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def generate_cards
+  def generate_cards(user = nil)
     cards_amount.times do
-      cards << Card.new(:user => self.user)
+      cards << Card.new(:user => user || self.user)
     end
-    save!
   end
 
 end

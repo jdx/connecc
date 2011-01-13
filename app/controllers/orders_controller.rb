@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
     @user = User.create params[:user]
     if @user.save
       @order.user = @user
-      @order.cards.each {|c| c.user = @user; c.save! }
+      @order.generate_cards
       @order.activation_string = nil
       @order.save
       flash[:notice] = "Account created successfully. Your cards are on their way!"
