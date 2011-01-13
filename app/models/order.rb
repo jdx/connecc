@@ -3,7 +3,7 @@ require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
   before_create :update_state, :create_activation_string
-  after_create :send_activation_email, :generate_cards
+  after_create :start_activation, :generate_cards
   before_update :update_state
 
   belongs_to :user
@@ -39,8 +39,18 @@ class Order < ActiveRecord::Base
     self.activation_string = ActiveSupport::SecureRandom.hex(16)
   end
 
-  def send_activation_email
-    OrderNotifier.activation(self).deliver
+  def start_activation
+    # first try to find a user
+    self.user = User.find_by_email(self.buyer_shipping_address.email)
+    self.user = User.find_by_email(self.buyer_billing_address.email) unless user
+    if user
+      # user found, associate with account
+      self.activation_string = nil
+      self.save!
+    else
+      # No user found, send notification
+      OrderNotifier.activation(self).deliver
+    end
   end
 
   def generate_cards
