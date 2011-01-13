@@ -90,3 +90,18 @@ form.formtastic .error input {
     -moz-box-shadow: inset 0px 2px 2px #f75d59;
     box-shadow: inset 0px 2px 2px #f75d59;
 }
+
+form.formtastic input:focus, form.formtastic textarea:focus, form.formtastic select:focus {
+    background-color:#eeffff;
+}
+
+form.formtastic .boolean label input:focus, form.formtastic .radio label input:focus {
+    outline:black dotted 1px;
+}
+
+form.formtastic input, form.formtastic textarea {
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+}
