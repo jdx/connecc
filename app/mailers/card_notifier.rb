@@ -10,6 +10,7 @@ class CardNotifier < BaseNotifier
   def notification_request(notification_request)
     @notification_request = notification_request
     mail(:to => notification_request.email,
+         :reply_to => @notification_request.card.giver,
          :subject => "conne.cc: #{ @notification_request.card.giver } said \"#{ help.truncate @notification_request.card.message }\"")
   end
 end
