@@ -47,7 +47,7 @@ class Order < ActiveRecord::Base
       self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
       if user
         # user found, associate with account
-        @order.cards.each {|c| c.user = user; c.save! }
+        self.cards.each {|c| c.user = user; c.save! }
         self.activation_string = nil
       else
         # No user found, send notification
