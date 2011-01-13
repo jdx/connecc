@@ -8,6 +8,8 @@ class Card < ActiveRecord::Base
   has_many :contact_requests
   has_many :notification_requests
 
+  validates :order, :presence => true
+  validates :code, :presence => true
   validates_uniqueness_of :code
 
   attr_accessible :message

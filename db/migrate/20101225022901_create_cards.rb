@@ -3,7 +3,7 @@ class CreateCards < ActiveRecord::Migration
     create_table :cards do |t|
       t.string :code, :null => false
       t.integer :order_id, :null => false
-      t.integer :user_id, :null => false
+      t.integer :user_id
       t.text :message
       t.boolean :visited, :null => false, :default => false
 
