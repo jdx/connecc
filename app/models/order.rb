@@ -2,7 +2,8 @@ require 'active_support/secure_random'
 require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
-  before_create :update_state, :start_activation
+  before_create :update_state
+  after_create :start_activation
   before_update :update_state
 
   belongs_to :user
@@ -31,8 +32,9 @@ class Order < ActiveRecord::Base
 
   def generate_cards
     cards_amount.times do
-      cards << Card.create!(:user => self.user)
+      cards << Card.new(:user => self.user)
     end
+    self.save!
   end
 
   protected
