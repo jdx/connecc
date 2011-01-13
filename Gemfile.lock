@@ -90,6 +90,7 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
     heroku_san (1.0.6)
       heroku
+    heroscale (0.1.1)
     hpricot (0.8.3)
     i18n (0.4.2)
     jammit (0.5.4)
@@ -197,6 +198,7 @@ DEPENDENCIES
   google4r-checkout (= 1.1)!
   haml
   heroku_san
+  heroscale
   hpricot
   jammit
   launchy
