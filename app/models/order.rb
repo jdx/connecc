@@ -2,8 +2,8 @@ require 'active_support/secure_random'
 require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
-  before_create :update_state, :create_activation_string
-  after_create :start_activation, :generate_cards
+  before_create :update_state, :start_activation
+  after_create :generate_cards
   before_update :update_state
 
   belongs_to :user
@@ -29,14 +29,10 @@ class Order < ActiveRecord::Base
 
   def update_state
     self.state = 'new'
-    self.state = 'awaiting-charge' if activation_string == nil
-    self.state = 'awaiting-activation' if authorization_amount
-    self.state = 'awaiting-shipment' if authorization_amount and activation_string == nil
-    self.state = 'shipped' if shipped
-  end
-
-  def create_activation_string
-    self.activation_string = ActiveSupport::SecureRandom.hex(16)
+    self.state = 'awaiting-charge' if self.activation_string == nil
+    self.state = 'awaiting-activation' if self.authorization_amount
+    self.state = 'awaiting-shipment' if self.authorization_amount and self.activation_string == nil
+    self.state = 'shipped' if self.shipped
   end
 
   def start_activation
@@ -46,9 +42,9 @@ class Order < ActiveRecord::Base
     if user
       # user found, associate with account
       self.activation_string = nil
-      self.save!
     else
       # No user found, send notification
+      self.activation_string = ActiveSupport::SecureRandom.hex(16)
       OrderNotifier.activation(self).deliver
     end
   end
