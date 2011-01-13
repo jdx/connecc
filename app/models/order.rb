@@ -29,16 +29,16 @@ class Order < ActiveRecord::Base
 
   def update_state
     self.state = 'new'
-    self.state = 'awaiting-charge' if self.activation_string == nil
+    self.state = 'awaiting-charge' if self.user
     self.state = 'awaiting-activation' if self.authorization_amount
-    self.state = 'awaiting-shipment' if self.authorization_amount and self.activation_string == nil
+    self.state = 'awaiting-shipment' if self.authorization_amount and self.user
     self.state = 'shipped' if self.shipped
   end
 
   def start_activation
     # first try to find a user
     self.user = User.find_by_email(self.buyer_shipping_address.email)
-    self.user = User.find_by_email(self.buyer_billing_address.email) unless user
+    self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
     if user
       # user found, associate with account
       self.activation_string = nil
