@@ -29,9 +29,9 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
-  def generate_cards(user = nil)
+  def generate_cards
     cards_amount.times do
-      cards << Card.new(:user => user || self.user)
+      cards << Card.create!(:user => self.user)
     end
   end
 
