@@ -29,6 +29,12 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
+  def generate_cards(user = nil)
+    cards_amount.times do
+      cards << Card.new(:user => user || self.user)
+    end
+  end
+
   protected
 
   def update_state
@@ -55,13 +61,6 @@ class Order < ActiveRecord::Base
       end
     end
   end
-
-  def generate_cards(user = nil)
-    cards_amount.times do
-      cards << Card.new(:user => user || self.user)
-    end
-  end
-
 end
 
 class TaxTableFactory
