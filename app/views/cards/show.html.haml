@@ -46,7 +46,6 @@
         #actions
           =link_to "Have #{ @card.giver.first_name } get a hold of me", contact_request_path(@card.code), :class => 'button open-form'
         .hidden-form
-          %hr
           =render "contact_request"
       -if @card.giver.any_contact_info_public?
         %hr
