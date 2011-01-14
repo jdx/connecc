@@ -1,5 +1,9 @@
 Connecc::Application.routes.draw do
 
+  # these 5 letter routes are temporary
+  get "trial" => "trial_orders#new"
+  post "trial" => "trial_orders#create"
+
   # note: NOTHING can be a 5 character route with this implementation, we can change that later if we need to
 
   get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
@@ -32,7 +36,6 @@ Connecc::Application.routes.draw do
   end
 
   get "orders" => "orders#new"
-  resource :trial_order, :only => [ :new, :create ]
   post "orders/place" => "google_orders#create"
   get "orders/:activation_string" => "orders#activate", :as => :order_activate
   post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate

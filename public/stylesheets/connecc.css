@@ -565,6 +565,8 @@ dd a:hover, dd a:focus {
 #limited-time-offer p {
     font-size:16px;
     text-align:center;
+    margin:20px;
+    font-family:'Droid Serif';
 }
 
 #actions {
