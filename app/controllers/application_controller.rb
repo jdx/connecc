@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_domain
-    redirect_to 'conne.cc' if request.env['HTTP_HOST'] =~ /^www/
+    redirect_to 'http://conne.cc' if request.env['HTTP_HOST'] =~ /^www/
   end
 
   def set_time_zone
