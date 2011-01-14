@@ -140,20 +140,6 @@ a.menu-button {
     box-shadow: 0px 0px 10px #333333;
 }
 
-#strip .seg {
-    margin:16px 64px;
-}
-
-#strip .seg p, #strip .seg ul {
-    margin:0 0 12px 12px;
-    font-size:14px;
-}
-
-#strip .seg h2 {
-    margin-left:0;
-    padding-left:0;
-}
-
 #logo {
     margin:0 auto;
     position:absolute;
@@ -489,11 +475,12 @@ blockquote {
     top:0px;
 }
 
-#tip p {
+#tip {
     margin:20px;
     text-align:center;
     text-shadow: 0 1px 0 #e5e5e5;
     font-size:14px;
+    font-family:'Droid Serif';
 }
 
 .steps {
