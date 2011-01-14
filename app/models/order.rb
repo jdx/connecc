@@ -4,7 +4,7 @@ require 'google4r/checkout'
 class Order < ActiveRecord::Base
   before_validation :get_missing_data
 
-  after_create :start_activation, :generate_cards
+  after_create :generate_cards, :start_activation
   before_update :update_cards
 
   belongs_to :user
