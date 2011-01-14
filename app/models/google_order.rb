@@ -1,11 +1,11 @@
 class GoogleOrder < Order
-  before_create :set_type
+  after_initialize :set_type
   before_save :update_state
 
   protected
 
   def set_type
-    type = 'GoogleOrder'
+    self.type = 'GoogleOrder'
   end
 
   def update_state
