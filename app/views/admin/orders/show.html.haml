@@ -24,7 +24,7 @@
       %span= link_to @order.user, admin_user_path(@order.user)
   %p
     %label Number of cards
-    %span= link_to @order.cards_amount, cards_admin_order_path
+    %span= link_to "#{ @order.cards_amount }/#{ @order.cards.count }", cards_admin_order_path
   %p
     %label Billing address
     %span #{ @order.buyer_billing_address }
@@ -47,3 +47,4 @@
       =button_to "Ship", ship_admin_order_path
   -unless @order.state == 'shipped'
     =button_to "Edit", edit_admin_order_path(@order), :method => :get
+    =button_to "Generate cards", generate_admin_order_path(@order)

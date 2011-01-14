@@ -4,8 +4,7 @@ require 'google4r/checkout'
 class Order < ActiveRecord::Base
   before_validation :get_missing_data
 
-  after_create :generate_cards, :start_activation
-  before_update :update_cards
+  after_create :start_activation
 
   belongs_to :user
   has_many :cards
@@ -45,6 +44,14 @@ class Order < ActiveRecord::Base
     "#{ self.name } <#{ self.email }>"
   end
 
+  def generate_cards
+    self.cards.each { |c| c.destroy }
+    self.cards_amount.times do
+      self.cards << Card.new
+    end
+    self.save!
+  end
+
   protected
 
   def get_missing_data
@@ -54,20 +61,9 @@ class Order < ActiveRecord::Base
     self.buyer_billing_address = self.buyer_shipping_address unless self.buyer_billing_address
   end
 
-  def generate_cards
-    self.cards_amount.times do
-      self.cards << Card.new
-    end
-    self.save!
-  end
-
   def update_cards
     old = Order.find(self.id)
     unless old.cards_amount == self.cards_amount
-      self.cards.each { |c| c.destroy }
-      self.cards_amount.times do
-        self.cards << Card.new
-      end
     end
   end
 

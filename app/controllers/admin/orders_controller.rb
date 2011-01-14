@@ -40,8 +40,15 @@ class Admin::OrdersController < Admin::AdminController
     }
   end
 
+  def generate
+    @order = Order.find(params[:id])
+    @order.generate_cards
+    @cards = @order.cards.order('id')
+    render :template => "admin/cards/cards"
+  end
+
   def cards
-    @cards = Order.find(params[:id]).cards
+    @cards = Order.find(params[:id]).cards.order('id')
     render :template => "admin/cards/cards"
   end
 
