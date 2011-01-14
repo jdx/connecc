@@ -15,7 +15,7 @@
       %dd= mail_to user.email
     -unless user.web_site.blank?
       %dt Personal web site
-      %dd= link_to user.web_site, user.web_site
+      %dd= link_to user.web_site.gsub(/https?:\/\//, ''), user.web_site
     -unless user.phone_number.blank?
       %dt Phone number
       %dd= user.phone_number
