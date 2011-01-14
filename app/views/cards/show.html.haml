@@ -10,7 +10,7 @@
     -else
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
-      %p.note Posted at: #{ @card.updated_at.to_s :long }
+      %p.note Posted #{ distance_of_time_in_words @card.updated_at } ago
       -if @card.contact_requests.any?
         -@card.contact_requests.each do |cr|
           %hr
@@ -40,7 +40,7 @@
     -elsif @contact_request
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
-      %p.note Posted at: #{ @card.updated_at.to_s :long }
+      %p.note Posted #{ distance_of_time_in_words @card.updated_at } ago
       %div{ :class => @hide_form ? '' : 'show-form' }
         #actions
           =link_to "Have #{ @card.giver.first_name } get a hold of me", contact_request_path(@card.code), :class => 'button open-form'

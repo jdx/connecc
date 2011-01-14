@@ -58,5 +58,11 @@
 
 #message .message {
     width:400px;
-    margin:40px auto;
+    margin:80px auto;
+}
+
+#message .note {
+    text-align:right;
+    font-size:12px;
+    font-family:'Droid Serif';
 }
