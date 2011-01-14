@@ -22,8 +22,8 @@ class GoogleOrder < Order
   def start_activation
     unless self.user
       # first try to find a user
-      self.user = User.find_by_email(self.buyer_shipping_address.email)
-      self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
+      self.user = User.find_by_email(self.email)
+      self.user = User.find_by_email(self.email) unless self.user
       unless user
         # No user found, send notification and await activation
         self.activation_string = ActiveSupport::SecureRandom.hex(16)
