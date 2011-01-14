@@ -36,6 +36,12 @@
     font-size:24px;
 }
 
-#about_us .desc, #about_us .member {
+#about_us .desc {
+    margin:30px 40px;
+    font-size:15px;
+    font-family:'Droid Serif';
+}
+
+#about_us .member {
     margin:50px;
 }
