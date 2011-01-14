@@ -54,13 +54,8 @@ class Admin::OrdersController < Admin::AdminController
 
   def ship
     @order = Order.find(params[:id])
-    if @order.google_order_number
-      @order.charge_and_ship
-      redirect_to admin_order_path(@order), :notice => 'Charged and shipped'
-    else
-      @order.ship
-      redirect_to admin_order_path(@order), :notice => 'Shipped'
-    end
+    @order.ship
+    redirect_to admin_order_path(@order), :notice => 'Shipped'
   end
 
   def cancel

@@ -1,6 +1,3 @@
-require 'active_support/secure_random'
-require 'google4r/checkout'
-
 class Order < ActiveRecord::Base
   before_validation :get_missing_data
 
@@ -21,16 +18,6 @@ class Order < ActiveRecord::Base
   end
 
   def ship
-    self.shipped = true
-    self.save!
-  end
-
-  def charge_and_ship
-    frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
-    frontend.tax_table_factory = TaxTableFactory.new
-    command = frontend.create_charge_and_ship_order_command
-    command.google_order_number = self.google_order_number
-    command.send_to_google_checkout
     self.shipped = true
     self.save!
   end
@@ -64,10 +51,4 @@ class Order < ActiveRecord::Base
     self.buyer_billing_address = self.buyer_shipping_address unless self.buyer_billing_address
   end
 
-end
-
-class TaxTableFactory
-  def effective_tax_tables_at(time)
-    [ Google4R::Checkout::TaxTable.new(false) ]
-  end
 end

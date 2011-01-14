@@ -41,10 +41,7 @@
       %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
 #actions
   -if @order.state == 'awaiting-shipment'
-    -if @order.google_order_number
-      =button_to "Charge and Ship", ship_admin_order_path
-    -else
-      =button_to "Ship", ship_admin_order_path
+    =button_to "Ship", ship_admin_order_path
   -unless @order.state == 'shipped' or @order.state == 'canceled'
     =button_to "Edit", edit_admin_order_path(@order), :method => :get
     =button_to "Generate cards", generate_admin_order_path(@order)
