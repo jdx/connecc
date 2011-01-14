@@ -1,5 +1,5 @@
 class OrderNotifier < BaseNotifier
-  default :from => "sales@conne.cc"
+  default :from => "conne.cc <sales@conne.cc>"
 
   def activation(order)
     @order = order

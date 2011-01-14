@@ -1,5 +1,5 @@
 class CardNotifier < BaseNotifier
-  default :from => "support@conne.cc"
+  default :from => "conne.cc <support@conne.cc>"
 
   def contact_request(contact_request)
     @contact_request = contact_request

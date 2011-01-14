@@ -48,15 +48,6 @@
     font-weight:normal;
 }
 
-#admin #actions {
-    margin:40px auto;
-    text-align:center;
-}
-
-#admin #actions form {
-    display:inline-block;
-}
-
 #admin .details {
     margin:50px;
     border:1px solid #4271FF;

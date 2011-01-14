@@ -2,6 +2,14 @@ require 'google4r/checkout'
 
 class OrdersController < ApplicationController
 
+  def trial_get
+    render :trial
+  end
+
+  def trial_post
+    render :trial
+  end
+
   def create
     @hide_login = true
   end

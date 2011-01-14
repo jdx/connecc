@@ -30,6 +30,8 @@ Connecc::Application.routes.draw do
   end
 
   get "orders" => "orders#create"
+  get "orders/trial" => "orders#trial_get"
+  post "orders/trial" => "orders#trial_post"
   post "orders/place" => "orders#place"
   get "orders/:activation_string" => "orders#activate", :as => :order_activate
   post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
