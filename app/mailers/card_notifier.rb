@@ -8,6 +8,14 @@ class CardNotifier < BaseNotifier
                      "conne.cc: \"#{ help.truncate(@contact_request.message.gsub(/[\n\r]/, ' ')) }\"")
   end
 
+  def contact_request_sender(contact_request)
+    @contact_request = contact_request
+    mail(:to => contact_request.email,
+         :subject => @contact_request.message.blank? ?
+                     "Someone you gave your conne.cc card to wants to get back in touch!" :
+                     "conne.cc: \"#{ help.truncate(@contact_request.message.gsub(/[\n\r]/, ' ')) }\"")
+  end
+
   def notification_request(notification_request)
     @notification_request = notification_request
     mail(:to => notification_request.email,

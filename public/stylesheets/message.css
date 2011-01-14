@@ -19,6 +19,12 @@
     display:block;
 }
 
+#message .inputs .boolean input {
+    display:inline-block;
+    width:auto !important;
+    margin:5px 10px;
+}
+
 #message .inputs textarea {
     width:400px;
     margin:10px auto;

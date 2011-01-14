@@ -548,3 +548,8 @@ dd {
     font-size:14px;
     margin:20px;
 }
+
+.card-list li {
+    margin:20px;
+    font-size:18px;
+}

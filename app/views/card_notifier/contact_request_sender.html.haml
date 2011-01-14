@@ -1,0 +1,7 @@
+%h4 Someone visited one of your conne.cc cards and wants you to get a hold of them.
+%p <b>Email:</b> #{ h(@contact_request.email) }
+- unless @contact_request.message.blank?
+  %p <b>Message:</b> #{ auto_link(simple_format(@contact_request.message)) }
+%p <b>Card:</b> #{ link_to @contact_request.card, card_url(@contact_request.card.code) }
+%br/
+%p You can reply to this email to speak with #{ @contact_request.email } directly.

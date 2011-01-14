@@ -5,10 +5,12 @@
       -semantic_form_for @card, :html => { :method => :put, :class => 'centered' }, :url => card_edit_path(@card.code) do |f|
         =f.inputs do
           =f.input :message, :required => true
-        =f.buttons
+        =f.buttons do
+          =f.commit_button "Post message"
     -else
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
+      %p.note Posted at: #{ @card.updated_at.to_s :long }
       -if @card.contact_requests.any?
         -@card.contact_requests.each do |cr|
           %hr
@@ -32,6 +34,7 @@
     -elsif @contact_request
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
+      %p.note Posted at: #{ @card.updated_at.to_s :long }
       %div{ :class => @hide_form ? '' : 'show-form' }
         #actions
           =link_to "Have #{ @card.giver.first_name } get a hold of me", contact_request_path(@card.code), :class => 'button open-form'

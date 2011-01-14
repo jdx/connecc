@@ -20,6 +20,7 @@ class CreateOrders < ActiveRecord::Migration
     add_index :orders, :buyer_billing_address_id
     add_index :orders, :buyer_shipping_address_id
     add_index :orders, :google_order_number
+    add_index :orders, :activation_string
   end
 
   def self.down

@@ -10,6 +10,7 @@ class CreateCards < ActiveRecord::Migration
     end
     add_index :cards, :code
     add_index :cards, :order_id
+    add_index :cards, :updated_at
   end
 
   def self.down

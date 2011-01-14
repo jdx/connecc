@@ -11,11 +11,12 @@ class CardsController < ApplicationController
     else
       @notification_request = NotificationRequest.new
     end
-    @edit = true if @card.message and not @card.contact_requests.any?
+    @edit = true unless @card.message or @card.contact_requests.any?
   end
 
   def index
-    @cards = current_user.cards
+    @cards = current_user.cards.where(:visited => true).order('cards.updated_at DESC')
+    flash[:notice] = "None of your cards have been visited yet" if @cards.count == 0
   end
 
   def edit
@@ -54,6 +55,9 @@ class CardsController < ApplicationController
     @contact_request.ip_address = request.remote_ip
     if @contact_request.save
       CardNotifier.contact_request(@contact_request).deliver
+      if @contact_request.send_me_a_copy
+        CardNotifier.contact_request_sender(@contact_request).deliver
+      end
       flash[:notice] = "#{ @card.giver.first_name } will be getting a hold of you shortly."
       @contact_request = nil # so the form doesn't display
       return render :show
