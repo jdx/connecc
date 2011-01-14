@@ -20,6 +20,9 @@
       -else
         #actions
           =link_to "Edit message", card_edit_path(@card.code), :class => "button"
+      -if @card.giver.any_contact_info_public?
+        %hr
+        =render "contact_info"
   -else
     -if @notification_request
       %h2 #{ @card.giver } hasn't been here to post a message for you yet.
@@ -31,6 +34,9 @@
           =f.commit_button "Notify me*"
           %span.alt or #{ link_to "Just have #{ @card.giver.demonstrative_pronoun } get a hold of me.", contact_request_path(@card.code) }
       %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you'll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
+      -if @card.giver.any_contact_info_public?
+        %hr
+        =render "contact_info"
     -elsif @contact_request
       %h1 Message from #{ @card.giver }
       %blockquote.message= auto_link simple_format @card.message
@@ -41,6 +47,9 @@
         .hidden-form
           %hr
           =render "contact_request"
+      -if @card.giver.any_contact_info_public?
+        %hr
+        =render "contact_info"
     -else
       #actions
         =link_to "Back to card", card_path(@card.code), :class => 'button'

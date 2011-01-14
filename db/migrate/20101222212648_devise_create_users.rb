@@ -11,6 +11,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name, :null => false
       t.string :time_zone, :null => false
       t.string :gender, :null => false, :limit => 1
+      t.boolean :show_email, :null => false, :default => false
+      t.string :phone_number
+      t.string :twitter
+      t.string :linkedin
+      t.string :facebook
+      t.string :web_site
 
       t.timestamps
     end

@@ -515,20 +515,32 @@ blockquote {
 }
 
 dl {
-    margin:20px 40px;
-    font-family:
+    margin:10px 50px 20px 50px;
+    text-shadow: 0 1px 0 #e5e5e5;
+    font-family:'Droid Serif';
+    font-size:18px;
 }
 
 dt {
     float:left;
-    width:200px;
-    padding-top:10px;
+    width:45%;
+    padding-top:12px;
 }
 
 dd {
-    padding-top:10px;
-    width:300px;
+    padding-top:12px;
     overflow:hidden;
+    color:#000;
+}
+
+dd a, dd a:visited {
+    color:#133CAC;
+    text-decoration:none;
+}
+
+dd a:hover, dd a:focus {
+    color:#133CAC;
+    border-bottom:1px solid;
 }
 
 .faq:before {

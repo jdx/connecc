@@ -11,8 +11,7 @@ Connecc::Application.routes.draw do
   get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
 
   devise_for :users
-  get 'profile' => 'home#edit_profile'
-  put 'profile' => 'home#edit_profile'
+  resource :profile, :only => [ :show, :update ]
   get 'my_cards' => 'cards#index'
 
 

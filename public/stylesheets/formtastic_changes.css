@@ -32,7 +32,7 @@ form.formtastic input[type=submit] {
     margin:5px;
 }
 
-form.formtastic input[type="text"], form.formtastic input[type="email"], form.formtastic input[type="password"] {
+form.formtastic input[type="text"], form.formtastic input[type="email"], form.formtastic input[type="password"], form.formtastic input[type="tel"] {
     -webkit-box-shadow: inset 0px 2px 2px #888;
     -moz-box-shadow: inset 0px 2px 2px #888;
     box-shadow: inset 0px 2px 2px #888;
@@ -104,4 +104,8 @@ form.formtastic input, form.formtastic textarea {
     -moz-transition: all 200ms ease-in;
     -o-transition: all 200ms ease-in;
     transition: all 200ms ease-in;
+}
+
+form.formtastic fieldset > ol > li p.inline-hints {
+    font-size:14px;
 }
