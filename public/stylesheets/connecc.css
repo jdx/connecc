@@ -565,6 +565,14 @@ dd a:hover, dd a:focus {
 }
 
 #fb-like {
-    width:350px;
-    margin:20px auto;
+    width:400px;
+    margin:20px 20px 20px 30px;
+    display:inline-block;
+    text-align:center;
+}
+
+#twitter {
+    display:inline-block;
+    margin:20px 30px 20px 20px;
+    vertical-align:top;
 }
