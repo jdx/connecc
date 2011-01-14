@@ -2,7 +2,7 @@ class GoogleOrder < Order
   after_initialize :set_type
   before_save :update_state
 
-  after_create :start_activation
+  before_create :start_activation
 
   protected
 
