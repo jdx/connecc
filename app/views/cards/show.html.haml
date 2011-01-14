@@ -4,7 +4,7 @@
       %h1 Post a message
       -semantic_form_for @card, :html => { :method => :put, :class => 'centered' }, :url => card_edit_path(@card.code) do |f|
         =f.inputs do
-          =f.input :message, :required => true, :label => ''
+          =f.input :message, :required => true, :label => false
         =f.buttons do
           =f.commit_button "Post message"
     -else
