@@ -128,7 +128,6 @@ a.menu-button {
 }
 
 #strip {
-    padding:16px 0;
     position:relative;
     z-index:5;
     background-image:url('/images/grey.radial.png');
@@ -491,7 +490,7 @@ blockquote {
 }
 
 #tip p {
-    margin:12px;
+    margin:20px;
     text-align:center;
     text-shadow: 0 1px 0 #e5e5e5;
     font-size:14px;
