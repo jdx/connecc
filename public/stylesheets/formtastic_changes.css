@@ -83,6 +83,7 @@ form.formtastic .alt {
     font-size:16px;
     display:inline-block;
     padding-top:25px;
+    vertical-align:top;
 }
 
 form.formtastic .error input {

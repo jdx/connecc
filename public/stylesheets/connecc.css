@@ -27,10 +27,6 @@ body {
     line-height:1.3;
 }
 
-a:focus {
-    outline:1px solid red;
-}
-
 #menu {
     height:50px;
     width:960px;
