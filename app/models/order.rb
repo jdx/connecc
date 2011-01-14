@@ -64,9 +64,9 @@ class Order < ActiveRecord::Base
   def update_cards
     old = Order.find(self.id)
     unless old.cards_amount == self.cards_amount
-      cards.each { |c| c.destroy }
-      cards_amount.times do
-        cards << Card.new
+      self.cards.each { |c| c.destroy }
+      self.cards_amount.times do
+        self.cards << Card.new
       end
     end
   end
