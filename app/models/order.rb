@@ -55,8 +55,8 @@ class Order < ActiveRecord::Base
   end
 
   def generate_cards
-    cards_amount.times do
-      cards << Card.new
+    self.cards_amount.times do
+      self.cards << Card.new
     end
     self.save!
   end
