@@ -4,8 +4,6 @@ require 'google4r/checkout'
 class Order < ActiveRecord::Base
   before_validation :get_missing_data
 
-  after_create :start_activation
-
   belongs_to :user
   has_many :cards
   belongs_to :buyer_billing_address, :class_name => 'Address'
@@ -59,25 +57,6 @@ class Order < ActiveRecord::Base
     self.last_name = self.user.last_name unless self.last_name
     self.email = self.user.email unless self.email
     self.buyer_billing_address = self.buyer_shipping_address unless self.buyer_billing_address
-  end
-
-  def update_cards
-    old = Order.find(self.id)
-    unless old.cards_amount == self.cards_amount
-    end
-  end
-
-  def start_activation
-    unless self.user
-      # first try to find a user
-      self.user = User.find_by_email(self.buyer_shipping_address.email)
-      self.user = User.find_by_email(self.buyer_billing_address.email) unless self.user
-      unless user
-        # No user found, send notification and await activation
-        self.activation_string = ActiveSupport::SecureRandom.hex(16)
-        OrderNotifier.activation(self).deliver
-      end
-    end
   end
 
 end

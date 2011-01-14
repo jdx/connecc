@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :email, :null => false
       t.string :state, :null => false
       t.boolean :shipped, :null => false, :default => false
+      t.boolean :canceled, :null => false, :default => false
       t.integer :buyer_billing_address_id, :null => false
       t.integer :buyer_shipping_address_id, :null => false
       t.string :google_order_number

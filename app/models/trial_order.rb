@@ -18,6 +18,7 @@ class TrialOrder < Order
   def update_state
     self.state = 'awaiting-shipment'
     self.state = 'shipped' if self.shipped
+    self.state = 'canceled' if self.canceled
   end
 
 end

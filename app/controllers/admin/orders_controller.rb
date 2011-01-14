@@ -63,4 +63,10 @@ class Admin::OrdersController < Admin::AdminController
     end
   end
 
+  def cancel
+    @order = Order.find(params[:id])
+    @order.canceled = true
+    @order.save!
+  end
+
 end

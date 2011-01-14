@@ -45,6 +45,7 @@
       =button_to "Charge and Ship", ship_admin_order_path
     -else
       =button_to "Ship", ship_admin_order_path
-  -unless @order.state == 'shipped'
+  -unless @order.state == 'shipped' or @order.state == 'canceled'
     =button_to "Edit", edit_admin_order_path(@order), :method => :get
     =button_to "Generate cards", generate_admin_order_path(@order)
+    =button_to "Cancel", cancel_admin_order_path(@order)
