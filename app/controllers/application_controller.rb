@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_time_zone
+  before_filter :ensure_domain, :set_time_zone
   after_filter :update_last_path
   layout "narrow"
 
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   class Helper
     include Singleton
     include ActionView::Helpers::TextHelper
+  end
+
+  def ensure_domain
+    redirect_to 'conne.cc' if request.env['HTTP_HOST'] =~ /^www/
   end
 
   def set_time_zone
