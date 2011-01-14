@@ -94,20 +94,20 @@
     </ul>
   </footer>
 
-  <%- if request.env['HTTP_HOST'] =~ /^conne.cc$/ %>
+  <%- if Rails.env.production? %>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-  <%- end %>
 
-  <script type="text/javascript">
-    try {
-      var pageTracker = _gat._getTracker("UA-20311526-1");
-      pageTracker._trackPageview();
-    } catch(err) {
-    }
-  </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-20311526-1");
+        pageTracker._trackPageview();
+      } catch(err) {
+      }
+    </script>
+  <%- end %>
 
   <!-- uservoice code -->
   <script type="text/javascript">
