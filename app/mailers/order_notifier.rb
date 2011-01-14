@@ -1,4 +1,6 @@
 class OrderNotifier < BaseNotifier
+  default :from => "sales@conne.cc"
+
   def activation(order)
     @order = order
     mail(:to => order.buyer_billing_address.email_address_with_name,

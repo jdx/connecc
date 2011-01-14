@@ -1,0 +1,16 @@
+-content_for :title do
+  =@order
+#breadcrumb
+  =link_to "Dashboard", admin_path
+  =">"
+  =link_to "Orders", admin_orders_path
+  =">"
+  =link_to @order, admin_order_path(@order)
+  =">"
+  =link_to "Edit", edit_admin_order_path(@order)
+%h1= @order
+%hr
+=semantic_form_for @order, :method => :put, :url => admin_order_path(@order) do |f|
+  =f.inputs do
+    =f.input :cards_amount, :required => true, :hint => "changing this number will delete ALL current cards for this order"
+  =f.buttons

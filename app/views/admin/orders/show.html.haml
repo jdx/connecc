@@ -42,3 +42,5 @@
       =button_to "Charge and Ship", ship_admin_order_path
     -else
       =button_to "Ship", ship_admin_order_path
+  -unless @order.state == 'shipped'
+    =button_to "Edit", edit_admin_order_path(@order), :method => :get

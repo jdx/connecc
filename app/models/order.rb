@@ -4,7 +4,7 @@ require 'google4r/checkout'
 class Order < ActiveRecord::Base
   before_create :update_state
   after_create :start_activation, :generate_cards
-  before_update :update_state
+  before_update :update_state, :update_cards
 
   belongs_to :user
   has_many :cards
@@ -46,6 +46,16 @@ class Order < ActiveRecord::Base
       cards << Card.new
     end
     self.save!
+  end
+
+  def update_cards
+    old = Order.find(self.id)
+    unless old.cards_amount == self.cards_amount
+      cards.each { |c| c.destroy }
+      cards_amount.times do
+        cards << Card.new
+      end
+    end
   end
 
   def start_activation

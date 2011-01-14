@@ -53,6 +53,10 @@
     text-align:center;
 }
 
+#admin #actions form {
+    display:inline-block;
+}
+
 #admin .details {
     margin:50px;
     border:1px solid #4271FF;

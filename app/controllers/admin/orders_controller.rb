@@ -17,6 +17,19 @@ class Admin::OrdersController < Admin::AdminController
     @order = Order.find(params[:id])
   end
 
+  def edit
+    @order = Order.find(params[:id])
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    if @order.update_attributes(params[:order])
+      redirect_to :action => 'show', :id => @order
+    else
+      render :action => 'edit'
+    end
+  end
+
   def envelope
     @address = Order.find(params[:id]).buyer_shipping_address
     prawnto :prawn => {
