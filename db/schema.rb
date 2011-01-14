@@ -13,40 +13,41 @@
 ActiveRecord::Schema.define(:version => 20110107175719) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "address1",     :null => false
+    t.string   "address1",    :null => false
     t.string   "address2"
-    t.string   "city",         :null => false
-    t.string   "company_name"
-    t.string   "name",         :null => false
-    t.string   "country_code", :null => false
-    t.string   "email"
-    t.string   "phone"
-    t.string   "postal_code",  :null => false
-    t.string   "region",       :null => false
+    t.string   "city",        :null => false
+    t.string   "postal_code", :null => false
+    t.string   "region",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "cards", :force => true do |t|
-    t.string   "code",       :null => false
-    t.integer  "order_id",   :null => false
+    t.string   "code",                          :null => false
+    t.integer  "order_id",                      :null => false
     t.text     "message"
+    t.boolean  "visited",    :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "cards", ["code"], :name => "index_cards_on_code"
   add_index "cards", ["order_id"], :name => "index_cards_on_order_id"
+  add_index "cards", ["updated_at"], :name => "index_cards_on_updated_at"
 
   create_table "contact_requests", :force => true do |t|
-    t.integer  "card_id",      :null => false
-    t.string   "contact_info", :null => false
-    t.text     "message",      :null => false
-    t.string   "ip_address",   :null => false
+    t.integer  "card_id",                           :null => false
+    t.string   "email",                             :null => false
+    t.text     "message",                           :null => false
+    t.string   "ip_address",                        :null => false
     t.integer  "user_id"
+    t.boolean  "send_me_a_copy", :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "contact_requests", ["card_id"], :name => "index_contact_requests_on_card_id"
+  add_index "contact_requests", ["user_id"], :name => "index_contact_requests_on_user_id"
 
   create_table "notification_requests", :force => true do |t|
     t.integer  "card_id",    :null => false
@@ -58,17 +59,20 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
   end
 
   add_index "notification_requests", ["card_id"], :name => "index_notification_requests_on_card_id"
+  add_index "notification_requests", ["email"], :name => "index_notification_requests_on_email"
   add_index "notification_requests", ["user_id"], :name => "index_notification_requests_on_user_id"
 
   create_table "orders", :force => true do |t|
+    t.string   "type",                                                                       :null => false
     t.integer  "user_id"
     t.string   "first_name",                                                                 :null => false
     t.string   "last_name",                                                                  :null => false
+    t.string   "email",                                                                      :null => false
     t.string   "state",                                                                      :null => false
     t.boolean  "shipped",                                                 :default => false, :null => false
     t.integer  "buyer_billing_address_id",                                                   :null => false
     t.integer  "buyer_shipping_address_id",                                                  :null => false
-    t.string   "google_order_number",                                                        :null => false
+    t.string   "google_order_number"
     t.integer  "cards_amount",                                                               :null => false
     t.string   "activation_string"
     t.decimal  "authorization_amount",      :precision => 8, :scale => 2
@@ -76,8 +80,10 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["activation_string"], :name => "index_orders_on_activation_string"
   add_index "orders", ["buyer_billing_address_id"], :name => "index_orders_on_buyer_billing_address_id"
   add_index "orders", ["buyer_shipping_address_id"], :name => "index_orders_on_buyer_shipping_address_id"
+  add_index "orders", ["email"], :name => "index_orders_on_email"
   add_index "orders", ["google_order_number"], :name => "index_orders_on_google_order_number"
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
@@ -101,6 +107,12 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
     t.string   "last_name",                                              :null => false
     t.string   "time_zone",                                              :null => false
     t.string   "gender",               :limit => 1,                      :null => false
+    t.boolean  "show_email",                          :default => false, :null => false
+    t.string   "phone_number"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "facebook"
+    t.string   "web_site"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

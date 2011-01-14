@@ -2,32 +2,8 @@ require 'google4r/checkout'
 
 class OrdersController < ApplicationController
 
-  def trial_get
-    render :trial
-  end
-
-  def trial_post
-    render :trial
-  end
-
-  def create
+  def new
     @hide_login = true
-  end
-
-  def place
-    @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
-    @frontend.tax_table_factory = TaxTableFactory.new
-    checkout_command = @frontend.create_checkout_command
-    checkout_command.shopping_cart.create_item do |item|
-      item.name = "100 conne.cc cards"
-      item.description = "A pack of cards to use with conne.cc"
-      item.unit_price = Money.new(1000, "USD")
-      item.quantity = 1
-    end
-    checkout_command.analytics_data = request.POST['analyticsdata']
-    checkout_command.shopping_cart.private_data = { 'cards_amount' => 100 }
-    response = checkout_command.send_to_google_checkout
-    redirect_to response.redirect_url
   end
 
   def activate
@@ -43,9 +19,7 @@ class OrdersController < ApplicationController
     @user = User.new
     @user.first_name = @order.first_name
     @user.last_name = @order.last_name
-    @user.time_zone = 'Pacific Time (US & Canada)'
-    @user.gender = 'm'
-    @user.email = @order.buyer_billing_address.email unless @order.buyer_billing_address.email =~ /google.com$/ # because it's probably the proxy email, or they work for google and won't complain about typing an email address in :)
+    @user.email = @order.email unless @order.email =~ /google.com$/ # because it's probably the proxy email, or they work for google and won't complain about typing an email address in :)
     @hide_login = true
     render :activate
   end
@@ -68,8 +42,3 @@ class OrdersController < ApplicationController
 
 end
 
-class TaxTableFactory
-  def effective_tax_tables_at(time)
-    [ Google4R::Checkout::TaxTable.new(false) ]
-  end
-end

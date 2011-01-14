@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  before_save :default_values
   before_update :clean_contact_info
 
   has_many :orders
@@ -76,6 +77,11 @@ class User < ActiveRecord::Base
     self.facebook.gsub!(/.*facebook.com/, 'facebook.com') if self.facebook
     self.linkedin.gsub!(/.*linkedin.com/, 'linkedin.com') if self.linkedin
     self.twitter.gsub!(/^@?/, '@') if self.twitter
+  end
+
+  def default_values
+    self.gender = 'm' unless self.gender
+    self.time_zone = 'Pacific Time (US & Canada)' unless self.time_zone
   end
 
 end

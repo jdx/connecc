@@ -63,17 +63,12 @@ class GoogleCheckoutApiController < ApplicationController
 
     # Find out what type of notification it is and handle it accordingly
     if notification.kind_of? Google4R::Checkout::NewOrderNotification
-      order = Order.create! do |o|
+      order = GoogleOrder.create! do |o|
         o.buyer_billing_address = Address.create! do |a|
           google = notification.buyer_billing_address
           a.address1 = google.address1
           a.address2 = google.address2
           a.city = google.city
-          a.company_name = google.company_name
-          a.name = google.contact_name
-          a.country_code = google.country_code
-          a.email = google.email
-          a.phone = google.phone
           a.postal_code = google.postal_code
           a.region = google.region
         end
@@ -82,16 +77,12 @@ class GoogleCheckoutApiController < ApplicationController
           a.address1 = google.address1
           a.address2 = google.address2
           a.city = google.city
-          a.company_name = google.company_name
-          a.name = google.contact_name
-          a.country_code = google.country_code
-          a.email = google.email
-          a.phone = google.phone
           a.postal_code = google.postal_code
           a.region = google.region
         end
         o.first_name = hpricot.at("//buyer-shipping-address/structured-name/first-name").inner_html
         o.last_name = hpricot.at("//buyer-shipping-address/structured-name/last-name").inner_html
+        o.email = notification.buyer_billing_address.email
         o.google_order_number = notification.google_order_number
         o.cards_amount = notification.shopping_cart.private_data['cards_amount']
       end

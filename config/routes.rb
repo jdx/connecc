@@ -29,10 +29,9 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
-  get "orders" => "orders#create"
-  get "orders/trial" => "orders#trial_get"
-  post "orders/trial" => "orders#trial_post"
-  post "orders/place" => "orders#place"
+  get "orders" => "orders#new"
+  resource :trial_order, :only => [ :new, :create ]
+  post "orders/place" => "google_orders#create"
   get "orders/:activation_string" => "orders#activate", :as => :order_activate
   post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
 

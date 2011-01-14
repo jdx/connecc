@@ -10,6 +10,9 @@
 %hr
 .details
   %p
+    %label Type
+    %span= @order.type
+  %p
     %label State
     %span= @order.state
   %p
@@ -32,10 +35,10 @@
     %p
       %label Authorization amount
       %span= "$" + sprintf("%.2f", @order.authorization_amount) 
-  -if @order.google_order_number
-  %p
-    %label Google order number
-    %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
+  -if @order.kind_of? GoogleOrder
+    %p
+      %label Google order number
+      %span= link_to @order.google_order_number, "https://checkout.google.com/sell/multiOrder?order=#{ @order.google_order_number }"
 #actions
   -if @order.state == 'awaiting-shipment'
     -if @order.google_order_number

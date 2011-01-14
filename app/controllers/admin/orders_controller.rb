@@ -31,7 +31,8 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def envelope
-    @address = Order.find(params[:id]).buyer_shipping_address
+    @order = Order.find(params[:id])
+    @address = @order.buyer_billing_address
     prawnto :prawn => {
       :margin => 0,
       :page_layout => :landscape,

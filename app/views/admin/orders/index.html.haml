@@ -12,12 +12,14 @@
 %table
   %tr
     %th Order
+    %th Type
     %th State
     %th User
     %th Placed
   -for order in @orders
     %tr
       %td= link_to order, admin_order_path(order)
+      %td= order.type
       %td= order.state
       %td= link_to order.user, admin_user_path(order.user) if order.user
       %td= order.created_at.to_s(:short)

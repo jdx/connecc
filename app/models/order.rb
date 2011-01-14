@@ -2,14 +2,21 @@ require 'active_support/secure_random'
 require 'google4r/checkout'
 
 class Order < ActiveRecord::Base
-  before_create :update_state
+  before_validation :get_missing_data
+
   after_create :start_activation, :generate_cards
-  before_update :update_state, :update_cards
+  before_update :update_cards
 
   belongs_to :user
   has_many :cards
   belongs_to :buyer_billing_address, :class_name => 'Address'
   belongs_to :buyer_shipping_address, :class_name => 'Address'
+
+  validates :type, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :email, :presence => true
+  validates :cards_amount, :presence => true
 
   def ship
     self.shipped = true
@@ -30,15 +37,21 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
+  def name
+    "#{ self.first_name } #{ self.last_name }"
+  end
+
+  def email_address_with_name
+    "#{ self.name } <#{ self.email }>"
+  end
 
   protected
 
-  def update_state
-    self.state = 'new'
-    self.state = 'awaiting-charge' if self.user
-    self.state = 'awaiting-activation' if self.authorization_amount
-    self.state = 'awaiting-shipment' if self.authorization_amount and self.user
-    self.state = 'shipped' if self.shipped
+  def get_missing_data
+    self.first_name = self.user.first_name unless self.first_name
+    self.last_name = self.user.last_name unless self.last_name
+    self.email = self.user.email unless self.email
+    self.buyer_billing_address = self.buyer_shipping_address unless self.buyer_billing_address
   end
 
   def generate_cards
@@ -70,6 +83,7 @@ class Order < ActiveRecord::Base
       end
     end
   end
+
 end
 
 class TaxTableFactory
