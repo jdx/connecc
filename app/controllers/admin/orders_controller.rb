@@ -65,8 +65,8 @@ class Admin::OrdersController < Admin::AdminController
 
   def cancel
     @order = Order.find(params[:id])
-    @order.canceled = true
-    @order.save!
+    @order.cancel
+    redirect_to admin_order_path(@order), :notice => 'Canceled'
   end
 
 end

@@ -15,6 +15,11 @@ class Order < ActiveRecord::Base
   validates :email, :presence => true
   validates :cards_amount, :presence => true
 
+  def cancel
+    self.canceled = true
+    self.save!
+  end
+
   def ship
     self.shipped = true
     self.save!
