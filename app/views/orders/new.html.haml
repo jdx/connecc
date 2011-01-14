@@ -1,6 +1,6 @@
 -content_for :title do
   Order cards
--if TrialOrder.count < 100 and rand(2) == 1
+-if TrialOrder.count < 100 and request.remote_ip.to_i % 2
   #limited-time-offer
     %h1 Limited time offer!
     %p For our big launch, we're offering a limited supply of 10 free cards!
