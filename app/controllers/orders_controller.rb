@@ -19,6 +19,8 @@ class OrdersController < ApplicationController
     @user = User.new
     @user.first_name = @order.first_name
     @user.last_name = @order.last_name
+    @user.gender = 'm'
+    @user.time_zone = 'Pacific Time (US & Canada)'
     @user.email = @order.email unless @order.email =~ /google.com$/ # because it's probably the proxy email, or they work for google and won't complain about typing an email address in :)
     @hide_login = true
     render :activate
