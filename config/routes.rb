@@ -1,23 +1,8 @@
 Connecc::Application.routes.draw do
 
-  # these 5 letter routes are temporary
-  get "trial" => "trial_orders#new"
-  post "trial" => "trial_orders#create"
-
-  # note: NOTHING can be a 5 character route with this implementation, we can change that later if we need to
-
-  get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  post ":code/contact_request" => "cards#contact_request_post", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/notification_request" => redirect("/%{code}"), :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-
   devise_for :users
   resource :profile, :only => [ :show, :update ]
   get 'my_cards' => 'cards#index'
-
 
   namespace "admin", :path => "administration" do
     resources :orders do
@@ -35,6 +20,8 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
+  get "trial" => "trial_orders#new"
+  post "trial" => "trial_orders#create"
   get "orders" => "orders#new"
   post "orders/place" => "google_orders#create"
   get "orders/:activation_string" => "orders#activate", :as => :order_activate
@@ -47,6 +34,14 @@ Connecc::Application.routes.draw do
   get "intro_video" => "home#intro_video"
 
   post "google_checkout_api/callback" => "google_checkout_api#callback"
+
+  get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  post ":code/contact_request" => "cards#contact_request_post", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/notification_request" => redirect("/%{code}"), :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
 
   root :to => "home#home"
 end
