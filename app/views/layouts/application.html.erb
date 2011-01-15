@@ -15,6 +15,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <%- if @norobots %>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+  <%- end %>
   <meta property="og:title" content="conne.cc" />
   <meta property="og:type" content="product" />
   <meta property="og:image" content="http://graph.facebook.com/172680719441624/picture?type=large" />

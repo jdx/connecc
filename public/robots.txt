@@ -1,8 +1,2 @@
 User-agent: *
-Allow: /tour
-Allow: /trial
-Allow: /orders
-Allow: /intro_video
-Allow: /about_us
-Allow: /contact_us
-Disallow: /
+Allow: /

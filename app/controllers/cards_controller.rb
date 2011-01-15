@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_filter :norobots
   before_filter :hide_tip
   before_filter :get_card, :except => :index
   before_filter :authenticate_user!, :except => [:show, :notification_request, :contact_request_get, :contact_request_post]

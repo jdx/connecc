@@ -39,4 +39,8 @@ class ApplicationController < ActionController::Base
     session[:last_path] = request.path
   end
 
+  def norobots
+    @norobots = true
+  end
+
 end
