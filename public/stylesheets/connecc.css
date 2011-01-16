@@ -1,4 +1,85 @@
-/* connecc.css */
+/*  connecc.css */
+/******************************************************************/
+
+
+/*  Element styles */
+/**********************************************************/
+
+ul { list-style-type:square; }
+
+h1 {
+    font-size:28px;
+    text-shadow:0 1px 0 #fff;
+    color #333;
+    text-align:center;
+    margin:30px;
+}
+
+h2 {
+    font-size:24px;
+    margin:20px;
+    text-align:center;
+    color:#333;
+    text-shadow:0 1px 0 #e5e5e5;
+}
+
+h3 { font-size:20px; }
+
+table {
+    margin:50px auto;
+    border:1px solid #4271FF;
+}
+
+th, td { padding:10px 20px; }
+
+tr { border-bottom:1px dotted #bbb; }
+
+tr:nth-child(even) { background-color:#eff2ff; }
+
+tr:nth-child(odd) { background-color:#ddeeff; }
+
+blockquote {
+    font-family:'Droid Serif';
+    text-align:justify;
+    margin:20px 100px 50px 20px;
+    font-size:18px;
+    padding-left:80px;
+    background: transparent url(../images/blockquote.png) no-repeat;
+    min-height:40px;
+}
+
+dl {
+    margin:10px 50px 20px 50px;
+    text-shadow: 0 1px 0 #e5e5e5;
+    font-family:'Droid Serif';
+    font-size:18px;
+}
+
+dt {
+    float:left;
+    width:45%;
+    padding-top:12px;
+}
+
+dd {
+    padding-top:12px;
+    overflow:hidden;
+    color:#000;
+}
+
+dd a, dd a:visited {
+    color:#133CAC;
+    text-decoration:none;
+}
+
+dd a:hover, dd a:focus {
+    color:#133CAC;
+    border-bottom:1px solid;
+}
+
+
+/*  Core layout */
+/**********************************************************/
 
 html {
     background-color:#E6E7E8;
@@ -7,88 +88,125 @@ html {
 html, body {
     background-image:url("/images/noise.soft.png");
     background-repeat:repeat;
+    height:100%;
 }
 
-#container {
-    background-image:url("/images/graph.png");
-    background-repeat:no-repeat;
-    background-position:top center;
+    body {
+        background-color: #E6E7E8;
+        font-family: 'Cabin', arial, serif;
+        line-height:1.3;
+    }
+
+    #container {
+        background-image:url("/images/graph.png");
+        background-repeat:no-repeat;
+        background-position:top center;
+        min-height:100%;
+    }
+
+        #menu {
+            height:50px;
+            width:960px;
+            margin-left:auto;
+            margin-right:auto;
+            overflow:hidden;
+        }
+
+            #menu a.menu-button {
+                background-color:#1D4088;
+                display:block;
+                width:50px;
+                height:28px;
+                color:#fff;
+                font-size:16px;
+                text-align:center;
+                vertical-align:middle;
+                text-decoration:none;
+                float:right;
+                margin:0 20px 20px 20px;
+                -webkit-border-bottom-right-radius: 5px;
+                -webkit-border-bottom-left-radius: 5px;
+                -moz-border-radius-bottomright: 5px;
+                -moz-border-radius-bottomleft: 5px;
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border:1px solid #111;
+            }
+
+        #banner, footer {
+            text-align:center;
+        }
+
+        #main {
+            margin:24px auto 0 auto;
+            padding-bottom: 240px;
+            width:620px;
+        }
+
+            #main.wide { width:900px; }
+
+
+/*  Footer */
+/******************************************************/
+
+footer {
+    color: #eee;
+    background-color:#333;
+    border-top:1px solid #888;
+    background-image:url("/images/footer.gradient.png");
+    background-repeat:repeat-x;
+    
+    position:relative;
+    margin-top:-130px;
+    height:129px;
+    clear:both;
 }
 
-ul {
-    list-style-type:square;
+    footer #links a, footer #links a:visited {
+        color:#eee;
+        text-decoration:none;
+    }
+
+    footer #links a:hover {
+        border-bottom:1px solid;
+        color:#eee;
+    }
+
+#social-icons {
+    margin:20px 6px 6px 6px;
 }
 
-
-body {
-    background-color: #E6E7E8;
-    /*font-family:"Molengo";*/
-    font-family: 'Cabin', arial, serif;
-    line-height:1.3;
+#links, #copyright {
+    margin:6px;
 }
 
-#menu {
-    height:50px;
-    width:960px;
-    margin-left:auto;
-    margin-right:auto;
-    overflow:hidden;
+#links {
+    font-size:17px;
 }
 
-a.menu-button {
-    background-color:#1D4088;
-    display:block;
-    width:50px;
-    height:28px;
-    color:#fff;
-    font-size:16px;
+    #links li, #copyright li {
+        display:inline;
+    }
+
+    #links li:after {
+        content:'|';
+        margin:10px;
+    }
+
+    #links li:last-child:after {
+        content:'';
+    }
+
+#social-icons a {
+    margin:4px;
+}
+
+#copyright {
     text-align:center;
-    vertical-align:middle;
-    text-decoration:none;
-    float:right;
-    margin:0 20px 20px 20px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border:1px solid #111;
 }
 
-#notice, #alert {
-    text-align:center;
-    border:1px solid #ccc;
-    padding:10px 5px;
-    font-size:15px;
-    margin:24px auto;
-    width:400px;
-}
-
-#alert {
-    border-color:#c99;
-    color:#fff;
-    background:#c00;
-}
-
-#notice {
-    border-color:#9c9;
-    color:#060;
-    background:#e2f9e3;
-}
-
-#banner, footer {
-    text-align:center;
-}
-
-#main {
-    margin:24px auto 0 auto;
-    width:620px;
-}
-
-#main.wide {
-    width:900px;
-}
+/*  Banner and Strip */
+/******************************************************/
 
 #banner, #strip {
     background-color:#ccc;
@@ -120,13 +238,6 @@ a.menu-button {
     box-shadow: 0px 0px 10px #333333;
 }
 
-#strip hr {
-    border-top:1px dashed #888;
-    border-bottom:1px dashed #fff;
-    height:0;
-    width:100%;
-}
-
 #strip {
     position:relative;
     z-index:5;
@@ -140,53 +251,63 @@ a.menu-button {
     box-shadow: 0px 0px 10px #333333;
 }
 
-#logo {
-    margin:0 auto;
-    position:absolute;
-}
+    #strip hr {
+        border-top:1px dashed #888;
+        border-bottom:1px dashed #fff;
+        height:0;
+        width:100%;
+    }
 
-#name, #arrow {
-    
-    left:0;
-    right:0;
-    text-align:center;
-}
+    #strip #logo {
+        margin:0 auto;
+        position:absolute;
+    }
 
-#name { 
-    font-weight:bolder;
-    z-index:12;
-    left:0;
-    right:0;
-}
+    #strip #name, #strip #arrow {
+        left:0;
+        right:0;
+        text-align:center;
+    }
 
-#name a {
-    -webkit-transition: all 500ms ease-in;
-    -moz-transition: all 500ms ease-in;
-    -o-transition: all 500ms ease-in;
-    transition: all 500ms ease-in;
+    #strip #name { 
+        font-weight:bolder;
+        z-index:12;
+        left:0;
+        right:0;
+    }
 
-    text-decoration:none;
-    text-shadow:0 1px 0 #fff;
-    
-    font-size:36pt;
-    
-    margin-bottom:10px;
-}
+        #strip #name a {
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            -o-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
 
-#name a:hover, #name a:focus {
-    color:#133CAC;
-    outline:0;
-}
+            text-decoration:none;
+            text-shadow:0 1px 0 #fff;
+            
+            font-size:36pt;
+            
+            margin-bottom:10px;
+        }
 
-#arrow {
-    font-size:80px;
-    font-weight:bold;
-    color:#133CAC;
-    text-shadow:0 1px 0 #fff;
-    z-index:11;
-    line-height:40px;
-    left:-20px;
-}
+        #strip #name a:hover, #strip #name a:focus {
+            color:#133CAC;
+            outline:0;
+        }
+
+        #strip #arrow {
+            font-size:80px;
+            font-weight:bold;
+            color:#133CAC;
+            text-shadow:0 1px 0 #fff;
+            z-index:11;
+            line-height:40px;
+            left:-20px;
+        }
+
+
+/*  Curls */
+/**********************************************/
 
 .bannerCurl {
     margin:0 auto;
@@ -207,35 +328,64 @@ a.menu-button {
     width:900px;
 }
 
-.leftCurl, .rightCurl {
-    -webkit-box-shadow: 0px 6px 30px black;
-    -moz-box-shadow: 0px 6px 30px black;
-    box-shadow: 0px 6px 30px black;
-    width:200px;
-    height:15px;
-    position:absolute;
-    bottom:-40;
+    .leftCurl, .rightCurl {
+        -webkit-box-shadow: 0px 6px 30px black;
+        -moz-box-shadow: 0px 6px 30px black;
+        box-shadow: 0px 6px 30px black;
+        width:200px;
+        height:15px;
+        position:absolute;
+        bottom:-40;
+    }
+
+    .leftCurl {
+        left:10px;
+        
+        -moz-transform:rotate(-4deg);
+        -webkit-transform:rotate(-4deg);
+        -o-transform:rotate(-4deg);
+        -ms-transform:rotate(-4deg);
+        transform:rotate(-4deg);
+    }
+
+    .rightCurl {
+        right:10px;
+        
+        -moz-transform:rotate(4deg);
+        -webkit-transform:rotate(4deg);
+        -o-transform:rotate(4deg);
+        -ms-transform:rotate(4deg);
+        transform:rotate(4deg);
+    }
+
+
+/*  Rails styles */
+/**********************************************************/
+
+#notice, #alert {
+    text-align:center;
+    border:1px solid #ccc;
+    padding:10px 5px;
+    font-size:15px;
+    margin:24px auto;
+    width:400px;
 }
 
-.leftCurl {
-    left:10px;
-    
-    -moz-transform:rotate(-4deg);
-    -webkit-transform:rotate(-4deg);
-    -o-transform:rotate(-4deg);
-    -ms-transform:rotate(-4deg);
-    transform:rotate(-4deg);
+#alert {
+    border-color:#c99;
+    color:#fff;
+    background:#c00;
 }
 
-.rightCurl {
-    right:10px;
-    
-    -moz-transform:rotate(4deg);
-    -webkit-transform:rotate(4deg);
-    -o-transform:rotate(4deg);
-    -ms-transform:rotate(4deg);
-    transform:rotate(4deg);
+#notice {
+    border-color:#9c9;
+    color:#060;
+    background:#e2f9e3;
 }
+
+
+/*  Content structure */
+/**********************************************************/
 
 #pitch h2, #tour h2 {
     font-size:20px;
@@ -244,15 +394,13 @@ a.menu-button {
     width:450px;
 }
 
-#tour a {
-    color:#133CAC;
-}
-.red, .red a {
-  color:red;
-}
+#tour a { color:#133CAC; }
+
+.red, .red a { color:red; }
 
 
-
+/*  Ribbons */
+/**********************************************************/
 
 #betaRibbon {
     height:32px;
@@ -262,37 +410,41 @@ a.menu-button {
     -webkit-transform:rotate(45deg);
     -moz-transform:rotate(45deg);
 }
-#betaRibbon .lcorner, #betaRibbon .rcorner {
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:0;
-    border:0 solid transparent;
-}
-#betaRibbon .lcorner {
-    left:0;
-    border-right:32px solid red;
-    border-top:32px solid transparent;
-}
-#betaRibbon .rcorner {
-    right:0;
-    border-left:32px solid red;
-    border-top:32px solid transparent;
-}
-#betaRibbon .body {
-    background-color:red;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:31px;
-    right:31px;
-    font-size:20px;
-    font-family:'sans-serif';
-    font-color:#444;
-    font-weight:bold;
-    padding-top:4px;
-    text-shadow:none;
-}
+    #betaRibbon .lcorner, #betaRibbon .rcorner {
+        position:absolute;
+        top:0;
+        bottom:0;
+        width:0;
+        border:0 solid transparent;
+    }
+    #betaRibbon .lcorner {
+        left:0;
+        border-right:32px solid red;
+        border-top:32px solid transparent;
+    }
+    #betaRibbon .rcorner {
+        right:0;
+        border-left:32px solid red;
+        border-top:32px solid transparent;
+    }
+    #betaRibbon .body {
+        background-color:red;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:31px;
+        right:31px;
+        font-size:20px;
+        font-family:'sans-serif';
+        font-color:#444;
+        font-weight:bold;
+        padding-top:4px;
+        text-shadow:none;
+    }
+
+
+/*  Content-Specific Styles */
+/**********************************************************/
 
 #order-cards {
     overflow:hidden;
@@ -316,21 +468,110 @@ a.menu-button {
     opacity:0.7;
 }
 
-h1 {
-    font-size:28px;
-    text-shadow:0 1px 0 #fff;
-    color #333;
+.note {
+    font-size:14px;
+    margin:20px;
+}
+
+.youtube-player {
+    margin:20px auto;
+    display:block;
+}
+
+.no-transitions {
+    -webkit-transition: 0;
+    -moz-transition: 0
+    -o-transition: 0;
+    transition: 0;
+}
+
+#site-login {
+    background-color:#fff;
+    position:absolute;
+    top:-220px;
+    z-index:999; /* This is probably only temporary */
+}
+
+#site-login.display {
+    top:0px;
+}
+
+#tip {
+    margin:20px;
     text-align:center;
+    text-shadow: 0 1px 0 #e5e5e5;
+    font-size:14px;
+    font-family:'Droid Serif';
+}
+
+.steps {
+    margin:50px 60px;
+}
+
+.steps li {
     margin:30px;
 }
 
-h2 {
-    font-size:24px;
-    margin:20px;
-    text-align:center;
-    color:#333;
-    text-shadow:0 1px 0 #e5e5e5;
+.steps .hint {
+    font-size:14px;
+    display:block;
 }
+
+.faq:before {
+    content:'';
+    border-top:1px dashed #888;
+    border-bottom:1px dashed #fff;
+    width:100%;
+    display:block;
+}
+
+    .faq h2 {
+        text-align:left;
+        font-size:18px;
+    }
+
+    .faq p {
+        font-size:14px;
+        margin:20px;
+    }
+
+.card-list li {
+    margin:20px;
+    font-size:18px;
+}
+
+#limited-time-offer p {
+    font-size:16px;
+    text-align:center;
+    margin:20px;
+    font-family:'Droid Serif';
+}
+
+#actions {
+    margin:40px auto;
+    text-align:center;
+}
+
+#actions form {
+    display:inline-block;
+}
+
+#fb-like {
+    width:400px;
+    margin:20px 20px 20px 30px;
+    display:inline-block;
+    text-align:center;
+}
+
+#twitter {
+    display:inline-block;
+    margin:20px 30px 20px 20px;
+    vertical-align:top;
+}
+
+
+/*  Buttons / CTA */
+/**********************************************************/
 
 #cta {
     margin:40px;
@@ -410,169 +651,4 @@ h2 {
     background: -moz-linear-gradient(top, #3860D8 0%, #023AE2 100%); /* firefox */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3860D8), color-stop(100%,#023AE2)); /* webkit */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3860D8', endColorstr='#023AE2',GradientType=0 ); /* ie */
-}
-
-table {
-    margin:50px auto;
-    border:1px solid #4271FF;
-}
-
-th, td {
-    padding:10px 20px;
-}
-
-tr {
-    border-bottom:1px dotted #bbb;
-}
-
-tr:nth-child(even) {
-    background-color:#eff2ff;
-}
-
-tr:nth-child(odd) {
-    background-color:#ddeeff;
-}
-
-h3 {
-    font-size:20px;
-}
-
-blockquote {
-    font-family:'Droid Serif';
-    text-align:justify;
-    margin:20px 100px 50px 20px;
-    font-size:18px;
-    padding-left:80px;
-    background: transparent url(../images/blockquote.png) no-repeat;
-    min-height:40px;
-}
-
-.note {
-    font-size:14px;
-    margin:20px;
-}
-
-.youtube-player {
-    margin:20px auto;
-    display:block;
-}
-
-.no-transitions {
-    -webkit-transition: 0;
-    -moz-transition: 0
-    -o-transition: 0;
-    transition: 0;
-}
-
-#site-login {
-    background-color:#fff;
-    position:absolute;
-    top:-220px;
-    z-index:999; /* This is probably only temporary */
-}
-
-#site-login.display {
-    top:0px;
-}
-
-#tip {
-    margin:20px;
-    text-align:center;
-    text-shadow: 0 1px 0 #e5e5e5;
-    font-size:14px;
-    font-family:'Droid Serif';
-}
-
-.steps {
-    margin:50px 60px;
-}
-
-.steps li {
-    margin:30px;
-}
-
-.steps .hint {
-    font-size:14px;
-    display:block;
-}
-
-dl {
-    margin:10px 50px 20px 50px;
-    text-shadow: 0 1px 0 #e5e5e5;
-    font-family:'Droid Serif';
-    font-size:18px;
-}
-
-dt {
-    float:left;
-    width:45%;
-    padding-top:12px;
-}
-
-dd {
-    padding-top:12px;
-    overflow:hidden;
-    color:#000;
-}
-
-dd a, dd a:visited {
-    color:#133CAC;
-    text-decoration:none;
-}
-
-dd a:hover, dd a:focus {
-    color:#133CAC;
-    border-bottom:1px solid;
-}
-
-.faq:before {
-    content:'';
-    border-top:1px dashed #888;
-    border-bottom:1px dashed #fff;
-    width:100%;
-    display:block;
-}
-
-.faq h2 {
-    text-align:left;
-    font-size:18px;
-}
-
-.faq p {
-    font-size:14px;
-    margin:20px;
-}
-
-.card-list li {
-    margin:20px;
-    font-size:18px;
-}
-
-#limited-time-offer p {
-    font-size:16px;
-    text-align:center;
-    margin:20px;
-    font-family:'Droid Serif';
-}
-
-#actions {
-    margin:40px auto;
-    text-align:center;
-}
-
-#actions form {
-    display:inline-block;
-}
-
-#fb-like {
-    width:400px;
-    margin:20px 20px 20px 30px;
-    display:inline-block;
-    text-align:center;
-}
-
-#twitter {
-    display:inline-block;
-    margin:20px 30px 20px 20px;
-    vertical-align:top;
 }
