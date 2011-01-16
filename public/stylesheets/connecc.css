@@ -444,6 +444,68 @@ footer {
         text-shadow:none;
     }
 
+#beta-tab {
+    position:absolute;
+    top:20px;
+    left:-9px;
+    background-color:#FF2C00;
+    font-size:16px;
+    text-shadow:none;
+    color:#921900;
+    height:28px;
+    
+    -webkit-box-shadow: 0px 1px 1px #333333;
+    -moz-box-shadow: 0px 1px 1px #333333;
+    box-shadow: 0px 1px 1px #333333;
+}
+
+#beta-tab #tab-content {
+    padding:4px 24px;
+}
+
+#beta-tab #leftTag {
+    position:absolute;
+    top:28px;
+    left:0;
+    width:0;
+    height:0;
+    
+    border-style:solid;
+    
+    border-top-width:4px;
+    border-top-color:#921900;
+    
+    border-bottom-width:4px;
+    border-bottom-color:transparent;
+    
+    border-left-width:4px;
+    border-left-color:transparent;
+    
+    border-right-width:4px;
+    border-right-color:#921900;
+}
+
+#beta-tab #rightTag {
+    position:absolute;
+    top:0;
+    right:-4px;
+    width:0;
+    height:0;
+    
+    border-style:solid;
+    
+    border-top-width:14px;
+    border-top-color:#FF2C00;
+    
+    border-bottom-width:14px;
+    border-bottom-color:#FF2C00;
+    
+    border-left-width:4px;
+    border-left-color:#FF2C00;
+    
+    border-right-width:4px;
+    border-right-color:transparent;
+}
 
 /*  Content-Specific Styles */
 /**********************************************************/
