@@ -105,7 +105,8 @@ html, body {
     }
 
         #menu {
-            height:50px;
+            /*height:50px;*/
+            margin-bottom:-64px;
             width:960px;
             margin-left:auto;
             margin-right:auto;
@@ -132,6 +133,8 @@ html, body {
                 border-bottom-left-radius: 5px;
                 border:1px solid #111;
             }
+            
+            #menu img { margin:10px; }
 
         #banner, footer {
             text-align:center;
@@ -208,16 +211,24 @@ footer {
 /*  Banner and Strip */
 /******************************************************/
 
-#banner, #strip {
+#banner, #strip, #site-login {
     background-color:#ccc;
     border:1px solid #bbb;
     border-bottom:1px dashed #999;
     border-top:1px dashed #ddd;
     font-size:20px;
+    
+    background-image:url('/images/grey.radial.png');
+    background-position:center top;
+    background-repeat:no-repeat;
+    
+    -webkit-box-shadow: 0px 0px 10px #333333;
+    -moz-box-shadow: 0px 0px 10px #333333;
+    box-shadow: 0px 0px 10px #333333;
 }
 
 #banner {
-    width:300px;
+    width:450px;
     margin:0 auto;
     height:60px;
 
@@ -228,35 +239,7 @@ footer {
     font-size:28pt;
     text-shadow:0 1px 0 #e5e5e5;
     position:relative;
-    
-    background-image:url('/images/grey.radial.png');
-    background-position:center top;
-    background-repeat:no-repeat;
-    
-    -webkit-box-shadow: 0px 0px 10px #333333;
-    -moz-box-shadow: 0px 0px 10px #333333;
-    box-shadow: 0px 0px 10px #333333;
 }
-
-#strip {
-    position:relative;
-    z-index:5;
-    background-image:url('/images/grey.radial.png');
-    background-position:center top;
-    background-repeat:no-repeat;
-    overflow:hidden;
-    
-    -webkit-box-shadow: 0px 0px 10px #333333;
-    -moz-box-shadow: 0px 0px 10px #333333;
-    box-shadow: 0px 0px 10px #333333;
-}
-
-    #strip hr {
-        border-top:1px dashed #888;
-        border-bottom:1px dashed #fff;
-        height:0;
-        width:100%;
-    }
 
     #banner #logo {
         margin:0 auto;
@@ -305,13 +288,26 @@ footer {
             left:-20px;
         }
 
+#strip {
+    position:relative;
+    z-index:5;
+    overflow:hidden;
+}
+
+    #strip hr {
+        border-top:1px dashed #888;
+        border-bottom:1px dashed #fff;
+        height:0;
+        width:100%;
+    }
+
 
 /*  Curls */
 /**********************************************/
 
 .bannerCurl {
     margin:0 auto;
-    width:300px;
+    width:450px;
     position:relative;
     top:-20px;
     z-index:8;
@@ -488,13 +484,40 @@ footer {
 #site-login {
     background-color:#fff;
     position:absolute;
-    top:-220px;
-    z-index:999; /* This is probably only temporary */
+    width:450px;
+    top:-300px;
+    z-index:20;
+    
+    margin:auto 255px;
+    
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    
+    text-align:center;
 }
 
-#site-login.display {
-    top:0px;
-}
+    #site-login ul { list-style:none; }
+    
+        #site-login ul li { padding:0; }
+
+    #site-login.display { top:0px; }
+    
+    #site-login ul label { 
+        width:160px; 
+        display:inline-block; 
+        text-align:right;
+    }
+    
+    #site-login ul input[type="text"], #site-login ul input[type="password"] { 
+        text-align:left;
+    }
+    
+    #site-login ul input {
+        width:200px;
+        display:inline-block; 
+    }
 
 #tip {
     margin:20px;
@@ -556,17 +579,25 @@ footer {
     display:inline-block;
 }
 
+#social-integration {
+    width:220px;
+    height:16px;
+    margin:0 auto;
+    position:relative;
+}
+
+#fb-like, #twitter {
+    position:absolute;
+    top:0;
+}
+
 #fb-like {
-    width:400px;
-    margin:20px 20px 20px 30px;
-    display:inline-block;
-    text-align:center;
+    left:0;
+    top:-6px;
 }
 
 #twitter {
-    display:inline-block;
-    margin:20px 30px 20px 20px;
-    vertical-align:top;
+    right:0;
 }
 
 
