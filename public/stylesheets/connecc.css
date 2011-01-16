@@ -258,25 +258,25 @@ footer {
         width:100%;
     }
 
-    #strip #logo {
+    #banner #logo {
         margin:0 auto;
         position:absolute;
     }
 
-    #strip #name, #strip #arrow {
+    #banner #name, #banner #arrow {
         left:0;
         right:0;
         text-align:center;
     }
 
-    #strip #name { 
+    #banner #name { 
         font-weight:bolder;
         z-index:12;
         left:0;
         right:0;
     }
 
-        #strip #name a {
+        #banner #name a {
             -webkit-transition: all 500ms ease-in;
             -moz-transition: all 500ms ease-in;
             -o-transition: all 500ms ease-in;
@@ -290,12 +290,12 @@ footer {
             margin-bottom:10px;
         }
 
-        #strip #name a:hover, #strip #name a:focus {
+        #banner #name a:hover, #banner #name a:focus {
             color:#133CAC;
             outline:0;
         }
 
-        #strip #arrow {
+        #banner #arrow {
             font-size:80px;
             font-weight:bold;
             color:#133CAC;
