@@ -484,11 +484,11 @@ footer {
 #site-login {
     background-color:#fff;
     position:absolute;
-    width:450px;
+    width:400px;
     top:-300px;
     z-index:20;
     
-    margin:auto 255px;
+    margin:auto 280px;
     
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
@@ -505,7 +505,7 @@ footer {
     #site-login.display { top:0px; }
     
     #site-login ul label { 
-        width:160px; 
+        width:120px; 
         display:inline-block; 
         text-align:right;
     }
@@ -515,7 +515,7 @@ footer {
     }
     
     #site-login ul input {
-        width:200px;
+        width:160px;
         display:inline-block; 
     }
 
