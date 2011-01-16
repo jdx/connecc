@@ -9,7 +9,6 @@ Connecc::Application.routes.draw do
       member do
         post 'ship'
         post 'cancel'
-        post 'generate', :defaults => { :format => :pdf }
         get 'cards', :defaults => { :format => :pdf }
         get 'envelope', :defaults => { :format => :pdf }
       end

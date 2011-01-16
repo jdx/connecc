@@ -42,40 +42,26 @@
 
 <body>
   <div id="container" class="">
-    <div id="menu">
-      <img src="/images/logo.2.png" width="160px">
-    <%- if current_user %>
-      <%- if current_user.admin %>
-        <a class="menu-button" href="<%= admin_path %>">Admin</a>
-      <%- end %>
-      <a class="menu-button" href="<%= my_cards_path %>">My Cards</a>
-      <a class="menu-button" href="<%= profile_path %>">My Profile</a>
-      <a class="menu-button" href="<%= destroy_user_session_path %>">Logout</a>
-    <%- else %>
-      <%- unless @hide_login %>
-        <%#= link_to "Login", user_session_path, :id => "login-tab", :class => 'menu-button' %>
-        <div id="site-login">
-          <h2>Log in</h2>
-          <%= form_tag user_session_path(:return_to => request.path) do %>
-            <ul class="inputs">
-              <li>
-                <%= label_tag 'user[email]', "Email" %>
-                <%= text_field_tag 'user[email]'  %>
-              </li>
-              <li>
-                <%= label_tag 'user[password]', "Password" %>
-                <%= password_field_tag 'user[password]' %>
-              </li>
-              <li>
-                <%= label_tag 'user[remember_me]', "Remember Me" %>
-                <%= check_box_tag 'user[remember_me]' %>
-              </li>
-            </ul>
-            <%= submit_tag "Log in" %>
-          <% end %>
-        </div>
-      <%- end %>
-    <%- end %>
+    <%= link_to 'conne.cc', root_path, :id => 'logo' %>
+    <div id="site-login">
+      <h2>Log in</h2>
+      <%= form_tag user_session_path(:return_to => request.path) do %>
+        <ul class="inputs">
+          <li>
+            <%= label_tag 'user[email]', "Email" %>
+            <%= text_field_tag 'user[email]'  %>
+          </li>
+          <li>
+            <%= label_tag 'user[password]', "Password" %>
+            <%= password_field_tag 'user[password]' %>
+          </li>
+          <li>
+            <%= label_tag 'user[remember_me]', "Remember" %>
+            <%= check_box_tag 'user[remember_me]' %>
+          </li>
+        </ul>
+        <%= submit_tag "Log in" %>
+      <% end %>
     </div>
     <%= yield :content %>
   </div>
@@ -97,7 +83,7 @@
       <li>Copyright 2011</li>
     </ul>
 
-    <img id="footerLogo" src="/images/logo.2.inset.png" height="80px" />
+    <div id="footerLogo" />
   </footer>
 
   <%- if Rails.env.production? %>

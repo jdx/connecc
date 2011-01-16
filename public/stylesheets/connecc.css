@@ -86,7 +86,7 @@ html {
 }
 
 html, body {
-    background-image:url("/images/noise.soft.png");
+    background-image:url("/images/embed/noise.soft.png");
     background-repeat:repeat;
     height:100%;
 }
@@ -98,43 +98,20 @@ html, body {
     }
 
     #container {
-        background-image:url("/images/graph.png");
+        background-image:url("/images/embed/graph.png");
         background-repeat:no-repeat;
         background-position:top center;
         min-height:100%;
     }
 
-        #menu {
-            /*height:50px;*/
-            margin-bottom:-64px;
-            width:960px;
-            margin-left:auto;
-            margin-right:auto;
-            overflow:hidden;
+        #logo {
+            background-image:url("/images/embed/logo.png");
+            display:block;
+            width:300px;
+            height:196px;
+            text-indent:-999em;
+            margin: 30px 20px -100px 50px;
         }
-
-            #menu a.menu-button {
-                background-color:#1D4088;
-                display:block;
-                width:50px;
-                height:28px;
-                color:#fff;
-                font-size:16px;
-                text-align:center;
-                vertical-align:middle;
-                text-decoration:none;
-                float:right;
-                margin:0 20px 20px 20px;
-                -webkit-border-bottom-right-radius: 5px;
-                -webkit-border-bottom-left-radius: 5px;
-                -moz-border-radius-bottomright: 5px;
-                -moz-border-radius-bottomleft: 5px;
-                border-bottom-right-radius: 5px;
-                border-bottom-left-radius: 5px;
-                border:1px solid #111;
-            }
-            
-            #menu img { margin:10px; }
 
         #banner, footer {
             text-align:center;
@@ -156,7 +133,7 @@ footer {
     color: #eee;
     background-color:#333;
     border-top:1px solid #888;
-    background-image:url("/images/footer.gradient.png");
+    background-image:url("/images/embed/footer.gradient.png");
     background-repeat:repeat-x;
     
     position:relative;
@@ -179,6 +156,9 @@ footer {
         position:absolute;
         right:12px;
         top:22px;
+        height:80px;
+        width:122px;
+        background:url('/images/embed/logo.footer.png');
     }
 
 #social-icons {
@@ -224,7 +204,7 @@ footer {
     border-top:1px dashed #ddd;
     font-size:20px;
     
-    background-image:url('/images/grey.radial.png');
+    background-image:url('/images/embed/grey.radial.png');
     background-position:center top;
     background-repeat:no-repeat;
     

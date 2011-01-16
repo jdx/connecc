@@ -1,18 +1,24 @@
 class Order < ActiveRecord::Base
-  before_validation :get_missing_data
+  after_initialize :set_type
+  before_save :update_state
 
   belongs_to :user
   has_many :cards
-  belongs_to :buyer_billing_address, :class_name => 'Address'
-  belongs_to :buyer_shipping_address, :class_name => 'Address'
 
-  validates :type, :presence => true
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
-  validates :email, :presence => true
-  validates :cards_amount, :presence => true
+  validates :user, :presence => true
+  validates :address1, :presence => true
+  validates :city, :presence => true
+  validates :postal_code, :presence => true
+  validates :region, :presence => true
+
+  def charge(amount=0)
+    self.authorization_amount = amount
+    self.charged = true
+    self.save!
+  end
 
   def cancel
+    self.cards.each { |c| c.destroy }
     self.canceled = true
     self.save!
   end
@@ -26,29 +32,19 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
-  def name
-    "#{ self.first_name } #{ self.last_name }"
-  end
-
-  def email_address_with_name
-    "#{ self.name } <#{ self.email }>"
-  end
-
-  def generate_cards
+  def add_cards(num)
     self.cards.each { |c| c.destroy }
-    self.cards_amount.times do
+    num.times do
       self.cards << Card.new
     end
     self.save!
   end
 
-  protected
-
-  def get_missing_data
-    self.first_name = self.user.first_name unless self.first_name
-    self.last_name = self.user.last_name unless self.last_name
-    self.email = self.user.email unless self.email
-    self.buyer_billing_address = self.buyer_shipping_address unless self.buyer_billing_address
+  def update_state
+    self.state = 'new'
+    self.state = 'awaiting-charge' unless self.charged
+    self.state = 'shipped' if self.shipped
+    self.state = 'canceled' if self.canceled
   end
 
 end

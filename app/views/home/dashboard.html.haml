@@ -1,0 +1,11 @@
+=link_to "Order more cards", orders_path
+%h2 Cards
+%ul.card-list
+  -current_user.cards.where(:visited => true).order('cards.updated_at DESC').each do |c|
+    %li
+      =link_to c, card_path(c.code)
+      -if c.message
+        %span - #{ truncate c.message }
+-if current_user.admin
+  %hr
+  =link_to "Admin", admin_path

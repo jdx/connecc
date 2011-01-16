@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
          :recoverable,
          :trackable,
          :validatable,
+         :registerable,
          :rememberable
 
   # Setup accessible (or protected) attributes for your model

@@ -4,32 +4,14 @@
   %h1 Limited time offer!
   %p For our big launch, we're offering a limited supply of 10 free cards! Fill out the form below to get yours!
 %hr
-=semantic_form_for @trial_order, :url => trial_path do |form|
-  %h2 Account info
-  =form.inputs do
-    =form.semantic_fields_for :user do |user|
-      =user.input :first_name
-      =user.input :last_name
-      =user.input :email
-      =user.input :password
-      =user.input :gender, :as => :radio, :collection => { "Male" => 'm', "Female" => 'f' }
-      =user.input :time_zone
-      %hr
-      %h2 The following will be shown to users visiting the messages on your cards
-      =user.input :show_email, :label => 'Show my email to card visitors', :required => true
-      =user.input :web_site, :hint => 'http://jeffdickey.info/', :label => "Personal Web Site"
-      =user.input :facebook, :hint => 'facebook.com/dickeyj', :label => "Facebook Profile"
-      =user.input :linkedin, :hint => 'linkedin.com/in/dickeytk', :label => "LinkedIn Profile"
-      =user.input :twitter, :hint => '@dickeytk', :label => "Twitter username"
-      =user.input :phone_number, :hint => '501-555-9173'
-    %hr
-    %h2 Shipping info
-    =form.semantic_fields_for :buyer_shipping_address do |address|
-      =address.input :address1, :label => "Address 1"
-      =address.input :address2, :label => "Address 2"
-      =address.input :city
-      =address.input :region, :label => "State"
-      =address.input :postal_code
-  =form.buttons do
-    =form.commit_button "Place trial order"
+=semantic_form_for @trial_order, :url => trial_path do |f|
+  %h2 Shipping info
+  =f.inputs do
+    =f.input :address1, :label => "Address 1"
+    =f.input :address2, :label => "Address 2"
+    =f.input :city
+    =f.input :region, :label => "State"
+    =f.input :postal_code
+  =f.buttons do
+    =f.commit_button "Place trial order"
 

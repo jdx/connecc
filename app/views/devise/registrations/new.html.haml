@@ -1,0 +1,13 @@
+-content_for :title do
+  Sign up
+%h1 Sign up
+=semantic_form_for resource, :url => user_registration_path do |f|
+  =f.inputs do
+    =f.input :first_name
+    =f.input :last_name
+    =f.input :email
+    =f.input :password
+    =f.input :gender, :as => :radio, :collection => { "Male" => 'm', "Female" => 'f' }
+    =f.input :time_zone
+  =f.buttons do
+    =f.commit_button "Sign up!"

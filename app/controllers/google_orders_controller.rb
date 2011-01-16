@@ -1,6 +1,6 @@
 require 'google4r/checkout'
 
-class GoogleOrdersController < ApplicationController
+class GoogleOrdersController < OrdersController
 
   def create
     @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
@@ -13,7 +13,7 @@ class GoogleOrdersController < ApplicationController
       item.quantity = 1
     end
     checkout_command.analytics_data = request.POST['analyticsdata']
-    checkout_command.shopping_cart.private_data = { 'cards_amount' => 100 }
+    checkout_command.shopping_cart.private_data = { 'user_id' => current_user.id, 'cards_amount' => 100 }
     response = checkout_command.send_to_google_checkout
     redirect_to response.redirect_url
   end

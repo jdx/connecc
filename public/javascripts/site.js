@@ -57,12 +57,12 @@ var Connecc = {
     },
 
     setupLogin:function() {
-      $('#login-tab, #loginWrapTab')
+      $('#login-button')
           .click(function() {
               $('#site-login')
                   .toggleClass('display');
               
-              // $('#login-username').focus();
+              $('#user_email').focus();
               
               return false;
           });
