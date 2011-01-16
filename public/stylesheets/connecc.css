@@ -504,8 +504,9 @@ footer {
             border-left-color:#921900;
         }
         
-#loginWrapTab {
-    cursor:pointer;
+#loginWrapTab a, #loginWrapTab a:hover, #loginWrapTab a:visited {
+    display:block;
+    color:#333;
 }
 
 /*  Content-Specific Styles */
