@@ -53,7 +53,7 @@
       <a class="menu-button" href="<%= destroy_user_session_path %>">Logout</a>
     <%- else %>
       <%- unless @hide_login %>
-        <%= link_to "Login", user_session_path, :id => "login-tab", :class => 'menu-button' %>
+        <%#= link_to "Login", user_session_path, :id => "login-tab", :class => 'menu-button' %>
         <div id="site-login">
           <h2>Log in</h2>
           <%= form_tag user_session_path(:return_to => request.path) do %>

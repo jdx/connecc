@@ -404,107 +404,108 @@ footer {
 /*  Ribbons */
 /**********************************************************/
 
-#betaRibbon {
-    height:32px;
-    width:120px;
+.wrap-tab-left, .wrap-tab-right {
     position:absolute;
-    right:-36px;
-    -webkit-transform:rotate(45deg);
-    -moz-transform:rotate(45deg);
-}
-    #betaRibbon .lcorner, #betaRibbon .rcorner {
-        position:absolute;
-        top:0;
-        bottom:0;
-        width:0;
-        border:0 solid transparent;
-    }
-    #betaRibbon .lcorner {
-        left:0;
-        border-right:32px solid red;
-        border-top:32px solid transparent;
-    }
-    #betaRibbon .rcorner {
-        right:0;
-        border-left:32px solid red;
-        border-top:32px solid transparent;
-    }
-    #betaRibbon .body {
-        background-color:red;
-        position:absolute;
-        top:0;
-        bottom:0;
-        left:31px;
-        right:31px;
-        font-size:20px;
-        font-family:'sans-serif';
-        font-color:#444;
-        font-weight:bold;
-        padding-top:4px;
-        text-shadow:none;
-    }
-
-#beta-tab {
-    position:absolute;
-    top:20px;
-    left:-9px;
+    top:32px;
     background-color:#FF2C00;
     font-size:16px;
     text-shadow:none;
-    color:#921900;
+    color:#333;
     height:28px;
-    
     -webkit-box-shadow: 0px 1px 1px #333333;
     -moz-box-shadow: 0px 1px 1px #333333;
     box-shadow: 0px 1px 1px #333333;
 }
 
-#beta-tab #tab-content {
-    padding:4px 24px;
-}
+    .wrap-tab-left { left:-9px; }
+    
+    .wrap-tab-right { right:-9px; }
 
-#beta-tab #leftTag {
-    position:absolute;
-    top:28px;
-    left:0;
-    width:0;
-    height:0;
-    
-    border-style:solid;
-    
-    border-top-width:4px;
-    border-top-color:#921900;
-    
-    border-bottom-width:4px;
-    border-bottom-color:transparent;
-    
-    border-left-width:4px;
-    border-left-color:transparent;
-    
-    border-right-width:4px;
-    border-right-color:#921900;
-}
+        .wrap-tab-content {
+            padding:4px;
+            width:64px;
+            text-align:center;
+        }
+        
+        .wrap-tab-left-poly, .wrap-tab-right-poly {
+            position:absolute;
+            border-style:solid;
+            width:0;
+            height:0;
+        }
 
-#beta-tab #rightTag {
-    position:absolute;
-    top:0;
-    right:-4px;
-    width:0;
-    height:0;
-    
-    border-style:solid;
-    
-    border-top-width:14px;
-    border-top-color:#FF2C00;
-    
-    border-bottom-width:14px;
-    border-bottom-color:#FF2C00;
-    
-    border-left-width:4px;
-    border-left-color:#FF2C00;
-    
-    border-right-width:4px;
-    border-right-color:transparent;
+        .wrap-tab-left .wrap-tab-left-poly {
+            top:28px;
+            left:0;
+            
+            border-top-width:4px;
+            border-top-color:#921900;
+            
+            border-bottom-width:4px;
+            border-bottom-color:transparent;
+            
+            border-left-width:4px;
+            border-left-color:transparent;
+            
+            border-right-width:4px;
+            border-right-color:#921900;
+        }
+
+        .wrap-tab-left .wrap-tab-right-poly {
+            position:absolute;
+            top:0;
+            right:-4px;
+            
+            border-top-width:14px;
+            border-top-color:#FF2C00;
+            
+            border-bottom-width:14px;
+            border-bottom-color:#FF2C00;
+            
+            border-left-width:4px;
+            border-left-color:#FF2C00;
+            
+            border-right-width:4px;
+            border-right-color:transparent;
+        }
+        
+        .wrap-tab-right .wrap-tab-left-poly {
+            position:absolute;
+            top:0;
+            left:-4px;
+            
+            border-top-width:14px;
+            border-top-color:#FF2C00;
+            
+            border-bottom-width:14px;
+            border-bottom-color:#FF2C00;
+            
+            border-right-width:4px;
+            border-right-color:#FF2C00;
+            
+            border-left-width:4px;
+            border-left-color:transparent;
+        }
+
+        .wrap-tab-right .wrap-tab-right-poly {
+            top:28px;
+            right:0;
+            
+            border-top-width:4px;
+            border-top-color:#921900;
+            
+            border-bottom-width:4px;
+            border-bottom-color:transparent;
+            
+            border-right-width:4px;
+            border-right-color:transparent;
+            
+            border-left-width:4px;
+            border-left-color:#921900;
+        }
+        
+#loginWrapTab {
+    cursor:pointer;
 }
 
 /*  Content-Specific Styles */
