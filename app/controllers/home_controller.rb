@@ -1,6 +1,14 @@
 class HomeController < ApplicationController
   def home
-    return render 'dashboard' if user_signed_in?
-    return render 'splash'
+    if user_signed_in?
+      if current_user.orders.any?
+        @cards = current_user.cards.where(:visited => true).order('cards.updated_at DESC')
+        render 'dashboard'
+      else
+        render 'dashboard_no_orders'
+      end
+    else
+      render 'splash'
+    end
   end
 end

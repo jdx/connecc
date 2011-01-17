@@ -35,6 +35,11 @@ class ApplicationController < ActionController::Base
     session[:last_path] || root_path
   end
 
+  def after_update_path_for(resource)
+    flash[:notice] = "Updated profile successfully"
+    root_path
+  end
+
   def update_last_path
     session[:last_path] = request.path
   end

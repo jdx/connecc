@@ -4,7 +4,7 @@
   %h1 Limited time offer!
   %p For our big launch, we're offering a limited supply of 10 free cards! Fill out the form below to get yours!
 %hr
-=semantic_form_for @trial_order, :url => trial_path do |f|
+=semantic_form_for @trial_order, :url => trial_order_path do |f|
   %h2 Shipping info
   =f.inputs do
     =f.input :address1, :label => "Address 1"

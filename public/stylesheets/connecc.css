@@ -656,6 +656,51 @@ footer {
     right:0;
 }
 
+.details {
+    margin:50px;
+    border:1px solid #4271FF;
+}
+
+.details label, .details span {
+    margin:10px 10px;
+    display:inline-block;
+    cursor:default;
+}
+
+.details label {
+    font-weight:bold;
+    width:200px;
+}
+
+.details label:after {
+    content: ':';
+}
+
+.details p:nth-child(odd),
+.list ul li:nth-child(odd) {
+    background-color:#ddeeff;
+}
+
+.details p:nth-child(even),
+.list ul li:nth-child(even) {
+    background-color:#eff2ff;
+}
+
+.lists {
+    overflow:hidden;
+}
+
+.lists .list {
+    margin:30px 50px 50px 50px;
+    float:left;
+    width:250px;
+}
+
+.list ul {
+    margin:0;
+    border:1px solid #4271FF;
+}
+
 
 /*  Buttons / CTA */
 /**********************************************************/

@@ -1,7 +1,7 @@
 -content_for :title do
-  My Profile
-%h1 My Profile
-=semantic_form_for @user, :url => profile_path, :method => :put do |f|
+  Edit Profile
+%h1 Edit Profile
+=semantic_form_for resource, :url => user_registration_path, :method => :put do |f|
   =f.inputs do
     =f.input :email
     =f.input :password, :required => true

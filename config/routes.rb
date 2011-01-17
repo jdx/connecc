@@ -2,8 +2,9 @@ Connecc::Application.routes.draw do
 
   devise_for :users
 
-  resource :trial_orders
+  resource :trial_order
   resources :google_orders
+  resources :orders
 
   namespace "admin", :path => "administration" do
     resources :orders do

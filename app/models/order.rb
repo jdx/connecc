@@ -32,6 +32,10 @@ class Order < ActiveRecord::Base
     "Order #{ id }"
   end
 
+  def address
+    "#{ address1 } #{ address2}, #{ city }, #{ region } #{ postal_code }"
+  end
+
   def add_cards(num)
     self.cards.each { |c| c.destroy }
     num.times do

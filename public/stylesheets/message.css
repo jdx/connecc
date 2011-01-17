@@ -66,3 +66,7 @@
     font-size:12px;
     font-family:'Droid Serif';
 }
+
+#message #contact-info {
+    margin:40px;
+}

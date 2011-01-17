@@ -1,23 +1,20 @@
--if user.any_contact_info_public?
-  %h2 #{ user.first_name }&rsquo;s Contact Info
-  %dl
-    -unless user.facebook.blank?
-      %dt Facebook
-      %dd= link_to user.facebook, "http://" + user.facebook
-    -unless user.twitter.blank?
-      %dt Twitter
-      %dd= link_to user.twitter, "http://twitter.com/" + user.twitter.gsub(/@/,'')
-    -unless user.linkedin.blank?
-      %dt LinkedIn
-      %dd= link_to user.linkedin, "http://" + user.linkedin
-    -unless user.show_email.blank?
-      %dt Email
-      %dd= mail_to user.email
-    -unless user.web_site.blank?
-      %dt Personal web site
-      %dd= link_to user.web_site.gsub(/https?:\/\//, ''), user.web_site
-    -unless user.phone_number.blank?
-      %dt Phone number
-      %dd= user.phone_number
--else
-  %h2 You have no public contact info
+%h2 #{ user.first_name }&rsquo;s Contact Info
+%dl#contact_info
+  -unless user.facebook.blank?
+    %dt Facebook
+    %dd= link_to user.facebook, "http://" + user.facebook
+  -unless user.twitter.blank?
+    %dt Twitter
+    %dd= link_to user.twitter, "http://twitter.com/" + user.twitter.gsub(/@/,'')
+  -unless user.linkedin.blank?
+    %dt LinkedIn
+    %dd= link_to user.linkedin, "http://" + user.linkedin
+  -unless user.show_email.blank?
+    %dt Email
+    %dd= mail_to user.email
+  -unless user.web_site.blank?
+    %dt Personal web site
+    %dd= link_to user.web_site.gsub(/https?:\/\//, ''), user.web_site
+  -unless user.phone_number.blank?
+    %dt Phone number
+    %dd= user.phone_number
