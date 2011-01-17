@@ -19,19 +19,6 @@ class Card < ActiveRecord::Base
     return "http://conne.cc/#{self.code}"
   end
 
-  protected
-
-  def generate_code
-    chars = 'abcdefghjkmnpqrstuvwxyz23456789'
-    self.code = ''
-    5.times { |i| self.code << chars[rand(chars.length)] }
-
-    # check for duplicates
-    if Card.find_by_code(self.code)
-      self.generate_code
-    end
-  end
-
   def record_visit(ip_address, user)
     # This should be pushed out to a worker thread eventually
 
@@ -52,5 +39,17 @@ class Card < ActiveRecord::Base
     self.save!
   end
 
+  protected
+
+  def generate_code
+    chars = 'abcdefghjkmnpqrstuvwxyz23456789'
+    self.code = ''
+    5.times { |i| self.code << chars[rand(chars.length)] }
+
+    # check for duplicates
+    if Card.find_by_code(self.code)
+      self.generate_code
+    end
+  end
 
 end
