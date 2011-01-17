@@ -6,7 +6,7 @@ Connecc::Application.routes.draw do
   resources :google_orders
   resources :orders
 
-  namespace "admin", :path => "administration" do
+  namespace "admin" do
     resources :orders do
       member do
         match 'cancel'
