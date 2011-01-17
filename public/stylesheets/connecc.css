@@ -130,7 +130,7 @@ footer {
     color: #eee;
     background-color:#333;
     border-top:1px solid #888;
-    background:url("/images/embed/footer.gradient.png") repeat-x;
+    background-image:url("/images/embed/footer.gradient.png") repeat-x;
     text-align:center;
     position:relative;
     margin-top:-130px;
@@ -211,7 +211,7 @@ footer {
     border-top:1px dashed #ddd;
     font-size:20px;
     
-    background:url('/images/embed/grey.radial.png') no-repeat;
+    background-image:url('/images/embed/grey.radial.png') repeat-x;
     background-position:center top;
     
     -webkit-box-shadow: 0px 0px 10px #333333;
