@@ -1,4 +1,5 @@
 %p <b>Message:</b> #{ auto_link(simple_format(@notification_request.card.message)) }
 %p <b>Card:</b> #{ link_to @notification_request.card, card_url(@notification_request.card.code) }
-%br/
-%p You can reply to this email to speak with #{ @notification_request.card.giver.first_name } directly.
+-if @notification_request.card.giver.show_email
+  %br/
+  %p You can reply to this email to speak with #{ mail_to @notification_request.card.giver.first_name, @notification_request.card.giver.email } directly.
