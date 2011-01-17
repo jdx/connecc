@@ -3,13 +3,13 @@
   %dl
     -unless user.facebook.blank?
       %dt Facebook
-      %dd= link_to user.facebook, "http://" + user.facebook
+      %dd= link_to user, user.facebook
     -unless user.twitter.blank?
       %dt Twitter
       %dd= link_to user.twitter, "http://twitter.com/" + user.twitter.gsub(/@/,'')
     -unless user.linkedin.blank?
       %dt LinkedIn
-      %dd= link_to user.linkedin, "http://" + user.linkedin
+      %dd= link_to user, user.linkedin, :class => 'linkedin-profileinsider-popup'
     -unless user.show_email.blank?
       %dt Email
       %dd= mail_to user.email

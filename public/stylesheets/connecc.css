@@ -44,7 +44,7 @@ blockquote {
     margin:20px 100px 50px 20px;
     font-size:18px;
     padding-left:80px;
-    background: transparent url(../images/blockquote.png) no-repeat;
+    background: transparent url(../images/embed/blockquote.png) no-repeat;
     min-height:40px;
 }
 
@@ -77,6 +77,36 @@ dd a:hover, dd a:focus {
     border-bottom:1px solid;
 }
 
+/*  Links */
+/**********************************************************/
+a[href ^="http://linkedin.com"] {
+    padding-right:22px !important;
+    background: transparent url('/images/embed/linkedin.png') no-repeat center right !important;
+}
+a[href ^="http://facebook.com"] {
+    padding-right:22px;
+    background: transparent url('/images/embed/facebook.png') no-repeat center right;
+}
+a[href ^="http://twitter.com"] {
+    padding-right:22px;
+    background: transparent url('/images/embed/twitter.png') no-repeat center right;
+}
+a[href ^="mailto:"] {
+    padding-right:22px;
+    background: transparent url('/images/embed/email.png') no-repeat center right;
+}
+a[href $='.doc'], a[href$='.docx'] {
+    padding-right:18px;
+    background: transparent url('/images/embed/word.gif') no-repeat center right;
+}
+a[href $='.xls'], a[href$='.xlsx'] {
+    padding-right:18px;
+    background: transparent url('/images/embed/excel.gif') no-repeat center right;
+}
+a[href $='.pdf'] {
+    padding-right:18px;
+    background: transparent url('/images/embed/pdf.gif') no-repeat center right;
+}
 
 /*  Core layout */
 /**********************************************************/
@@ -169,11 +199,11 @@ footer {
   }
 
   #social-icons .facebook {
-      background:url('/images/embed/facebook.png') no-repeat;
+      background:url('/images/embed/facebook.large.png') no-repeat;
   }
 
   #social-icons .twitter {
-      background:url('/images/embed/twitter.png') no-repeat;
+      background:url('/images/embed/twitter.large.png') no-repeat;
   }
 
 #links, #copyright {
