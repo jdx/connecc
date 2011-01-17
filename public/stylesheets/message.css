@@ -62,9 +62,12 @@
 }
 
 #message .note {
-    text-align:right;
     font-size:12px;
     font-family:'Droid Serif';
+}
+
+#message .note.rigt {
+    text-align:right;
 }
 
 #message #contact-info {

@@ -26,13 +26,12 @@ Connecc::Application.routes.draw do
   get "contact_us" => "home#contact_us"
   get "faq" => "home#faq"
 
-  get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  post ":code/contact_request" => "cards#contact_request_post", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/notification_request" => redirect("/%{code}"), :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  post ":code/notification_request" => "cards#notification_request", :as => "notification_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  put ":code/edit" => "cards#update", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
-  get ":code/edit" => "cards#edit", :as => "card_edit", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
+  scope ':code', :code => /\w{5}/, :module => 'cards' do
+    resource :card, :path => '/' do
+      resource :contact_request
+      resource :notification_request
+    end
+  end
 
   root :to => "home#home"
 end

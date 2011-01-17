@@ -1,0 +1,13 @@
+#message
+  %h2 #{ @card.giver } hasn&rsquo;t been here to post a message for you yet.
+  %p.explanation To be notified when #{ @card.giver.personal_pronoun } posts a message for you, put your email here:
+  =semantic_form_for @notification_request, :url => card_notification_request_path(@card.code) do |f|
+    =f.inputs do
+      =f.input :email, :label => 'Email address'
+    =f.buttons do
+      =f.commit_button "Notify me*"
+      %span.alt or #{ link_to "leave #{ @card.giver.demonstrative_pronoun } my email.", new_card_contact_request_path(@card.code) }
+  %p.note * #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you&rsquo;ll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
+  -if @card.giver.any_contact_info_public?
+    %hr
+    =render "contact_info", :user => @card.giver

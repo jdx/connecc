@@ -1,0 +1,13 @@
+#message
+  %h1 Message from #{ @card.giver }
+  %blockquote.message= auto_link simple_format @card.message
+  %p.note.right Posted #{ time_ago_in_words @card.updated_at } ago.
+  %hr
+  %div{ :class => @hide_form ? '' : 'show-form' }
+    #actions
+      =link_to "Have #{ @card.giver.first_name } get a hold of me", card_contact_request_path(@card.code), :class => 'button open-form'
+    .hidden-form
+      =render "cards/contact_requests/form"
+  -if @card.giver.any_contact_info_public?
+    %hr
+    =render "contact_info", :user => @card.giver
