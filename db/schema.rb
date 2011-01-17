@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
     t.string   "region",                                                                :null => false
     t.boolean  "charged",                                            :default => false, :null => false
     t.boolean  "shipped",                                            :default => false, :null => false
-    t.boolean  "canceled",                                           :default => false, :null => false
+    t.string   "canceled"
     t.decimal  "authorization_amount", :precision => 8, :scale => 2, :default => 0.0,   :null => false
     t.string   "google_order_number"
     t.datetime "created_at"

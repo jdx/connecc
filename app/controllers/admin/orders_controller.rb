@@ -32,16 +32,23 @@ class Admin::OrdersController < Admin::AdminController
     render :template => "admin/cards/cards"
   end
 
-  #def ship
-    #@order = Order.find(params[:id])
-    #@order.ship
-    #redirect_to admin_order_path(@order), :notice => 'Shipped'
-  #end
+  def ship
+    @order = Order.find(params[:id])
+    @order.ship
+    redirect_to admin_order_path(@order), :notice => 'Shipped'
+  end
 
   def cancel
-    @order = Order.find(params[:id])
-    @order.cancel
-    redirect_to admin_order_path(@order), :notice => 'Canceled'
+    if request.get?
+      @order = Order.find(params[:id])
+    else
+      @order = Order.find(params[:id])
+      if params[:reason].blank?
+        return redirect_to admin_order_path(@order), :alert => "You must specify a reason"
+      end
+      @order.cancel(params[:reason])
+      redirect_to admin_order_path(@order), :notice => 'Canceled'
+    end
   end
 
 end

@@ -11,7 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :region, :null => false
       t.boolean :charged, :null => false, :default => false
       t.boolean :shipped, :null => false, :default => false
-      t.boolean :canceled, :null => false, :default => false
+      t.string :canceled
       t.decimal :authorization_amount, :precision => 8, :scale => 2, :null => false, :default => 0
       t.string :google_order_number
 

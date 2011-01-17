@@ -17,9 +17,9 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
-  def cancel
+  def cancel(reason)
     self.cards.each { |c| c.destroy }
-    self.canceled = true
+    self.canceled = reason
     self.save!
   end
 

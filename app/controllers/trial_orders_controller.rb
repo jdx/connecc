@@ -1,6 +1,7 @@
 require 'google4r/checkout'
 
 class TrialOrdersController < OrdersController
+  before_filter :no_orders_check
 
   def new
     @trial_order = TrialOrder.new
@@ -17,6 +18,10 @@ class TrialOrdersController < OrdersController
     else
       render :new
     end
+  end
+
+  def no_orders_check
+    redirect_to root_path, :alert => "Trial orders for new users only." if current_user.orders.any?
   end
 
 end
