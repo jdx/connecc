@@ -109,11 +109,10 @@ html, body {
             display:block;
             width:300px;
             height:196px;
-            text-indent:-999em;
             margin: 30px 20px -100px 50px;
         }
 
-        #banner, footer {
+        #banner, nooter {
             text-align:center;
         }
 
@@ -135,7 +134,7 @@ footer {
     border-top:1px solid #888;
     background-image:url("/images/embed/footer.gradient.png");
     background-repeat:repeat-x;
-    
+    text-align:center;
     position:relative;
     margin-top:-130px;
     height:129px;
@@ -165,6 +164,21 @@ footer {
     margin:20px 6px 6px 6px;
 }
 
+  #social-icons a {
+      margin:4px;
+      height:32px;
+      width:32px;
+      display:inline-block;
+  }
+
+  #social-icons .facebook {
+      background-image:url('/images/embed/facebook.png');
+  }
+
+  #social-icons .twitter {
+      background-image:url('/images/embed/twitter.png');
+  }
+
 #links, #copyright {
     margin:6px;
 }
@@ -185,10 +199,6 @@ footer {
     #links li:last-child:after {
         content:'';
     }
-
-#social-icons a {
-    margin:4px;
-}
 
 #copyright {
     text-align:center;
