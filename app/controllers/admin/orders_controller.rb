@@ -19,7 +19,6 @@ class Admin::OrdersController < Admin::AdminController
 
   def envelope
     @order = Order.find(params[:id])
-    @address = @order.buyer_billing_address
     prawnto :prawn => {
       :margin => 0,
       :page_layout => :landscape,
