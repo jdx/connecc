@@ -42,7 +42,7 @@ class Order < ActiveRecord::Base
 
   def update_state
     self.state = 'new'
-    self.state = 'awaiting-charge' unless self.charged
+    self.state = 'awaiting-shipment' if self.charged
     self.state = 'shipped' if self.shipped
     self.state = 'canceled' if self.canceled
   end
