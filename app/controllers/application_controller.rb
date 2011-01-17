@@ -36,7 +36,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(resource)
-    flash[:notice] = "Updated profile successfully"
     root_path
   end
 
