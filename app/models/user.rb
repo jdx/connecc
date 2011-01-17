@@ -83,8 +83,8 @@ class User < ActiveRecord::Base
 
   def clean_contact_info
     self.web_site = "http://" + self.web_site unless self.web_site.blank? or self.web_site =~ /^https?:\/\//
-    self.facebook.gsub!(/.*facebook.com/, 'facebook.com') unless self.facebook.blank?
-    self.linkedin.gsub!(/.*linkedin.com/, 'linkedin.com') unless self.linkedin.blank?
+    self.facebook.gsub!(/.*facebook.com/, 'http://facebook.com') unless self.facebook.blank?
+    self.linkedin.gsub!(/.*linkedin.com/, 'http://linkedin.com') unless self.linkedin.blank?
     self.twitter.gsub!(/^@?/, '@') unless self.twitter.blank?
   end
 

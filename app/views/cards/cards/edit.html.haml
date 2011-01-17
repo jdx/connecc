@@ -5,3 +5,7 @@
       =f.input :message, :required => true, :label => false
     =f.buttons do
       =f.commit_button "Post message"
+  %hr
+  =render "contact_info", :user => @card.giver
+  #actions
+    =link_to "Edit your contact info", edit_user_registration_path, :class => "button"
