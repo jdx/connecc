@@ -7,8 +7,8 @@ Connecc::Application.routes.draw do
   namespace "admin", :path => "administration" do
     resources :orders do
       member do
-        post 'ship'
         post 'cancel'
+        post 'ship'
         get 'cards', :defaults => { :format => :pdf }
         get 'envelope', :defaults => { :format => :pdf }
       end
