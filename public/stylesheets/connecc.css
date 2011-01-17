@@ -95,11 +95,11 @@ a[href ^="mailto:"] {
     padding-right:22px;
     background: transparent url('/images/embed/email.png') no-repeat center right;
 }
-a[href $='.doc'], a[href=$='.docx'] {
+a[href $='.doc'], a[href$='.docx'] {
     padding-right:18px;
     background: transparent url('/images/embed/word.gif') no-repeat center right;
 }
-a[href $='.xls'], a[href=$='.xlsx'] {
+a[href $='.xls'], a[href$='.xlsx'] {
     padding-right:18px;
     background: transparent url('/images/embed/excel.gif') no-repeat center right;
 }
