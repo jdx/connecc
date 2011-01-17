@@ -86,8 +86,7 @@ html {
 }
 
 html, body {
-    background-image:url("/images/embed/noise.soft.png");
-    background-repeat:repeat;
+    background:url("/images/embed/noise.soft.png");
     height:100%;
 }
 
@@ -98,14 +97,13 @@ html, body {
     }
 
     #container {
-        background-image:url('/images/embed/graph.png');
-        background-repeat:no-repeat;
+        background:url('/images/embed/graph.png') no-repeat;
         background-position:top center;
         min-height:100%;
     }
 
         #logo {
-            background-image:url("/images/embed/logo.png");
+            background:url("/images/embed/logo.png") no-repeat;
             display:block;
             width:300px;
             height:196px;
@@ -132,8 +130,7 @@ footer {
     color: #eee;
     background-color:#333;
     border-top:1px solid #888;
-    background-image:url("/images/embed/footer.gradient.png");
-    background-repeat:repeat-x;
+    background:url("/images/embed/footer.gradient.png") repeat-x;
     text-align:center;
     position:relative;
     margin-top:-130px;
@@ -157,7 +154,7 @@ footer {
         top:22px;
         height:80px;
         width:122px;
-        background:url('/images/embed/logo.footer.png');
+        background:url('/images/embed/logo.footer.png') no-repeat;
     }
 
 #social-icons {
@@ -172,11 +169,11 @@ footer {
   }
 
   #social-icons .facebook {
-      background-image:url('/images/embed/facebook.png');
+      background:url('/images/embed/facebook.png') no-repeat;
   }
 
   #social-icons .twitter {
-      background-image:url('/images/embed/twitter.png');
+      background:url('/images/embed/twitter.png') no-repeat;
   }
 
 #links, #copyright {
@@ -214,9 +211,8 @@ footer {
     border-top:1px dashed #ddd;
     font-size:20px;
     
-    background-image:url('/images/embed/grey.radial.png');
+    background:url('/images/embed/grey.radial.png') no-repeat;
     background-position:center top;
-    background-repeat:no-repeat;
     
     -webkit-box-shadow: 0px 0px 10px #333333;
     -moz-box-shadow: 0px 0px 10px #333333;
