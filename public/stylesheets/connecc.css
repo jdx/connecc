@@ -98,7 +98,7 @@ html, body {
     }
 
     #container {
-        background-image:url("/images/embed/graph.png");
+        background-image:url('/images/embed/graph.png');
         background-repeat:no-repeat;
         background-position:top center;
         min-height:100%;
