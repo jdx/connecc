@@ -32,11 +32,11 @@ class Admin::OrdersController < Admin::AdminController
     render :template => "admin/cards/cards"
   end
 
-  def ship
-    @order = Order.find(params[:id])
-    @order.ship
-    redirect_to admin_order_path(@order), :notice => 'Shipped'
-  end
+  #def ship
+    #@order = Order.find(params[:id])
+    #@order.ship
+    #redirect_to admin_order_path(@order), :notice => 'Shipped'
+  #end
 
   def cancel
     @order = Order.find(params[:id])
