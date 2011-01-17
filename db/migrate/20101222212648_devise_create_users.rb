@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name, :null => false
       t.string :time_zone, :null => false, :default =>  "Pacific Time (US & Canada)"
       t.string :gender, :null => false, :limit => 1, :default => 'm'
-      t.boolean :show_email, :null => false, :default => false
+      t.boolean :show_email, :null => false, :default => true
       t.string :phone_number
       t.string :twitter
       t.string :linkedin
