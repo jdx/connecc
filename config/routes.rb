@@ -1,8 +1,9 @@
 Connecc::Application.routes.draw do
 
   devise_for :users
-  resource :profile, :only => [ :show, :update ]
-  get 'my_cards' => 'cards#index'
+
+  resource :trial_orders
+  resource :google_orders
 
   namespace "admin", :path => "administration" do
     resources :orders do
@@ -19,20 +20,10 @@ Connecc::Application.routes.draw do
     get "/" => "admin#dashboard"
   end
 
-  get "trial" => "trial_orders#new"
-  post "trial" => "trial_orders#create"
-  get "orders" => "orders#new"
-  post "orders/place" => "google_orders#create"
-  get "orders/:activation_string" => "orders#activate", :as => :order_activate
-  post "orders/:activation_string" => "orders#activate_and_create_user", :as => :order_activate
-
   get "tour" => "home#tour"
   get "about_us" => "home#about_us"
   get "contact_us" => "home#contact_us"
   get "faq" => "home#faq"
-  get "intro_video" => "home#intro_video"
-
-  post "google_checkout_api/callback" => "google_checkout_api#callback"
 
   get ":code" => "cards#show", :as => "card", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
   get ":code/contact_request" => "cards#contact_request_get", :as => "contact_request", :constraints => { :code => /[a-zA-Z0-9]{5}/ }
