@@ -72,7 +72,7 @@ class GoogleCheckoutApiController < ApplicationController
         o.google_order_number = notification.google_order_number
         o.user_id = notification.shopping_cart.private_data['user_id']
       end
-      order.add_cards(notification.shopping_cart.private_data['cards_amount'])
+      order.add_cards(notification.shopping_cart.private_data['cards_amount'].to_i)
     elsif notification.kind_of? Google4R::Checkout::AuthorizationAmountNotification
       # This does not appear to be working... :(
       order = Order.find_by_google_order_number(notification.google_order_number)
