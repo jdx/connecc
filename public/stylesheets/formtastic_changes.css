@@ -109,4 +109,5 @@ form.formtastic input, form.formtastic textarea {
 
 form.formtastic fieldset > ol > li p.inline-hints {
     font-size:14px;
+    clear:both;
 }

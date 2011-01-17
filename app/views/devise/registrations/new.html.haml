@@ -11,7 +11,7 @@
     =f.input :time_zone
     %hr
     %h2 This will be shown to people visiting your cards
-    =f.input :show_email, :label => 'Show my email to card visitors', :required => true
+    =f.input :show_email, :label => 'Show my email address to card visitors', :required => true, :hint => "Also sets the 'reply-to' to visitor's notifications."
     =f.input :web_site, :hint => 'http://jeffdickey.info/', :label => "Personal web site"
     =f.input :facebook, :hint => 'facebook.com/dickeyj', :label => "Facebook profile"
     =f.input :linkedin, :hint => 'linkedin.com/in/dickeytk', :label => "LinkedIn profile"
