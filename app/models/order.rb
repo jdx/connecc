@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   after_initialize :set_type
   before_save :update_state
+  before_destroy :delete_data
 
   belongs_to :user
   has_many :cards
@@ -44,11 +45,17 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
+  protected
+
   def update_state
     self.state = 'new'
     self.state = 'awaiting-shipment' if self.charged
     self.state = 'shipped' if self.shipped
     self.state = 'canceled' if self.canceled
+  end
+
+  def delete_data
+    self.cards.each { |c| c.destroy }
   end
 
 end

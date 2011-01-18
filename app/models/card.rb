@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
 
   before_create :generate_code
+  before_destroy :destroy_data
 
   belongs_to :order
   has_many :visits
@@ -50,6 +51,12 @@ class Card < ActiveRecord::Base
     if Card.find_by_code(self.code)
       self.generate_code
     end
+  end
+
+  def destroy_data
+    self.visits.each { |v| v.destroy }
+    self.contact_requests.each { |v| v.destroy }
+    self.notification_requests.each { |v| v.destroy }
   end
 
 end

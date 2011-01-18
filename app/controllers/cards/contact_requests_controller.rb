@@ -6,7 +6,6 @@ class Cards::ContactRequestsController < Cards::CardsController
   def create
     @contact_request = ContactRequest.new params[:contact_request]
     @contact_request.card = @card
-    @contact_request.user = current_user
     @contact_request.ip_address = request.remote_ip
     if @contact_request.save
       CardNotifier.contact_request(@contact_request).deliver

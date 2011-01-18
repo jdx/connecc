@@ -19,3 +19,6 @@
     =f.input :phone_number, :hint => '501-555-9173'
   =f.buttons do
     =f.commit_button "Update Profile"
+%hr
+#actions
+  =button_to "Delete account", user_registration_path, :method => :delete, :confirm => "This will also delete all of your conne.cc cards you have orderd. Are you sure you want to delete your account?"
