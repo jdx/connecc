@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 
   before_save :default_values
   before_update :clean_contact_info
-  before_destroy :delete_data
 
   has_many :orders
   has_many :visits
@@ -79,6 +78,15 @@ class User < ActiveRecord::Base
     update_attributes(params)
   end
 
+  def delete_account
+    self.cards.each { |o| o.destroy }
+    self.visits.each { |v| v.user = nil; v.save! }
+    self.password = nil
+    self.email = self.email + "deleted"
+    self.last_name = self.last_name + " DELETED"
+    self.save!
+  end
+
   protected
 
   def clean_contact_info
@@ -91,11 +99,6 @@ class User < ActiveRecord::Base
   def default_values
     self.gender = 'm' unless self.gender
     self.time_zone = 'Pacific Time (US & Canada)' unless self.time_zone
-  end
-
-  def delete_data
-    self.orders.each { |o| o.destroy }
-    self.visits.each { |v| v.user = nil; v.save! }
   end
 
 end
