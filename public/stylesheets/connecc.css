@@ -160,7 +160,8 @@ footer {
     color: #eee;
     background-color:#333;
     border-top:1px solid #888;
-    background-image:url("/images/embed/footer.gradient.png") repeat-x;
+    background-image:url("/images/embed/footer.gradient.png");
+    background-repeat:repeat-x;
     text-align:center;
     position:relative;
     margin-top:-130px;
