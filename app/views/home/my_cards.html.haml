@@ -1,0 +1,10 @@
+-content_for :title do
+  Your Cards
+#about_us
+  %h1 Your Cards
+  %ul.card-list
+    -@cards.each do |c|
+      %li
+        =link_to c, card_path(c.code)
+        -if c.message
+          %span - #{ truncate c.message }

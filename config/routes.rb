@@ -26,6 +26,7 @@ Connecc::Application.routes.draw do
   get "contact_us" => "home#contact_us"
   get "faq" => "home#faq"
   get "terms" => "home#terms"
+  get "my_cards" => "home#my_cards"
 
   scope ':code', :code => /\w{5}/, :module => 'cards' do
     resource :card, :path => '/' do

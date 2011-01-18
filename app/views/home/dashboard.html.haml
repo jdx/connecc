@@ -8,6 +8,8 @@
         =link_to c, card_path(c.code)
         -if c.message
           %span - #{ truncate c.message }
+  -if @cards.count >= 10
+    =link_to "more...", my_cards_path, :class => 'note'
   %hr
 %h2 Order more cards
 =render "shared/order_cards"
