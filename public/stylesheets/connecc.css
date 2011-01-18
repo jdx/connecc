@@ -77,6 +77,10 @@ dd a:hover, dd a:focus {
     border-bottom:1px solid;
 }
 
+p {
+    font-family:'Droid Serif';
+}
+
 /*  Links */
 /**********************************************************/
 a[href ^="http://linkedin.com"] {
