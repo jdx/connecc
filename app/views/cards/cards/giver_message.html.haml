@@ -12,6 +12,4 @@
     #actions
       =link_to "Edit message", edit_card_path(@card.code), :class => "button"
   %hr
-  =render "contact_info", :user => @card.giver
-  #actions
-    =link_to "Edit your contact info", edit_user_registration_path, :class => "button"
+  =render "contact_info", :user => @card.giver, :edit => true

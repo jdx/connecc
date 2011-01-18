@@ -7,4 +7,4 @@
       %li
         =link_to c, card_path(c.code)
         -if c.message
-          %span - #{ truncate c.message }
+          %span.excerpt - #{ truncate c.message }

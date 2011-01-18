@@ -1,5 +1,5 @@
 #contact_info
-  %h2 #{ user.first_name }&rsquo;s Contact Info
+  %h3 #{ user.first_name }&rsquo;s Contact Info
   %dl
     -unless user.facebook.blank?
       %dt Facebook
@@ -19,3 +19,5 @@
     -unless user.phone_number.blank?
       %dt Phone number
       %dd= user.phone_number
+  -if edit
+    =link_to "Edit your contact info", edit_user_registration_path, :class => "edit"

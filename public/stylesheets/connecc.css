@@ -557,6 +557,19 @@ footer {
     margin:20px;
 }
 
+.note.starred:before {
+    content:'*';
+    position:absolute;
+    margin-left:-18px;
+    margin-top:-5px;
+    font-size:26px;
+    font-family:'Cabin';
+}
+
+.note.starred {
+    margin-left:40px;
+}
+
 .youtube-player {
     margin:20px auto;
     display:block;
@@ -650,6 +663,10 @@ footer {
 .card-list li {
     margin:20px;
     font-size:18px;
+}
+
+.card-list .excerpt {
+    font-family:'Droid Serif';
 }
 
 #limited-time-offer p {

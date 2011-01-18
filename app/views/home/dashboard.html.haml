@@ -7,7 +7,7 @@
       %li
         =link_to c, card_path(c.code)
         -if c.message
-          %span - #{ truncate c.message }
+          %span.excerpt - #{ truncate c.message }
   -if @cards.count >= 10
     =link_to "more...", my_cards_path, :class => 'note'
   %hr
