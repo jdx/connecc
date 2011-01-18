@@ -166,6 +166,7 @@ footer {
     margin-top:-130px;
     height:129px;
     clear:both;
+    font-family:'Raleway';
 }
 
     footer #links a, footer #links a:visited {
@@ -215,11 +216,11 @@ footer {
 }
 
     #links li, #copyright li {
-        display:inline;
+        display:inline-block;
     }
 
     #links li:after {
-        content:'|';
+        content:' |';
         margin:10px;
     }
 
