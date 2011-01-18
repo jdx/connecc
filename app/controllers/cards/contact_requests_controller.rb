@@ -1,4 +1,8 @@
 class Cards::ContactRequestsController < Cards::CardsController
+  def show
+    redirect_to card_path(@card.code)
+  end
+
   def new
     @contact_request = ContactRequest.new
   end
