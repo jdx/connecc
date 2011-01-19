@@ -9,7 +9,7 @@ javascripts:
     - public/javascripts/site.js
     - public/javascripts/message.js
   mobile:
-    - public/javascripts/mobile/sencha-touch-debug.js
+    - public/javascripts/mobile/sencha-touch.js
     - public/javascripts/mobile/site.js
 
 stylesheets:
@@ -24,5 +24,5 @@ stylesheets:
     - public/stylesheets/about_us.css
     - public/stylesheets/message.css
   mobile:
-    - public/stylesheets/mobile/sencha-touch-debug.css
+    - public/stylesheets/mobile/sencha-touch.css
     - public/stylesheets/mobile/site.css

@@ -1,28 +1,37 @@
 Ext.setup({
     onReady: function() {
-        var card1 = new Ext.Component({
-            title: 'Card 1',
-            cls: 'card1',
-            scroll: 'vertical'
-        });
-        var card2 = new Ext.Component({
-            title: 'Card 2',
-            cls: 'card2',
-            scroll: 'vertical'
-        });
-        var panel = new Ext.TabPanel({
+        var panel = new Ext.form.FormPanel({
+            title: "Login",
             fullscreen: true,
-            cardSwitchAnimation: 'slide',
-            items: [card1, card2]
-        });
-        var tabBar = panel.getTabBar();
-        tabBar.addDocked({
-            xtype: 'button',
-            ui: 'mask',
-            iconCls: 'refresh',
-            dock: 'right',
-            stretch: false,
-            align: 'center'
+            dockedItems: [
+                {
+                    dock: 'top',
+                    xtype: 'toolbar',
+                    title: 'conne.cc'
+                }
+            ],
+            items: [
+                {
+                    xtype:'fieldset',
+                    title:'Login',
+                    items: [
+                        {
+                            xtype: 'emailfield',
+                            name: 'email',
+                            label: 'Email'
+                        },
+                        {
+                            xtype: 'passwordfield',
+                            name: 'password',
+                            label: 'Password'
+                        }
+                    ]
+                },
+                {
+                    xtype:'button',
+                    text:'Login'
+                }
+            ]
         });
     }
 });
