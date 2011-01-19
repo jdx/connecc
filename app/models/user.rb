@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates :gender, :presence => true
   validates :time_zone, :presence => true
-  validates_format_of :twitter, :with => /^@?[a-z0-9_]*$/, :allow_blank => true, :allow_nil => true
+  validates_format_of :twitter, :with => /^@?[a-z0-9_]{1,20}$/, :allow_blank => true, :allow_nil => true
   validates_format_of :phone_number, :with => /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/, :allow_blank => true, :allow_nil => true
   validates_format_of :web_site, :with => /^([\w-]+:\/\/)?(www[.])?[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/))$/, :allow_blank => true, :allow_nil => true
   validates_format_of :facebook, :with => /^.*facebook\.com\/[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/))$/, :allow_blank => true, :allow_nil => true
