@@ -3,20 +3,15 @@
     #banner
       #name
         #title Business cards are broken.
-      %a.wrap-tab.left{ :href => free_trial_path }
+      %a.wrap-tab.left{ :href => user_signed_in? ? destroy_user_session_path : user_session_path,
+                        :id => user_signed_in? ? "logout" : "login" }
+        .wrap-tab-body= user_signed_in? ? "Logout" : "Login"
+        .wrap-tab-left-poly
+        .wrap-tab-right-poly
+      %a.wrap-tab.right{ :href => free_trial_path }
         .wrap-tab-body Free Trial!
         .wrap-tab-left-poly
         .wrap-tab-right-poly
-      -if user_signed_in?
-        %a.wrap-tab.right{ :href => destroy_user_session_path }
-          .wrap-tab-body Logout
-          .wrap-tab-left-poly
-          .wrap-tab-right-poly
-      -else
-        %a#login.wrap-tab.right{ :href => user_session_path }
-          .wrap-tab-body Login
-          .wrap-tab-left-poly
-          .wrap-tab-right-poly
     .bannerCurl
       .leftCurl
       .rightCurl

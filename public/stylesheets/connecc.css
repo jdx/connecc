@@ -275,7 +275,8 @@ footer {
     #banner #title {
         margin:15px auto;
         font-size:27px;
-        color:#133CAC;
+        color:#1D4088;
+        text-shadow:0 1px 0 #fff;
     }
 
 #strip {
