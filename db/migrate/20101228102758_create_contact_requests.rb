@@ -11,7 +11,6 @@ class CreateContactRequests < ActiveRecord::Migration
     end
 
     add_index :contact_requests, :card_id
-    add_index :contact_requests, :user_id
   end
 
   def self.down
