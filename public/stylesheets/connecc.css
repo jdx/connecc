@@ -429,19 +429,30 @@ footer {
 .wrap-tab-left, .wrap-tab-right {
     position:absolute;
     top:32px;
-    background-color:#FF2C00;
+    background-color:#555;
     font-size:16px;
     text-shadow:none;
-    color:#333;
+    color:#fff;
     height:28px;
     -webkit-box-shadow: 0px 1px 1px #333333;
     -moz-box-shadow: 0px 1px 1px #333333;
     box-shadow: 0px 1px 1px #333333;
+    text-shadow: 0 1px 0 #222;
 }
 
-    .wrap-tab-left { left:-9px; }
-    
-    .wrap-tab-right { right:-9px; }
+    .wrap-tab-left {
+        left:-9px;
+        -webkit-border-top-left-radius: 2px;
+        -moz-border-radius-topleft: 2px;
+        border-top-left-radius: 2px;
+    }
+
+    .wrap-tab-right {
+        right:-9px;
+        -webkit-border-top-right-radius: 2px;
+        -moz-border-radius-topright: 2px;
+        border-top-right-radius: 2px;
+    }
 
         .wrap-tab-content {
             padding:4px;
@@ -461,7 +472,7 @@ footer {
             left:0;
             
             border-top-width:4px;
-            border-top-color:#921900;
+            border-top-color:#222;
             
             border-bottom-width:4px;
             border-bottom-color:transparent;
@@ -470,7 +481,7 @@ footer {
             border-left-color:transparent;
             
             border-right-width:4px;
-            border-right-color:#921900;
+            border-right-color:#222;
         }
 
         .wrap-tab-left .wrap-tab-right-poly {
@@ -479,13 +490,13 @@ footer {
             right:-4px;
             
             border-top-width:14px;
-            border-top-color:#FF2C00;
+            border-top-color:#555;
             
             border-bottom-width:14px;
-            border-bottom-color:#FF2C00;
+            border-bottom-color:#555;
             
             border-left-width:4px;
-            border-left-color:#FF2C00;
+            border-left-color:#555;
             
             border-right-width:4px;
             border-right-color:transparent;
@@ -497,13 +508,13 @@ footer {
             left:-4px;
             
             border-top-width:14px;
-            border-top-color:#FF2C00;
+            border-top-color:#555;
             
             border-bottom-width:14px;
-            border-bottom-color:#FF2C00;
+            border-bottom-color:#555;
             
             border-right-width:4px;
-            border-right-color:#FF2C00;
+            border-right-color:#555;
             
             border-left-width:4px;
             border-left-color:transparent;
@@ -514,7 +525,7 @@ footer {
             right:0;
             
             border-top-width:4px;
-            border-top-color:#921900;
+            border-top-color:#222;
             
             border-bottom-width:4px;
             border-bottom-color:transparent;
@@ -523,12 +534,12 @@ footer {
             border-right-color:transparent;
             
             border-left-width:4px;
-            border-left-color:#921900;
+            border-left-color:#222;
         }
         
 #loginWrapTab a, #loginWrapTab a:hover, #loginWrapTab a:visited {
     display:block;
-    color:#333;
+    color:#fff;
 }
 
 /*  Content-Specific Styles */
