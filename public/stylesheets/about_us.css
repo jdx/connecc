@@ -45,3 +45,7 @@
 #about_us .member {
     margin:50px;
 }
+
+#about_us .member > p {
+    font-family:'Cabin';
+}

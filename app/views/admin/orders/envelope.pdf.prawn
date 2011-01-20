@@ -15,11 +15,11 @@ pdf.draw_text '>', :at => [2.6.in, 2.9.in], :size => 100
 
 pdf.bounding_box [2.2.in, 2.in], :width => 3.5.in, :height => 2.in do
   pdf.font "Cabin", :size => 18, :style => :bold
-  pdf.text @order.name, :style => :bold
+  pdf.text @order.user.name, :style => :bold
   pdf.fill_color "000000"
-  pdf.text @address.address1
-  if @address.address2
-    pdf.text @address.address2
+  pdf.text @order.address1
+  if @order.address2
+    pdf.text @order.address2
   end
-  pdf.text "#{ @address.city }, #{ @address.region } #{ @address.postal_code }"
+  pdf.text "#{ @order.city }, #{ @order.region } #{ @order.postal_code }"
 end

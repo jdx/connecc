@@ -4,12 +4,15 @@
       #name
         =link_to "conne.cc", root_path
         %span#arrow= h(">")
-      .wrap-tab-left#beta-tab 
+      .wrap-tab-left#beta-tab
         .wrap-tab-content Beta!
         .wrap-tab-left-poly
         .wrap-tab-right-poly
       .wrap-tab-right#loginWrapTab
-        %a.wrap-tab-content{ :href => "#_" } Log In
+        -if user_signed_in?
+          =link_to "Logout", destroy_user_session_path, :class => 'wrap-tab-content'
+        -else
+          =link_to "Login", user_session_path, :id => 'login-button', :class => 'wrap-tab-content'
         .wrap-tab-left-poly
         .wrap-tab-right-poly
     .bannerCurl
@@ -20,7 +23,7 @@
         #notice
           =flash[:notice]
       -if flash[:alert]
-        #notice
+        #alert
           =flash[:alert]
       =yield
       -unless @hide_tip
@@ -28,9 +31,7 @@
         #social-integration
           #fb-like
             <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://www.facebook.com/pages/connecc/172680719441624" layout="button_count" show_faces="true" width="450"></fb:like>
-            / <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://facebook.com/pages/connecc/172680719441624" show_faces="true" width="400"></fb:like>
           #twitter
-            / <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://conne.cc/" data-text="Replace your business cards with @connecc_cards" data-count="vertical" data-related="connecc_cards:dsfasdfasdf">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
             <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://conne.cc/" data-text="Replace your business cards with" data-count="horizontal" data-via="connecc_cards">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         %hr
         %p#tip Connections are fragile in their early stages, let&rsquo;s make them flow.

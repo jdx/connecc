@@ -1,0 +1,35 @@
+-content_for :title do
+  = @order
+%h1= @order
+%hr
+.details
+  %p
+    %label Type
+    %span= @order.type
+  %p
+    %label State
+    %span= @order.state
+  %p
+    %label Placed at
+    %span= @order.created_at.to_s :long
+  %p
+    %label Number of cards
+    %span= @order.cards.count
+  %p
+    %label Shipping address
+    %span
+      %abbr{ :title=> @order.address}= truncate @order.address, :separator => ' '
+  -if @order.authorization_amount
+    %p
+      %label Authorization amount
+      %span= "$" + sprintf("%.2f", @order.authorization_amount) 
+  -if @order.kind_of? GoogleOrder
+    %p
+      %label Google order number
+      %span= @order.google_order_number
+  -if @order.canceled
+    %p
+      %label Canceled
+      %span= @order.canceled
+#actions
+  =link_to "Back to orders", orders_path, :class => 'button'

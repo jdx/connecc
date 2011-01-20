@@ -9,9 +9,6 @@ Connecc::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
-  # Disable asset cache identifying
-  ENV['RAILS_ASSET_ID'] = ''
-
   FRONTEND_CONFIGURATION = { :merchant_id => ENV['CONNECC_GOOGLE_MERCHANT_ID'], :merchant_key => ENV['CONNECC_GOOGLE_MERCHANT_KEY'], :use_sandbox => true }
 
   # Show full error reports and disable caching

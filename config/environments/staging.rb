@@ -6,7 +6,7 @@ Connecc::Application.configure do
   config.cache_classes = true
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
@@ -25,8 +25,7 @@ Connecc::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
 
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

@@ -5,7 +5,6 @@ class CreateContactRequests < ActiveRecord::Migration
       t.string :email, :null => false
       t.text :message, :null => false
       t.string :ip_address, :null => false
-      t.integer :user_id
       t.boolean :send_me_a_copy, :null => false, :default => false
 
       t.timestamps

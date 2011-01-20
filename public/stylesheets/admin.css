@@ -48,57 +48,12 @@
     font-weight:normal;
 }
 
-#admin .details {
-    margin:50px;
-    border:1px solid #4271FF;
-}
-
-#admin .details label, .details span {
-    margin:10px 10px;
-    display:inline-block;
-    cursor:default;
-}
-
-#admin .details label {
-    font-weight:bold;
-    width:200px;
-}
-
-#admin .details label:after {
-    content: ':';
-}
-
-#admin .lists {
-    overflow:hidden;
-}
-
-#admin .lists .list {
-    margin:30px 50px 50px 50px;
-    float:left;
-    width:250px;
-}
-
-#admin .list ul {
-    margin:0;
-    border:1px solid #4271FF;
-}
-
 #admin h2 {
     margin:5px;
 }
 
 #admin .list li {
     padding:10px 25px;
-}
-
-#admin .details p:nth-child(odd),
-#admin .list ul li:nth-child(odd) {
-    background-color:#ddeeff;
-}
-
-#admin .details p:nth-child(even),
-#admin .list ul li:nth-child(even) {
-    background-color:#eff2ff;
 }
 
 #admin #summary {

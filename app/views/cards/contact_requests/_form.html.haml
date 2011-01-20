@@ -1,0 +1,7 @@
+=semantic_form_for @contact_request, :url => card_contact_request_path(@card.code) do |f|
+  =f.inputs do
+    =f.input :email
+    =f.input :message
+    =f.input :send_me_a_copy, :as => :boolean, :required => true
+  =f.buttons do
+    =f.commit_button "Send to #{ @card.giver.first_name }"

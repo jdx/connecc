@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
 
   has_many :orders
   has_many :visits
-  has_many :contact_requests
   has_many :cards, :through => :orders
   has_one :trial_order
 
@@ -15,7 +14,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates :gender, :presence => true
   validates :time_zone, :presence => true
-  validates_format_of :twitter, :with => /^@?[a-z0-9_]*$/, :allow_blank => true, :allow_nil => true
+  validates_format_of :twitter, :with => /^@?[a-z0-9_]{1,20}$/, :allow_blank => true, :allow_nil => true
   validates_format_of :phone_number, :with => /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/, :allow_blank => true, :allow_nil => true
   validates_format_of :web_site, :with => /^([\w-]+:\/\/)?(www[.])?[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/))$/, :allow_blank => true, :allow_nil => true
   validates_format_of :facebook, :with => /^.*facebook\.com\/[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/))$/, :allow_blank => true, :allow_nil => true
@@ -26,6 +25,7 @@ class User < ActiveRecord::Base
          :recoverable,
          :trackable,
          :validatable,
+         :registerable,
          :rememberable
 
   # Setup accessible (or protected) attributes for your model
@@ -70,12 +70,29 @@ class User < ActiveRecord::Base
     end
   end
 
+  def update_with_password(params={})
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+    update_attributes(params)
+  end
+
+  def delete_account
+    self.cards.each { |o| o.destroy }
+    self.visits.each { |v| v.user = nil; v.save! }
+    self.password = nil
+    self.email = self.email + "deleted"
+    self.last_name = self.last_name + " DELETED"
+    self.save!
+  end
+
   protected
 
   def clean_contact_info
     self.web_site = "http://" + self.web_site unless self.web_site.blank? or self.web_site =~ /^https?:\/\//
-    self.facebook.gsub!(/.*facebook.com/, 'facebook.com') unless self.facebook.blank?
-    self.linkedin.gsub!(/.*linkedin.com/, 'linkedin.com') unless self.linkedin.blank?
+    self.facebook.gsub!(/.*facebook.com/, 'http://facebook.com') unless self.facebook.blank?
+    self.linkedin.gsub!(/.*linkedin.com/, 'http://linkedin.com') unless self.linkedin.blank?
     self.twitter.gsub!(/^@?/, '@') unless self.twitter.blank?
   end
 

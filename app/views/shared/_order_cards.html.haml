@@ -1,6 +1,6 @@
 #order-cards
   .price 100 cards - $10 - free shipping
-  =form_for :order, :url => orders_place_path, :html => { :onsubmit => "setUrchinInputCode(pageTracker);" } do |f|
+  =form_for :google_order, :url => new_google_order_path, :html => { :method => :get, :onsubmit => "setUrchinInputCode(pageTracker);" } do |f|
     %input{ :type => "hidden", :name => "analyticsdata", :value => ""}
     %input{ :type => "image",
             :name => "Google Checkout",
