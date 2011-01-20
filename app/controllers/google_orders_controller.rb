@@ -28,6 +28,8 @@ class GoogleOrdersController < OrdersController
 
     # Get the serial number we need to send back to google to get the actual notification
     serial_number = request.POST["serial-number"]
+    # temporarily accepting all orders
+    return render :text => "<notification-acknowledgment xmlns=\"http://checkout.google.com/schema/2\" serial-number=\"#{ serial_number }\"/>"
 
     # Set up the server we're going to talk to
     url = URI.parse(GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL)
