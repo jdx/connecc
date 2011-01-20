@@ -7,6 +7,7 @@
     =f.input :password, :required => true
     =f.input :first_name
     =f.input :last_name
+    =f.input :company_name
     =f.input :time_zone
     =f.input :gender, :as => :radio, :collection => { "Male" => 'm', "Female" => 'f' }
     %hr
@@ -19,3 +20,4 @@
     =f.input :phone_number, :hint => '501-555-9173'
   =f.buttons do
     =f.commit_button "Update Profile"
+%hr

@@ -41,7 +41,7 @@ class Cards::CardsController < ApplicationController
   end
 
   def ensure_user_is_giver
-    redirect_to :show if @card.order.user != current_user
+    redirect_to card_path(@card.code) if @card.order.user != current_user
   end
 
   def hide_tip

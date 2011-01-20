@@ -77,6 +77,10 @@ dd a:hover, dd a:focus {
     border-bottom:1px solid;
 }
 
+p {
+    font-family:'Droid Serif';
+}
+
 /*  Links */
 /**********************************************************/
 a[href ^="http://linkedin.com"] {
@@ -130,13 +134,15 @@ html, body {
         background:url('/images/embed/graph.png') no-repeat;
         background-position:top center;
         min-height:100%;
+        width:960px;
+        margin:0 auto;
     }
 
         #logo {
             background:url("/images/embed/logo.png") no-repeat;
             display:block;
-            width:300px;
-            height:196px;
+            
+            height:140px;
             margin: 30px 20px -100px 50px;
         }
 
@@ -160,12 +166,14 @@ footer {
     color: #eee;
     background-color:#333;
     border-top:1px solid #888;
-    background-image:url("/images/embed/footer.gradient.png") repeat-x;
+    background-image:url("/images/embed/footer.gradient.png");
+    background-repeat:repeat-x;
     text-align:center;
     position:relative;
     margin-top:-130px;
     height:129px;
     clear:both;
+    font-family:'Raleway';
 }
 
     footer #links a, footer #links a:visited {
@@ -211,15 +219,15 @@ footer {
 }
 
 #links {
-    font-size:17px;
+    font-size:18px;
 }
 
     #links li, #copyright li {
-        display:inline;
+        display:inline-block;
     }
 
     #links li:after {
-        content:'|';
+        content:' |';
         margin:10px;
     }
 
@@ -241,7 +249,8 @@ footer {
     border-top:1px dashed #ddd;
     font-size:20px;
     
-    background-image:url('/images/embed/grey.radial.png') repeat-x;
+    background-image:url('/images/embed/grey.radial.png');
+    background-repeat:no-repeat;
     background-position:center top;
     
     -webkit-box-shadow: 0px 0px 10px #333333;
@@ -423,24 +432,54 @@ footer {
 .wrap-tab-left, .wrap-tab-right {
     position:absolute;
     top:32px;
-    background-color:#FF2C00;
+    background-color:#555;
     font-size:16px;
     text-shadow:none;
-    color:#333;
+    color:#fff;
     height:28px;
     -webkit-box-shadow: 0px 1px 1px #333333;
     -moz-box-shadow: 0px 1px 1px #333333;
     box-shadow: 0px 1px 1px #333333;
+    text-shadow: 0 1px 0 #222;
+    
+    background: #0248CD; /* old browsers */
+    
+    background: -moz-linear-gradient(top, #0248CD 0%, #094699 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0248CD), color-stop(100%,#094699));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0248CD', endColorstr='#094699',GradientType=0 );
 }
 
-    .wrap-tab-left { left:-9px; }
-    
-    .wrap-tab-right { right:-9px; }
+    .wrap-tab-left {
+        left:-9px;
+        -webkit-border-top-left-radius: 2px;
+        -moz-border-radius-topleft: 2px;
+        border-top-left-radius: 2px;
+    }
+
+    .wrap-tab-right {
+        right:-9px;
+        -webkit-border-top-right-radius: 2px;
+        -moz-border-radius-topright: 2px;
+        border-top-right-radius: 2px;
+    }
 
         .wrap-tab-content {
             padding:4px;
             width:64px;
             text-align:center;
+        }
+        
+        .wrap-tab-content:after {
+            content: " ";
+            position: absolute;
+            top:3px;
+            left:0;
+            right:0px;
+            bottom:3px;
+            
+            border:1px solid #0D5DCC;
+            border-left-width:0;
+            border-right-width:0;
         }
         
         .wrap-tab-left-poly, .wrap-tab-right-poly {
@@ -455,7 +494,7 @@ footer {
             left:0;
             
             border-top-width:4px;
-            border-top-color:#921900;
+            border-top-color:#222;
             
             border-bottom-width:4px;
             border-bottom-color:transparent;
@@ -464,7 +503,7 @@ footer {
             border-left-color:transparent;
             
             border-right-width:4px;
-            border-right-color:#921900;
+            border-right-color:#222;
         }
 
         .wrap-tab-left .wrap-tab-right-poly {
@@ -473,13 +512,12 @@ footer {
             right:-4px;
             
             border-top-width:14px;
-            border-top-color:#FF2C00;
+            border-top-color:#0248CD;
             
             border-bottom-width:14px;
-            border-bottom-color:#FF2C00;
+            border-bottom-color:#094699;
             
-            border-left-width:4px;
-            border-left-color:#FF2C00;
+            border-left-width:0;
             
             border-right-width:4px;
             border-right-color:transparent;
@@ -491,13 +529,12 @@ footer {
             left:-4px;
             
             border-top-width:14px;
-            border-top-color:#FF2C00;
+            border-top-color:#0248CD;
             
             border-bottom-width:14px;
-            border-bottom-color:#FF2C00;
+            border-bottom-color:#094699;
             
-            border-right-width:4px;
-            border-right-color:#FF2C00;
+            border-right-width:0;
             
             border-left-width:4px;
             border-left-color:transparent;
@@ -508,7 +545,7 @@ footer {
             right:0;
             
             border-top-width:4px;
-            border-top-color:#921900;
+            border-top-color:#222;
             
             border-bottom-width:4px;
             border-bottom-color:transparent;
@@ -517,12 +554,12 @@ footer {
             border-right-color:transparent;
             
             border-left-width:4px;
-            border-left-color:#921900;
+            border-left-color:#222;
         }
         
 #loginWrapTab a, #loginWrapTab a:hover, #loginWrapTab a:visited {
     display:block;
-    color:#333;
+    color:#fff;
 }
 
 /*  Content-Specific Styles */
@@ -553,6 +590,19 @@ footer {
 .note {
     font-size:14px;
     margin:20px;
+}
+
+.note.starred:before {
+    content:'*';
+    position:absolute;
+    margin-left:-18px;
+    margin-top:-5px;
+    font-size:26px;
+    font-family:'Cabin';
+}
+
+.note.starred {
+    margin-left:40px;
 }
 
 .youtube-player {
@@ -648,6 +698,10 @@ footer {
 .card-list li {
     margin:20px;
     font-size:18px;
+}
+
+.card-list .excerpt {
+    font-family:'Droid Serif';
 }
 
 #limited-time-offer p {

@@ -10,7 +10,6 @@ class CreateNotificationRequests < ActiveRecord::Migration
     end
 
     add_index :notification_requests, :card_id
-    add_index :notification_requests, :user_id
     add_index :notification_requests, :email
   end
 

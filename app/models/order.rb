@@ -44,6 +44,8 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
+  protected
+
   def update_state
     self.state = 'new'
     self.state = 'awaiting-shipment' if self.charged
