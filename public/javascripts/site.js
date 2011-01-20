@@ -57,7 +57,7 @@ var Connecc = {
     },
 
     setupLogin:function() {
-      $('#login-button')
+      $('a#login')
           .click(function() {
               $('#site-login')
                   .toggleClass('display');

@@ -259,7 +259,7 @@ footer {
 }
         
 #banner {
-    width:450px;
+    width:500px;
     margin:0 auto;
     height:60px;
 
@@ -272,52 +272,11 @@ footer {
     position:relative;
 }
 
-    #banner #logo {
-        margin:0 auto;
-        position:absolute;
+    #banner #title {
+        margin:15px auto;
+        font-size:27px;
+        color:#133CAC;
     }
-
-    #banner #name, #banner #arrow {
-        left:0;
-        right:0;
-        text-align:center;
-    }
-
-    #banner #name { 
-        font-weight:bolder;
-        z-index:12;
-        left:0;
-        right:0;
-    }
-
-        #banner #name a {
-            -webkit-transition: all 500ms ease-in;
-            -moz-transition: all 500ms ease-in;
-            -o-transition: all 500ms ease-in;
-            transition: all 500ms ease-in;
-
-            text-decoration:none;
-            text-shadow:0 1px 0 #fff;
-            
-            font-size:36pt;
-            
-            margin-bottom:10px;
-        }
-
-        #banner #name a:hover, #banner #name a:focus {
-            color:#133CAC;
-            outline:0;
-        }
-
-        #banner #arrow {
-            font-size:80px;
-            font-weight:bold;
-            color:#133CAC;
-            text-shadow:0 1px 0 #fff;
-            z-index:11;
-            line-height:40px;
-            left:-20px;
-        }
 
 #strip {
     position:relative;
@@ -429,7 +388,7 @@ footer {
 /*  Ribbons */
 /**********************************************************/
 
-.wrap-tab-left, .wrap-tab-right {
+.wrap-tab {
     position:absolute;
     top:32px;
     background-color:#555;
@@ -447,29 +406,32 @@ footer {
     background: -moz-linear-gradient(top, #0248CD 0%, #094699 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0248CD), color-stop(100%,#094699));
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0248CD', endColorstr='#094699',GradientType=0 );
+    text-decoration:none;
 }
 
-    .wrap-tab-left {
+    .wrap-tab.left {
         left:-9px;
         -webkit-border-top-left-radius: 2px;
         -moz-border-radius-topleft: 2px;
         border-top-left-radius: 2px;
+        padding: 0px 7px;
     }
 
-    .wrap-tab-right {
+    .wrap-tab.right {
         right:-9px;
         -webkit-border-top-right-radius: 2px;
         -moz-border-radius-topright: 2px;
         border-top-right-radius: 2px;
+        padding: 0px 7px;
     }
 
-        .wrap-tab-content {
+        .wrap-tab-body {
             padding:4px;
-            width:64px;
             text-align:center;
+            color:#fff;
         }
         
-        .wrap-tab-content:after {
+        .wrap-tab-body:after {
             content: " ";
             position: absolute;
             top:3px;
@@ -477,11 +439,11 @@ footer {
             right:0px;
             bottom:3px;
             
-            border:1px solid #0D5DCC;
+            border:1px dotted #0D5DCC;
             border-left-width:0;
             border-right-width:0;
         }
-        
+
         .wrap-tab-left-poly, .wrap-tab-right-poly {
             position:absolute;
             border-style:solid;
@@ -489,7 +451,7 @@ footer {
             height:0;
         }
 
-        .wrap-tab-left .wrap-tab-left-poly {
+        .wrap-tab.left .wrap-tab-left-poly {
             top:28px;
             left:0;
             
@@ -506,7 +468,7 @@ footer {
             border-right-color:#222;
         }
 
-        .wrap-tab-left .wrap-tab-right-poly {
+        .wrap-tab.left .wrap-tab-right-poly {
             position:absolute;
             top:0;
             right:-4px;
@@ -523,7 +485,7 @@ footer {
             border-right-color:transparent;
         }
         
-        .wrap-tab-right .wrap-tab-left-poly {
+        .wrap-tab.right .wrap-tab-left-poly {
             position:absolute;
             top:0;
             left:-4px;
@@ -540,7 +502,7 @@ footer {
             border-left-color:transparent;
         }
 
-        .wrap-tab-right .wrap-tab-right-poly {
+        .wrap-tab.right .wrap-tab-right-poly {
             top:28px;
             right:0;
             
@@ -557,11 +519,6 @@ footer {
             border-left-color:#222;
         }
         
-#loginWrapTab a, #loginWrapTab a:hover, #loginWrapTab a:visited {
-    display:block;
-    color:#fff;
-}
-
 /*  Content-Specific Styles */
 /**********************************************************/
 
@@ -714,6 +671,14 @@ footer {
 #actions {
     margin:40px auto;
     text-align:center;
+}
+
+#actions .alt {
+    font-size:16px;
+    display:inline-block;
+    padding-top:14px;
+    vertical-align:top;
+    margin-left:-20px;
 }
 
 #actions form {

@@ -2,19 +2,21 @@
   #main
     #banner
       #name
-        =link_to "conne.cc", root_path
-        %span#arrow= h(">")
-      .wrap-tab-left#beta-tab
-        .wrap-tab-content Beta!
+        #title Business cards are broken.
+      %a.wrap-tab.left{ :href => free_trial_path }
+        .wrap-tab-body Free Trial!
         .wrap-tab-left-poly
         .wrap-tab-right-poly
-      .wrap-tab-right#loginWrapTab
-        -if user_signed_in?
-          =link_to "Logout", destroy_user_session_path, :class => 'wrap-tab-content'
-        -else
-          =link_to "Login", user_session_path, :id => 'login-button', :class => 'wrap-tab-content'
-        .wrap-tab-left-poly
-        .wrap-tab-right-poly
+      -if user_signed_in?
+        %a.wrap-tab.right{ :href => destroy_user_session_path }
+          .wrap-tab-body Logout
+          .wrap-tab-left-poly
+          .wrap-tab-right-poly
+      -else
+        %a#login.wrap-tab.right{ :href => user_session_path }
+          .wrap-tab-body Login
+          .wrap-tab-left-poly
+          .wrap-tab-right-poly
     .bannerCurl
       .leftCurl
       .rightCurl

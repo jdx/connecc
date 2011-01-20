@@ -27,6 +27,7 @@ Connecc::Application.routes.draw do
   get "faq" => "home#faq"
   get "terms" => "home#terms"
   get "my_cards" => "home#my_cards"
+  get "free_trial" => "home#free_trial"
 
   scope ':code', :code => /\w{5}/, :module => 'cards' do
     resource :card, :path => '/' do
