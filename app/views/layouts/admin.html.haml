@@ -2,8 +2,19 @@
   #main.wide
     #banner.wide
       #name
-        =link_to "conne.cc", root_path
-        %span#arrow= h(">")
+        #title Business cards are broken.
+      %a.wrap-tab.left{ :href => user_signed_in? ? destroy_user_session_path : user_session_path,
+                        :id => user_signed_in? ? "logout" : "login" }
+        .wrap-tab-body= user_signed_in? ? "Logout" : "Login"
+        .wrap-tab-left-poly
+        .wrap-tab-right-poly
+      %a.wrap-tab.right{ :href => free_trial_path }
+        .wrap-tab-body Free Trial!
+        .wrap-tab-left-poly
+        .wrap-tab-right-poly
+    .bannerCurl
+      .leftCurl
+      .rightCurl
     #strip.wide
       -if flash[:notice]
         #notice
