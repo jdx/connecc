@@ -27,24 +27,24 @@ ActiveRecord::Schema.define(:version => 20110107175719) do
   add_index "cards", ["visited"], :name => "index_cards_on_visited"
 
   create_table "contact_requests", :force => true do |t|
-    t.integer  "card_id",                           :null => false
-    t.string   "email",                             :null => false
-    t.text     "message",                           :null => false
-    t.string   "ip_address",                        :null => false
-    t.boolean  "send_me_a_copy", :default => false, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "card_id",                           :null => false
+    t.string    "email",                             :null => false
+    t.text      "message",                           :null => false
+    t.string    "ip_address",                        :null => false
+    t.boolean   "send_me_a_copy", :default => false, :null => false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "contact_requests", ["card_id"], :name => "index_contact_requests_on_card_id"
 
   create_table "notification_requests", :force => true do |t|
-    t.integer  "card_id",    :null => false
-    t.string   "email",      :null => false
-    t.string   "ip_address", :null => false
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "card_id",    :null => false
+    t.string    "email",      :null => false
+    t.string    "ip_address", :null => false
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "notification_requests", ["card_id"], :name => "index_notification_requests_on_card_id"
