@@ -1,8 +1,8 @@
 Ext.setup({
+    icon: 'ios.png',
     onReady: function() {
         var panel = new Ext.form.FormPanel({
             title: "Login",
-            icon: '/ios.png',
             fullscreen: true,
             dockedItems: [
                 {
