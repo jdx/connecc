@@ -13,6 +13,7 @@ gem 'google4r-checkout', '1.1',:git => 'git://github.com/nbudin/google4r-checkou
 gem 'jammit'
 gem 'hpricot'
 gem 'heroscale'
+gem 'dalli'
 
 group :development do
   gem 'heroku_san'
