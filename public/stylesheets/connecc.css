@@ -259,7 +259,7 @@ footer {
 }
         
 #banner {
-    width:500px;
+    width:550px;
     margin:0 auto;
     height:60px;
 
@@ -273,8 +273,8 @@ footer {
 }
 
     #banner #title {
-        margin:15px auto;
-        font-size:27px;
+        margin:18px auto;
+        font-size:24px;
         color:#1D4088;
         text-shadow:0 1px 0 #fff;
     }
@@ -414,7 +414,6 @@ footer {
         -webkit-border-top-left-radius: 2px;
         -moz-border-radius-topleft: 2px;
         border-top-left-radius: 2px;
-        padding: 0px 7px;
     }
 
     .wrap-tab.right {
@@ -422,13 +421,13 @@ footer {
         -webkit-border-top-right-radius: 2px;
         -moz-border-radius-topright: 2px;
         border-top-right-radius: 2px;
-        padding: 0px 7px;
     }
 
         .wrap-tab-body {
             padding:4px;
             text-align:center;
             color:#fff;
+            width:100px;
         }
         
         .wrap-tab-body:after {
@@ -439,7 +438,7 @@ footer {
             right:0px;
             bottom:3px;
             
-            border:1px dotted #0D5DCC;
+            border:1px dotted #2E7BE6;
             border-left-width:0;
             border-right-width:0;
         }
