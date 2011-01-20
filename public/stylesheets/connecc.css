@@ -134,6 +134,8 @@ html, body {
         background:url('/images/embed/graph.png') no-repeat;
         background-position:top center;
         min-height:100%;
+        width:960px;
+        margin:0 auto;
     }
 
         #logo {
