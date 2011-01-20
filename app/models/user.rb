@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
     self.gender == 'm' ? 'him' : 'her'
   end
 
+  def recent_cards
+    self.cards.where(:visited => true).order('cards.updated_at DESC')
+  end
+
   def any_contact_info_public?
     if show_email or !facebook.blank? or !linkedin.blank? or !twitter.blank? or !web_site.blank? or !phone_number.blank?
       return true
