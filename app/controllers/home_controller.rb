@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   def home
     if user_signed_in?
       if current_user.orders.any?
-        @cards = current_user.cards.where(:visited => true).order('cards.updated_at DESC').limit(10)
         render 'dashboard'
       else
         render 'dashboard_no_orders'
@@ -13,6 +12,6 @@ class HomeController < ApplicationController
   end
 
   def my_cards
-    @cards = current_user.cards.where(:visited => true).order('cards.updated_at DESC')
+    @cards = current_user.recent_cards
   end
 end
