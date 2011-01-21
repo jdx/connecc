@@ -141,9 +141,10 @@ html, body {
         #logo {
             background:url("/images/embed/logo.png") no-repeat;
             display:block;
-            
-            height:140px;
-            margin: 30px 20px -100px 50px;
+            position:absolute;
+            height:100px;
+            width:153px;
+            top:40px
         }
 
         #banner, nooter {
@@ -151,7 +152,8 @@ html, body {
         }
 
         #main {
-            margin:24px auto 0 auto;
+            margin:0px auto 0 auto;
+            padding-top:100px;
             padding-bottom: 240px;
             width:620px;
         }
