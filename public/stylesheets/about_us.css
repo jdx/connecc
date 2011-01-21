@@ -1,3 +1,8 @@
+#about_us h3 {
+    margin:30px;
+    text-align:center;
+}
+
 #about_us .member .box {
     width:190px;
     overflow:hidden;
