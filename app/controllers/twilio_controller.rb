@@ -10,8 +10,9 @@ class TwilioController < ApplicationController
                      <Response>
                        <Say>Thank you for calling kuhnec.</Say>
                        <Gather numDigits="1" method="POST" action="handle_digits">
-                         Press 1 for support. Press 2 for sales.
+                         <Say>Press 1 for support. Press 2 for sales.</Say>
                        </Gather>
+                       <Say>We didn\'t receive any input. Goodbye!</Say>
                      </Response>', :content_type => 'text/xml'
   end
 
