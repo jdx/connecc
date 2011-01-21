@@ -6,21 +6,18 @@ class TwilioController < ApplicationController
   end
 
   def call
-    render :xml => { :response => {
-                       :say => "Thank you for calling kuhnec.",
-                       :gather => {
-                         :numDigits => 1,
-                         :action => 'handle_digits',
-                         :method => 'POST'
-                       }
-                     }
-                   }
+    @response = { :say => "Thank you for calling kuhnec.",
+                  :gather => {
+                    :numDigits => 1,
+                    :action => 'handle_digits',
+                    :method => 'POST'
+                  }
+                }
+    render :xml => @response
   end
 
   def handle_digits
-    render :xml => { :response => {
-                       :dial => "9712227154"
-                     }
-                   }
+    @response = { :dial => "9712227154" }
+    render :xml => @response
   end
 end
