@@ -178,26 +178,6 @@ footer {
     font-family:'Raleway';
 }
 
-    footer #links a, footer #links a:visited {
-        color:#eee;
-        text-decoration:none;
-    }
-
-    footer #links a:hover {
-        border-bottom:1px solid;
-        color:#eee;
-    }
-    
-    footer #footerLogo {
-        display:block;
-        position:absolute;
-        right:12px;
-        top:22px;
-        height:80px;
-        width:122px;
-        background:url('/images/embed/logo.footer.png') no-repeat;
-    }
-
 #social-icons {
     margin:20px 6px 6px 6px;
 }
@@ -217,30 +197,47 @@ footer {
       background:url('/images/embed/twitter.large.png') no-repeat;
   }
 
-#links, #copyright {
-    margin:6px;
+    
+#footerLogo {
+    display:block;
+    position:absolute;
+    right:12px;
+    top:22px;
+    height:80px;
+    width:122px;
+    background:url('/images/embed/logo.footer.png') no-repeat;
 }
 
 #links {
     font-size:18px;
 }
 
-    #links li, #copyright li {
-        display:inline-block;
-    }
-
-    #links li:after {
-        content:' |';
-        margin:10px;
-    }
-
-    #links li:last-child:after {
-        content:'';
-    }
-
-#copyright {
-    text-align:center;
+.footer-links {
+    margin:6px;
 }
+
+  .footer-links a, .footer-links a:visited  {
+      color:#eee;
+      text-decoration:none;
+  }
+
+  .footer-links a:hover {
+      border-bottom:1px solid;
+      color:#eee;
+  }
+
+  .footer-links li {
+      display:inline-block;
+  }
+
+  .footer-links li:after {
+      content:' |';
+      margin:10px;
+  }
+
+  .footer-links li:last-child:after {
+      content:'';
+  }
 
 /*  Banner and Strip */
 /******************************************************/

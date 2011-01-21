@@ -72,20 +72,20 @@
       <a class="twitter" href="http://twitter.com/connecc_cards"></a>
     </div>
 
-    <ul id="links">
+    <ul id="links" class="footer-links">
+      <li><%= link_to "About us", about_us_path %></a></li>
       <%- unless user_signed_in? %>
         <li><%= link_to "Sign up", new_user_registration_path %></a></li>
       <%- end %>
-      <li><%= link_to "About us", about_us_path %></a></li>
-      <li><%= link_to "Contact us", contact_us_path %></a></li>
       <li><%= link_to "Tour", tour_path %></a></li>
       <li><%= link_to "FAQ", faq_path %></a></li>
-      <li><%= link_to "Terms of Use", terms_path %></a></li>
       <li><a href="#" onclick="UserVoice.Popin.show(uservoiceOptions); return false;">Got an idea?</a></li>
+      <li><%= link_to "Contact us", contact_us_path %></a></li>
     </ul>
 
-    <ul id="copyright">
+    <ul id="copyright" class="footer-links">
       <li>Copyright 2011</li>
+      <li><%= link_to "Terms of Use", terms_path %></a></li>
     </ul>
 
     <a href="<%= root_path %>" id="footerLogo"></a>
