@@ -1,6 +1,7 @@
-#about_us h3 {
-    margin:30px;
+#about_us .intro {
+    margin:30px auto;
     text-align:center;
+    width:475px;
 }
 
 #about_us .member .box {
