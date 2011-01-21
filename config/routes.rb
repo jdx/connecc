@@ -31,6 +31,7 @@ Connecc::Application.routes.draw do
 
   post "twilio/call" => 'twilio#call'
   post "twilio/sms" => 'twilio#sms'
+  get "twilio/handle_digits" => 'twilio#handle_digits'
 
   scope ':code', :code => /\w{5}/, :module => 'cards' do
     resource :card, :path => '/' do
