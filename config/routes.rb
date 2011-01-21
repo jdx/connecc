@@ -29,6 +29,9 @@ Connecc::Application.routes.draw do
   get "my_cards" => "home#my_cards"
   get "free_trial" => "home#free_trial"
 
+  post "twilio/call" => 'twilio#call'
+  post "twilio/sms" => 'twilio#sms'
+
   scope ':code', :code => /\w{5}/, :module => 'cards' do
     resource :card, :path => '/' do
       resource :contact_request
