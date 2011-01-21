@@ -2,7 +2,7 @@ class TwilioController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def sms
-    render :text => "conne.cc sms is not currently supported. We want to do this though!"
+    render :text => "conne.cc sms is not currently supported. We want to do this though!", :content_type => 'text/plain'
   end
 
   def call
