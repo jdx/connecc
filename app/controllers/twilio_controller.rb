@@ -9,7 +9,7 @@ class TwilioController < ApplicationController
     render :text => '<?xml version="1.0" encoding="UTF-8"?>
                      <Response>
                        <Say>Thank you for calling kuhnec.</Say>
-                       <Gather numDigits="1" method="POST" action="handle_digits">
+                       <Gather numDigits="1" method="POST" action="/twilio/handle_digits">
                          <Say>Press 1 for support. Press 2 for sales.</Say>
                        </Gather>
                        <Say>We didn\'t receive any input. Goodbye!</Say>
