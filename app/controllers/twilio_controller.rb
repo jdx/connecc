@@ -13,11 +13,11 @@ class TwilioController < ApplicationController
                     :method => 'POST'
                   }
                 }
-    render :xml => @response
+    render :json => @response
   end
 
   def handle_digits
     @response = { :dial => "9712227154" }
-    render :xml => @response
+    render :json => @response
   end
 end
