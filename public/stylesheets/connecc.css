@@ -189,6 +189,7 @@ footer {
     }
     
     footer #footerLogo {
+        display:block;
         position:absolute;
         right:12px;
         top:22px;
