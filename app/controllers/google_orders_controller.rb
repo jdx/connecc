@@ -5,8 +5,8 @@ require 'google4r/checkout'
 require 'hpricot'
 
 class GoogleOrdersController < OrdersController
-  skip_before_filter :verify_authenticity_token, :except => :callback
-  skip_before_filter :authenticate_user!, :except => :callback
+  skip_before_filter :verify_authenticity_token, :only => :callback
+  skip_before_filter :authenticate_user!, :only => :callback
 
   def new
     @google_order = GoogleOrder.new
