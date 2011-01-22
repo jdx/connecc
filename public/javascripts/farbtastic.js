@@ -18,13 +18,13 @@
  */
 
 jQuery.fn.farbtastic = function (callback) {
-  $.farbtastic(this, callback);
-  return this;
+    $.farbtastic(this, callback);
+    return this;
 };
 
 jQuery.farbtastic = function (container, callback) {
-  var container = $(container).get(0);
-  return container.farbtastic || (container.farbtastic = new jQuery._farbtastic(container, callback));
+    var container = $(container).get(0);
+    return container.farbtastic || (container.farbtastic = new jQuery._farbtastic(container, callback));
 }
 
 jQuery._farbtastic = function (container, callback) {
@@ -56,7 +56,7 @@ jQuery._farbtastic = function (container, callback) {
 
   /**
    * Link to the given element(s) or callback.
-   */
+*/
   fb.linkTo = function (callback) {
     // Unbind previous nodes
     if (typeof fb.callback == 'object') {
@@ -137,7 +137,7 @@ jQuery._farbtastic = function (container, callback) {
 
       // Look for the coordinates starting from the wheel widget.
       var e = reference;
-      var offset = { x: 0, y: 0 }
+      var offset = { x: 0, y: 0 };
       while (e) {
         if (typeof e.mouseX != 'undefined') {
           x = e.mouseX - offset.x;
@@ -196,12 +196,12 @@ jQuery._farbtastic = function (container, callback) {
     // Set new HSL parameters
     if (fb.circleDrag) {
       var hue = Math.atan2(pos.x, -pos.y) / 6.28;
-      if (hue < 0) hue += 1;
+      if (hue < 0) { hue += 1; }
       fb.setHSL([hue, fb.hsl[1], fb.hsl[2]]);
     }
     else {
-      var sat = Math.max(0, Math.min(1, -(pos.x / fb.square) + .5));
-      var lum = Math.max(0, Math.min(1, -(pos.y / fb.square) + .5));
+      var sat = Math.max(0, Math.min(1, -(pos.x / fb.square) + 0.5));
+      var lum = Math.max(0, Math.min(1, -(pos.y / fb.square) + 0.5));
       fb.setHSL([fb.hsl[0], sat, lum]);
     }
     return false;
@@ -229,8 +229,8 @@ jQuery._farbtastic = function (container, callback) {
     });
 
     $('.sl-marker', e).css({
-      left: Math.round(fb.square * (.5 - fb.hsl[1]) + fb.width / 2) + 'px',
-      top: Math.round(fb.square * (.5 - fb.hsl[2]) + fb.width / 2) + 'px'
+      left: Math.round(fb.square * (0.5 - fb.hsl[1]) + fb.width / 2) + 'px',
+      top: Math.round(fb.square * (0.5 - fb.hsl[2]) + fb.width / 2) + 'px'
     });
 
     // Saturation/Luminance gradient
@@ -305,9 +305,9 @@ jQuery._farbtastic = function (container, callback) {
 
   fb.hueToRGB = function (m1, m2, h) {
     h = (h < 0) ? h + 1 : ((h > 1) ? h - 1 : h);
-    if (h * 6 < 1) return m1 + (m2 - m1) * h * 6;
-    if (h * 2 < 1) return m2;
-    if (h * 3 < 2) return m1 + (m2 - m1) * (0.66666 - h) * 6;
+    if (h * 6 < 1) { return m1 + (m2 - m1) * h * 6; }
+    if (h * 2 < 1) { return m2; }
+    if (h * 3 < 2) { return m1 + (m2 - m1) * (0.66666 - h) * 6; }
     return m1;
   }
 
@@ -324,9 +324,9 @@ jQuery._farbtastic = function (container, callback) {
     }
     h = 0;
     if (delta > 0) {
-      if (max == r && max != g) h += (g - b) / delta;
-      if (max == g && max != b) h += (2 + (b - r) / delta);
-      if (max == b && max != r) h += (4 + (r - g) / delta);
+      if (max == r && max != g) { h += (g - b) / delta; }
+      if (max == g && max != b) { h += (2 + (b - r) / delta); }
+      if (max == b && max != r) { h += (4 + (r - g) / delta); }
       h /= 6;
     }
     return [h, s, l];
