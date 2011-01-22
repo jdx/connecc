@@ -24,7 +24,12 @@ jQuery.fn.farbtastic = function (callback) {
 
 jQuery.farbtastic = function (container, callback) {
     container = $(container).get(0);
-    return container.farbtastic || (container.farbtastic = new jQuery._farbtastic(container, callback));
+    if (container) {
+        return container.farbtastic || (container.farbtastic = new jQuery._farbtastic(container, callback));
+    }
+    else {
+        return null;
+    }
 };
 
 jQuery._farbtastic = function (container, callback) {
