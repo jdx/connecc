@@ -714,6 +714,7 @@ footer {
     margin:10px 10px;
     display:inline-block;
     cursor:default;
+    vertical-align:top;
 }
 
 .details label {
@@ -723,6 +724,12 @@ footer {
 
 .details label:after {
     content: ':';
+}
+
+.details .color_sample {
+    height:15px;
+    width:15px;
+    display:inline-block;
 }
 
 .details p:nth-child(odd),

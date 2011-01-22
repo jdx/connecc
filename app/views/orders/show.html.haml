@@ -17,11 +17,10 @@
     %span= @order.cards.count
   %p
     %label Shipping address
-    %span
-      %abbr{ :title=> @order.address}= truncate @order.address, :separator => ' '
+    %span #{ @order.address1 } #{ @order.address2}<br />#{ @order.city }, #{ @order.region } #{ @order.postal_code }
   -if @order.authorization_amount
     %p
-      %label Authorization amount
+      %label Amount
       %span= "$" + sprintf("%.2f", @order.authorization_amount) 
   -if @order.kind_of? GoogleOrder
     %p
