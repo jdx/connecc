@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   attr_accessible :email,
                   :first_name,
                   :last_name,
+                  :company_name,
                   :gender,
                   :time_zone,
                   :password,

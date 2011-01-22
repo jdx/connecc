@@ -1,5 +1,5 @@
 #message
-  %h1 #{ @card.giver } has not been here to post a message for you yet.
+  %h1 #{ @card.giver }#{ @card.giver.company_name.blank? ? "" : " of " + @card.giver.company_name } has not been here to post a message for you yet.
   %hr
   %p.explanation To be notified when #{ @card.giver.personal_pronoun } posts a message for you, put your email here:
   =semantic_form_for @notification_request, :url => card_notification_request_path(@card.code) do |f|
