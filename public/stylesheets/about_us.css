@@ -9,6 +9,7 @@
     overflow:hidden;
     margin: 0px auto;
     float:left;
+    margin-bottom:30px;
 }
 
 #about_us blockquote {
@@ -32,7 +33,7 @@
 
 #about_us .member > p {
     width:280px;
-    margin:10px 10px 50px 10px;
+    margin:10px 10px 30px 10px;
     float:right;
     font-size:16px;
 }
