@@ -34,7 +34,7 @@ class GoogleOrdersController < OrdersController
       { 'user_id' => current_user.id,
         'first_name' => @google_order.first_name,
         'last_name' => @google_order.last_name,
-        'company_name' => @google_order.company_name || '',
+        'company_name' => @google_order.company_name,
         'color' => @google_order.color,
         'cards_amount' => 100 }
     response = checkout_command.send_to_google_checkout

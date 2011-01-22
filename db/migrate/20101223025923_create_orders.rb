@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :state, :null => false
       t.string :first_name, :null => false
       t.string :last_name, :null => false
-      t.string :company_name, :null => false
+      t.string :company_name
       t.string :color, :null => false, :default => '#0248CD'
       t.string :address1, :null => false
       t.string :address2
