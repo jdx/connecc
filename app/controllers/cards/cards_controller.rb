@@ -5,6 +5,11 @@ class Cards::CardsController < ApplicationController
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
   def show
+    card_404s = Rails.cache.read(card_404_cache_key(request)) || []
+    puts card_404s
+    if card_404s.count > 10
+      raise ActiveRecord::RecordNotFound
+    end
     @card.record_visit(request.remote_ip, current_user)
     if @card.giver == current_user
       if @card.message
@@ -35,9 +40,18 @@ class Cards::CardsController < ApplicationController
 
   protected
 
+  def card_404_cache_key(request)
+    cache_key = "ip:#{ request.remote_ip }_card404s"
+  end
+
   def get_card
     @card = Card.find_by_code(params[:code])
-    raise ActiveRecord::RecordNotFound unless @card
+    unless @card
+      cards = Rails.cache.read(card_404_cache_key(request)) || []
+      cards << params[:code] unless cards.include? params[:code]
+      Rails.cache.write card_404_cache_key(request), cards, :expires_in => 10.minutes
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
   def ensure_user_is_giver
