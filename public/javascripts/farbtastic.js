@@ -23,7 +23,7 @@ jQuery.fn.farbtastic = function (callback) {
 };
 
 jQuery.farbtastic = function (container, callback) {
-    var container = $(container).get(0);
+    container = $(container).get(0);
     return container.farbtastic || (container.farbtastic = new jQuery._farbtastic(container, callback));
 }
 
@@ -136,7 +136,7 @@ jQuery._farbtastic = function (container, callback) {
       }
 
       // Look for the coordinates starting from the wheel widget.
-      var e = reference;
+      e = reference;
       var offset = { x: 0, y: 0 };
       while (e) {
         if (typeof e.mouseX != 'undefined') {
@@ -159,9 +159,9 @@ jQuery._farbtastic = function (container, callback) {
     }
     else {
       // Use absolute coordinates
-      var pos = fb.absolutePosition(reference);
-      x = (event.pageX || 0*(event.clientX + $('html').get(0).scrollLeft)) - pos.x;
-      y = (event.pageY || 0*(event.clientY + $('html').get(0).scrollTop)) - pos.y;
+      position = fb.absolutePosition(reference);
+      x = (event.pageX || 0*(event.clientX + $('html').get(0).scrollLeft)) - position.x;
+      y = (event.pageY || 0*(event.clientY + $('html').get(0).scrollTop)) - position.y;
     }
     // Subtract distance to middle
     return { x: x - fb.width / 2, y: y - fb.width / 2 };
