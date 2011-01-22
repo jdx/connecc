@@ -5,6 +5,9 @@ class TrialOrdersController < OrdersController
 
   def new
     @trial_order = TrialOrder.new
+    @trial_order.first_name = current_user.first_name
+    @trial_order.last_name = current_user.last_name
+    @trial_order.company_name = current_user.company_name
   end
 
   def create

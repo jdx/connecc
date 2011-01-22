@@ -68,11 +68,16 @@ var Connecc = {
           });
     },
 
+    setupColorpicker:function() {
+      $('.colorpicker').farbtastic('input.color');
+    },
+
     topCardZIndex:3
 };
 
 $(function() {
   Connecc.setupCards();
   Connecc.setupLogin();
+  Connecc.setupColorpicker();
 });
 

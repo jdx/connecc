@@ -5,10 +5,21 @@ require 'google4r/checkout'
 require 'hpricot'
 
 class GoogleOrdersController < OrdersController
-  skip_before_filter :verify_authenticity_token, :only => :create
-  skip_before_filter :authenticate_user!, :only => :create
+  skip_before_filter :verify_authenticity_token, :except => :callback
+  skip_before_filter :authenticate_user!, :except => :callback
 
   def new
+    @google_order = GoogleOrder.new
+    @google_order.first_name = current_user.first_name
+    @google_order.last_name = current_user.last_name
+    @google_order.company_name = current_user.company_name
+  end
+
+  def create
+    @google_order = GoogleOrder.new params[:google_order]
+    unless @google_order.valid?
+      return render :new
+    end
     @frontend = Google4R::Checkout::Frontend.new(FRONTEND_CONFIGURATION)
     @frontend.tax_table_factory = TaxTableFactory.new
     checkout_command = @frontend.create_checkout_command
@@ -19,13 +30,18 @@ class GoogleOrdersController < OrdersController
       item.quantity = 1
     end
     checkout_command.analytics_data = request.POST['analyticsdata']
-    checkout_command.shopping_cart.private_data = { 'user_id' => current_user.id, 'cards_amount' => 100 }
+    checkout_command.shopping_cart.private_data =
+      { 'user_id' => current_user.id,
+        'first_name' => @google_order.first_name,
+        'last_name' => @google_order.last_name,
+        'company_name' => @google_order.company_name,
+        'color' => @google_order.color,
+        'cards_amount' => 100 }
     response = checkout_command.send_to_google_checkout
     redirect_to response.redirect_url
   end
 
-  def create
-
+  def callback
     # Get the serial number we need to send back to google to get the actual notification
     serial_number = request.POST["serial-number"]
 
@@ -88,6 +104,10 @@ class GoogleOrdersController < OrdersController
         o.region = notification.buyer_shipping_address.region
         o.google_order_number = notification.google_order_number
         o.user_id = notification.shopping_cart.private_data['user_id']
+        o.first_name = notification.shopping_cart.private_data['first_name']
+        o.last_name = notification.shopping_cart.private_data['last_name']
+        o.company_name = notification.shopping_cart.private_data['company_name']
+        o.color = notification.shopping_cart.private_data['color']
       end
       order.add_cards(notification.shopping_cart.private_data['cards_amount'].to_i)
     elsif notification.kind_of? Google4R::Checkout::AuthorizationAmountNotification

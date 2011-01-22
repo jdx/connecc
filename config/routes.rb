@@ -3,7 +3,9 @@ Connecc::Application.routes.draw do
   devise_for :users
 
   resource :trial_order
-  resources :google_orders
+  resources :google_orders do
+    post 'callback'
+  end
   resources :orders
 
   namespace "admin" do

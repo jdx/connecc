@@ -5,13 +5,19 @@
   %p For our big launch, we're offering a limited supply of 10 free cards! Fill out the form below to get yours!
 %hr
 =semantic_form_for @trial_order, :url => trial_order_path do |f|
-  %h2 Shipping info
   =f.inputs do
+    %h2 Shipping info
     =f.input :address1, :label => "Address 1"
     =f.input :address2, :label => "Address 2"
     =f.input :city
     =f.input :region, :label => "State"
     =f.input :postal_code
+    %h2 Card info
+    =f.input :first_name
+    =f.input :last_name
+    =f.input :company_name
+    .colorpicker
+    =f.input :color, :input_html => { :class => "color" }
   =f.buttons do
     =f.commit_button "Place trial order"
 

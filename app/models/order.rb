@@ -5,11 +5,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :cards
 
-  validates :user, :presence => true
-  validates :address1, :presence => true
-  validates :city, :presence => true
-  validates :postal_code, :presence => true
-  validates :region, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :color, :presence => true
+  validates_format_of :color, :with => /^#[a-fA-F0-9]{6}$/
 
   def charge(amount=0)
     self.authorization_amount = amount

@@ -74,6 +74,10 @@ input[type="submit"]:focus, input[type="button"]:focus
     outline : none; 
 }
 
+form.formtastic fieldset.inputs {
+    padding:10px 0px;
+}
+
 form.formtastic fieldset.buttons {
     margin-left:170px;
     padding:0;
@@ -111,4 +115,8 @@ form.formtastic fieldset > ol > li p.inline-hints {
     font-size:14px;
     clear:both;
     font-family:'Cabin';
+}
+
+form.formtastic .colorpicker {
+    margin:10px 180px 5px;
 }

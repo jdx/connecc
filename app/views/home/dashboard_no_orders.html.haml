@@ -1,5 +1,8 @@
 %h1 To start using conne.cc, order some cards!
-=render "shared/order_cards"
+#order-cards
+  .price 100 cards - $10 - free shipping
+  #actions
+    =link_to "Order 100 cards!", new_google_order_path, :class => 'button'
 -if TrialOrder.count < 100 and not current_user.orders.any?
   %hr
   #limited-time-offer
