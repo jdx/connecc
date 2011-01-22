@@ -4,7 +4,9 @@ Connecc::Application.routes.draw do
 
   resource :trial_order
   resources :google_orders do
-    post 'callback'
+    collection do
+      post 'callback'
+    end
   end
   resources :orders
 
