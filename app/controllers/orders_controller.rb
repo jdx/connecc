@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
              :color => params[:color],
              :code => 'd28cx'}
     pdf = Cards::Generator.generate_card(data)
-    image = Magick::ImageList.new("#{ RAILS_ROOT }/tmp/cards/preview_#{ Process.pid }.pdf")
+    image = Magick::ImageList.new
+    image.from_blob(pdf)
     image.format = 'PNG'
     send_data image.to_blob, :content_type => 'image/png', :disposition => 'inline'
   end

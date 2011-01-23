@@ -13,7 +13,7 @@ module Cards
 
       self.render_card(pdf, data)
 
-      pdf.render_file("#{ RAILS_ROOT }/tmp/cards/preview_#{ Process.pid }.pdf")
+      pdf.render
     end
 
     protected
