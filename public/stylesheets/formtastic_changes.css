@@ -96,7 +96,7 @@ form.formtastic .error input {
     box-shadow: inset 0px 2px 2px #f75d59;
 }
 
-form.formtastic input:focus, form.formtastic textarea:focus, form.formtastic select:focus {
+form.formtastic input:focus, form.formtastic textarea:focus {
     background-color:#eeffff;
 }
 
