@@ -730,6 +730,7 @@ footer {
     height:15px;
     width:15px;
     display:inline-block;
+    margin:4px;
 }
 
 .details p:nth-child(odd),
