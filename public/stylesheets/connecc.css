@@ -291,6 +291,12 @@ footer {
         width:100%;
     }
 
+    @-moz-document url-prefix() {
+        #strip hr {
+            border-style:dotted;
+        }
+    }
+
 
 /*  Curls */
 /**********************************************/
