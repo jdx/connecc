@@ -51,4 +51,7 @@ Connecc::Application.configure do
 
   GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL = "https://sandbox.google.com/checkout/api/checkout/v2/reports/Merchant/#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }"
   FRONTEND_CONFIGURATION = { :merchant_id => ENV['CONNECC_GOOGLE_MERCHANT_ID'], :merchant_key => ENV['CONNECC_GOOGLE_MERCHANT_KEY'], :use_sandbox => true }
+
+  config.gem "rmagick", :lib => "RMagick"
+
 end

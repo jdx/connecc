@@ -13,8 +13,7 @@ module Cards
 
       self.render_card(pdf, data)
 
-
-      pdf.render_file('./tmp/card_preview.pdf')
+      pdf.render_file('./tmp/cards/preview.pdf')
     end
 
     protected
@@ -26,7 +25,6 @@ module Cards
       pdf.fill_color = "000000"
       pdf.draw_text data[:last_name], :at => [0,0.5.in], :size => 16.8
 
-      puts data[:color]
       pdf.fill_color = data[:color]
       pdf.draw_text "http://conne.cc/#{ data[:code] }", :at => [0,0], :size => 18.8
     end
