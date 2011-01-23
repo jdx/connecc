@@ -3,13 +3,18 @@
 %h1 Place Order
 =semantic_form_for @google_order, :html => { :onsubmit => "setUrchinInputCode(pageTracker);" } do |f|
   =f.inputs do
-    %input{ :type => "hidden", :name => "analyticsdata", :value => ""}
-    =f.input :first_name
-    =f.input :last_name
-    =f.input :company_name
+    %input{ :type => "hidden", :input_html => { :name => "analyticsdata", :value => ""} }
+    =f.input :first_name, :input_html => { :class => 'first_name' }
+    =f.input :last_name, :input_html => { :class => 'last_name' }
+    =f.input :company_name, :input_html => { :class => 'company_name' }
     .colorpicker
     %input.default{ :type => 'button', :value => "Default", :data => { :field => 'input.color', :value => @google_order.color } }
     =f.input :color, :input_html => { :class => "color" }
+  %hr
+  #preview
+    %input{ :type => 'button', :value => "Preview" }
+    %img
+  %hr
   =f.buttons do
     %input{ :type => "image",
             :name => "Google Checkout",

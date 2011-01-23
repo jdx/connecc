@@ -144,6 +144,7 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   prawn
   prawnto
   rails (= 3.0.3)
+  rmagick
   rspec-rails
   ruby-debug
   ruby_parser

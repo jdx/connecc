@@ -8,7 +8,11 @@ Connecc::Application.routes.draw do
       post 'callback'
     end
   end
-  resources :orders
+  resources :orders do
+    collection do
+      get 'preview'
+    end
+  end
 
   namespace "admin" do
     resources :orders do

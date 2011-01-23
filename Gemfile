@@ -14,6 +14,7 @@ gem 'jammit'
 gem 'hpricot'
 gem 'heroscale'
 gem 'dalli'
+gem 'rmagick'
 
 group :development do
   gem 'heroku_san'

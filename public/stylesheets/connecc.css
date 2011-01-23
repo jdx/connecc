@@ -840,3 +840,19 @@ footer {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3860D8), color-stop(100%,#023AE2)); /* webkit */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3860D8', endColorstr='#023AE2',GradientType=0 ); /* ie */
 }
+
+#preview {
+    display:none;
+    margin:20px auto;
+    text-align:center;
+}
+
+#preview img {
+    width:350px;
+    height:200px;
+    display:block;
+    margin:10px auto;
+}
+
+#preview input {
+}
