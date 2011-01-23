@@ -1,4 +1,4 @@
-require 'RMagick'
+require_dependency 'cards/generator'
 
 class OrdersController < ApplicationController
   before_filter :authenticate_user!
@@ -12,8 +12,13 @@ class OrdersController < ApplicationController
   end
 
   def preview
-    image = Magick::ImageList.new("#{ RAILS_ROOT }/lib/test.pdf")
-    image.scale(300,300)
+    data = { :first_name => params[:first_name],
+             :last_name => params[:last_name],
+             :company_name => params[:company_name],
+             :color => params[:color],
+             :code => 'd28cx'}
+    pdf = Cards::Generator.generate_card(data)
+    image = Magick::ImageList.new('./tmp/card_preview.pdf')
     image.format = 'PNG'
     send_data image.to_blob, :content_type => 'image/png', :disposition => 'inline'
   end
