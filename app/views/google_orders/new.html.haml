@@ -8,7 +8,7 @@
     =f.input :last_name, :input_html => { :class => 'last_name' }
     =f.input :company_name, :input_html => { :class => 'company_name' }
     .colorpicker
-    %input.default{ :type => 'button', :value => "Default", :data => { :field => 'input.color', :value => @google_order.color } }
+    %input.default{ :type => 'button', :value => "Default", :data => { :field => 'input.color', :value => GoogleOrder.new.color } }
     =f.input :color, :input_html => { :class => "color" }
   %hr
   #preview
