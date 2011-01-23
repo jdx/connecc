@@ -50,4 +50,7 @@ Connecc::Application.configure do
   config.action_mailer.default_url_options = { :host => 'conne.cc' }
   GOOGLE_CHECKOUT_NOTIFICATION_HISTORY_URL = "https://checkout.google.com/api/checkout/v2/reports/Merchant/#{ ENV['CONNECC_GOOGLE_MERCHANT_ID'] }"
   FRONTEND_CONFIGURATION = { :merchant_id => ENV['CONNECC_GOOGLE_MERCHANT_ID'], :merchant_key => ENV['CONNECC_GOOGLE_MERCHANT_KEY'], :use_sandbox => false }
+
+  config.gem "rmagick", :lib => "RMagick"
+
 end
