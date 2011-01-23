@@ -91,8 +91,8 @@ var Connecc = {
 
     loadPreview:function() {
         src = '/orders/preview.png?';
-        src += 'first_name=' + escape($('input.last_name').val());
-        src += '&last_name=' + escape($('input.company_name').val());
+        src += 'first_name=' + escape($('input.first_name').val());
+        src += '&last_name=' + escape($('input.last_name').val());
         src += '&company_name=' + escape($('input.company_name').val());
         src += '&color=' + escape($('input.color').val());
         $('#preview img').attr('src', src);
