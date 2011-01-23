@@ -71,6 +71,18 @@ var Connecc = {
         $('.colorpicker').farbtastic('input.color');
     },
 
+    setupDefaultButtons:function() {
+        // This grabs a default button and sets it's paired 'field' to it's 'value'
+
+        $('input.default').click(function() {
+            field = $($(this).data('field'));
+            value = $(this).data('value');
+            field.val(value);
+
+            field.keyup(); // needed for farbtastic colorpicker
+        });
+    },
+
     topCardZIndex:3
 };
 
@@ -78,5 +90,6 @@ $(function() {
   Connecc.setupCards();
   Connecc.setupLogin();
   Connecc.setupColorpicker();
+  Connecc.setupDefaultButtons();
 });
 

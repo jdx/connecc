@@ -8,6 +8,7 @@
     =f.input :last_name
     =f.input :company_name
     .colorpicker
+    %input.default{ :type => 'button', :value => "Default", :data => { :field => 'input.color', :value => @google_order.color } }
     =f.input :color, :input_html => { :class => "color" }
   =f.buttons do
     %input{ :type => "image",
