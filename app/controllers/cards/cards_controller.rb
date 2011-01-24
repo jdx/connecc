@@ -5,10 +5,13 @@ class Cards::CardsController < ApplicationController
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
   def show
+
+    # check to make sure the user hasn't seen too many 404s
     card_404s = Rails.cache.read(card_404_accesses_cache_key(request)) || []
     if card_404s.count > 10
       raise ActiveRecord::RecordNotFound
     end
+
     @card.record_visit(request.remote_ip, current_user)
     if @card.giver == current_user
       if @card.message
