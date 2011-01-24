@@ -1,4 +1,4 @@
-require_dependency 'pdf/card'
+require_dependency 'pdf/card_generator'
 
 class OrdersController < ApplicationController
   before_filter :authenticate_user!
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
              :company_name => params[:company_name],
              :color => params[:color],
              :code => 'd28cx'}
-    pdf = PDF::Card.generate_card(data)
+    pdf = PDF::CardGenerator.generate_card(data)
     image = Magick::ImageList.new
     image.from_blob(pdf)
     image.format = 'PNG'

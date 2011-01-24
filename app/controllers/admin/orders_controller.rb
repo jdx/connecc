@@ -1,4 +1,4 @@
-require_dependency 'pdf/envelope'
+require_dependency 'pdf/envelope_generator'
 
 class Admin::OrdersController < Admin::AdminController
 
@@ -19,7 +19,7 @@ class Admin::OrdersController < Admin::AdminController
 
   def envelope
     @order = Order.find(params[:id])
-    pdf = PDF::Envelope.generate(@order)
+    pdf = PDF::EnvelopeGenerator.generate(@order)
     send_data pdf.render, :content_type => 'application/pdf', :disposition => 'inline'
   end
 
