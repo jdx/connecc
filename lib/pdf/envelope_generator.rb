@@ -2,7 +2,7 @@ require 'prawn'
 require 'prawn/measurement_extensions'
 
 module PDF
-  class Envelope
+  class EnvelopeGenerator
     def self.generate(order)
       pdf = Prawn::Document.new :margin => 0, :page_size => [9.2.cm, 16.5.cm], :page_layout => :landscape
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
