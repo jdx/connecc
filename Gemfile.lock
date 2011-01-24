@@ -120,9 +120,6 @@ GEM
     prawn-core (0.8.4)
     prawn-layout (0.8.4)
     prawn-security (0.8.4)
-    prawnto (0.0.4)
-      prawn
-      rails (>= 2.1)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -207,7 +204,6 @@ DEPENDENCIES
   launchy
   money
   prawn
-  prawnto
   rails (= 3.0.3)
   rmagick
   rspec-rails

@@ -1,8 +1,8 @@
 require 'prawn'
 require 'prawn/measurement_extensions'
 
-module Cards
-  class Generator
+module PDF
+  class Card
     def self.generate_card(data)
       # clean up color
       data[:color].gsub!(/#/,'')

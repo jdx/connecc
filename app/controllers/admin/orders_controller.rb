@@ -1,4 +1,4 @@
-require 'prawn/measurement_extensions'
+require_dependency 'pdf/envelope'
 
 class Admin::OrdersController < Admin::AdminController
 
@@ -19,11 +19,8 @@ class Admin::OrdersController < Admin::AdminController
 
   def envelope
     @order = Order.find(params[:id])
-    prawnto :prawn => {
-      :margin => 0,
-      :page_layout => :landscape,
-      :page_size => [9.2.cm, 16.5.cm]
-    }
+    pdf = PDF::Envelope.generate(@order)
+    send_data pdf.render, :content_type => 'application/pdf', :disposition => 'inline'
   end
 
   def cards
