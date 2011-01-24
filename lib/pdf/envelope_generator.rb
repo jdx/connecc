@@ -9,13 +9,16 @@ module PDF
 
       pdf.font "Cabin", :size => 16
 
-      pdf.fill_color "1D4088"
-      pdf.text 'conne.cc'
-      pdf.font "Helvetica", :size => 12
-      pdf.fill_color "000000"
-      pdf.text '211 112th Ave NE #312'
-      pdf.text 'Bellevue, WA 98004'
-      pdf.fill_color "1D4088"
+      pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [0, 3.6.in], :width => 1.in
+      pdf.bounding_box [1.2.in, 3.55.in], :width => 3.5.in, :height => 2.in do
+        pdf.fill_color "1D4088"
+        pdf.text 'conne.cc'
+        pdf.font "Helvetica", :size => 12
+        pdf.fill_color "000000"
+        pdf.text '211 112th Ave NE #312'
+        pdf.text 'Bellevue, WA 98004'
+        pdf.fill_color "1D4088"
+      end
 
       pdf.bounding_box [2.2.in, 2.in], :width => 3.5.in, :height => 2.in do
         pdf.font "Cabin", :size => 18
