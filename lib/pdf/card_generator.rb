@@ -13,7 +13,7 @@ module PDF
 
       self.render_card(pdf, data)
 
-      pdf.render
+      return pdf
     end
 
     protected
