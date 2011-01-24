@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  has_mobile_fu
   before_filter :ensure_domain, :set_time_zone
   after_filter :update_last_path
-  layout "narrow"
+  layout "default"
 
   protected
 

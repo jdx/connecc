@@ -9,9 +9,6 @@ javascripts:
     - public/javascripts/modernizr-1.6.min.js
     - public/javascripts/message.js
     - public/javascripts/site.js
-  mobile:
-    - public/javascripts/mobile/sencha-touch.js
-    - public/javascripts/mobile/site.js
 
 stylesheets:
   common:
@@ -24,6 +21,3 @@ stylesheets:
     - public/stylesheets/admin.css
     - public/stylesheets/about_us.css
     - public/stylesheets/message.css
-  mobile:
-    - public/stylesheets/mobile/sencha-touch.css
-    - public/stylesheets/mobile/site.css
