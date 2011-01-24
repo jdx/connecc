@@ -12,16 +12,20 @@ class OrdersController < ApplicationController
   end
 
   def preview
-    data = { :first_name => params[:first_name],
+    # Make some fake data, this should never be saved
+    card = Card.new
+    card.code = 'd28cx'
+    data = { :card => card,
+             :first_name => params[:first_name],
              :last_name => params[:last_name],
              :company_name => params[:company_name],
-             :color => params[:color],
-             :code => 'd28cx'}
+             :color => params[:color] }
+
     pdf = PDF::CardGenerator.generate_card(data)
     image = Magick::ImageList.new
     image.from_blob(pdf.render)
-    image.format = 'PNG'
-    send_data image.to_blob, :content_type => 'image/png', :disposition => 'inline'
+    image.format = params[:format]
+    send_data image.to_blob, :content_type => "image/#{ params[:format] }", :disposition => 'inline'
   end
 
 end

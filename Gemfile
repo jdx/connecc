@@ -6,7 +6,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'devise'
 gem 'formtastic'
-gem 'prawn'
+gem 'prawn', :git => "git://github.com/sandal/prawn.git", :submodules => true
 gem 'money'
 gem 'google4r-checkout', '1.1',:git => 'git://github.com/nbudin/google4r-checkout.git', :ref => '9825da4427b0dab73906'
 gem 'jammit'

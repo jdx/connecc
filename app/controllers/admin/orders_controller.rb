@@ -1,3 +1,4 @@
+require_dependency 'pdf/card_generator'
 require_dependency 'pdf/envelope_generator'
 
 class Admin::OrdersController < Admin::AdminController
@@ -24,8 +25,15 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def cards
-    @cards = Order.find(params[:id]).cards.order('id')
-    render :template => "admin/cards/cards"
+    @order = Order.find(params[:id])
+    data = { :cards => @order.cards,
+             :first_name => @order.first_name,
+             :last_name => @order.last_name,
+             :company_name => @order.company_name,
+             :color => @order.color }
+
+    pdf = PDF::CardGenerator.generate_sheet(data)
+    send_data pdf.render, :content_type => 'application/pdf', :disposition => 'inline'
   end
 
   def ship

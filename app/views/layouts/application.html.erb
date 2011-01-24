@@ -46,13 +46,13 @@
     <%= link_to '', root_path, :id => 'logo' %>
     <div id="site-login">
       <h2>Log in</h2>
-      <%- semantic_form_for :user, :namespace => 'site-login', :url => user_session_path(:return_to => request.path) do |f| %>
-        <%- f.inputs do %>
+      <%= semantic_form_for :user, :namespace => 'site-login', :url => user_session_path(:return_to => request.path) do |f| %>
+        <%= f.inputs do %>
           <%= f.input :email %>
           <%= f.input :password %>
           <%= f.input :remember_me, :as => :boolean %>
         <% end %>
-        <%- f.buttons do %>
+        <%= f.buttons do %>
           <%= f.commit_button "Log in" %>
         <% end %>
       <% end %>
