@@ -131,3 +131,7 @@ form.formtastic .inputs input.default {
 form.formtastic fieldset > ol > li.boolean label {
     padding-left:154px;
 }
+
+form.formtastic legend {
+    color:#444;
+}
