@@ -127,3 +127,7 @@ form.formtastic .inputs input.default {
     margin-left:400px;
     margin-top:-4px;
 }
+
+form.formtastic fieldset > ol > li.boolean label {
+    padding-left:154px;
+}

@@ -46,22 +46,15 @@
     <%= link_to '', root_path, :id => 'logo' %>
     <div id="site-login">
       <h2>Log in</h2>
-      <%= form_tag user_session_path(:return_to => request.path) do %>
-        <ul class="inputs">
-          <li>
-            <%= label_tag 'user[email]', "Email" %>
-            <%= text_field_tag 'user[email]'  %>
-          </li>
-          <li>
-            <%= label_tag 'user[password]', "Password" %>
-            <%= password_field_tag 'user[password]' %>
-          </li>
-          <li>
-            <%= label_tag 'user[remember_me]', "Remember" %>
-            <%= check_box_tag 'user[remember_me]' %>
-          </li>
-        </ul>
-        <%= submit_tag "Log in" %>
+      <%- semantic_form_for :user, :namespace => 'site-login', :url => user_session_path(:return_to => request.path) do |f| %>
+        <%- f.inputs do %>
+          <%= f.input :email %>
+          <%= f.input :password %>
+          <%= f.input :remember_me, :as => :boolean %>
+        <% end %>
+        <%- f.buttons do %>
+          <%= f.commit_button "Log in" %>
+        <% end %>
       <% end %>
     </div>
     <%= yield :content %>

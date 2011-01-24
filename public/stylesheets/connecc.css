@@ -582,11 +582,13 @@ footer {
 #site-login {
     background-color:#fff;
     position:absolute;
-    width:400px;
-    top:-300px;
+    width:390px;
+    top:-380px;
     z-index:20;
-    
+    height:375px;
+
     margin:auto 280px;
+    padding:0px 20px;
     
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
