@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'devise'
 gem 'formtastic'
@@ -33,5 +32,6 @@ group :test do
 end
 
 group :test, :development do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'ruby-debug'
 end
