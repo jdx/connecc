@@ -74,9 +74,8 @@ module PDF
       end
 
       # this isn't working, it's just a test for now
-      pdf.rotate 10
-      pdf.fill_gradient [3.in, 8.in], 30, 60, 'ff0000', '0000ff'
-      pdf.rectangle [3.in, 8.in], 1.in, 1.in
+      pdf.fill_gradient [3.in, 8.in], 3.in, 6.in, 'ff0000', '0000ff'
+      pdf.rectangle [1.in, 10.in], 5.in, 8.in
       pdf.fill
 
       return pdf
