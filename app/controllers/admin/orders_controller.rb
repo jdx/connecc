@@ -4,15 +4,15 @@ require_dependency 'pdf/envelope_generator'
 class Admin::OrdersController < Admin::AdminController
 
   def index
-    @status = params[:status]
-    if @status
-      @orders = Order.where(:status => @status)
-      @total_orders = Order.where(:status => @status).count
+    @state = params[:state]
+    if @state
+      @orders = Order.where(:state => @state)
+      @total_orders = Order.where(:state => @state).count
     else
-      @orders = Order.all
+      @orders = Order
       @total_orders = Order.count
     end
-    @orders = @orders.order(:id)
+    @orders = @orders.order('-id')
   end
 
   def show

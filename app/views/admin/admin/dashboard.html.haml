@@ -6,6 +6,5 @@
   %h1 Admin dashboard
   %hr
   %ul#admin-menu
-    %li= link_to "Orders", admin_orders_path, :class => "button"
+    %li= link_to "Orders Awaiting Shipment", admin_orders_path(:state => 'awaiting-shipment'), :class => "button"
     %li= link_to "Users", admin_users_path, :class => "button"
-    %li= link_to "Delayed Jobs", admin_delayed_jobs_path, :class => "button"
