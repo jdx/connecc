@@ -12,6 +12,7 @@ class Admin::OrdersController < Admin::AdminController
       @orders = Order.all
       @total_orders = Order.count
     end
+    @orders = @orders.order(:id)
   end
 
   def show
