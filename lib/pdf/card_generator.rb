@@ -9,17 +9,20 @@ module PDF
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
 
-      pdf.scale(4)
+      pdf.scale(4) do
 
-      # top card
-      pdf.bounding_box [0, 4.in], :width => 14.in, :height => 4.in do
-        self.render_card(pdf, data, data[:card])
+        # top card
+        pdf.bounding_box [0, 4.in], :width => 14.in, :height => 4.in do
+          self.render_card(pdf, data, data[:card])
+        end
+
+        # bottom card
+        pdf.bounding_box [0, 5.in], :width => 14.in, :height => 4.in do
+          self.render_card(pdf, data, data[:card])
+        end
       end
 
-      # bottom card
-      pdf.bounding_box [0, 5.in], :width => 14.in, :height => 4.in do
-        self.render_card(pdf, data, data[:card])
-      end
+      pdf.stroke_line([0,4.in, 14.in, 4.in])
 
       return pdf
     end
