@@ -22,6 +22,7 @@ module PDF
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
 
+      cards = data[:cards]
       index = 0
 
       # repeat for every page
@@ -67,34 +68,20 @@ module PDF
 
         pdf.start_new_page if cards[index]
       end
-
-      
-
       return pdf
     end
 
     protected
 
     def self.render_card(pdf, data, card)
-            
-      pdf.image "#{ RAILS_ROOT }/lib/assets/grad.png", :at => [ 0.in, 2.in ], :width => 0.9.in, :height => 2.in
-
-      for offset in [ 0.in, 1.in ] do
-        
-        pdf.fill_color = "ffffff"
-        pdf.draw_text data[:first_name], :at => [0.32.in, (0.7.in + offset)], :size => 15
-        
-        pdf.fill_color = "000000"
-        pdf.draw_text data[:last_name], :at => [0.9.in, (0.7.in + offset)], :size => 15
-        
-        pdf.draw_text data[:company_name], :at => [0.7.in, (0.5.in + offset)], :size => 12
-        
-        pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [2.65.in, (0.95.in + offset)], :width => 0.75.in
-        
-        pdf.draw_text "http://conne.cc/#{ card.code }", :at => [1.in, (0.1.in + offset)], :size => 16
-        
-        
-      end
+      pdf.image "#{ RAILS_ROOT }/lib/assets/grad.png", :at => [ 0.in, 1.in ], :width => 0.9.in, :height => 1.in
+      pdf.fill_color = "ffffff"
+      pdf.draw_text data[:first_name], :at => [0.32.in, 0.7.in], :size => 15
+      pdf.fill_color = "000000"
+      pdf.draw_text data[:last_name], :at => [0.9.in, 0.7.in], :size => 15
+      pdf.draw_text data[:company_name], :at => [0.7.in, 0.5.in], :size => 12
+      pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [2.65.in, 0.95.in], :width => 0.75.in
+      pdf.draw_text "http://conne.cc/#{ card.code }", :at => [1.in, 0.1.in], :size => 16
     end
   end
 end
