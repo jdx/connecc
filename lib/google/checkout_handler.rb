@@ -75,7 +75,6 @@ module Google
           o.first_name = notification.shopping_cart.private_data['first_name']
           o.last_name = notification.shopping_cart.private_data['last_name']
           o.company_name = notification.shopping_cart.private_data['company_name']
-          o.color = notification.shopping_cart.private_data['color']
         end
         order.add_cards(notification.shopping_cart.private_data['cards_amount'].to_i)
       elsif notification.kind_of? Google4R::Checkout::AuthorizationAmountNotification
