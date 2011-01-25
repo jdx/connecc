@@ -1,13 +1,17 @@
 -content_for :title do
-  Orders
+  -if @state
+    Orders [#{ @state }]
+  -else
+    Orders
 #breadcrumb
   =link_to "Dashboard", admin_path
   =">"
   =link_to "Orders", admin_orders_path
-- if @status
-  %h1= "Orders #{ @status }"
-- else
-  %h1 Orders
+%h1
+  -if @state
+    Orders [#{ @state }]
+  -else
+    Orders
 %hr
 %table
   %tr
@@ -24,4 +28,7 @@
       %td= link_to order.user, admin_user_path(order.user) if order.user
       %td= order.created_at.to_s(:short)
 %hr
-  %p#summary Total orders: #{ @total_orders }
+  -if @state
+    %p#summary Total orders [#{ @state}]: #{ @total_orders }
+  -else
+    %p#summary Total orders: #{ @total_orders }
