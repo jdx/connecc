@@ -12,5 +12,5 @@
     %th Failed at
   -for job in @delayed_jobs
     %tr
-      %td= link_to job, admin_delayed_job_path(job)
+      %td= link_to job.id, admin_delayed_job_path(job)
       %td= truncate job.last_error
