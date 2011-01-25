@@ -80,7 +80,7 @@ module Google
         order.add_cards(notification.shopping_cart.private_data['cards_amount'].to_i)
       elsif notification.kind_of? Google4R::Checkout::AuthorizationAmountNotification
         order = Order.find_by_google_order_number(notification.google_order_number)
-        order.charge(notification.authorization_amount)
+        order.charge(notification.authorization_amount) if order
       end
     end
   end
