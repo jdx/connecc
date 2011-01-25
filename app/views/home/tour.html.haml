@@ -1,78 +1,26 @@
 -content_for :title do
-  Tour
-.seg 
-  %h2 Here&#8217;s Joe.
-
-  %p#joe Here be Joe.
-
-  %p.desc
-    Joe sells restaurant equipment. He&#8217;s having a rough time getting people to give him a call back though.
-    He usually hands out his business card and never hears back.
-
-  %p#joe Here be sad Joe.
-  %p.desc
-    He has some promotions he would like to offer his contacts, 
-    but they don&#8217;t take the time to call him up or write him an email.
-%hr
-
+  conne.cc tour
+%h1 conne.cc tour
 .seg
-  %h2
-    Have we got the thing for Joe.
-  %p.desc
-    These are conne.cc cards. They are perforated down the middle. 
-    Each pair has a unique web page for Joe and his contact.
-
-%hr
+  %h2 What's wrong with business cards?
+  %p Business cards exist to help people continue a conversation they're having.
+  %p The problem is that writing emails is time consuming, and phone calls are very intrusive. Especially with people that have only met briefly.
+.seg
+  %h2 How does conne.cc fix this?
+  %p We let people pass out physical cards, but continue the conversation like it never ended.
+.seg
+  %h2 How do the cards let people get back in touch?
+  %p
+    Each pair of conne.cc cards have a unique web address on them to let people get back in touch.
+    This lets the card giver leave a personalized message to the person they give it to.
 #preview
-
-%hr
-
+  %img{ :src => "/images/sample_card.png" }
 .seg
-  %h2 Here&#8217;s an example:
-  %p.desc
-    Joe goes to a friend&#8217;s barbecue. He strikes up a conversation with Kevin who is just
-    starting his own restaurant. Kevin&#8217;s looking for some large pots. Joe takes out one of his conne.cc cards,
-    hands half of one to Kevin.
-
+  %h2 What's on the web page on the card?
+  %p Check out <a href="http://conne.cc/d28cx">http://conne.cc/d28cx</a> and find out!
+  %p It lets the giver post a message for the receiver to see, then they have the choice whether or not to get back in touch.
+  %p The receiver risks nothing by reading this message. No email, no phone call, just typing in a short address.
 %hr
-
-#half-card.card
-  %span.name
-    Joe Blow
-  %span.company
-    Stainless World
-  %span.connecc
-    http://conne.cc/d28cx
-  %span.email
-    joe@stainlessworld.com
-  %span.phone
-    415-555-7154
-  %span.arrow= ">"
-
-%hr
-
-.seg
-  %h2 After the party
-  %p.desc
-    Joe goes to http://conne.cc/d28cx to write a message for Kevin.
-    He wants to offer Kevin a 20% discount on a few pots. So now when Kevin visits that website on the card, he gets this:
-  %p#joe
-    Kevin, it was nice meeting you at the barbecue. Give me a call sometime,
-    I&#8217;d like to offer you a 20% discount on some of those pots we were talking about.
-%hr
-
-.seg
-  %h2 Why is this better?
-  %p.desc
-    %ul
-      %li Kevin doesn&#8217;t have to place a confrontational phone call.
-      %li Kevin doesn&#8217;t have to write a time consuming email.
-      %li Kevin can check out the offer without making any commitment.
-
-%hr
-
-.seg
-  %h2 Think it could work?
-  %p.desc Cool! Sign up for some free cards!!
-%hr
-%h3 put a call to action here.
+#cta
+  #{ link_to "Sign up!", tour_path, :class => 'button', :id => 'tour-start' }
+  %span.alt or read the #{ link_to "FAQs", faq_path }

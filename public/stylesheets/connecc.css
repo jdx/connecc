@@ -640,7 +640,7 @@ footer {
     display:block;
 }
 
-.faq:before {
+.seg:before {
     content:'';
     border-top:1px dashed #888;
     border-bottom:1px dashed #fff;
@@ -648,12 +648,12 @@ footer {
     display:block;
 }
 
-    .faq h2 {
+    .seg h2 {
         text-align:left;
         font-size:18px;
     }
 
-    .faq p {
+    .seg p {
         font-size:14px;
         margin:20px;
         font-family:'Droid Serif';
