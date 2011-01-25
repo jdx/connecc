@@ -5,11 +5,11 @@ module PDF
   class EnvelopeGenerator
     def self.generate(order)
       pdf = Prawn::Document.new :margin => 0, :page_size => [9.2.cm, 16.5.cm], :page_layout => :landscape
-      pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
+      pdf.font_families.update 'Cabin' => { :normal => "#{ Rails.root.to_s }/lib/assets/Cabin-Bold.ttf" }
 
       pdf.font "Cabin", :size => 16
 
-      pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [0, 3.6.in], :width => 1.in
+      pdf.image "#{ Rails.root.to_s }/lib/assets/logo.2.png", :at => [0, 3.6.in], :width => 1.in
       pdf.bounding_box [1.2.in, 3.55.in], :width => 3.5.in, :height => 2.in do
         pdf.fill_color "1D4088"
         pdf.text 'conne.cc'
