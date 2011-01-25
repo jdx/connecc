@@ -103,12 +103,12 @@ module PDF
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
         pdf.draw_text last_name, :at => [gradient_width + 0.02.in, 0.7.in], :size => 12
-        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 10
+        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 6
       else
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
         pdf.draw_text last_name, :at => [gradient_width + 0.02.in, 0.7.in], :size => 15
-        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 12
+        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 8
       end
     end
 
