@@ -40,7 +40,10 @@ class GoogleOrdersController < OrdersController
 
   def callback
     serial_number = request.POST["serial-number"]
-    Delayed::Job.enqueue Google::CheckoutHandler.new(serial_number)
+    handler = Google::CheckoutHandler.new(serial_number)
+    handler.perform
+    # not using DJ yet...
+    # Delayed::Job.enqueue Google::CheckoutHandler.new(serial_number)
     render :text => "<notification-acknowledgment xmlns=\"http://checkout.google.com/schema/2\" serial-number=\"#{ serial_number }\"/>"
   end
 end
