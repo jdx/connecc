@@ -1,0 +1,33 @@
+-content_for :title do
+  Delayed Job #{ job }
+#breadcrumb
+  =link_to "Dashboard", admin_path
+  =">"
+  =link_to "Delayed Jobs", admin_delayed_jobs_path
+  =">"
+  =link_to @user, admin_delayed_job_path(@delayed_job)
+%h1= @delayed_job.to_s
+%hr
+.details
+  %p
+    %label ID
+    %span= @delayed_job.id
+  %p
+    %label Priority
+    %span= @delayed_job.priority
+  %p
+    %label Attempts
+    %span= @delayed_job.attempts
+  -if @delayed_job.failed_at
+    %p
+      %label Failed at
+      %span= @delayed_job.failed_at.to_s :short
+    %p
+      %label Handler
+      %span= @delayed_job.handler
+    %p
+      %label Locked at
+      %span= @delayed_job.locked_at.to_s :short
+    %p
+      %label Last error
+      %span= @delayed_job.last_error

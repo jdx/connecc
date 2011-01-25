@@ -1,0 +1,16 @@
+-content_for :title do
+  Delayed Jobs
+#breadcrumb
+  =link_to "Dashboard", admin_path
+  =">"
+  =link_to "Delayed Jobs", admin_delayed_jobs_path
+%h1 Delayed Jobs
+%hr
+%table
+  %tr
+    %th ID
+    %th Failed at
+  -for job in @delayed_jobs
+    %tr
+      %td= link_to job, admin_delayed_job_path(job)
+      %td= truncate job.last_error

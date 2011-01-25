@@ -13,6 +13,7 @@ gem 'hpricot'
 gem 'heroscale'
 gem 'dalli'
 gem 'rmagick'
+gem 'delayed_job'
 
 group :development do
   gem 'heroku_san'
