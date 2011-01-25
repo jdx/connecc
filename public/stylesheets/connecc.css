@@ -175,7 +175,8 @@ footer {
     margin-top:-130px;
     height:129px;
     clear:both;
-    font-family:'Raleway';
+    text-shadow: 0 1px 0 #000;
+    /*font-family:'Raleway';*/
 }
 
 #social-icons {
@@ -257,9 +258,9 @@ footer {
     -moz-box-shadow: 0px 0px 10px #333333;
     box-shadow: 0px 0px 10px #333333;
 }
-        
+
 #banner {
-    width:550px;
+    width:480px;
     margin:0 auto;
     height:60px;
 
@@ -303,7 +304,7 @@ footer {
 
 .bannerCurl {
     margin:0 auto;
-    width:550px;
+    width:480px;
     position:relative;
     top:-20px;
     z-index:8;
@@ -375,7 +376,6 @@ footer {
     background:#e2f9e3;
 }
 
-
 /*  Content structure */
 /**********************************************************/
 
@@ -433,7 +433,7 @@ footer {
             padding:4px;
             text-align:center;
             color:#fff;
-            width:100px;
+            width:85px;
         }
         
         .wrap-tab-body:after {
@@ -444,7 +444,7 @@ footer {
             right:0px;
             bottom:3px;
             
-            border:1px dotted #2E7BE6;
+            border:1px dashed #2666BF;
             border-left-width:0;
             border-right-width:0;
         }
@@ -492,7 +492,7 @@ footer {
         
         .wrap-tab.right .wrap-tab-left-poly {
             position:absolute;
-            top:0;
+            top:0;text-shadow: 0 1px 0 #e5e5e5;
             left:-4px;
             
             border-top-width:14px;
