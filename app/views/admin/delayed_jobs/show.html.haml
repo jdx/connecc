@@ -21,13 +21,13 @@
   -if @delayed_job.last_error
     %p
       %label Failed at
-      %span= @delayed_job.failed_at.to_s :short
+      %span= @delayed_job.failed_at
     %p
       %label Handler
       %span= @delayed_job.handler
     %p
       %label Locked at
-      %span= @delayed_job.locked_at.to_s :short
+      %span= @delayed_job.locked_at
     %p
       %label Last error
       %span= @delayed_job.last_error
