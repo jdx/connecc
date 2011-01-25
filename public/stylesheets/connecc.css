@@ -857,10 +857,11 @@ footer {
 }
 
 #preview img {
-    width:252px;
-    height:72px;
+    width:504px;
+    height:144px;
     display:block;
     margin:10px auto;
+    border:1px solid black;
 }
 
 #preview input {

@@ -14,6 +14,7 @@ gem 'heroscale'
 gem 'dalli'
 gem 'rmagick'
 gem 'delayed_job'
+gem 'aws-s3'
 
 group :development do
   gem 'heroku_san'

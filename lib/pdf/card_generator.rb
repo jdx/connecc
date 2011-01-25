@@ -4,7 +4,9 @@ require 'prawn/measurement_extensions'
 module PDF
   class CardGenerator
     def self.generate_card(data)
-      pdf = Prawn::Document.new :margin => 0, :page_size => [3.5.in, 2.in]
+      pdf = Prawn::Document.new :margin => 0, :page_size => [14.in, 4.in]
+
+      pdf.scale(4)
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
