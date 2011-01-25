@@ -12,7 +12,6 @@ class Cards::CardsController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
-    @card.record_visit(request.remote_ip, current_user)
     if @card.giver == current_user
       if @card.message
         return render "giver_message"
@@ -48,6 +47,12 @@ class Cards::CardsController < ApplicationController
 
   def get_card
     @card = Card.find_by_code(params[:code])
+
+    unless @card.visited
+      @card.visited = true
+      @card.save!
+    end
+
     unless @card
       # security to prevent scraping
       cards = Rails.cache.read(card_404_accesses_cache_key(request)) || []
