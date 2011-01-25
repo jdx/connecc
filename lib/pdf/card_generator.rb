@@ -90,7 +90,7 @@ module PDF
     def self.render_card(pdf, data, card)
       padding = 0.2.in
       gradient_width = padding + pdf.width_of(data[:first_name], :size => 15) + 0.04.in
-      pdf.image Graphics::Gradient.new(gradient_width, "000055", "0000ff"), :at => [ 0.in, 1.in ], :width => gradient_width, :height => 1.in
+      pdf.image Graphics::Gradient.new(gradient_width, "000088", "0000ff"), :at => [ 0.in, 1.in ], :width => gradient_width, :height => 1.in
       self.render_name(pdf, data[:first_name], data[:last_name], data[:company_name], padding, gradient_width)
       self.render_logo(pdf, "#{ Rails.root.to_s }/lib/assets/logo.2.png")
       self.render_url(pdf, "http://conne.cc/#{ card.code }", gradient_width)
