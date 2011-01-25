@@ -4,14 +4,22 @@ require 'prawn/measurement_extensions'
 module PDF
   class CardGenerator
     def self.generate_card(data)
-      pdf = Prawn::Document.new :margin => 0, :page_size => [14.in, 4.in]
-
-      pdf.scale(4)
+      pdf = Prawn::Document.new :margin => 0, :page_size => [14.in, 8.in]
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
 
-      self.render_card(pdf, data, data[:card])
+      pdf.scale(4)
+
+      # top card
+      pdf.bounding_box [0, 4.in], :width => 14.in, :height => 4.in do
+        self.render_card(pdf, data, data[:card])
+      end
+
+      # bottom card
+      pdf.bounding_box [0, 5.in], :width => 14.in, :height => 4.in do
+        self.render_card(pdf, data, data[:card])
+      end
 
       return pdf
     end
