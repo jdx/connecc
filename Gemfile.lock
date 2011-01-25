@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/amberbit/prawn-fast-png.git
+  revision: d412de96743f73dcefd05c215149d639460907b2
+  specs:
+    prawn-fast-png (0.2.3)
+      prawn
+      rmagick
+
+GIT
   remote: git://github.com/nbudin/google4r-checkout.git
   revision: 9825da4427b0dab73906aea6fce723a23815509a
   ref: 9825da4427b0dab73906
@@ -132,9 +140,6 @@ GEM
     pdf-reader (0.9.1)
       Ascii85 (>= 0.9)
     polyglot (0.3.1)
-    prawn-fast-png (0.2.3)
-      prawn
-      rmagick
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -222,7 +227,7 @@ DEPENDENCIES
   launchy
   money
   prawn!
-  prawn-fast-png
+  prawn-fast-png!
   rails (= 3.0.3)
   rmagick
   rspec-rails

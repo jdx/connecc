@@ -5,8 +5,8 @@ gem 'rails', '3.0.3'
 gem 'haml'
 gem 'devise'
 gem 'formtastic'
+gem 'prawn-fast-png', :git => "git://github.com/amberbit/prawn-fast-png.git"
 gem 'prawn', :git => "git://github.com/sandal/prawn.git", :submodules => true
-gem 'prawn-fast-png'
 gem 'money'
 gem 'google4r-checkout', '1.1',:git => 'git://github.com/nbudin/google4r-checkout.git', :ref => '9825da4427b0dab73906'
 gem 'jammit'

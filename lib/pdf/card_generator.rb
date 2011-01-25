@@ -1,5 +1,5 @@
 require 'prawn'
-require 'prawn/fast-png'
+require 'prawn/fast_png'
 require 'prawn/measurement_extensions'
 
 module PDF
