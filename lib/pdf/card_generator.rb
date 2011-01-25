@@ -2,6 +2,8 @@ require 'prawn'
 require 'prawn/fast_png'
 require 'prawn/measurement_extensions'
 
+require_dependency 'graphics/gradient'
+
 module PDF
   class CardGenerator
     def self.generate_card(data)
@@ -86,7 +88,7 @@ module PDF
     protected
 
     def self.render_card(pdf, data, card)
-      pdf.image "#{ Rails.root.to_s }/lib/assets/grad.png", :at => [ 0.in, 1.in ], :width => 0.9.in, :height => 1.in
+      pdf.image Graphics::Gradient.new(0.9.in, "ff0000", "0000ff"), :at => [ 0.in, 1.in ], :width => 0.9.in, :height => 1.in
       pdf.fill_color = "ffffff"
       pdf.draw_text data[:first_name], :at => [0.32.in, 0.7.in], :size => 15
       pdf.fill_color = "000000"
