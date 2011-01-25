@@ -4,7 +4,7 @@ require 'prawn/measurement_extensions'
 module PDF
   class CardGenerator
     def self.generate_card(data)
-      pdf = Prawn::Document.new :margin => 0, :page_size => [3.5.in, 1.in]
+      pdf = Prawn::Document.new :margin => 0, :page_size => [3.5.in, 2.in]
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
@@ -66,10 +66,7 @@ module PDF
         pdf.start_new_page if cards[index]
       end
 
-      # this isn't working, it's just a test for now
-      pdf.fill_gradient [3.in, 8.in], 3.in, 6.in, 'ff0000', '0000ff'
-      pdf.rectangle [1.in, 10.in], 5.in, 8.in
-      pdf.fill
+      
 
       return pdf
     end
@@ -77,14 +74,25 @@ module PDF
     protected
 
     def self.render_card(pdf, data, card)
+            
+      pdf.image "#{ RAILS_ROOT }/lib/assets/grad.png", :at => [ 0.in, 2.in ], :width => 0.9.in, :height => 2.in
 
-      pdf.fill_color = "ff0000"
-      pdf.draw_text data[:first_name], :at => [0.1.in, 0.8.in], :size => 12
-      pdf.fill_color = "000000"
-      pdf.draw_text data[:last_name], :at => [0.7.in, 0.8.in], :size => 12
-      pdf.draw_text data[:company_name], :at => [0.7.in, 0.6.in], :size => 12
-      pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [2.65.in, 0.95.in], :width => 0.75.in
-      pdf.draw_text "http://conne.cc/#{ card.code }", :at => [1.in, 0.1.in], :size => 16
+      for offset in [ 0.in, 1.in ] do
+        
+        pdf.fill_color = "ffffff"
+        pdf.draw_text data[:first_name], :at => [0.32.in, (0.7.in + offset)], :size => 15
+        
+        pdf.fill_color = "000000"
+        pdf.draw_text data[:last_name], :at => [0.9.in, (0.7.in + offset)], :size => 15
+        
+        pdf.draw_text data[:company_name], :at => [0.7.in, (0.5.in + offset)], :size => 12
+        
+        pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [2.65.in, (0.95.in + offset)], :width => 0.75.in
+        
+        pdf.draw_text "http://conne.cc/#{ card.code }", :at => [1.in, (0.1.in + offset)], :size => 16
+        
+        
+      end
     end
   end
 end

@@ -33,11 +33,11 @@ form.formtastic input[type=submit] {
 }
 
 form.formtastic input[type="text"], form.formtastic input[type="email"], form.formtastic input[type="password"], form.formtastic input[type="tel"] {
-    -webkit-box-shadow: inset 0px 2px 2px #888;
-    -moz-box-shadow: inset 0px 2px 2px #888;
-    box-shadow: inset 0px 2px 2px #888;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-box-shadow: inset 0px 1px 1px #888;
+    -moz-box-shadow: inset 0px 1px 1px #888;
+    box-shadow: inset 0px 1px 1px #888;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
     padding:6px;
     border:1px solid #666;
     font-weight:bold;
