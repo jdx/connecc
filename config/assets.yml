@@ -1,4 +1,3 @@
-package_assets: on
 embed_assets: datauri
 
 javascripts:
