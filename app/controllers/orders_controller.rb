@@ -18,8 +18,7 @@ class OrdersController < ApplicationController
     data = { :card => card,
              :first_name => params[:first_name],
              :last_name => params[:last_name],
-             :company_name => params[:company_name],
-             :color => params[:color] }
+             :company_name => params[:company_name] }
 
     pdf = PDF::CardGenerator.generate_card(data)
     image = Magick::ImageList.new

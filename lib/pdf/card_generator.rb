@@ -4,9 +4,6 @@ require 'prawn/measurement_extensions'
 module PDF
   class CardGenerator
     def self.generate_card(data)
-      # clean up color
-      data[:color].gsub!(/#/,'')
-
       pdf = Prawn::Document.new :margin => 0, :page_size => [3.5.in, 1.in]
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
@@ -18,10 +15,6 @@ module PDF
     end
 
     def self.generate_sheet(data)
-      # clean up color
-      data[:color].gsub!(/#/,'')
-      cards = data[:cards]
-
       pdf = Prawn::Document.new :margin => 0, :page_size => [8.5.in, 11.in]
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ RAILS_ROOT }/lib/assets/Cabin-Bold.ttf" }
@@ -91,7 +84,6 @@ module PDF
       pdf.draw_text data[:last_name], :at => [0.7.in, 0.8.in], :size => 12
       pdf.draw_text data[:company_name], :at => [0.7.in, 0.6.in], :size => 12
       pdf.image "#{ RAILS_ROOT }/lib/assets/logo.2.png", :at => [2.65.in, 0.95.in], :width => 0.75.in
-      pdf.fill_color = data[:color]
       pdf.draw_text "http://conne.cc/#{ card.code }", :at => [1.in, 0.1.in], :size => 16
     end
   end

@@ -29,8 +29,7 @@ class Admin::OrdersController < Admin::AdminController
     data = { :cards => @order.cards,
              :first_name => @order.first_name,
              :last_name => @order.last_name,
-             :company_name => @order.company_name,
-             :color => @order.color }
+             :company_name => @order.company_name }
 
     pdf = PDF::CardGenerator.generate_sheet(data)
     send_data pdf.render, :content_type => 'application/pdf', :disposition => 'inline'
