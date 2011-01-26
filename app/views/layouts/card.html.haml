@@ -1,23 +1,14 @@
 -content_for :content do
   #main
-    #banner
-      #name
-        #title Business cards are broken.
-      -unless user_signed_in? and current_user.orders.where(:type => 'TrialOrder').any?
-        %a.wrap-tab.left{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-          .wrap-tab-body Free Trial!
-          .wrap-tab-left-poly
-          .wrap-tab-right-poly
-        %a.wrap-tab.right{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-          .wrap-tab-body Free Trial!
-          .wrap-tab-left-poly
-          .wrap-tab-right-poly
-    .bannerCurl
-      .leftCurl
-      .rightCurl
+    -if @title
+      #banner
+        #title= @title
+      .bannerCurl
+        .leftCurl
+        .rightCurl
     #strip
       %a.wrap-tab.right{ :href => user_signed_in? ? destroy_user_session_path : user_session_path,
-                         :id => user_signed_in? ? "logout" : "login" }
+                        :id => user_signed_in? ? "logout" : "login" }
         .wrap-tab-body= user_signed_in? ? "Log out" : "Log in"
         .wrap-tab-left-poly
         .wrap-tab-right-poly

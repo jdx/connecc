@@ -4,6 +4,8 @@ class Cards::CardsController < ApplicationController
   before_filter :get_card
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
+  layout 'card'
+
   def show
 
     # check to make sure the user hasn't seen too many 404s
@@ -61,6 +63,14 @@ class Cards::CardsController < ApplicationController
     unless @card.visited
       @card.visited = true
       @card.save!
+    end
+
+    if @card.message
+      if @card.giver.company_name.blank?
+        @title = "Message from #{ @card.giver }"
+      else
+        @title = "Message from #{ @card.giver } of #{ @card.giver.company_name }"
+      end
     end
 
   end
