@@ -2,8 +2,6 @@ require 'prawn'
 require 'prawn/fast_png'
 require 'prawn/measurement_extensions'
 
-require_dependency 'graphics/gradient'
-
 module PDF
   class CardGenerator
     def self.generate_card(data)
@@ -140,38 +138,54 @@ module PDF
     end
 
     def self.render_card(pdf, data, card)
+
+      # Set where the first name should start
       padding = 0.2.in
-      gradient_width = padding + pdf.width_of(data[:first_name], :size => 15)
-      pdf.image Graphics::Gradient.new(gradient_width, "124891", "015bd6"), :at => [ 0.in, 1.in ], :height => 1.in, :width => gradient_width
-      self.render_name(pdf, data[:first_name], data[:last_name], data[:company_name], padding, gradient_width)
+
+      # If the name is really short, give us some extra padding
+      if padding + pdf.width_of(data[:first_name], :size => 15) < 1.in
+        padding = 0.4.in
+      end
+
+      # get the width of the colored rectangle
+      fill_width = padding + pdf.width_of(data[:first_name], :size => 15)
+      pdf.fill_color = "124891"
+
+
+      # fill the rectangle
+      pdf.rectangle [0, 1.in], fill_width, 1.in
+      pdf.fill
+
+      # insert our data
+      self.render_name(pdf, data[:first_name], data[:last_name], data[:company_name], padding, fill_width)
       self.render_logo(pdf, "#{ Rails.root.to_s }/lib/assets/logo.2.png")
-      self.render_url(pdf, "http://conne.cc/#{ card.code }", gradient_width)
+      self.render_url(pdf, "http://conne.cc/#{ card.code }", fill_width)
     end
 
-    def self.render_name(pdf, first_name, last_name, company_name, padding, gradient_width)
+    def self.render_name(pdf, first_name, last_name, company_name, padding, fill_width)
       pdf.fill_color = "ffffff"
-      total_name_width = gradient_width + pdf.width_of(last_name)
+      total_name_width = fill_width + pdf.width_of(last_name)
       if total_name_width > 2.in
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
-        pdf.draw_text last_name, :at => [gradient_width, 0.7.in], :size => 12
-        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 6
+        pdf.draw_text last_name, :at => [fill_width, 0.7.in], :size => 12
+        pdf.draw_text company_name, :at => [fill_width + 0.02.in, 0.5.in], :size => 6
       else
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
-        pdf.draw_text last_name, :at => [gradient_width, 0.7.in], :size => 15
-        pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 8
+        pdf.draw_text last_name, :at => [fill_width, 0.7.in], :size => 15
+        pdf.draw_text company_name, :at => [fill_width + 0.02.in, 0.5.in], :size => 8
       end
     end
 
-    def self.render_url(pdf, url, gradient_width)
-      if gradient_width > 1.7.in
+    def self.render_url(pdf, url, fill_width)
+      if fill_width > 1.7.in
         pdf.draw_text url, :at => [1.82.in, 0.1.in], :size => 12
-      elsif gradient_width > 1.5.in
+      elsif fill_width > 1.5.in
         pdf.draw_text url, :at => [1.65.in, 0.1.in], :size => 13
-      elsif gradient_width > 1.3.in
+      elsif fill_width > 1.3.in
         pdf.draw_text url, :at => [1.5.in, 0.1.in], :size => 14
-      elsif gradient_width > 1.1.in
+      elsif fill_width > 1.1.in
         pdf.draw_text url, :at => [1.3.in, 0.1.in], :size => 15
       else
         pdf.draw_text url, :at => [1.2.in, 0.1.in], :size => 16
