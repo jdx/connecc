@@ -3,14 +3,15 @@
     #banner
       #name
         #title Business cards are broken.
-      %a.wrap-tab.left{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-        .wrap-tab-body Free Trial!
-        .wrap-tab-left-poly
-        .wrap-tab-right-poly
-      %a.wrap-tab.right{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-        .wrap-tab-body Free Trial!
-        .wrap-tab-left-poly
-        .wrap-tab-right-poly
+      -unless user_signed_in? and user.orders.where(:type => 'TrialOrder').any?
+        %a.wrap-tab.left{ :href => user_signed_in? ? trial_order_path : free_trial_path }
+          .wrap-tab-body Free Trial!
+          .wrap-tab-left-poly
+          .wrap-tab-right-poly
+        %a.wrap-tab.right{ :href => user_signed_in? ? trial_order_path : free_trial_path }
+          .wrap-tab-body Free Trial!
+          .wrap-tab-left-poly
+          .wrap-tab-right-poly
     .bannerCurl
       .leftCurl
       .rightCurl
