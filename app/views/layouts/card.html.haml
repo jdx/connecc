@@ -1,10 +1,11 @@
 -content_for :content do
   #main
-    #banner
-      #title= @title
-    .bannerCurl
-      .leftCurl
-      .rightCurl
+    -if @title
+      #banner
+        #title= @title
+      .bannerCurl
+        .leftCurl
+        .rightCurl
     #strip
       %a.wrap-tab.right{ :href => user_signed_in? ? destroy_user_session_path : user_session_path,
                         :id => user_signed_in? ? "logout" : "login" }

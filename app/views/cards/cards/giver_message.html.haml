@@ -1,8 +1,4 @@
 #message
-  %h1
-    Message from #{ @card.giver }
-    -unless @card.giver.company_name.blank?
-      of #{ @card.giver.company_name }
   %blockquote.message= auto_link simple_format @card.message
   %p.note.right Posted #{ time_ago_in_words @card.updated_at } ago.
   -if @card.contact_requests.any?

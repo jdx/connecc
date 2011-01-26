@@ -65,6 +65,14 @@ class Cards::CardsController < ApplicationController
       @card.save!
     end
 
+    if @card.message
+      if @card.giver.company_name.blank?
+        @title = "Message from #{ @card.giver }"
+      else
+        @title = "Message from #{ @card.giver } of #{ @card.giver.company_name }"
+      end
+    end
+
   end
 
   def ensure_user_is_giver
