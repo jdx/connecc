@@ -149,16 +149,16 @@ module PDF
 
       # get the width of the colored rectangle
       fill_width = padding + pdf.width_of(data[:first_name], :size => 15)
-      pdf.fill_color = "124891"
 
 
       # fill the rectangle
+      pdf.fill_color = "054fb4"
       pdf.rectangle [0, 1.in], fill_width, 1.in
       pdf.fill
 
       # insert our data
       self.render_name(pdf, data[:first_name], data[:last_name], data[:company_name], padding, fill_width)
-      self.render_logo(pdf, "#{ Rails.root.to_s }/lib/assets/logo.2.png")
+      self.render_logo(pdf, "#{ Rails.root.to_s }/lib/assets/logo.flat.png")
       self.render_url(pdf, "http://conne.cc/#{ card.code }", fill_width)
     end
 
