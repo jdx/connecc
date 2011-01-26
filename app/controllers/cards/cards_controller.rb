@@ -67,9 +67,9 @@ class Cards::CardsController < ApplicationController
 
     if @card.message
       if @card.giver.company_name.blank?
-        @title = "Message from #{ @card.giver }"
+        @title = "A message from #{ @card.giver }"
       else
-        @title = "Message from #{ @card.giver } of #{ @card.giver.company_name }"
+        @title = "A message from #{ @card.giver } of #{ @card.giver.company_name }"
       end
     end
 
