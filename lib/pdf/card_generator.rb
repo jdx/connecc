@@ -153,7 +153,7 @@ module PDF
 
       # fill the rectangle
       pdf.fill_color = "054fb4"
-      pdf.rectangle [0, 1.in], fill_width, 1.in
+      pdf.rectangle [0, 1.1.in], fill_width, 1.2.in
       pdf.fill
 
       # insert our data
