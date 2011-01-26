@@ -61,7 +61,7 @@ var Connecc = {
               $('#site-login')
                   .toggleClass('display');
               
-              $('#user_email').focus();
+              $('#site-login_user_email').focus();
               
               return false;
           });
