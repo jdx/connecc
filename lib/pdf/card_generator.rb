@@ -48,6 +48,8 @@ module PDF
 
           pdf.define_grid :columns => 2, :rows => 5
 
+          pdf.grid.show_all unless Rails.env.production?
+
           pdf.grid.rows.times do |row|
             pdf.grid.columns.times do |col|
 
