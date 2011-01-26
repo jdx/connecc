@@ -25,8 +25,7 @@ Connecc::Application.routes.draw do
     end
     resources :users
     resources :delayed_jobs
-    get "cards/cutting_sheet" => "cards#cutting_sheet", :defaults => { :format => :pdf }
-    get "cards/perforating_sheet" => "cards#perforating_sheet", :defaults => { :format => :pdf }
+    get "cutting_sheet" => "admin#cutting_sheet", :defaults => { :format => :pdf }
     get "/" => "admin#dashboard"
   end
 
