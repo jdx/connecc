@@ -130,6 +130,12 @@ module PDF
         # center
         pdf.line [4.25.in, 0.in, 4.25.in, 0.4.in]
         pdf.line [4.25.in, 11.in, 4.25.in, 10.6.in]
+
+        # sides
+        pdf.line [0.75.in, 0.in, 0.75.in, 0.4.in]
+        pdf.line [0.75.in, 11.in, 0.75.in, 10.6.in]
+        pdf.line [7.75.in, 0.in, 7.75.in, 0.4.in]
+        pdf.line [7.75.in, 11.in, 7.75.in, 10.6.in]
       end
     end
 
