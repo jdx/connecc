@@ -114,7 +114,7 @@ module PDF
 
     def self.render_url(pdf, url, gradient_width)
       if gradient_width > 1.7.in
-        pdf.draw_text url, :at => [1.85.in, 0.1.in], :size => 12
+        pdf.draw_text url, :at => [1.82.in, 0.1.in], :size => 12
       elsif gradient_width > 1.5.in
         pdf.draw_text url, :at => [1.65.in, 0.1.in], :size => 13
       elsif gradient_width > 1.3.in
