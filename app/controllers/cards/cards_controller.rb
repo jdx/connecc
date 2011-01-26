@@ -48,11 +48,6 @@ class Cards::CardsController < ApplicationController
   def get_card
     @card = Card.find_by_code(params[:code])
 
-    unless @card.visited
-      @card.visited = true
-      @card.save!
-    end
-
     unless @card
       # security to prevent scraping
       cards = Rails.cache.read(card_404_accesses_cache_key(request)) || []
@@ -62,6 +57,12 @@ class Cards::CardsController < ApplicationController
 
       raise ActiveRecord::RecordNotFound
     end
+
+    unless @card.visited
+      @card.visited = true
+      @card.save!
+    end
+
   end
 
   def ensure_user_is_giver
