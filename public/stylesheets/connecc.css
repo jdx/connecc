@@ -438,7 +438,7 @@ footer {
             padding:4px;
             text-align:center;
             color:#fff;
-            width:85px;
+            padding:5px 10px;
         }
         
         .wrap-tab-body:after {
