@@ -4,6 +4,8 @@ class Cards::CardsController < ApplicationController
   before_filter :get_card
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
 
+  layout 'card'
+
   def show
 
     # check to make sure the user hasn't seen too many 404s
