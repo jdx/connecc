@@ -89,8 +89,8 @@ module PDF
 
     def self.render_card(pdf, data, card)
       padding = 0.2.in
-      gradient_width = padding + pdf.width_of(data[:first_name], :size => 15) + 0.04.in
-      pdf.image Graphics::Gradient.new(gradient_width, "000088", "0000ff"), :at => [ 0.in, 1.in ], :height => 1.in, :width => gradient_width
+      gradient_width = padding + pdf.width_of(data[:first_name], :size => 15)
+      pdf.image Graphics::Gradient.new(gradient_width, "124891", "015bd6"), :at => [ 0.in, 1.in ], :height => 1.in, :width => gradient_width
       self.render_name(pdf, data[:first_name], data[:last_name], data[:company_name], padding, gradient_width)
       self.render_logo(pdf, "#{ Rails.root.to_s }/lib/assets/logo.2.png")
       self.render_url(pdf, "http://conne.cc/#{ card.code }", gradient_width)
@@ -102,12 +102,12 @@ module PDF
       if total_name_width > 2.in
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
-        pdf.draw_text last_name, :at => [gradient_width + 0.02.in, 0.7.in], :size => 12
+        pdf.draw_text last_name, :at => [gradient_width, 0.7.in], :size => 12
         pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 6
       else
         pdf.draw_text first_name, :at => [padding, 0.7.in], :size => 15
         pdf.fill_color = "000000"
-        pdf.draw_text last_name, :at => [gradient_width + 0.02.in, 0.7.in], :size => 15
+        pdf.draw_text last_name, :at => [gradient_width, 0.7.in], :size => 15
         pdf.draw_text company_name, :at => [gradient_width + 0.02.in, 0.5.in], :size => 8
       end
     end
