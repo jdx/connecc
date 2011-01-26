@@ -48,6 +48,11 @@ blockquote {
     min-height:40px;
 }
 
+blockquote p {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
 dl {
     margin:10px 50px 20px 50px;
     text-shadow: 0 1px 0 #e5e5e5;
@@ -640,7 +645,7 @@ footer {
     display:block;
 }
 
-.faq:before {
+.seg:before {
     content:'';
     border-top:1px dashed #888;
     border-bottom:1px dashed #fff;
@@ -648,12 +653,12 @@ footer {
     display:block;
 }
 
-    .faq h2 {
+    .seg h2 {
         text-align:left;
         font-size:18px;
     }
 
-    .faq p {
+    .seg p {
         font-size:14px;
         margin:20px;
         font-family:'Droid Serif';

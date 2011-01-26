@@ -16,7 +16,6 @@ stylesheets:
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
     - public/stylesheets/connecc.css
-    - public/stylesheets/card.css
     - public/stylesheets/admin.css
     - public/stylesheets/about_us.css
     - public/stylesheets/message.css

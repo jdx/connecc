@@ -24,7 +24,7 @@ class TrialOrdersController < OrdersController
   end
 
   def no_orders_check
-    redirect_to root_path, :alert => "Trials for new users only." if current_user.orders.any?
+    redirect_to root_path, :alert => "You have already placed a trial order." if current_user.orders.where(:type => "TrialOrder").any?
   end
 
 end

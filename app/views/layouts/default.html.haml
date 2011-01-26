@@ -8,7 +8,7 @@
         .wrap-tab-body= user_signed_in? ? "Log out" : "Log in"
         .wrap-tab-left-poly
         .wrap-tab-right-poly
-      %a.wrap-tab.right{ :href => free_trial_path }
+      %a.wrap-tab.right{ :href => user_signed_in? ? trial_order_path : free_trial_path }
         .wrap-tab-body Free Trial!
         .wrap-tab-left-poly
         .wrap-tab-right-poly

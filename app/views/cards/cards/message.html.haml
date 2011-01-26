@@ -8,7 +8,7 @@
   %hr
   %div{ :class => @hide_form ? '' : 'show-form' }
     #actions
-      =link_to "Have #{ @card.giver.first_name } get a hold of me", card_contact_request_path(@card.code), :class => 'button open-form'
+      =link_to "Have #{ @card.giver.first_name } get a hold of me", new_card_contact_request_path(@card.code), :class => 'button open-form'
     .hidden-form
       %h2 Have #{ @card.giver.first_name } get a hold of me
       =render "cards/contact_requests/form"
