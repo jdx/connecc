@@ -143,8 +143,10 @@ module PDF
       padding = 0.2.in
 
       # If the name is really short, give us some extra padding
-      if padding + pdf.width_of(data[:first_name], :size => 15) < 1.in
-        padding = 0.4.in
+      if padding + pdf.width_of(data[:first_name], :size => 15) < 0.6.in
+        padding = 0.7.in
+      elsif padding + pdf.width_of(data[:first_name], :size => 15) < 1.in
+        padding = 0.5.in
       end
 
       # get the width of the colored rectangle
