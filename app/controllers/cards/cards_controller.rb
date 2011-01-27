@@ -1,10 +1,8 @@
 class Cards::CardsController < ApplicationController
   before_filter :norobots
-  before_filter :hide_tip
+  before_filter :hide_copywriting
   before_filter :get_card
   before_filter :ensure_user_is_giver, :only => [:edit, :update]
-
-  layout 'card'
 
   def show
 
@@ -65,21 +63,10 @@ class Cards::CardsController < ApplicationController
       @card.save!
     end
 
-    if @card.message
-      if @card.giver.company_name.blank?
-        @title = "A message from #{ @card.giver }"
-      else
-        @title = "A message from #{ @card.giver } of #{ @card.giver.company_name }"
-      end
-    end
-
   end
 
   def ensure_user_is_giver
     redirect_to card_path(@card.code) if @card.order.user != current_user
   end
 
-  def hide_tip
-    @hide_tip = true
-  end
 end

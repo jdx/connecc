@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :ensure_domain, :set_time_zone
-  after_filter :update_last_path
+  after_filter :remember_last_viewed_page
   layout "default"
 
   protected
@@ -39,12 +39,16 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def update_last_path
+  def remember_last_viewed_page
     session[:last_path] = request.path
   end
 
   def norobots
     @norobots = true
+  end
+
+  def hide_copywriting
+    @hide_copywriting = true
   end
 
 end

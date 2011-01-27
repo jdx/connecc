@@ -2,6 +2,7 @@ require_dependency 'pdf/card_generator'
 
 class OrdersController < ApplicationController
   before_filter :authenticate_user!
+  skip_after_filter :remember_last_viewed_page, :only => :preview
 
   def index
     @orders = current_user.orders

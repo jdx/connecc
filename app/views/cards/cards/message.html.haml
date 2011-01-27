@@ -1,3 +1,8 @@
+-content_for :banner do
+  -if @card.giver.company_name.blank?
+    =@title = "A message from #{ @card.giver }"
+  -else
+    =@title = "A message from #{ @card.giver } of #{ @card.giver.company_name }"
 #message
   %blockquote.message= auto_link simple_format @card.message
   %p.note.right Posted #{ time_ago_in_words @card.updated_at } ago.

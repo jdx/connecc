@@ -47,9 +47,10 @@
 }
 
 #message .explanation {
-    margin: 40px 40px 10px 40px;
+    margin: 80px 130px 10px;
     text-align:center;
-    font-size:16px;
+    font-size:18px;
+    line-height:1.6;
 }
 
 .js #message .hidden-form {
