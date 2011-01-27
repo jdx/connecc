@@ -596,7 +596,7 @@ footer {
 
 #site-login {
     background-color:#fff;
-    position:absolute;
+    position:fixed;
     width:390px;
     top:-380px;
     z-index:20;
