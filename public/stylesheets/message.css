@@ -29,7 +29,6 @@
     width:400px;
     margin:10px auto;
     display:block;
-    font-family:'Droid Serif';
 }
 
 #message .inline-errors {
@@ -58,13 +57,12 @@
 }
 
 #message .message {
-    width:400px;
-    margin:80px auto;
+    margin:80px 90px 80px 60px;
 }
 
 #message .note {
     font-size:12px;
-    font-family:'Droid Serif';
+    font-family:'Arvo';
 }
 
 #message .note.right {
