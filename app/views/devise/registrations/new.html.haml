@@ -7,7 +7,7 @@
     =f.input :last_name
     =f.input :company_name
     =f.input :email
-    =f.input :password
+    =f.input :password, :hint => 'Minimum 6 characters'
     =f.input :gender, :as => :radio, :collection => { "Male" => 'm', "Female" => 'f' }
     =f.input :time_zone
     %hr
