@@ -2,6 +2,6 @@
 =semantic_form_for resource, :url => password_path(resource_name), :html => { :method => :put } do |f|
   =f.inputs do
     =f.input :password, :label => 'New password'
-    =f.input :password_confirmation, :label => 'Confirm new password'
+    =f.input :password_confirmation, :label => 'Confirm new password', :required => true
   =f.buttons do
     =f.commit_button "Change password"
