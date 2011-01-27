@@ -29,6 +29,7 @@
     width:400px;
     margin:10px auto;
     display:block;
+    font-family:'Droid Serif';
 }
 
 #message .inline-errors {
