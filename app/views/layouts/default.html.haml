@@ -1,8 +1,7 @@
 -content_for :content do
   #main
     #banner
-      #name
-        #title Business cards are broken.
+      #title Business cards are broken.
       -unless user_signed_in? and current_user.orders.where(:type => 'TrialOrder').any?
         %a.wrap-tab.left{ :href => user_signed_in? ? trial_order_path : free_trial_path }
           .wrap-tab-body Free Trial!
