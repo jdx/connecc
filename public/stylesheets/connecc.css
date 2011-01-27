@@ -23,7 +23,11 @@ h2 {
     text-shadow:0 1px 0 #e5e5e5;
 }
 
-h3 { font-size:20px; }
+h3 {
+    font-size:20px;
+    font-family:'Arvo';
+    font-weight:normal;
+}
 
 table {
     margin:50px auto;
