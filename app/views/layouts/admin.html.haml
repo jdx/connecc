@@ -7,6 +7,11 @@
       .leftCurl
       .rightCurl
     #strip.wide
+      %a.wrap-tab.right{ :href => user_signed_in? ? destroy_user_session_path : user_session_path,
+                        :id => user_signed_in? ? "logout" : "login" }
+        .wrap-tab-body= user_signed_in? ? "Logout" : "Login"
+        .wrap-tab-left-poly
+        .wrap-tab-right-poly
       -if flash[:notice]
         #notice
           =flash[:notice]
