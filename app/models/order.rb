@@ -34,7 +34,6 @@ class Order < ActiveRecord::Base
   end
 
   def add_cards(num)
-    self.cards.each { |c| c.destroy }
     num.times do
       self.cards << Card.new
     end
