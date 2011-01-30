@@ -29,7 +29,11 @@ module PDF
     end
 
     def self.generate_sheet(data)
-      pdf = Prawn::Document.new :margin => 0, :page_size => [8.5.in, 11.in]
+      pdf = Prawn::Document.new :left_margin => 0.75.in,
+                                :right_margin => 0.75.in,
+                                :top_margin => 0.5.in,
+                                :bottom_margin => 0.5.in,
+                                :page_size => [8.5.in, 11.in]
 
       pdf.font_families.update 'Cabin' => { :normal => "#{ Rails.root.to_s }/lib/assets/Cabin-Bold.ttf" }
       pdf.font "Cabin"
@@ -42,7 +46,7 @@ module PDF
 
         # get a bounding box for the current page
         # this is where I actually set the margins, it seems to work better this way
-        pdf.bounding_box [0.75.in, 10.5.in], :width => 7.in, :height => 10.in do
+        pdf.bounding_box [0.in, 10.in], :width => 7.in, :height => 10.in do
 
           pdf.define_grid :columns => 2, :rows => 5
 
@@ -92,48 +96,48 @@ module PDF
       pdf.stroke_color = "ff00000"
       pdf.stroke do
         # left side
-        pdf.line [0, 9.5.in, 0.65.in, 9.5.in]
-        pdf.line [0, 7.5.in, 0.65.in, 7.5.in]
-        pdf.line [0, 5.5.in, 0.65.in, 5.5.in]
-        pdf.line [0, 3.5.in, 0.65.in, 3.5.in]
-        pdf.line [0, 1.5.in, 0.65.in, 1.5.in]
+        pdf.line [-0.75.in, 9.in, -0.25.in, 9.in]
+        pdf.line [-0.75.in, 7.in, -0.25.in, 7.in]
+        pdf.line [-0.75.in, 5.in, -0.25.in, 5.in]
+        pdf.line [-0.75.in, 3.in, -0.25.in, 3.in]
+        pdf.line [-0.75.in, 1.in, -0.25.in, 1.in]
 
         # right side
-        pdf.line [7.85.in, 9.5.in, 8.5.in, 9.5.in]
-        pdf.line [7.85.in, 7.5.in, 8.5.in, 7.5.in]
-        pdf.line [7.85.in, 5.5.in, 8.5.in, 5.5.in]
-        pdf.line [7.85.in, 3.5.in, 8.5.in, 3.5.in]
-        pdf.line [7.85.in, 1.5.in, 8.5.in, 1.5.in]
+        pdf.line [7.25.in, 9.in, 8.in, 9.in]
+        pdf.line [7.25.in, 7.in, 8.in, 7.in]
+        pdf.line [7.25.in, 5.in, 8.in, 5.in]
+        pdf.line [7.25.in, 3.in, 8.in, 3.in]
+        pdf.line [7.25.in, 1.in, 8.in, 1.in]
       end
 
       # prints guides for cutting
       pdf.stroke_color = "00ff00"
       pdf.stroke do
         # left side
-        pdf.line [0, 10.5.in, 0.65.in, 10.5.in]
-        pdf.line [0, 8.5.in, 0.65.in, 8.5.in]
-        pdf.line [0, 6.5.in, 0.65.in, 6.5.in]
-        pdf.line [0, 4.5.in, 0.65.in, 4.5.in]
-        pdf.line [0, 2.5.in, 0.65.in, 2.5.in]
-        pdf.line [0, 0.5.in, 0.65.in, 0.5.in]
+        pdf.line [-0.75.in, 10.in, -0.25.in, 10.in]
+        pdf.line [-0.75.in, 8.in, -0.25.in, 8.in]
+        pdf.line [-0.75.in, 6.in, -0.25.in, 6.in]
+        pdf.line [-0.75.in, 4.in, -0.25.in, 4.in]
+        pdf.line [-0.75.in, 2.in, -0.25.in, 2.in]
+        pdf.line [-0.75.in, 0.in, -0.25.in, 0.in]
 
         # right side
-        pdf.line [7.85.in, 10.5.in, 8.5.in, 10.5.in]
-        pdf.line [7.85.in, 8.5.in, 8.5.in, 8.5.in]
-        pdf.line [7.85.in, 6.5.in, 8.5.in, 6.5.in]
-        pdf.line [7.85.in, 4.5.in, 8.5.in, 4.5.in]
-        pdf.line [7.85.in, 2.5.in, 8.5.in, 2.5.in]
-        pdf.line [7.85.in, 0.5.in, 8.5.in, 0.5.in]
+        pdf.line [7.25.in, 10.in, 8.in, 10.in]
+        pdf.line [7.25.in, 8.in, 8.in, 8.in]
+        pdf.line [7.25.in, 6.in, 8.in, 6.in]
+        pdf.line [7.25.in, 4.in, 8.in, 4.in]
+        pdf.line [7.25.in, 2.in, 8.in, 2.in]
+        pdf.line [7.25.in, 0.in, 8.in, 0.in]
 
         # center
-        pdf.line [4.25.in, 0.in, 4.25.in, 0.4.in]
-        pdf.line [4.25.in, 11.in, 4.25.in, 10.6.in]
+        pdf.line [3.5.in, -0.5.in, 3.5.in, -0.25.in]
+        pdf.line [3.5.in, 10.25.in, 3.5.in, 10.5.in]
 
         # sides
-        pdf.line [0.75.in, 0.in, 0.75.in, 0.4.in]
-        pdf.line [0.75.in, 11.in, 0.75.in, 10.6.in]
-        pdf.line [7.75.in, 0.in, 7.75.in, 0.4.in]
-        pdf.line [7.75.in, 11.in, 7.75.in, 10.6.in]
+        pdf.line [0.in, -0.5.in, 0.in, -0.25.in]
+        pdf.line [0.in, 10.25.in, 0.in, 10.5.in]
+        pdf.line [7.in, -0.5.in, 7.in, -0.25.in]
+        pdf.line [7.in, 10.25.in, 7.in, 10.5.in]
       end
     end
 
