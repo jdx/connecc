@@ -10,7 +10,6 @@ class HomeController < ApplicationController
       if is_mobile_device?
         redirect_to new_user_session_path
       else
-        return redirect_to new_user_session_path
         render 'splash'
       end
     end
