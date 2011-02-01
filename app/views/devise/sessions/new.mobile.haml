@@ -1,0 +1,12 @@
+%h2 Log in
+=form_for resource, :url => user_session_path(:return_to => params[:return_to]) do |f|
+  .field-contain{ :data => { :role => 'fieldcontain' } }
+    =f.label :email
+    =f.email_field :email
+    =f.label :password
+    =f.password_field :password
+    %fieldset{ :data => { :role => 'controlgroup' } }
+      %input.custom{ :type => 'checkbox', :name => 'user[remember_me]', :id => 'user[remember_me]' }
+      %label{ :for => 'user[remember_me]' } Remember me
+    =submit_tag "Log in"
+    %span.alt or #{ link_to "Forgot password?", new_user_password_path }
