@@ -46,7 +46,7 @@ blockquote {
     font-family:'Arvo';
     text-align:justify;
     margin:20px 100px 50px 20px;
-    font-size:18px;
+    font-size:17px;
     padding-left:80px;
     background: transparent url(../images/embed/blockquote.png) no-repeat;
     min-height:40px;
@@ -389,7 +389,7 @@ footer {
 #pitch {
     font-family:"Arvo";
     margin:60px 100px 40px;
-    font-size:18px;
+    font-size:17px;
     text-align:justify;
     line-height:1.6;
 }
@@ -638,7 +638,7 @@ footer {
     margin:20px;
     text-align:center;
     text-shadow: 0 1px 0 #e5e5e5;
-    font-size:14px;
+    font-size:15px;
     font-family:'Arvo';
 }
 
@@ -676,7 +676,7 @@ footer {
 
 .card-list li {
     margin:20px;
-    font-size:18px;
+    font-size:17px;
 }
 
 .card-list .excerpt {
