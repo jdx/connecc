@@ -186,20 +186,20 @@ module PDF
 
     def self.render_url(pdf, url, fill_width)
       if fill_width > 1.7.in
-        pdf.draw_text url, :at => [1.82.in, 0.1.in], :size => 12
+        pdf.draw_text url, :at => [1.82.in, 0.15.in], :size => 11
       elsif fill_width > 1.5.in
-        pdf.draw_text url, :at => [1.65.in, 0.1.in], :size => 13
+        pdf.draw_text url, :at => [1.65.in, 0.15.in], :size => 12
       elsif fill_width > 1.3.in
-        pdf.draw_text url, :at => [1.5.in, 0.1.in], :size => 14
+        pdf.draw_text url, :at => [1.5.in, 0.15.in], :size => 13
       elsif fill_width > 1.1.in
-        pdf.draw_text url, :at => [1.3.in, 0.1.in], :size => 15
+        pdf.draw_text url, :at => [1.3.in, 0.15.in], :size => 14
       else
-        pdf.draw_text url, :at => [1.2.in, 0.1.in], :size => 16
+        pdf.draw_text url, :at => [1.2.in, 0.15.in], :size => 15
       end
     end
 
     def self.render_logo(pdf, logo)
-      pdf.image logo, :at => [2.65.in, 0.95.in], :width => 0.75.in
+      pdf.image logo, :at => [2.65.in, 0.9.in], :width => 0.75.in
     end
   end
 end
