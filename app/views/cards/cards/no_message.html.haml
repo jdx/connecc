@@ -9,6 +9,6 @@
     =f.buttons do
       =f.commit_button "Notify me*"
       %span.alt or #{ link_to "leave #{ @card.giver.demonstrative_pronoun } my email.", new_card_contact_request_path(@card.code) }
-  %p.note.starred #{ @card.giver } will not get your email, or have any idea you want to be updated when the message gets posted. Later, you&rsquo;ll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
+  %p.note.starred #{ @card.giver } will not get your email, or have any idea you want to be updated when #{ @card.giver.personal_pronoun } posts your message. Later, you&rsquo;ll be able to decide if you want to make contact with #{ @card.giver.demonstrative_pronoun }.
   %hr
   =render "contact_info", :user => @card.giver, :edit => false
