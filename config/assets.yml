@@ -8,6 +8,8 @@ javascripts:
     - public/javascripts/modernizr.min.js
     - public/javascripts/message.js
     - public/javascripts/site.js
+  mobile:
+    - public/javascripts/mobile.js
 
 stylesheets:
   common:
