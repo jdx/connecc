@@ -13,7 +13,7 @@
       %dt LinkedIn
       %dd= link_to user, user.linkedin, :class => 'linkedin-profileinsider-popup'
     -unless user.web_site.blank?
-      %dt Personal web site
+      %dt Web site
       %dd= link_to user.web_site.gsub(/https?:\/\//, ''), user.web_site
     -unless user.phone_number.blank?
       %dt Phone number
