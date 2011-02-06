@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
                   :linkedin,
                   :facebook,
                   :web_site,
-                  :show_email,
                   :phone_number
 
   def to_s
@@ -65,14 +64,6 @@ class User < ActiveRecord::Base
 
   def recent_cards
     self.cards.where(:visited => true).order('cards.updated_at DESC')
-  end
-
-  def any_contact_info_public?
-    if show_email or !facebook.blank? or !linkedin.blank? or !twitter.blank? or !web_site.blank? or !phone_number.blank?
-      return true
-    else
-      return false
-    end
   end
 
   def update_with_password(params={})

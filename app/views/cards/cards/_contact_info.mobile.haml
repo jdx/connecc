@@ -1,14 +1,13 @@
 %ul{ :data => { :inset => 'true', :role => 'listview' } }
   %li{ :data => { :theme => 'b' } } #{ user.first_name }&rsquo;s Contact Info
+  %li= mail_to "Email: #{ user.email }", user.email
+  -unless user.phone_number.blank?
+    %li= user.phone_number
   -unless user.facebook.blank?
     %li= link_to "Facebook: #{ user }", user.facebook
   -unless user.twitter.blank?
     %li= link_to "Twitter: #{ user.twitter }", "http://twitter.com/" + user.twitter.gsub(/@/,'')
   -unless user.linkedin.blank?
     %li= link_to "LinkedIn: #{ user }", user.linkedin
-  -unless user.show_email.blank?
-    %li= mail_to "Email: #{ user.email }", user.email
   -unless user.web_site.blank?
     %li= link_to "Website: #{ user.web_site.gsub(/https?:\/\//, '') }", user.web_site
-  -unless user.phone_number.blank?
-    %li= user.phone_number

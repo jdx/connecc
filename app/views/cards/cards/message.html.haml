@@ -13,6 +13,5 @@
     .hidden-form
       %h2 Have #{ @card.giver.first_name } get a hold of me
       =render "cards/contact_requests/form"
-  -if @card.giver.any_contact_info_public?
-    %hr
-    =render "contact_info", :user => @card.giver, :edit => false
+  %hr
+  =render "contact_info", :user => @card.giver, :edit => false

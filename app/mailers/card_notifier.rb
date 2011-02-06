@@ -24,8 +24,7 @@ class CardNotifier < BaseNotifier
     @notification_request = notification_request
     mail(:to => notification_request.email,
          :from => "#{ @notification_request.card.giver } <support@conne.cc>",
-         :reply_to => @notification_request.card.giver.show_email ?
-                      @notification_request.card.giver.email_address_with_name : nil,
+         :reply_to => @notification_request.card.giver.email_address_with_name,
          :subject => "conne.cc: #{ @notification_request.card.giver } said \"#{ help.truncate(@notification_request.card.message.gsub(/[\r\n]/, ' ')) }\"")
   end
 end
