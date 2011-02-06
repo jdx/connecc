@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def home
-    return render 'splash'
     if user_signed_in?
       if current_user.orders.any?
         render 'dashboard'
