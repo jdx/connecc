@@ -1,12 +1,18 @@
-%h2 Log in
-=form_for resource, :url => user_session_path(:return_to => params[:return_to]) do |f|
-  .field-contain{ :data => { :role => 'fieldcontain' } }
-    =f.label :email
-    =f.email_field :email
-    =f.label :password
-    =f.password_field :password
-    %fieldset{ :data => { :role => 'controlgroup' } }
-      %input.custom{ :type => 'checkbox', :name => 'user[remember_me]', :id => 'user[remember_me]' }
-      %label{ :for => 'user[remember_me]' } Remember me
-    =submit_tag "Log in"
-    %span.alt or #{ link_to "Forgot password?", new_user_password_path }
+#login{ :data => { :role => 'page', :theme => 'b' } }
+  .header{ :data => { :role => 'header' } }
+    %h1 Login
+  .content{ 'data-role' => 'content' }
+    =form_for resource, :url => user_session_path(:return_to => params[:return_to]) do |f|
+      .field-contain{ :data => { :role => 'fieldcontain' } }
+        =f.label :email
+        =f.email_field :email
+      .field-contain{ :data => { :role => 'fieldcontain' } }
+        =f.label :password
+        =f.password_field :password
+      .field-contain{ :data => { :role => 'fieldcontain' } }
+        %label{ :for => 'user[remember_me]' } Remember me
+        %select{ :name => 'user[remember_me]', :data => { :role => 'slider' } }
+          %option{ :value => 'false' } No
+          %option{ :value => 'true', :selected => 'selected' } Yes
+      .field-contain{ :data => { :role => 'fieldcontain' } }
+        %input{ :type => 'submit', :value => "Log in", :data => { :theme => 'b' }}

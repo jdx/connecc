@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def home
+    return render 'splash'
     if user_signed_in?
       if current_user.orders.any?
         render 'dashboard'
@@ -7,11 +8,7 @@ class HomeController < ApplicationController
         render 'dashboard_no_orders'
       end
     else
-      if is_mobile_device?
-        redirect_to new_user_session_path
-      else
-        render 'splash'
-      end
+      render 'splash'
     end
   end
 

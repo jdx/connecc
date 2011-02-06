@@ -1,0 +1,15 @@
+%div{ :id => "message_#{ @card.code }", :data => { :role => 'page', :theme => 'b' } }
+  .header{ :data => { :role => 'header' } }
+    %h1= "Card: " + @card.code
+    %a.ui-btn-right{ :href => new_user_session_path, :data => { :icon => 'gear', :rel => 'dialog', :transition => 'pop' } }Login
+  .content{ 'data-role' => 'content' }
+    %h4
+      -if @card.giver.company_name.blank?
+        A message from #{ @card.giver }
+      -else
+        A message from #{ @card.giver } of #{ @card.giver.company_name }
+    %p= auto_link simple_format @card.message
+    %br/
+    %em Posted #{ time_ago_in_words @card.updated_at } ago.
+    %hr
+    =render "contact_info", :user => @card.giver
