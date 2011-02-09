@@ -5,10 +5,8 @@
   =f.inputs do
     =f.input :first_name
     =f.input :last_name
-    =f.input :company_name
     =f.input :email
     =f.input :password, :hint => 'Minimum 6 characters'
     =f.input :gender, :as => :radio, :collection => { "Male" => 'm', "Female" => 'f' }
-    =f.input :time_zone
   =f.buttons do
     =f.commit_button "Sign up!"
