@@ -46,6 +46,7 @@ class Cards::CardsController < ApplicationController
   end
 
   def get_card
+    params[:code].downcase!
     @card = Card.find_by_code(params[:code])
 
     unless @card
