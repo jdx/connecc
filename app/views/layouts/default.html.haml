@@ -5,16 +5,7 @@
         -if content_for? :banner
           =yield :banner
         -else
-          Business cards are broken.
-        -unless @hide_copywriting or (user_signed_in? and current_user.orders.where(:type => 'TrialOrder').any?)
-          %a.wrap-tab.left{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-            .wrap-tab-body Free Trial!
-            .wrap-tab-left-poly
-            .wrap-tab-right-poly
-          %a.wrap-tab.right{ :href => user_signed_in? ? trial_order_path : free_trial_path }
-            .wrap-tab-body Free Trial!
-            .wrap-tab-left-poly
-            .wrap-tab-right-poly
+          Continue the conversation without exchanging contact information.
     .bannerCurl
       .leftCurl
       .rightCurl
