@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  has_mobile_fu
-  before_filter :prepare_for_mobile, :ensure_domain, :set_time_zone
+  before_filter :ensure_domain, :set_time_zone
   after_filter :remember_last_viewed_page
   layout "default"
 
@@ -14,10 +13,6 @@ class ApplicationController < ActionController::Base
   class Helper
     include Singleton
     include ActionView::Helpers::TextHelper
-  end
-
-  def prepare_for_mobile
-    request.format = :mobile if is_mobile_device?
   end
 
   def ensure_domain
