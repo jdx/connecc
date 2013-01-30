@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '~> 3.0.3'
 
 gem 'haml'
 gem 'devise'
@@ -31,10 +31,8 @@ group :test do
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem 'email_spec'
 end
 
 group :test, :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
-  gem 'ruby-debug'
 end
