@@ -19,7 +19,7 @@ class TwilioController < ApplicationController
   def handle_digits
     render :text => '<?xml version="1.0" encoding="UTF-8"?>
                      <Response>
-                       <Dial>971-222-7154</Dial>
+                       <Dial>971-222-1111</Dial>
                      </Response>', :content_type => 'text/xml'
   end
 end
